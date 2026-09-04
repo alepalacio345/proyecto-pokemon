@@ -14,8 +14,8 @@ typedef struct{
 
 void llenar_vector_pokemon(especies_pokemons vector[], int *i);
 void imprimir_vector_pokemon(especies_pokemons vector[], int cantidad);
-
-
+void buscar_pokemon_por_id(especies_pokemons vector[], int id_usuario, int cantidad);
+void buscar_pokemon_nombre(especies_pokemons vector[], char nombre_usuario[], int cantidad);
 
 
 #endif

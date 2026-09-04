@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include "funciones.h"
+#include <stdlib.h>
+#include <stdbool.h>
 
 void llenar_vector_pokemon(especies_pokemons vector[], int *i){
     //variales
@@ -76,3 +78,66 @@ void imprimir_vector_pokemon(especies_pokemons vector[], int cantidad) {
     // cerramos la tabla
     printf("=========================================================================\n");
 };
+
+
+void mostrar_estadisticas_pokemon(especies_pokemons vector[], int posicion){
+
+    // imprimimos la informacion con formato profesional tipo ficha
+    printf("\n=======================================================\n");
+    printf("                  DATOS DEL POKEMON                    \n");
+    printf("=======================================================\n");
+    
+    // Fila 1: ID y Nombre
+    printf("%-15s %-10s | %-15s %-15s\n", "ID:", vector[posicion].ID, "Nombre:", vector[posicion].Nombre);
+    
+    // Fila 2: Tipos
+    printf("%-15s %-10s | %-15s %-15s\n", "Tipo Primario:", vector[posicion].tipo_primario, "Tipo Secundario:", vector[posicion].tipo_segundario);
+    
+    printf("-------------------------------------------------------\n");
+    printf("                  ESTADISTICAS BASE                    \n");
+    printf("-------------------------------------------------------\n");
+    
+    // Fila 3: HP y Defensa
+    printf("%-15s %-10i | %-15s %-10i\n", "HP:", vector[posicion].HP_b, "Defensa:", vector[posicion].defensa_b);
+    
+    // Fila 4: Ataque y Velocidad
+    printf("%-15s %-10i | %-15s %-10i\n", "Ataque:", vector[posicion].ataque_b, "Velocidad:", vector[posicion].velocidad_b);
+    
+    printf("=======================================================\n\n");
+
+};
+
+
+
+void buscar_pokemon_por_id(especies_pokemons vector[], int id_usuario, int cantidad){
+    
+    //validamos que el id este en el rango
+    if((id_usuario > 0) && (id_usuario <= cantidad)){
+        mostrar_estadisticas_pokemon(vector,id_usuario - 1);
+    }else{
+        printf("!!Este Numero de pokemon no existe!!\n");
+    }
+};
+
+
+void buscar_pokemon_nombre(especies_pokemons vector[], char nombre_usuario[], int cantidad){
+
+    bool bandera = true;
+    int i = 0;
+    
+    // buscamos hasta que se encuentre el nombre o hasta que lleguemos al final del vector
+    while(bandera && (i < cantidad) ){
+        // si encontramos el pokemon nos detenemos y llamamos al procedimiento que muestra las estadisticas
+        if(strcmp(vector[i].Nombre, nombre_usuario) == 0){
+            bandera = false;
+            mostrar_estadisticas_pokemon(vector, atoi(vector[i].ID) - 1);
+        }
+        i++;
+    }
+
+    if(bandera){
+        printf("!!Este nombre de pokemon no existe!!\n");
+    }
+};
+
+
