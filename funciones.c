@@ -1,9 +1,18 @@
+/**
+ * @file funciones.c
+ * @brief Implementación lógica de la Pokédex y utilidades del sistema.
+ */
 #include <stdio.h>
 #include <string.h>
 #include "funciones.h"
 #include <stdlib.h>
 #include <stdbool.h>
 
+/**
+ * @brief Extrae información del archivo de texto y rellena el vector global[cite: 16].
+ * @param vector Arreglo de estructuras especies_pokemons.
+ * @param i Puntero al entero que funcionará como índice total de registros.
+ */
 void llenar_vector_pokemon(especies_pokemons vector[], int *i){
     //variales
     FILE *archivo_entrada;
@@ -53,6 +62,11 @@ void llenar_vector_pokemon(especies_pokemons vector[], int *i){
     fclose(archivo_entrada);
 };
 
+/**
+ * @brief Imprime todo el catálogo actual de Pokémon con un diseño tabulado[cite: 16].
+ * @param vector Arreglo de estructuras especies_pokemons a mostrar.
+ * @param cantidad El total de elementos a recorrer en el arreglo.
+ */
 void imprimir_vector_pokemon(especies_pokemons vector[], int cantidad) {
     // imprimimos el encabezado de la tabla
     printf("\n================================ POKEDEX ================================\n");
@@ -79,7 +93,11 @@ void imprimir_vector_pokemon(especies_pokemons vector[], int cantidad) {
     printf("=========================================================================\n");
 };
 
-
+/**
+ * @brief Despliega una ficha técnica detallada basada en la posición de un elemento[cite: 16].
+ * @param vector Arreglo que contiene las características de la Pokédex.
+ * @param posicion Índice entero desde donde se extraerá la información a mostrar.
+ */
 void mostrar_estadisticas_pokemon(especies_pokemons vector[], int posicion){
 
     // imprimimos la informacion con formato profesional tipo ficha
@@ -108,7 +126,12 @@ void mostrar_estadisticas_pokemon(especies_pokemons vector[], int posicion){
 };
 
 
-
+/**
+ * @brief Verifica la existencia del Pokémon a través del identificador y solicita la ficha[cite: 16].
+ * @param vector Arreglo que contiene los datos base.
+ * @param id_usuario ID a validar y buscar proporcionado por teclado.
+ * @param cantidad El total actual de especies cargadas para evitar desbordamientos.
+ */
 void buscar_pokemon_por_id(especies_pokemons vector[], int id_usuario, int cantidad){
     
     //validamos que el id este en el rango
@@ -119,7 +142,12 @@ void buscar_pokemon_por_id(especies_pokemons vector[], int id_usuario, int canti
     }
 };
 
-
+/**
+ * @brief Busca una coincidencia exacta de nombre de Pokémon y solicita su ficha[cite: 16].
+ * @param vector Arreglo que contiene los datos base.
+ * @param nombre_usuario Cadena de texto objetivo a evaluar contra el arreglo.
+ * @param cantidad El total actual de especies cargadas.
+ */
 void buscar_pokemon_nombre(especies_pokemons vector[], char nombre_usuario[], int cantidad){
 
     bool bandera = true;
@@ -139,5 +167,3 @@ void buscar_pokemon_nombre(especies_pokemons vector[], char nombre_usuario[], in
         printf("!!Este nombre de pokemon no existe!!\n");
     }
 };
-
-
