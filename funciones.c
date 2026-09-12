@@ -31,7 +31,7 @@ void llenar_vector_pokemon(especies_pokemons vector[], int *i){
     
     // validamos la apertura del archivo
     if(archivo_entrada == NULL){
-        printf("Error al abrir el archivo\n");
+        ARCHIVO_ERROR;
     }else{
 
         //leamos linea a linea con el ciclo
@@ -96,9 +96,9 @@ void imprimir_vector_pokemon(especies_pokemons vector[], int cantidad) {
 /**
  * @brief Despliega una ficha técnica detallada basada en la posición de un elemento[cite: 16].
  * @param vector Arreglo que contiene las características de la Pokédex.
- * @param posicion Índice entero desde donde se extraerá la información a mostrar.
+ * @param indice Índice entero desde donde se extraerá la información a mostrar.
  */
-void mostrar_estadisticas_pokemon(especies_pokemons vector[], int posicion){
+void mostrar_estadisticas_pokemon(especies_pokemons vector[], int indice){
 
     // imprimimos la informacion con formato profesional tipo ficha
     printf("\n=======================================================\n");
@@ -106,20 +106,20 @@ void mostrar_estadisticas_pokemon(especies_pokemons vector[], int posicion){
     printf("=======================================================\n");
     
     // Fila 1: ID y Nombre
-    printf("%-15s %-10s | %-15s %-15s\n", "ID:", vector[posicion].ID, "Nombre:", vector[posicion].Nombre);
+    printf("%-15s %-10s | %-15s %-15s\n", "ID:", vector[indice].ID, "Nombre:", vector[indice].Nombre);
     
     // Fila 2: Tipos
-    printf("%-15s %-10s | %-15s %-15s\n", "Tipo Primario:", vector[posicion].tipo_primario, "Tipo Secundario:", vector[posicion].tipo_segundario);
+    printf("%-15s %-10s | %-15s %-15s\n", "Tipo Primario:", vector[indice].tipo_primario, "Tipo Secundario:", vector[indice].tipo_segundario);
     
     printf("-------------------------------------------------------\n");
     printf("                  ESTADISTICAS BASE                    \n");
     printf("-------------------------------------------------------\n");
     
     // Fila 3: HP y Defensa
-    printf("%-15s %-10i | %-15s %-10i\n", "HP:", vector[posicion].HP_b, "Defensa:", vector[posicion].defensa_b);
+    printf("%-15s %-10i | %-15s %-10i\n", "HP:", vector[indice].HP_b, "Defensa:", vector[indice].defensa_b);
     
     // Fila 4: Ataque y Velocidad
-    printf("%-15s %-10i | %-15s %-10i\n", "Ataque:", vector[posicion].ataque_b, "Velocidad:", vector[posicion].velocidad_b);
+    printf("%-15s %-10i | %-15s %-10i\n", "Ataque:", vector[indice].ataque_b, "Velocidad:", vector[indice].velocidad_b);
     
     printf("=======================================================\n\n");
 
@@ -153,9 +153,11 @@ void buscar_pokemon_nombre(especies_pokemons vector[], char nombre_usuario[], in
     bool bandera = true;
     int i = 0;
     
-    // buscamos hasta que se encuentre el nombre o hasta que lleguemos al final del vector
+    // buscamos hasta que se encuentre el nombre 
+    // o hasta que lleguemos al final del vector
     while(bandera && (i < cantidad) ){
-        // si encontramos el pokemon nos detenemos y llamamos al procedimiento que muestra las estadisticas
+        // si encontramos el pokemon nos detenemos y 
+        //llamamos al procedimiento que muestra las estadisticas
         if(strcmp(vector[i].Nombre, nombre_usuario) == 0){
             bandera = false;
             mostrar_estadisticas_pokemon(vector, atoi(vector[i].ID) - 1);
@@ -167,3 +169,108 @@ void buscar_pokemon_nombre(especies_pokemons vector[], char nombre_usuario[], in
         printf("!!Este nombre de pokemon no existe!!\n");
     }
 };
+
+
+
+/**
+ * @brief Registra a los entrenadores del torneo
+*/
+void registrar_entrenador(){
+    
+    //var
+    FILE *archivo_entrenadores;
+    bool resultado;
+    Entrenador info_entrenador;
+
+    // Encabezado visual de la planilla
+    printf("\n=======================================================\n");
+    printf("             INSCRIPCION DE NUEVO ENTRENADOR           \n");
+    printf("=======================================================\n");
+    
+    // 1. Solicitud del ID
+    printf("-> Ingrese el ID identificador (Numero entero): ");
+    scanf("%i", &info_entrenador.id_entrenador);
+    
+    // 2. Solicitud del Nombre
+    printf("-> Ingrese el nombre del entrenador: ");
+    scanf("%s", info_entrenador.nombre);
+    
+    // Inicializamos en cero para evitar basura en la memoria
+    info_entrenador.cantidad_pokemon = 0;
+    info_entrenador.victorias = 0;
+    info_entrenador.empates = 0;
+    info_entrenador.derrotas = 0;
+    info_entrenador.puntuacion = 0;
+
+    resultado = validad_entrenador_repetido(info_entrenador);
+
+    //validamos que la info no este repetida
+    if(resultado){
+        printf("=======================================================\n");
+        printf(" Entrenador '%s' ya esta registrado.\n", info_entrenador.nombre);
+        printf("=======================================================\n\n");
+    }else{
+        
+        //abrimos el archivo entrenadores
+        archivo_entrenadores = fopen("entrenadores.txt", "a+");
+
+        if(archivo_entrenadores == NULL){
+            ARCHIVO_ERROR;
+        }else{
+            fprintf(archivo_entrenadores,"%d %s",info_entrenador.id_entrenador, info_entrenador.nombre);
+
+            printf("=======================================================\n");
+            printf(" Entrenador '%s' registrado exitosamente.\n", info_entrenador.nombre);
+            printf("=======================================================\n\n");
+        }
+
+        fclose(archivo_entrenadores);
+    }
+}
+
+
+
+bool validad_entrenador_repetido(Entrenador info_entrenador){
+    //var
+    FILE *archivo_entrenadores;
+    bool bandera = true;
+    int id_archivo;
+    char nombre_archivo[20];
+    bool resultado_op;
+    bool salida = false;
+
+
+    //abrimos el archivo entrenadores
+    archivo_entrenadores = fopen("entrenadores.txt", "a+");
+
+    // validamos apertura
+    if(archivo_entrenadores == NULL){
+        ARCHIVO_ERROR;
+    }else{
+
+        //leamos esta llegar al final del archivoS
+        while(bandera){
+
+            resultado_op = fscanf(archivo_entrenadores,"%d %s",&id_archivo, nombre_archivo) == EOF;
+            
+            // si se llega al final se detiene el ciclo
+            if(resultado_op){
+                bandera = false;
+            // o si se encuentra el repetido se detiene
+            }else if( (id_archivo == info_entrenador.id_entrenador) || (nombre_archivo == info_entrenador.nombre)){
+                salida = true;
+                bandera = false;
+            }
+
+        }
+
+        return salida;
+    }
+
+    fclose(archivo_entrenadores);
+
+}
+
+
+
+

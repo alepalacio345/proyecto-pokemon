@@ -6,6 +6,8 @@
 #define funciones
 #include <stdbool.h>
 #define MAX_POKEMON 6
+#define MAX_ENTRENADORES 32
+#define ARCHIVO_ERROR printf("Error al abrir el archivo\n")
 
 /**
  * @struct especies_pokemons
@@ -91,5 +93,13 @@ void buscar_pokemon_por_id(especies_pokemons vector[], int id_usuario, int canti
  * @param cantidad Número total de especies registradas en el sistema.
  */
 void buscar_pokemon_nombre(especies_pokemons vector[], char nombre_usuario[], int cantidad);
+
+
+/**
+ * @brief Registra a los entrenadores del torneo
+*/
+void registrar_entrenador();
+bool validad_entrenador_repetido(Entrenador info_entrenador);
+
 
 #endif
