@@ -60,9 +60,6 @@ void llenar_vector_pokemon(especies_pokemons vector[], int *i){
 };
 
 
-
-
-
 void imprimir_vector_pokemon(especies_pokemons vector[], int cantidad) {
     // imprimimos el encabezado de la tabla
     printf("\n================================ POKEDEX ================================\n");
@@ -88,11 +85,6 @@ void imprimir_vector_pokemon(especies_pokemons vector[], int cantidad) {
     // cerramos la tabla
     printf("=========================================================================\n");
 };
-
-
-
-
-
 
 
 void mostrar_estadisticas_pokemon(especies_pokemons vector[], int indice){
@@ -124,9 +116,6 @@ void mostrar_estadisticas_pokemon(especies_pokemons vector[], int indice){
 
 
 
-
-
-
 void buscar_pokemon_por_id(especies_pokemons vector[], int id_usuario, int cantidad){
     
     //validamos que el id este en el rango
@@ -140,12 +129,6 @@ void buscar_pokemon_por_id(especies_pokemons vector[], int id_usuario, int canti
         printf("=======================================================\n\n");
     }
 };
-
-
-
-
-
-
 
 
 void buscar_pokemon_nombre(especies_pokemons vector[], char nombre_usuario[], int cantidad){
@@ -173,10 +156,6 @@ void buscar_pokemon_nombre(especies_pokemons vector[], char nombre_usuario[], in
         printf("=======================================================\n\n");
     }
 };
-
-
-
-
 
 
 
@@ -254,10 +233,6 @@ void registrar_entrenador(){
 }
 
 
-
-
-
-
 bool validad_entrenador_repetido(char id_entrenador[]){
     //var
     FILE *archivo_entrenadores;
@@ -299,6 +274,61 @@ bool validad_entrenador_repetido(char id_entrenador[]){
 
 }
 
+
+void consultar_pokedex_id(especies_pokemons vector[], int cantidad) {
+    int id_buscar;
+    printf("\n-> Ingrese el ID (Numero) del Pokemon a buscar: ");
+    scanf("%d", &id_buscar);
+    buscar_pokemon_por_id(vector, id_buscar, cantidad);
+}
+
+void consultar_pokedex_nombre(especies_pokemons vector[], int cantidad) {
+    char nombre_buscar[20];
+    printf("\n-> Ingrese el nombre exacto del Pokemon: ");
+    scanf("%19s", nombre_buscar);
+    buscar_pokemon_nombre(vector, nombre_buscar, cantidad);
+}
+
+void menu_consultar_pokedex() {
+    //var
+    int opcion_pokedex;
+    int indice = 0;
+    especies_pokemons vector_universo_pokemon[MAX_POKEDEX];
+
+    //llenamos pokedex
+    llenar_vector_pokemon(vector_universo_pokemon,&indice);
+    
+    limpiar_consola();
+    printf("\n=======================================================\n");
+    printf("                  CONSULTAR POKEDEX                    \n");
+    printf("=======================================================\n");
+    printf(" 1. Mostrar la Pokedex completa\n");
+    printf(" 2. Buscar Pokemon por numero (ID)\n");
+    printf(" 3. Buscar Pokemon por nombre\n");
+    printf(" 4. Regresar al menu principal\n");
+    printf("=======================================================\n");
+    printf(" -> Seleccione una opcion: ");
+    scanf("%d", &opcion_pokedex);
+
+    switch(opcion_pokedex) {
+        case 1:
+            imprimir_vector_pokemon(vector_universo_pokemon, MAX_POKEDEX);
+            break;
+        case 2:
+            consultar_pokedex_id(vector_universo_pokemon, MAX_POKEDEX);
+            break;
+        case 3:
+            consultar_pokedex_nombre(vector_universo_pokemon, MAX_POKEDEX);
+            break;
+        case 4:
+            // No hace nada, el flujo vuelve naturalmente al menú principal
+            break;
+        default:
+            printf("\n[!] Opcion no valida.\n");
+    }
+}
+
+
 void crear_estadisticas_ejemplar(EjemplarPokemon pokemon){
 
     // calculamos la hp-actual y el hp-maximo
@@ -311,9 +341,6 @@ void crear_estadisticas_ejemplar(EjemplarPokemon pokemon){
     pokemon.velocidad = ( (pokemon.velocidad * pokemon.nivel) / 50) + 5;
 
 };
-
-
-
 
 
 void limpiar_consola() {

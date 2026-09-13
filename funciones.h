@@ -5,9 +5,10 @@
 #ifndef funciones
 #define funciones
 #include <stdbool.h>
-#define MAX_POKEMON 6
+#define MAX_POKEMONES_EN_EQ 6
 #define MAX_ENTRENADORES 32
 #define ARCHIVO_ERROR printf("Error al abrir el archivo\n")
+#define MAX_POKEDEX 151
 
 /**
  * @struct especies_pokemons
@@ -54,7 +55,7 @@ typedef struct {
     char nombre[30];
     
     // El arreglo que intuiste, guardando a los ejemplares del equipo
-    EjemplarPokemon equipo[MAX_POKEMON]; 
+    EjemplarPokemon equipo[MAX_POKEMONES_EN_EQ]; 
     int cantidad_pokemon; // Útil para saber cuántos Pokémon tiene asignados realmente
     
     // Estadísticas para la tabla de posiciones de la Fase de Grupos
@@ -129,6 +130,28 @@ bool validad_entrenador_repetido(char id_entrenador[]);
  * @return void No retorna ningun valor.
  */
 void limpiar_consola();
+
+
+/**
+ * @brief Submenú interactivo para gestionar las opciones de consulta de la Pokédex.
+ */
+void menu_consultar_pokedex();
+
+/**
+ * @brief Procedimiento envoltorio que solicita un ID por teclado y ejecuta la búsqueda.
+ * @param vector Arreglo global de tipo especies_pokemons.
+ * @param cantidad Número total de especies registradas en el sistema.
+ */
+void consultar_pokedex_id(especies_pokemons vector[], int cantidad);
+
+/**
+ * @brief Procedimiento envoltorio que solicita un nombre por teclado y ejecuta la búsqueda.
+ * @param vector Arreglo global de tipo especies_pokemons.
+ * @param cantidad Número total de especies registradas en el sistema.
+ */
+void consultar_pokedex_nombre(especies_pokemons vector[], int cantidad);
+
+
 
 
 void crear_estadisticas_ejemplar(EjemplarPokemon pokemon);
