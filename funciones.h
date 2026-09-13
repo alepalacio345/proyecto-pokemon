@@ -131,5 +131,8 @@ bool validad_entrenador_repetido(char id_entrenador[]);
 void limpiar_consola();
 
 
+void crear_estadisticas_ejemplar(EjemplarPokemon pokemon);
+
+
 
 #endif

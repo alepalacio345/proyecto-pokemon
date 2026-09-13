@@ -299,6 +299,19 @@ bool validad_entrenador_repetido(char id_entrenador[]){
 
 }
 
+void crear_estadisticas_ejemplar(EjemplarPokemon pokemon){
+
+    // calculamos la hp-actual y el hp-maximo
+    pokemon.hp_actual = ((pokemon.hp_actual * pokemon.nivel) / 50 ) + pokemon.nivel + 10;
+    pokemon.hp_maximo = ((pokemon.hp_maximo * pokemon.nivel) / 50 ) + pokemon.nivel + 10;
+
+    // calculamos Ataque, Defensa y Velocidad
+    pokemon.ataque = ( (pokemon.ataque * pokemon.nivel) / 50) + 5;
+    pokemon.defensa = ( (pokemon.defensa * pokemon.nivel) / 50) + 5;
+    pokemon.velocidad = ( (pokemon.velocidad * pokemon.nivel) / 50) + 5;
+
+};
+
 
 
 
