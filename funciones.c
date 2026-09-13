@@ -7,12 +7,9 @@
 #include "funciones.h"
 #include <stdlib.h>
 #include <stdbool.h>
+#include <ctype.h>
 
-/**
- * @brief Extrae información del archivo de texto y rellena el vector global[cite: 16].
- * @param vector Arreglo de estructuras especies_pokemons.
- * @param i Puntero al entero que funcionará como índice total de registros.
- */
+
 void llenar_vector_pokemon(especies_pokemons vector[], int *i){
     //variales
     FILE *archivo_entrada;
@@ -62,11 +59,10 @@ void llenar_vector_pokemon(especies_pokemons vector[], int *i){
     fclose(archivo_entrada);
 };
 
-/**
- * @brief Imprime todo el catálogo actual de Pokémon con un diseño tabulado[cite: 16].
- * @param vector Arreglo de estructuras especies_pokemons a mostrar.
- * @param cantidad El total de elementos a recorrer en el arreglo.
- */
+
+
+
+
 void imprimir_vector_pokemon(especies_pokemons vector[], int cantidad) {
     // imprimimos el encabezado de la tabla
     printf("\n================================ POKEDEX ================================\n");
@@ -93,11 +89,12 @@ void imprimir_vector_pokemon(especies_pokemons vector[], int cantidad) {
     printf("=========================================================================\n");
 };
 
-/**
- * @brief Despliega una ficha técnica detallada basada en la posición de un elemento[cite: 16].
- * @param vector Arreglo que contiene las características de la Pokédex.
- * @param indice Índice entero desde donde se extraerá la información a mostrar.
- */
+
+
+
+
+
+
 void mostrar_estadisticas_pokemon(especies_pokemons vector[], int indice){
 
     // imprimimos la informacion con formato profesional tipo ficha
@@ -126,28 +123,31 @@ void mostrar_estadisticas_pokemon(especies_pokemons vector[], int indice){
 };
 
 
-/**
- * @brief Verifica la existencia del Pokémon a través del identificador y solicita la ficha[cite: 16].
- * @param vector Arreglo que contiene los datos base.
- * @param id_usuario ID a validar y buscar proporcionado por teclado.
- * @param cantidad El total actual de especies cargadas para evitar desbordamientos.
- */
+
+
+
+
 void buscar_pokemon_por_id(especies_pokemons vector[], int id_usuario, int cantidad){
     
     //validamos que el id este en el rango
     if((id_usuario > 0) && (id_usuario <= cantidad)){
         mostrar_estadisticas_pokemon(vector,id_usuario - 1);
     }else{
-        printf("!!Este Numero de pokemon no existe!!\n");
+        printf("\n=======================================================\n");
+        printf("            [!] ERROR: POKEMON NO ENCONTRADO           \n");
+        printf("=======================================================\n");
+        printf(" El numero ingresado no esta registrado en la Pokedex.\n");
+        printf("=======================================================\n\n");
     }
 };
 
-/**
- * @brief Busca una coincidencia exacta de nombre de Pokémon y solicita su ficha[cite: 16].
- * @param vector Arreglo que contiene los datos base.
- * @param nombre_usuario Cadena de texto objetivo a evaluar contra el arreglo.
- * @param cantidad El total actual de especies cargadas.
- */
+
+
+
+
+
+
+
 void buscar_pokemon_nombre(especies_pokemons vector[], char nombre_usuario[], int cantidad){
 
     bool bandera = true;
@@ -166,35 +166,33 @@ void buscar_pokemon_nombre(especies_pokemons vector[], char nombre_usuario[], in
     }
 
     if(bandera){
-        printf("!!Este nombre de pokemon no existe!!\n");
+        printf("\n=======================================================\n");
+        printf("            [!] ERROR: POKEMON NO ENCONTRADO           \n");
+        printf("=======================================================\n");
+        printf(" No existe ninguna especie registrada con ese nombre.\n");
+        printf("=======================================================\n\n");
     }
 };
 
 
 
-/**
- * @brief Registra a los entrenadores del torneo
-*/
+
+
+
+
 void registrar_entrenador(){
     
     //var
     FILE *archivo_entrenadores;
     bool resultado;
-    Entrenador info_entrenador;
+    Entrenador info_entrenador;\
+    char opcion;
 
     // Encabezado visual de la planilla
     printf("\n=======================================================\n");
     printf("             INSCRIPCION DE NUEVO ENTRENADOR           \n");
     printf("=======================================================\n");
-    
-    // 1. Solicitud del ID
-    printf("-> Ingrese el ID identificador (Numero entero): ");
-    scanf("%i", &info_entrenador.id_entrenador);
-    
-    // 2. Solicitud del Nombre
-    printf("-> Ingrese el nombre del entrenador: ");
-    scanf("%s", info_entrenador.nombre);
-    
+
     // Inicializamos en cero para evitar basura en la memoria
     info_entrenador.cantidad_pokemon = 0;
     info_entrenador.victorias = 0;
@@ -202,39 +200,69 @@ void registrar_entrenador(){
     info_entrenador.derrotas = 0;
     info_entrenador.puntuacion = 0;
 
-    resultado = validad_entrenador_repetido(info_entrenador);
+    //Solicitud del Nombre
+    printf("-> Ingrese el nombre del entrenador: ");
+    scanf("%s", info_entrenador.nombre);
 
-    //validamos que la info no este repetida
-    if(resultado){
-        printf("=======================================================\n");
-        printf(" Entrenador '%s' ya esta registrado.\n", info_entrenador.nombre);
-        printf("=======================================================\n\n");
-    }else{
-        
-        //abrimos el archivo entrenadores
-        archivo_entrenadores = fopen("entrenadores.txt", "a+");
 
-        if(archivo_entrenadores == NULL){
-            ARCHIVO_ERROR;
-        }else{
-            fprintf(archivo_entrenadores,"%d %s",info_entrenador.id_entrenador, info_entrenador.nombre);
+    do{
+        //Solicitud del ID
+        printf("-> Ingrese el ID identificador: ");
+        scanf("%s",info_entrenador.id_entrenador);
 
+        resultado = validad_entrenador_repetido(info_entrenador.id_entrenador);
+
+        //validamos que la info no este repetida
+        if(resultado){
+            printf("\n=======================================================\n");
+            printf("             [!] ERROR: ID DUPLICADO                   \n");
             printf("=======================================================\n");
-            printf(" Entrenador '%s' registrado exitosamente.\n", info_entrenador.nombre);
-            printf("=======================================================\n\n");
-        }
+            printf(" Ya existe un participante registrado con el ID: %s\n", info_entrenador.id_entrenador);
+            printf("=======================================================\n");
+            printf(" Presione 'C' para intentar con otro ID o 'S' para salir.\n");
+            printf(" -> Opcion: ");
+            scanf(" %c", &opcion);
+            //convertimos a masyusculas
+            opcion = toupper(opcion);
+            //usamos el operador ternario
+            resultado = (opcion == 'C') ? true : false;
+            //limpiamos consola
+            limpiar_consola();
 
-        fclose(archivo_entrenadores);
-    }
+        }else{
+            
+            //abrimos el archivo entrenadores
+            archivo_entrenadores = fopen("entrenadores.txt", "a+");
+
+            if(archivo_entrenadores == NULL){
+                ARCHIVO_ERROR;
+            }else{
+                fprintf(archivo_entrenadores,"%s %s\n",info_entrenador.id_entrenador, info_entrenador.nombre);
+
+                printf("=======================================================\n");
+                printf(" Entrenador '%s' registrado exitosamente.\n", info_entrenador.nombre);
+                printf("=======================================================\n\n");\
+                //cerrar archivo
+                fclose(archivo_entrenadores);
+            }
+
+           
+        }
+    
+    }while(resultado);
+
 }
 
 
 
-bool validad_entrenador_repetido(Entrenador info_entrenador){
+
+
+
+bool validad_entrenador_repetido(char id_entrenador[]){
     //var
     FILE *archivo_entrenadores;
     bool bandera = true;
-    int id_archivo;
+    char id_archivo[8];
     char nombre_archivo[20];
     bool resultado_op;
     bool salida = false;
@@ -251,13 +279,13 @@ bool validad_entrenador_repetido(Entrenador info_entrenador){
         //leamos esta llegar al final del archivoS
         while(bandera){
 
-            resultado_op = fscanf(archivo_entrenadores,"%d %s",&id_archivo, nombre_archivo) == EOF;
+            resultado_op = fscanf(archivo_entrenadores,"%s %*s",&id_archivo) == EOF;
             
             // si se llega al final se detiene el ciclo
             if(resultado_op){
                 bandera = false;
             // o si se encuentra el repetido se detiene
-            }else if( (id_archivo == info_entrenador.id_entrenador) || (nombre_archivo == info_entrenador.nombre)){
+            }else if(strcmp(id_archivo,id_entrenador) == 0){
                 salida = true;
                 bandera = false;
             }
@@ -274,3 +302,21 @@ bool validad_entrenador_repetido(Entrenador info_entrenador){
 
 
 
+
+void limpiar_consola() {
+#if defined(_WIN32) || defined(_WIN64)
+    // Cubre Windows en versiones de 32 y 64 bits
+    system("cls");
+#elif defined(__APPLE__) || defined(__MACH__)
+    // Cubre el ecosistema macOS de Apple
+    system("clear");
+#elif defined(__linux__) || defined(__unix__) || defined(__unix)
+    // Cubre distribuciones Linux y sistemas basados en Unix
+    system("clear");
+#else
+    // Respaldo de seguridad (Fallback): 
+    // Si el sistema es un entorno raro o desconocido, usamos un Código de Escape ANSI
+    // \033[H mueve el cursor al inicio, \033[2J limpia toda la pantalla
+    printf("\033[H\033[2J"); 
+#endif
+}

@@ -29,7 +29,7 @@ typedef struct{
  * @brief Representa un Pokémon físico y único capturado por un entrenador[cite: 17].
  */
 typedef struct {
-    int id_ejemplar;                  // EXIGIDO: Para diferenciar dos Pokémon iguales
+    char id_ejemplar[6];                  // EXIGIDO: Para diferenciar dos Pokémon iguales
     especies_pokemons* datos_especie; // EXIGIDO: El puntero a la especie
     char nombre[20];                 
     int nivel;                        
@@ -50,7 +50,7 @@ typedef struct {
  * @brief Almacena la información de un participante del torneo y las estadísticas de su participación[cite: 17].
  */
 typedef struct {
-    int id_entrenador;
+    char id_entrenador[8];
     char nombre[30];
     
     // El arreglo que intuiste, guardando a los ejemplares del equipo
@@ -96,10 +96,40 @@ void buscar_pokemon_nombre(especies_pokemons vector[], char nombre_usuario[], in
 
 
 /**
- * @brief Registra a los entrenadores del torneo
-*/
+ * @brief Registra a los entrenadores del torneo.
+ * 
+ * Solicita los datos del entrenador (nombre e ID) mediante la entrada estandar.
+ * Valida que el ID ingresado no este duplicado en el archivo del sistema.
+ * Una vez validado, inicializa sus estadisticas y guarda el registro en el archivo de texto.
+ * 
+ * @return void No retorna ningun valor.
+ */
 void registrar_entrenador();
-bool validad_entrenador_repetido(Entrenador info_entrenador);
+
+
+/**
+ * @brief Verifica si un ID de entrenador ya existe en la base de datos.
+ * 
+ * Abre el archivo "entrenadores.txt" y lee los registros linea por linea para comparar
+ * los identificadores existentes con el ID proporcionado por el usuario.
+ * 
+ * @param id_entrenador Cadena de caracteres que contiene el ID a verificar.
+ * @return true Si el ID se encuentra repetido en el archivo.
+ * @return false Si el ID es unico y no se encontro en el archivo.
+ */
+bool validad_entrenador_repetido(char id_entrenador[]);
+
+
+/**
+ * @brief Limpia la pantalla de la consola o terminal.
+ * 
+ * Ejecuta comandos del sistema especificos dependiendo de si la compilacion 
+ * se realiza en un entorno de Windows o en un sistema basado en Unix.
+ * 
+ * @return void No retorna ningun valor.
+ */
+void limpiar_consola();
+
 
 
 #endif
