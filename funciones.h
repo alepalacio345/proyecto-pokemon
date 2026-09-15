@@ -152,10 +152,11 @@ void consultar_pokedex_id(especies_pokemons vector[], int cantidad);
 void consultar_pokedex_nombre(especies_pokemons vector[], int cantidad);
 
 
-
+bool crear_equipo_pokemon();
 
 void crear_estadisticas_ejemplar(EjemplarPokemon pokemon);
 
+void inicializar_barajas(int vector[]);
 
 
 #endif

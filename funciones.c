@@ -343,6 +343,42 @@ void crear_estadisticas_ejemplar(EjemplarPokemon pokemon){
 };
 
 
+
+
+bool crear_equipo_pokemon(int integrantes_equipo, int integrantes_diferentes, int nivel_actual_eq){
+
+    bool salida;
+
+    //caso base (condicion de parada)
+    if( (integrantes_equipo == 6) && (integrantes_diferentes == 4)){
+        // la suma de los nivles de los pokemones no puede ser mayor que 300
+        if(nivel_actual_eq < 300){
+            salida = true;
+        }
+        salida = false;
+        return salida;
+    }
+
+    for(int i = 0; i < MAX_POKEDEX;i++){
+
+
+
+    }
+
+
+}
+
+
+
+void inicializar_barajas(int vector[]){
+
+    for(int i = 0; i < MAX_POKEDEX - 1; i++){
+        vector[i] = i;
+    }
+
+}
+
+
 void limpiar_consola() {
 #if defined(_WIN32) || defined(_WIN64)
     // Cubre Windows en versiones de 32 y 64 bits
