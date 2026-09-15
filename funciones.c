@@ -289,12 +289,11 @@ void consultar_pokedex_nombre(especies_pokemons vector[], int cantidad) {
     buscar_pokemon_nombre(vector, nombre_buscar, cantidad);
 }
 
-void menu_consultar_pokedex() {
+void menu_consultar_pokedex(especies_pokemons vector_universo_pokemon[]) {
     //var
     int opcion_pokedex;
     int indice = 0;
-    especies_pokemons vector_universo_pokemon[MAX_POKEDEX];
-
+    
     //llenamos pokedex
     llenar_vector_pokemon(vector_universo_pokemon,&indice);
     
@@ -343,9 +342,45 @@ void crear_estadisticas_ejemplar(EjemplarPokemon pokemon){
 };
 
 
+// Funcion auxiliar cortita y eficiente
+bool pokemon_ya_esta_en_equipo(EjemplarPokemon equipo[], int cantidad_actual, char nombre_candidato[]) {
+    for(int i = 0; i < cantidad_actual; i++) {
+        if(strcmp(equipo[i].nombre, nombre_candidato) == 0) {
+            return true; // Ya lo elegimos antes
+        }
+    }
+    return false; // Esta libre
+}
 
 
-bool crear_equipo_pokemon(int integrantes_equipo, int integrantes_diferentes, int nivel_actual_eq){
+
+
+void consulta_crear_equipo_pokemon(especies_pokemons vector_universo_pokemon[]){
+
+    //arreglos
+    EjemplarPokemon equipo_pokemon[MAX_POKEMONES_EN_EQ];
+    int vector_baraja[MAX_POKEDEX];
+
+    //llenar vector baraja
+    inicializar_barajas(vector_baraja);
+
+    // se llama a funcion que mezcla el vector
+    mezclar_baraja(vector_baraja,MAX_POKEDEX);
+
+    if(crear_equipo_pokemon(0,0,0,vector_baraja,equipo_pokemon, vector_universo_pokemon)){
+        //se creo el equipo pokemon correctamente
+    }else{
+        // no se puedo crear el equipo
+    }
+
+
+
+}
+
+
+
+
+bool crear_equipo_pokemon(int integrantes_equipo, int integrantes_diferentes, int nivel_actual_eq, int baraja[], EjemplarPokemon equipo_pokemon[],especies_pokemons vector_universo_pokemon[]){
 
     bool salida;
 
@@ -354,25 +389,42 @@ bool crear_equipo_pokemon(int integrantes_equipo, int integrantes_diferentes, in
         // la suma de los nivles de los pokemones no puede ser mayor que 300
         if(nivel_actual_eq < 300){
             salida = true;
+        }else{
+            salida = false;
         }
-        salida = false;
+        
         return salida;
     }
 
     for(int i = 0; i < MAX_POKEDEX;i++){
 
+        //creamos creamos el ejemplar
+        
 
 
+    
     }
-
-
 }
 
+
+void mezclar_baraja(int arreglo[], int cantidad_elementos) {
+    // Recorremos el arreglo desde la ultima posicion hasta la posicion 1
+    for (int i = cantidad_elementos - 1; i > 0; i--) {
+        
+        // Generamos un indice aleatorio 'j' que va desde 0 hasta 'i'
+        int j = rand() % (i + 1);
+
+        // Hacemos el intercambio (swap) de los valores
+        int temporal = arreglo[i];
+        arreglo[i] = arreglo[j];
+        arreglo[j] = temporal;
+    }
+}
 
 
 void inicializar_barajas(int vector[]){
 
-    for(int i = 0; i < MAX_POKEDEX - 1; i++){
+    for(int i = 0; i < MAX_POKEDEX; i++){
         vector[i] = i;
     }
 

@@ -152,11 +152,25 @@ void consultar_pokedex_id(especies_pokemons vector[], int cantidad);
 void consultar_pokedex_nombre(especies_pokemons vector[], int cantidad);
 
 
-bool crear_equipo_pokemon();
+bool crear_equipo_pokemon(int integrantes_equipo, int integrantes_diferentes, int nivel_actual_eq, int baraja[], EjemplarPokemon equipo_pokemon[],especies_pokemons vector_universo_pokemon[]);
+
+bool consulta_crear_equipo_pokemon(especies_pokemons vector_universo_pokemon[]);
 
 void crear_estadisticas_ejemplar(EjemplarPokemon pokemon);
 
+
+/**
+ * @brief se inicializa un vector de numeros enteros
+ * @param vector es el vector de enteros
+ */
 void inicializar_barajas(int vector[]);
 
+/**
+ * @brief Mezcla de forma aleatoria un arreglo de enteros usando Fisher-Yates.
+ * 
+ * @param arreglo Puntero al arreglo que se desea desordenar.
+ * @param cantidad_elementos El tamaño del arreglo.
+ */
+void mezclar_baraja(int arreglo[], int cantidad_elementos);
 
 #endif
