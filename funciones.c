@@ -329,7 +329,6 @@ bool validad_entrenador_repetido(char id_entrenador[]){
 
 }
 
-
 void imprimir_vector_entrenador(){
     
     //var
