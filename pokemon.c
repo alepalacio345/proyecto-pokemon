@@ -43,6 +43,8 @@ int main(){
                 consulta_crear_equipo_pokemon(vector_universo_pokemon);
                 break;
             case 4:
+                imprimir_vector_entrenador();
+                break;
             case 5:
             case 6:
             case 7:

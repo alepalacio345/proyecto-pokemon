@@ -161,6 +161,7 @@ bool crear_equipo_pokemon(int integrantes_equipo, int nivel_actual_eq, int baraj
 
 void crear_estadisticas_ejemplar(EjemplarPokemon pokemon);
 
+void imprimir_vector_entrenador();
 
 /**
  * @brief se inicializa un vector de numeros enteros

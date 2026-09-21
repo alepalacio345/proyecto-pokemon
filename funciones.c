@@ -218,7 +218,7 @@ void registrar_entrenador(){
     //var
     FILE *archivo_entrenadores;
     bool resultado;
-    Entrenador info_entrenador;\
+    Entrenador info_entrenador;
     char opcion;
 
     limpiar_consola();
@@ -328,6 +328,52 @@ bool validad_entrenador_repetido(char id_entrenador[]){
     fclose(archivo_entrenadores);
 
 }
+
+
+void imprimir_vector_entrenador(){
+    
+    //var
+    FILE *archivo_entrenadores;
+    char id_entrenador[8];
+    char nombre_entrenador[30];
+    bool bandera = true;
+
+    //abrimos archivo
+    archivo_entrenadores = fopen("entrenadores.txt", "r");
+
+    //validar apertura del archivo
+    if(archivo_entrenadores == NULL){
+        ARCHIVO_ERROR;
+    }else{
+        
+        // Encabezado de la tabla
+        printf("\n=======================================================\n");
+        printf("          \033[1;36mLISTA DE ENTRENADORES REGISTRADOS\033[0m            \n");
+        printf("=======================================================\n");
+        printf(" \033[1;33m%-10s | %-30s\033[0m\n", "ID", "NOMBRE DEL ENTRENADOR");
+        printf("-------------------------------------------------------\n");
+
+        // Lectura de datos
+        while(fscanf(archivo_entrenadores,"%s %s",id_entrenador,nombre_entrenador) == 2){
+            
+            // Imprimimos los datos del entrenador alineados en columnas
+            printf(" %-10s | %-30s\n", id_entrenador, nombre_entrenador);
+            bandera = false;
+        }
+
+        // Si la bandera sigue en true, el archivo existía pero no tenia datos
+        if(bandera){
+            printf(" \033[1;31m[!] No hay ningun entrenador registrado todavia.\033[0m\n");
+        }
+
+        // Cierre de la tabla
+        printf("=======================================================\n\n");
+        
+        // El archivo SOLO se cierra si se abrio correctamente
+        fclose(archivo_entrenadores);
+    }
+}
+
 
 // =============================================================
 // FUNCIONES PARA CREAR EQUIPO POKEMONES (EL BACKTRACKING)     =
