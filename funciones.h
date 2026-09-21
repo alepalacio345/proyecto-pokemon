@@ -151,10 +151,13 @@ void consultar_pokedex_id(especies_pokemons vector[], int cantidad);
  */
 void consultar_pokedex_nombre(especies_pokemons vector[], int cantidad);
 
+void consulta_crear_equipo_pokemon(especies_pokemons vector_universo_pokemon[]);
 
-bool crear_equipo_pokemon(int integrantes_equipo, int integrantes_diferentes, int nivel_actual_eq, int baraja[], EjemplarPokemon equipo_pokemon[],especies_pokemons vector_universo_pokemon[]);
+bool pokemon_ya_esta_en_equipo(EjemplarPokemon equipo[], int cantidad, char nombre[]);
 
-bool consulta_crear_equipo_pokemon(especies_pokemons vector_universo_pokemon[]);
+bool validar_variedad_tipos(EjemplarPokemon equipo[], int cantidad);
+
+bool crear_equipo_pokemon(int integrantes_equipo, int nivel_actual_eq, int baraja[], EjemplarPokemon equipo_pokemon[],especies_pokemons vector_universo_pokemon[]);
 
 void crear_estadisticas_ejemplar(EjemplarPokemon pokemon);
 

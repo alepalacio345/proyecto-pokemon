@@ -34,12 +34,14 @@ int main(){
 
         switch(opcion) {
             case 1:
-                menu_consultar_pokedex();
+                menu_consultar_pokedex(vector_universo_pokemon);
                 break;
             case 2:
                 registrar_entrenador();
                 break;
             case 3:
+                consulta_crear_equipo_pokemon(vector_universo_pokemon);
+                break;
             case 4:
             case 5:
             case 6:

@@ -9,7 +9,9 @@
 #include <stdbool.h>
 #include <ctype.h>
 
-
+// ======================================
+// FUNCIONES AUXILIARES PARA LA POKEDEX =
+// ======================================
 void llenar_vector_pokemon(especies_pokemons vector[], int *i){
     //variales
     FILE *archivo_entrada;
@@ -59,7 +61,6 @@ void llenar_vector_pokemon(especies_pokemons vector[], int *i){
     fclose(archivo_entrada);
 };
 
-
 void imprimir_vector_pokemon(especies_pokemons vector[], int cantidad) {
     // imprimimos el encabezado de la tabla
     printf("\n================================ POKEDEX ================================\n");
@@ -85,7 +86,6 @@ void imprimir_vector_pokemon(especies_pokemons vector[], int cantidad) {
     // cerramos la tabla
     printf("=========================================================================\n");
 };
-
 
 void mostrar_estadisticas_pokemon(especies_pokemons vector[], int indice){
 
@@ -114,8 +114,6 @@ void mostrar_estadisticas_pokemon(especies_pokemons vector[], int indice){
 
 };
 
-
-
 void buscar_pokemon_por_id(especies_pokemons vector[], int id_usuario, int cantidad){
     
     //validamos que el id este en el rango
@@ -130,8 +128,9 @@ void buscar_pokemon_por_id(especies_pokemons vector[], int id_usuario, int canti
     }
 };
 
-
 void buscar_pokemon_nombre(especies_pokemons vector[], char nombre_usuario[], int cantidad){
+
+
 
     bool bandera = true;
     int i = 0;
@@ -157,124 +156,6 @@ void buscar_pokemon_nombre(especies_pokemons vector[], char nombre_usuario[], in
     }
 };
 
-
-
-void registrar_entrenador(){
-    
-    //var
-    FILE *archivo_entrenadores;
-    bool resultado;
-    Entrenador info_entrenador;\
-    char opcion;
-
-    // Encabezado visual de la planilla
-    printf("\n=======================================================\n");
-    printf("             INSCRIPCION DE NUEVO ENTRENADOR           \n");
-    printf("=======================================================\n");
-
-    // Inicializamos en cero para evitar basura en la memoria
-    info_entrenador.cantidad_pokemon = 0;
-    info_entrenador.victorias = 0;
-    info_entrenador.empates = 0;
-    info_entrenador.derrotas = 0;
-    info_entrenador.puntuacion = 0;
-
-    //Solicitud del Nombre
-    printf("-> Ingrese el nombre del entrenador: ");
-    scanf("%s", info_entrenador.nombre);
-
-
-    do{
-        //Solicitud del ID
-        printf("-> Ingrese el ID identificador: ");
-        scanf("%s",info_entrenador.id_entrenador);
-
-        resultado = validad_entrenador_repetido(info_entrenador.id_entrenador);
-
-        //validamos que la info no este repetida
-        if(resultado){
-            printf("\n=======================================================\n");
-            printf("             [!] ERROR: ID DUPLICADO                   \n");
-            printf("=======================================================\n");
-            printf(" Ya existe un participante registrado con el ID: %s\n", info_entrenador.id_entrenador);
-            printf("=======================================================\n");
-            printf(" Presione 'C' para intentar con otro ID o 'S' para salir.\n");
-            printf(" -> Opcion: ");
-            scanf(" %c", &opcion);
-            //convertimos a masyusculas
-            opcion = toupper(opcion);
-            //usamos el operador ternario
-            resultado = (opcion == 'C') ? true : false;
-            //limpiamos consola
-            limpiar_consola();
-
-        }else{
-            
-            //abrimos el archivo entrenadores
-            archivo_entrenadores = fopen("entrenadores.txt", "a+");
-
-            if(archivo_entrenadores == NULL){
-                ARCHIVO_ERROR;
-            }else{
-                fprintf(archivo_entrenadores,"%s %s\n",info_entrenador.id_entrenador, info_entrenador.nombre);
-
-                printf("=======================================================\n");
-                printf(" Entrenador '%s' registrado exitosamente.\n", info_entrenador.nombre);
-                printf("=======================================================\n\n");\
-                //cerrar archivo
-                fclose(archivo_entrenadores);
-            }
-
-           
-        }
-    
-    }while(resultado);
-
-}
-
-
-bool validad_entrenador_repetido(char id_entrenador[]){
-    //var
-    FILE *archivo_entrenadores;
-    bool bandera = true;
-    char id_archivo[8];
-    char nombre_archivo[20];
-    bool resultado_op;
-    bool salida = false;
-
-
-    //abrimos el archivo entrenadores
-    archivo_entrenadores = fopen("entrenadores.txt", "a+");
-
-    // validamos apertura
-    if(archivo_entrenadores == NULL){
-        ARCHIVO_ERROR;
-    }else{
-
-        //leamos esta llegar al final del archivoS
-        while(bandera){
-
-            resultado_op = fscanf(archivo_entrenadores,"%s %*s",&id_archivo) == EOF;
-            
-            // si se llega al final se detiene el ciclo
-            if(resultado_op){
-                bandera = false;
-            // o si se encuentra el repetido se detiene
-            }else if(strcmp(id_archivo,id_entrenador) == 0){
-                salida = true;
-                bandera = false;
-            }
-
-        }
-
-        return salida;
-    }
-
-    fclose(archivo_entrenadores);
-
-}
-
-
 void consultar_pokedex_id(especies_pokemons vector[], int cantidad) {
     int id_buscar;
     printf("\n-> Ingrese el ID (Numero) del Pokemon a buscar: ");
@@ -283,6 +164,8 @@ void consultar_pokedex_id(especies_pokemons vector[], int cantidad) {
 }
 
 void consultar_pokedex_nombre(especies_pokemons vector[], int cantidad) {
+
+
     char nombre_buscar[20];
     printf("\n-> Ingrese el nombre exacto del Pokemon: ");
     scanf("%19s", nombre_buscar);
@@ -326,7 +209,129 @@ void menu_consultar_pokedex(especies_pokemons vector_universo_pokemon[]) {
             printf("\n[!] Opcion no valida.\n");
     }
 }
+// =========================================
+// FUNCIONES PARA REGISTRO DE ENTRENADORES =
+// =========================================
 
+void registrar_entrenador(){
+    
+    //var
+    FILE *archivo_entrenadores;
+    bool resultado;
+    Entrenador info_entrenador;\
+    char opcion;
+
+    limpiar_consola();
+
+    // Encabezado visual de la planilla
+    printf("\n=======================================================\n");
+    printf("             INSCRIPCION DE NUEVO ENTRENADOR           \n");
+    printf("=======================================================\n");
+
+    // Inicializamos en cero para evitar basura en la memoria
+    info_entrenador.cantidad_pokemon = 0;
+    info_entrenador.victorias = 0;
+    info_entrenador.empates = 0;
+    info_entrenador.derrotas = 0;
+    info_entrenador.puntuacion = 0;
+
+    //Solicitud del Nombre
+    printf("-> Ingrese el nombre del entrenador: ");
+    scanf("%s", info_entrenador.nombre);
+
+
+    do{
+        //Solicitud del ID
+        printf("-> Ingrese el ID identificador: ");
+        scanf("%s",info_entrenador.id_entrenador);
+
+        resultado = validad_entrenador_repetido(info_entrenador.id_entrenador);
+
+        //validamos que la info no este repetida
+        if(resultado){
+            printf("\n=======================================================\n");
+            printf("             \033[1;31m[!] ERROR: ID DUPLICADO\033[0m                   \n");
+            printf("=======================================================\n");
+            printf(" Ya existe un participante registrado con el ID: %s\n", info_entrenador.id_entrenador);
+            printf("=======================================================\n");
+            printf(" Presione 'C' para intentar con otro ID o 'S' para salir.\n");
+            printf(" -> Opcion: ");
+            scanf(" %c", &opcion);
+            //convertimos a masyusculas
+            opcion = toupper(opcion);
+            //usamos el operador ternario
+            resultado = (opcion == 'C') ? true : false;
+            //limpiamos consola
+            limpiar_consola();
+
+        }else{
+            
+            //abrimos el archivo entrenadores
+            archivo_entrenadores = fopen("entrenadores.txt", "a+");
+
+            if(archivo_entrenadores == NULL){
+                ARCHIVO_ERROR;
+            }else{
+                fprintf(archivo_entrenadores,"%s %s\n",info_entrenador.id_entrenador, info_entrenador.nombre);
+
+                printf("=======================================================\n");
+                printf(" Entrenador '%s' \033[1;32m registrado exitosamente.\033[0m \n", info_entrenador.nombre);
+                printf("=======================================================\n\n");\
+                //cerrar archivo
+                fclose(archivo_entrenadores);
+            }
+
+           
+        }
+    
+    }while(resultado);
+
+}
+
+bool validad_entrenador_repetido(char id_entrenador[]){
+    //var
+    FILE *archivo_entrenadores;
+    bool bandera = true;
+    char id_archivo[8];
+    char nombre_archivo[20];
+    bool resultado_op;
+    bool salida = false;
+
+
+    //abrimos el archivo entrenadores
+    archivo_entrenadores = fopen("entrenadores.txt", "a+");
+
+    // validamos apertura
+    if(archivo_entrenadores == NULL){
+        ARCHIVO_ERROR;
+    }else{
+
+        //leamos esta llegar al final del archivoS
+        while(bandera){
+
+            resultado_op = fscanf(archivo_entrenadores,"%s %*s",&id_archivo) == EOF;
+            
+            // si se llega al final se detiene el ciclo
+            if(resultado_op){
+                bandera = false;
+            // o si se encuentra el repetido se detiene
+            }else if(strcmp(id_archivo,id_entrenador) == 0){
+                salida = true;
+                bandera = false;
+            }
+
+        }
+
+        return salida;
+    }
+
+    fclose(archivo_entrenadores);
+
+}
+
+// =============================================================
+// FUNCIONES PARA CREAR EQUIPO POKEMONES (EL BACKTRACKING)     =
+// =============================================================
 
 void crear_estadisticas_ejemplar(EjemplarPokemon pokemon){
 
@@ -340,72 +345,48 @@ void crear_estadisticas_ejemplar(EjemplarPokemon pokemon){
     pokemon.velocidad = ( (pokemon.velocidad * pokemon.nivel) / 50) + 5;
 
 };
-
-
-// Funcion auxiliar cortita y eficiente
-bool pokemon_ya_esta_en_equipo(EjemplarPokemon equipo[], int cantidad_actual, char nombre_candidato[]) {
-    for(int i = 0; i < cantidad_actual; i++) {
-        if(strcmp(equipo[i].nombre, nombre_candidato) == 0) {
-            return true; // Ya lo elegimos antes
-        }
-    }
-    return false; // Esta libre
-}
-
-
-
-
-void consulta_crear_equipo_pokemon(especies_pokemons vector_universo_pokemon[]){
-
-    //arreglos
-    EjemplarPokemon equipo_pokemon[MAX_POKEMONES_EN_EQ];
-    int vector_baraja[MAX_POKEDEX];
-
-    //llenar vector baraja
-    inicializar_barajas(vector_baraja);
-
-    // se llama a funcion que mezcla el vector
-    mezclar_baraja(vector_baraja,MAX_POKEDEX);
-
-    if(crear_equipo_pokemon(0,0,0,vector_baraja,equipo_pokemon, vector_universo_pokemon)){
-        //se creo el equipo pokemon correctamente
-    }else{
-        // no se puedo crear el equipo
-    }
-
-
-
-}
-
-
-
-
-bool crear_equipo_pokemon(int integrantes_equipo, int integrantes_diferentes, int nivel_actual_eq, int baraja[], EjemplarPokemon equipo_pokemon[],especies_pokemons vector_universo_pokemon[]){
-
-    bool salida;
-
-    //caso base (condicion de parada)
-    if( (integrantes_equipo == 6) && (integrantes_diferentes == 4)){
-        // la suma de los nivles de los pokemones no puede ser mayor que 300
-        if(nivel_actual_eq < 300){
-            salida = true;
-        }else{
-            salida = false;
-        }
-        
-        return salida;
-    }
-
-    for(int i = 0; i < MAX_POKEDEX;i++){
-
-        //creamos creamos el ejemplar
-        
-
-
+// Verifica si un Pokemon ya fue metido en el arreglo del equipo
+bool pokemon_ya_esta_en_equipo(EjemplarPokemon equipo[], int cantidad, char nombre[]) {
+    bool encontrado = false;
     
+    // El ciclo se detiene solo si llega al final o si 'encontrado' se vuelve true
+    for (int i = 0; i < cantidad && !encontrado; i++) {
+        if (strcmp(equipo[i].nombre, nombre) == 0) {
+            encontrado = true;
+        }
+    }
+    return encontrado;
+}
+// Cuenta cuantos tipos elementales distintos hay en el equipo ya formado
+bool validar_variedad_tipos(EjemplarPokemon equipo[], int cantidad) {
+    char tipos_unicos[MAX_POKEMONES_EN_EQ][15];
+    int contador_tipos = 0;
+
+    for (int i = 0; i < cantidad; i++) {
+        bool tipo_repetido = false;
+        
+        // Revisamos si el tipo del pokemon actual ya lo habiamos anotado
+        for (int j = 0; j < contador_tipos && !tipo_repetido; j++) {
+            // Entramos a los datos de la especie original para ver su tipo primario
+            if (strcmp(equipo[i].datos_especie->tipo_primario, tipos_unicos[j]) == 0) {
+                tipo_repetido = true;
+            }
+        }
+        
+        // Si no estaba repetido, lo agregamos a nuestra lista
+        if (!tipo_repetido) {
+            strcpy(tipos_unicos[contador_tipos], equipo[i].datos_especie->tipo_primario);
+            contador_tipos++;
+        }
+    }
+
+    // Retorna verdadero si logramos juntar 4 o mas tipos diferentes
+    if(contador_tipos >= 4){
+        return true;
+    } else {
+        return false;
     }
 }
-
 
 void mezclar_baraja(int arreglo[], int cantidad_elementos) {
     // Recorremos el arreglo desde la ultima posicion hasta la posicion 1
@@ -421,7 +402,6 @@ void mezclar_baraja(int arreglo[], int cantidad_elementos) {
     }
 }
 
-
 void inicializar_barajas(int vector[]){
 
     for(int i = 0; i < MAX_POKEDEX; i++){
@@ -430,7 +410,112 @@ void inicializar_barajas(int vector[]){
 
 }
 
+bool crear_equipo_pokemon(int integrantes_equipo, int nivel_actual_eq, int baraja[], EjemplarPokemon equipo_pokemon[], especies_pokemons vector_universo_pokemon[]) {
+    
+    // Variable de control (Único punto de salida)
+    bool salida = false; 
 
+    // ==========================================================
+    // 1. CASO BASE (Si ya llenamos los 6 espacios)
+    // ==========================================================
+    if (integrantes_equipo == 6) {
+        
+        // Llamamos a la función auxiliar para contar los tipos
+        if (validar_variedad_tipos(equipo_pokemon, 6)) {
+            salida = true;  // Éxito: Suman menos de 300 (por la Poda 2) y hay buena variedad
+        } else {
+            salida = false; // Fracaso: Faltó variedad de tipos
+        }
+        
+    } 
+    // ==========================================================
+    // 2. EXPLORACIÓN (Si aún nos faltan integrantes)
+    // ==========================================================
+    else {
+        
+        // El ciclo revisa la baraja. Se detiene si llega al final (MAX_POKEDEX)
+        // O se detiene si 'salida' se vuelve true (lo que reemplaza al 'break')
+        for (int i = 0; i < MAX_POKEDEX && !salida; i++) {
+
+            int indice = baraja[i];
+            int nivel_simulado = 50; 
+            
+            // PODA 1: Solo avanza si NO está repetido (Reemplaza al 'continue')
+            if (!pokemon_ya_esta_en_equipo(equipo_pokemon, integrantes_equipo, vector_universo_pokemon[indice].Nombre)) {
+                
+                // PODA 2: Solo avanza si el nivel no excede 300 (Reemplaza al 'continue')
+                if ((nivel_actual_eq + nivel_simulado) <= 300) {
+                    
+                    // PASO A: HACER
+                    equipo_pokemon[integrantes_equipo].datos_especie = &vector_universo_pokemon[indice];
+                    strcpy(equipo_pokemon[integrantes_equipo].nombre, vector_universo_pokemon[indice].Nombre);
+                    equipo_pokemon[integrantes_equipo].nivel = nivel_simulado;
+                    
+                    // PASO B: EXPLORAR
+                    salida = crear_equipo_pokemon(
+                        integrantes_equipo + 1, 
+                        nivel_actual_eq + nivel_simulado, 
+                        baraja, 
+                        equipo_pokemon, 
+                        vector_universo_pokemon
+                    );
+
+                    // PASO C: DESHACER
+                    // Como no hay variables de control extra que limpiar, si 'salida' regresa 
+                    // valiendo 'false', el bloque if termina, el ciclo for da otra vuelta 
+                    // y el PASO A simplemente aplasta los datos del Pokémon que falló.
+                }
+            }
+        }
+    }
+
+    // ÚNICO RETURN DE LA FUNCIÓN
+    return salida;
+}
+
+void consulta_crear_equipo_pokemon(especies_pokemons vector_universo_pokemon[]){
+
+
+    //arreglos
+    EjemplarPokemon equipo_pokemon[MAX_POKEMONES_EN_EQ];
+    int vector_baraja[MAX_POKEDEX];
+
+    //llenar vector baraja
+    inicializar_barajas(vector_baraja);
+
+    // se llama a funcion que mezcla el vector
+    mezclar_baraja(vector_baraja,MAX_POKEDEX);
+
+    if (crear_equipo_pokemon(0, 0, vector_baraja, equipo_pokemon, vector_universo_pokemon)) {
+        
+        // Bloque de ÉXITO (Letras Verdes)
+        printf("\n=======================================================\n");
+        printf("             \033[1;32m[+] EQUIPO CREADO EXITOSAMENTE\033[0m            \n");
+        printf("=======================================================\n");
+        printf(" El sistema ha ensamblado un equipo equilibrado que\n");
+        printf(" cumple estrictamente con las reglas del torneo.\n");
+        printf("=======================================================\n\n");
+        
+        // (Opcional) Aquí podrías llamar a una función para imprimir 
+        // a los 6 integrantes del equipo_pokemon para que el usuario los vea.
+
+    } else {
+        
+        // Bloque de FRACASO (Letras Rojas)
+        printf("\n=======================================================\n");
+        printf("             \033[1;31m[-] ERROR AL ENSAMBLAR EQUIPO\033[0m             \n");
+        printf("=======================================================\n");
+        printf(" El algoritmo no encontro ninguna combinacion valida\n");
+        printf(" que cumpla con los limites de nivel y tipos.\n");
+        printf("=======================================================\n\n");
+        
+    }
+
+}
+
+// ======================
+// FUNCIONES DE CONSOLA =
+// ======================
 void limpiar_consola() {
 #if defined(_WIN32) || defined(_WIN64)
     // Cubre Windows en versiones de 32 y 64 bits
