@@ -5,6 +5,7 @@ int main(){
 
     int opcion;
     especies_pokemons vector_universo_pokemon[MAX_POKEDEX];
+    llenar_vector_pokemon(vector_universo_pokemon,0);
 
     do {
         limpiar_consola();

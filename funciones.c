@@ -12,7 +12,7 @@
 // ======================================
 // FUNCIONES AUXILIARES PARA LA POKEDEX =
 // ======================================
-void llenar_vector_pokemon(especies_pokemons vector[], int *i){
+void llenar_vector_pokemon(especies_pokemons vector[], int i){
     //variales
     FILE *archivo_entrada;
     char linea[150];
@@ -39,23 +39,23 @@ void llenar_vector_pokemon(especies_pokemons vector[], int *i){
             // si es un pokemon que no tiene tipo segundario entra al bloque if 
             if(sscanf(linea,"%s %s %s %i %i %i %i",id,nombre,tipo_p,&hp,&ataque,&defensa,&velocidad) == 7){
                 // llenamos el campo de tipo segundario con Ninguno para indicar que no tiene
-                strcpy(vector[*i].tipo_segundario, "Ninguno");
+                strcpy(vector[i].tipo_segundario, "Ninguno");
             }else{
                 // si no es un pokemon que tiene tipo primario y segundario
                 sscanf(linea,"%s %s %s %s %i %i %i %i",id,nombre,tipo_p,tipo_s,&hp,&ataque,&defensa,&velocidad);
-                strcpy(vector[*i].tipo_segundario,tipo_s);
+                strcpy(vector[i].tipo_segundario,tipo_s);
             }
 
-            strcpy(vector[*i].ID,id);
-            strcpy(vector[*i].Nombre,nombre);
-            strcpy(vector[*i].tipo_primario,tipo_p);
+            strcpy(vector[i].ID,id);
+            strcpy(vector[i].Nombre,nombre);
+            strcpy(vector[i].tipo_primario,tipo_p);
             
-            vector[*i].HP_b = hp;
-            vector[*i].ataque_b = ataque;
-            vector[*i].defensa_b = defensa;
-            vector[*i].velocidad_b = velocidad;
+            vector[i].HP_b = hp;
+            vector[i].ataque_b = ataque;
+            vector[i].defensa_b = defensa;
+            vector[i].velocidad_b = velocidad;
 
-            (*i)++;
+            i++;
         };
     }
     fclose(archivo_entrada);
@@ -114,72 +114,82 @@ void mostrar_estadisticas_pokemon(especies_pokemons vector[], int indice){
 
 };
 
-void buscar_pokemon_por_id(especies_pokemons vector[], int id_usuario, int cantidad){
+void buscar_vector_pokemon(especies_pokemons vector[], char string[], bool campo, int cantidad, bool *bandera, int *indice){
+
+    *bandera = true;
+    int i = 0;
     
-    //validamos que el id este en el rango
-    if((id_usuario > 0) && (id_usuario <= cantidad)){
-        mostrar_estadisticas_pokemon(vector,id_usuario - 1);
+    // buscamos hasta que se encuentre el nombre o hasta que lleguemos al final del vector
+    while(*bandera && (i < cantidad) ){
+
+        // si el campo es True osea que busca ID y encontramos el pokemon nos detenemos 
+        if( campo && (strcmp(vector[i].ID, string) == 0) ){
+            *bandera = false;
+            *indice = i;
+            
+        }else if(strcmp(vector[i].Nombre, string) == 0){
+            *bandera = false;
+            *indice = i;
+        }
+        i++;
+    }
+}
+
+void consultar_pokedex_id(especies_pokemons vector[], int cantidad) {
+
+    bool bandera;
+    int indice;
+
+    char id_buscar[8];
+    printf("\n-> Ingrese el ID (Numero) del Pokemon a buscar: ");
+    scanf("%s",id_buscar);
+
+    buscar_vector_pokemon(vector,id_buscar,true,cantidad,&bandera,&indice);
+    
+    limpiar_consola();
+
+    if(!bandera){
+        mostrar_estadisticas_pokemon(vector, atoi(vector[indice].ID) - 1);
     }else{
+
         printf("\n=======================================================\n");
         printf("            [!] ERROR: POKEMON NO ENCONTRADO           \n");
         printf("=======================================================\n");
         printf(" El numero ingresado no esta registrado en la Pokedex.\n");
         printf("=======================================================\n\n");
     }
-};
+}
 
-void buscar_pokemon_nombre(especies_pokemons vector[], char nombre_usuario[], int cantidad){
+void consultar_pokedex_nombre(especies_pokemons vector[], int cantidad) {
 
+    bool bandera;
+    int indice;
 
+    char nombre_buscar[20];
+    printf("\n-> Ingrese el nombre exacto del Pokemon: ");
+    scanf("%19s", nombre_buscar);
 
-    bool bandera = true;
-    int i = 0;
+    buscar_vector_pokemon(vector,nombre_buscar,false,MAX_POKEDEX,&bandera,&indice);
     
-    // buscamos hasta que se encuentre el nombre 
-    // o hasta que lleguemos al final del vector
-    while(bandera && (i < cantidad) ){
-        // si encontramos el pokemon nos detenemos y 
-        //llamamos al procedimiento que muestra las estadisticas
-        if(strcmp(vector[i].Nombre, nombre_usuario) == 0){
-            bandera = false;
-            mostrar_estadisticas_pokemon(vector, atoi(vector[i].ID) - 1);
-        }
-        i++;
-    }
+    limpiar_consola();
 
-    if(bandera){
+    if(!bandera){
+        mostrar_estadisticas_pokemon(vector, atoi(vector[indice].ID) - 1);
+    }else{
+
         printf("\n=======================================================\n");
         printf("            [!] ERROR: POKEMON NO ENCONTRADO           \n");
         printf("=======================================================\n");
         printf(" No existe ninguna especie registrada con ese nombre.\n");
         printf("=======================================================\n\n");
     }
-};
-
-void consultar_pokedex_id(especies_pokemons vector[], int cantidad) {
-    int id_buscar;
-    printf("\n-> Ingrese el ID (Numero) del Pokemon a buscar: ");
-    scanf("%d", &id_buscar);
-    buscar_pokemon_por_id(vector, id_buscar, cantidad);
-}
-
-void consultar_pokedex_nombre(especies_pokemons vector[], int cantidad) {
-
-
-    char nombre_buscar[20];
-    printf("\n-> Ingrese el nombre exacto del Pokemon: ");
-    scanf("%19s", nombre_buscar);
-    buscar_pokemon_nombre(vector, nombre_buscar, cantidad);
+    
 }
 
 void menu_consultar_pokedex(especies_pokemons vector_universo_pokemon[]) {
     //var
     int opcion_pokedex;
-    int indice = 0;
-    
-    //llenamos pokedex
-    llenar_vector_pokemon(vector_universo_pokemon,&indice);
-    
+ 
     limpiar_consola();
     printf("\n=======================================================\n");
     printf("                  CONSULTAR POKEDEX                    \n");
@@ -329,13 +339,13 @@ bool validad_entrenador_repetido(char id_entrenador[]){
 
 }
 
-void imprimir_vector_entrenador(){
+void imprimir_vector_entrenador(bool *bandera){
     
     //var
     FILE *archivo_entrenadores;
     char id_entrenador[8];
     char nombre_entrenador[30];
-    bool bandera = true;
+    *bandera = true;
 
     //abrimos archivo
     archivo_entrenadores = fopen("entrenadores.txt", "r");
@@ -343,7 +353,10 @@ void imprimir_vector_entrenador(){
     //validar apertura del archivo
     if(archivo_entrenadores == NULL){
         ARCHIVO_ERROR;
+        
     }else{
+
+        limpiar_consola();
         
         // Encabezado de la tabla
         printf("\n=======================================================\n");
@@ -357,11 +370,11 @@ void imprimir_vector_entrenador(){
             
             // Imprimimos los datos del entrenador alineados en columnas
             printf(" %-10s | %-30s\n", id_entrenador, nombre_entrenador);
-            bandera = false;
+            *bandera = false;
         }
 
         // Si la bandera sigue en true, el archivo existía pero no tenia datos
-        if(bandera){
+        if(*bandera){ 
             printf(" \033[1;31m[!] No hay ningun entrenador registrado todavia.\033[0m\n");
         }
 
@@ -373,21 +386,61 @@ void imprimir_vector_entrenador(){
     }
 }
 
-
 // =============================================================
 // FUNCIONES PARA CREAR EQUIPO POKEMONES (EL BACKTRACKING)     =
 // =============================================================
 
-void crear_estadisticas_ejemplar(EjemplarPokemon pokemon){
+void imprimir_equipo_pokemon(EjemplarPokemon equipo[], int cantidad) {
+    
+    // Encabezado de la tabla (Cyan)
+    printf("\n========================================================================================\n");
+    printf("                             \033[1;36mALINEACION DEL EQUIPO POKEMON\033[0m                              \n");
+    printf("========================================================================================\n");
+    
+    // Nombres de las columnas (Amarillo)
+    printf(" \033[1;33m%-3s | %-12s | %-5s | %-10s | %-10s | %-4s | %-4s | %-4s\033[0m\n", 
+           "N.", "NOMBRE", "NIVEL", "TIPO 1", "TIPO 2", "HP", "ATQ", "DEF");
+    printf("----------------------------------------------------------------------------------------\n");
 
-    // calculamos la hp-actual y el hp-maximo
-    pokemon.hp_actual = ((pokemon.hp_actual * pokemon.nivel) / 50 ) + pokemon.nivel + 10;
-    pokemon.hp_maximo = ((pokemon.hp_maximo * pokemon.nivel) / 50 ) + pokemon.nivel + 10;
+    // Ciclo para recorrer a todos los integrantes del equipo
+    for (int i = 0; i < cantidad; i++) {
+        
+        // Imprimimos los datos. Notarás que extraemos los tipos y estadisticas 
+        // viajando a traves del puntero "datos_especie->" que vinculamos en el backtracking.
+        printf(" %-3d | \033[1;32m%-12s\033[0m | %-5d | %-10s | %-10s | %-4d | %-4d | %-4d\n",
+               i + 1,                                       
+               equipo[i].nombre,                            // Nombre del Ejemplar (En color verde)
+               equipo[i].nivel,                             
+               equipo[i].datos_especie->tipo_primario,     
+               equipo[i].datos_especie->tipo_segundario,    
+               equipo[i].hp_actual,                          
+               equipo[i].ataque,           
+               equipo[i].defensa);         
+    }
+    
+    // Cierre de la tabla
+    printf("========================================================================================\n\n");
+}
 
-    // calculamos Ataque, Defensa y Velocidad
-    pokemon.ataque = ( (pokemon.ataque * pokemon.nivel) / 50) + 5;
-    pokemon.defensa = ( (pokemon.defensa * pokemon.nivel) / 50) + 5;
-    pokemon.velocidad = ( (pokemon.velocidad * pokemon.nivel) / 50) + 5;
+void crear_estadisticas_ejemplares(EjemplarPokemon pokemon[], int cantidad){
+
+    int resultado_operacion;
+
+    for(int i = 0; i < cantidad; i++){
+
+        // calculamos la hp-actual y el hp-maximo
+        resultado_operacion = ((pokemon[i].datos_especie->HP_b * pokemon[i].nivel) / 50 ) + pokemon[i].nivel + 10;
+        pokemon[i].hp_actual = resultado_operacion;
+        pokemon[i].hp_maximo = resultado_operacion;
+
+        // calculamos Ataque, Defensa y Velocidad
+        pokemon[i].ataque = ( (pokemon[i].datos_especie->ataque_b * pokemon[i].nivel) / 50) + 5;
+        pokemon[i].defensa = ( (pokemon[i].datos_especie->defensa_b * pokemon[i].nivel) / 50) + 5;
+        pokemon[i].velocidad = ( (pokemon[i].datos_especie->velocidad_b * pokemon[i].nivel) / 50) + 5;
+
+    }
+
+
 
 };
 // Verifica si un Pokemon ya fue metido en el arreglo del equipo
@@ -524,15 +577,21 @@ void consulta_crear_equipo_pokemon(especies_pokemons vector_universo_pokemon[]){
     //arreglos
     EjemplarPokemon equipo_pokemon[MAX_POKEMONES_EN_EQ];
     int vector_baraja[MAX_POKEDEX];
-
+    bool bandera;
+    
     //llenar vector baraja
     inicializar_barajas(vector_baraja);
-
     // se llama a funcion que mezcla el vector
     mezclar_baraja(vector_baraja,MAX_POKEDEX);
 
+    imprimir_vector_entrenador(&bandera);
+
+    limpiar_consola();
+
     if (crear_equipo_pokemon(0, 0, vector_baraja, equipo_pokemon, vector_universo_pokemon)) {
-        
+
+        crear_estadisticas_ejemplares(equipo_pokemon,MAX_POKEMONES_EN_EQ);
+
         // Bloque de ÉXITO (Letras Verdes)
         printf("\n=======================================================\n");
         printf("             \033[1;32m[+] EQUIPO CREADO EXITOSAMENTE\033[0m            \n");
@@ -540,9 +599,6 @@ void consulta_crear_equipo_pokemon(especies_pokemons vector_universo_pokemon[]){
         printf(" El sistema ha ensamblado un equipo equilibrado que\n");
         printf(" cumple estrictamente con las reglas del torneo.\n");
         printf("=======================================================\n\n");
-        
-        // (Opcional) Aquí podrías llamar a una función para imprimir 
-        // a los 6 integrantes del equipo_pokemon para que el usuario los vea.
 
     } else {
         

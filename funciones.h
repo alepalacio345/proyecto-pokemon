@@ -70,7 +70,7 @@ typedef struct {
  * @param vector Arreglo global de tipo especies_pokemons.
  * @param i Puntero a un entero que controla la cantidad de especies leídas.
  */
-void llenar_vector_pokemon(especies_pokemons vector[], int *i);
+void llenar_vector_pokemon(especies_pokemons vector[], int i);
 
 /**
  * @brief Imprime en pantalla una tabla con todos los Pokémon registrados[cite: 17].
@@ -78,23 +78,6 @@ void llenar_vector_pokemon(especies_pokemons vector[], int *i);
  * @param cantidad Número entero que indica el total de especies en el arreglo.
  */
 void imprimir_vector_pokemon(especies_pokemons vector[], int cantidad);
-
-/**
- * @brief Busca en la Pokédex a través de un número de identificación[cite: 17].
- * @param vector Arreglo global de tipo especies_pokemons.
- * @param id_usuario Entero con el ID solicitado.
- * @param cantidad Número total de especies registradas en el sistema.
- */
-void buscar_pokemon_por_id(especies_pokemons vector[], int id_usuario, int cantidad);
-
-/**
- * @brief Busca en la Pokédex comparando cadenas de texto[cite: 17].
- * @param vector Arreglo global de tipo especies_pokemons.
- * @param nombre_usuario Cadena de caracteres que contiene el nombre exacto a buscar.
- * @param cantidad Número total de especies registradas en el sistema.
- */
-void buscar_pokemon_nombre(especies_pokemons vector[], char nombre_usuario[], int cantidad);
-
 
 /**
  * @brief Registra a los entrenadores del torneo.
@@ -135,7 +118,7 @@ void limpiar_consola();
 /**
  * @brief Submenú interactivo para gestionar las opciones de consulta de la Pokédex.
  */
-void menu_consultar_pokedex();
+void menu_consultar_pokedex(especies_pokemons vector_universo_pokemon[]);
 
 /**
  * @brief Procedimiento envoltorio que solicita un ID por teclado y ejecuta la búsqueda.
@@ -159,9 +142,13 @@ bool validar_variedad_tipos(EjemplarPokemon equipo[], int cantidad);
 
 bool crear_equipo_pokemon(int integrantes_equipo, int nivel_actual_eq, int baraja[], EjemplarPokemon equipo_pokemon[],especies_pokemons vector_universo_pokemon[]);
 
-void crear_estadisticas_ejemplar(EjemplarPokemon pokemon);
+void crear_estadisticas_ejemplares(EjemplarPokemon pokemon[], int cantidad);
 
 void imprimir_vector_entrenador();
+
+void imprimir_equipo_pokemon(EjemplarPokemon equipo[], int cantidad);
+
+void buscar_vector_pokemon(especies_pokemons vector[], char string[], bool campo, int cantidad, bool *bandera, int *indice);
 
 /**
  * @brief se inicializa un vector de numeros enteros
