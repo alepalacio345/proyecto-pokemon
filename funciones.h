@@ -63,6 +63,7 @@ typedef struct {
     int empates;
     int derrotas;
     int puntuacion;
+    char asignaciom_equipo[6];
 } Entrenador;
 
 /**
@@ -134,7 +135,7 @@ void consultar_pokedex_id(especies_pokemons vector[], int cantidad);
  */
 void consultar_pokedex_nombre(especies_pokemons vector[], int cantidad);
 
-void consulta_crear_equipo_pokemon(especies_pokemons vector_universo_pokemon[]);
+void consulta_crear_equipo_pokemon(especies_pokemons vector_universo_pokemon[], Entrenador vector_entrenadores[], int cantidad_entrenadores);
 
 bool pokemon_ya_esta_en_equipo(EjemplarPokemon equipo[], int cantidad, char nombre[]);
 
@@ -149,6 +150,8 @@ void imprimir_vector_entrenador();
 void imprimir_equipo_pokemon(EjemplarPokemon equipo[], int cantidad);
 
 void buscar_vector_pokemon(especies_pokemons vector[], char string[], bool campo, int cantidad, bool *bandera, int *indice);
+
+void llenar_y_guardar_entrenadores(Entrenador vector[], int *i,char operacion[7]);
 
 /**
  * @brief se inicializa un vector de numeros enteros

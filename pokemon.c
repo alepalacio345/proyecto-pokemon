@@ -4,8 +4,11 @@
 int main(){
 
     int opcion;
+    int cantidad_entrenadores = 0;
     especies_pokemons vector_universo_pokemon[MAX_POKEDEX];
+    Entrenador vector_entrenadores_torneo[MAX_ENTRENADORES];
     llenar_vector_pokemon(vector_universo_pokemon,0);
+    llenar_y_guardar_entrenadores(vector_entrenadores_torneo,&cantidad_entrenadores,"llenar");
 
     do {
         limpiar_consola();
@@ -41,7 +44,7 @@ int main(){
                 registrar_entrenador();
                 break;
             case 3:
-                consulta_crear_equipo_pokemon(vector_universo_pokemon);
+                consulta_crear_equipo_pokemon(vector_universo_pokemon,vector_entrenadores_torneo,cantidad_entrenadores);
                 break;
             case 4:
                 imprimir_vector_entrenador();

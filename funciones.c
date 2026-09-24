@@ -282,7 +282,7 @@ void registrar_entrenador(){
             if(archivo_entrenadores == NULL){
                 ARCHIVO_ERROR;
             }else{
-                fprintf(archivo_entrenadores,"%s %s\n",info_entrenador.id_entrenador, info_entrenador.nombre);
+                fprintf(archivo_entrenadores,"%s %s %d %d %d %d %d %s\n",info_entrenador.id_entrenador, info_entrenador.nombre,info_entrenador.cantidad_pokemon,info_entrenador.victorias,info_entrenador.empates,info_entrenador.derrotas,info_entrenador.puntuacion,"false");
 
                 printf("=======================================================\n");
                 printf(" Entrenador '%s' \033[1;32m registrado exitosamente.\033[0m \n", info_entrenador.nombre);
@@ -339,13 +339,12 @@ bool validad_entrenador_repetido(char id_entrenador[]){
 
 }
 
-void imprimir_vector_entrenador(bool *bandera){
+void imprimir_vector_entrenador(){
     
     //var
     FILE *archivo_entrenadores;
     char id_entrenador[8];
     char nombre_entrenador[30];
-    *bandera = true;
 
     //abrimos archivo
     archivo_entrenadores = fopen("entrenadores.txt", "r");
@@ -370,12 +369,6 @@ void imprimir_vector_entrenador(bool *bandera){
             
             // Imprimimos los datos del entrenador alineados en columnas
             printf(" %-10s | %-30s\n", id_entrenador, nombre_entrenador);
-            *bandera = false;
-        }
-
-        // Si la bandera sigue en true, el archivo existía pero no tenia datos
-        if(*bandera){ 
-            printf(" \033[1;31m[!] No hay ningun entrenador registrado todavia.\033[0m\n");
         }
 
         // Cierre de la tabla
@@ -386,9 +379,142 @@ void imprimir_vector_entrenador(bool *bandera){
     }
 }
 
+void mostrar_seleccion_entrenadores(Entrenador vector[], int cantidad) {
+    
+    limpiar_consola();
+
+    // Encabezado de la tabla (Color Cyan)
+    printf("\n=================================================================\n");
+    printf("           \033[1;36mDISPONIBILIDAD DE ENTRENADORES Y EQUIPOS\033[0m            \n");
+    printf("=================================================================\n");
+    
+    // Nombres de las columnas (Color Amarillo)
+    printf(" \033[1;33m%-10s | %-25s | %-15s\033[0m\n", "ID", "NOMBRE", "ESTADO DEL EQUIPO");
+    printf("-----------------------------------------------------------------\n");
+
+    // Recorremos el vector que ya esta cargado en la memoria RAM
+    for (int i = 0; i < cantidad; i++) {
+
+        // Comparamos el campo de tu estructura para decidir el color
+        if (strcmp(vector[i].asignaciom_equipo, "true") == 0) {
+            // Entrenador que YA tiene equipo asignado (Verde)
+            printf(" %-10s | %-25s | \033[1;32m[+] Con Equipo\033[0m\n",vector[i].id_entrenador, vector[i].nombre);
+                   
+        } else {
+            // Entrenador que NO tiene equipo todavia (Rojo)
+            printf(" %-10s | %-25s | \033[1;31m[-] Sin Equipo\033[0m\n",vector[i].id_entrenador, vector[i].nombre);
+        }
+    }
+    
+    printf("=================================================================\n");
+}
+
+void llenar_y_guardar_entrenadores(Entrenador vector[], int *i, char operacion[7]){
+    
+    FILE *entrada_archivo;
+    char id[8];
+    char nombre[30];
+    char asignacion[6];
+
+    // abrir archivo
+    entrada_archivo = fopen("entrenadores.txt", "r+");
+
+    //validar apertura
+    if(entrada_archivo == NULL){
+        ARCHIVO_ERROR;
+    }else{
+
+        if(strcmp(operacion,"llenar") == 0){
+
+            while(fscanf(entrada_archivo,"%s %s %d %d %d %d %d %s\n",id,nombre,&vector[*i].cantidad_pokemon,&vector[*i].victorias,&vector[*i].empates,&vector[*i].derrotas,&vector[*i].puntuacion,asignacion) == 8){
+                strcpy(vector[*i].id_entrenador, id);
+                strcpy(vector[*i].nombre, nombre);
+                strcpy(vector[*i].asignaciom_equipo, asignacion);
+                (*i)++;
+            }
+
+        }else{
+            
+            for(int j = 0; j < *i; j++){
+                fprintf(entrada_archivo,"%s %s %d %d %d %d %d %s\n",vector[j].id_entrenador,vector[j].nombre,vector[j].cantidad_pokemon,vector[j].victorias,vector[j].empates,vector[j].derrotas,vector[j].puntuacion,vector[j].asignaciom_equipo);
+            }
+        }
+
+
+
+        fclose(entrada_archivo);
+    }
+}
+
+void buscar_entrenador(Entrenador vector[], char id[], int cantidad, bool *bandera, int *indice){
+
+    int i = 0;
+    *bandera = true;
+    // buscamos hasta que se encuentre el nombre o hasta que lleguemos al final del vector
+    while(*bandera && (i < cantidad) ){
+
+        // si el campo es True osea que busca ID y encontramos el pokemon nos detenemos 
+        if((strcmp(vector[i].id_entrenador, id) == 0) ){
+            *bandera = false;
+            *indice = i;
+        }
+
+        i++;
+    }
+
+}
 // =============================================================
 // FUNCIONES PARA CREAR EQUIPO POKEMONES (EL BACKTRACKING)     =
 // =============================================================
+
+void entregar_y_guardar_equipo_pokemon(Entrenador entrenador[],int indice, EjemplarPokemon equipo_pokemon[]){
+
+    //var
+    FILE *archivo_entreda;
+
+    //abrir archivo
+    archivo_entreda = fopen("equipos_pokemon.txt","a+");
+
+    //validamos apertura del archivo
+    if(archivo_entreda == NULL){
+        ARCHIVO_ERROR;
+    }else{
+
+        fprintf(archivo_entreda,"%s %s\n",entrenador[indice].id_entrenador, entrenador[indice].nombre);
+        //cantidad de pokemones actuales
+        entrenador[indice].cantidad_pokemon = 6;
+
+        for(int i = 0; i < MAX_POKEMONES_EN_EQ; i++){
+            strcpy(entrenador[indice].equipo[i].id_ejemplar,equipo_pokemon[i].id_ejemplar);
+            strcpy(entrenador[indice].equipo[i].nombre,equipo_pokemon[i].nombre);
+            entrenador[indice].equipo[i].ataque = equipo_pokemon[i].ataque;
+            entrenador[indice].equipo[i].defensa = equipo_pokemon[i].defensa;
+            entrenador[indice].equipo[i].velocidad = equipo_pokemon[i].velocidad;
+            entrenador[indice].equipo[i].estado = equipo_pokemon[i].estado;
+            entrenador[indice].equipo[i].experiencia = equipo_pokemon[i].experiencia;
+            entrenador[indice].equipo[i].hp_actual = equipo_pokemon[i].hp_actual;
+            entrenador[indice].equipo[i].hp_maximo = equipo_pokemon[i].hp_maximo;
+            entrenador[indice].equipo[i].nivel = equipo_pokemon[i].nivel;
+            entrenador[indice].equipo[i].datos_especie = equipo_pokemon[i].datos_especie;
+
+            fprintf(archivo_entreda, "%s %s %d %d %d %d %d %d %d %d\n", 
+                    equipo_pokemon[i].id_ejemplar, 
+                    equipo_pokemon[i].nombre,
+                    equipo_pokemon[i].nivel,
+                    equipo_pokemon[i].hp_actual,
+                    equipo_pokemon[i].hp_maximo,
+                    equipo_pokemon[i].ataque,
+                    equipo_pokemon[i].defensa,
+                    equipo_pokemon[i].velocidad,
+                    equipo_pokemon[i].experiencia,
+                    equipo_pokemon[i].estado);
+        }
+
+        fclose(archivo_entreda);
+    }
+
+    
+}
 
 void imprimir_equipo_pokemon(EjemplarPokemon equipo[], int cantidad) {
     
@@ -571,46 +697,59 @@ bool crear_equipo_pokemon(int integrantes_equipo, int nivel_actual_eq, int baraj
     return salida;
 }
 
-void consulta_crear_equipo_pokemon(especies_pokemons vector_universo_pokemon[]){
+void consulta_crear_equipo_pokemon(especies_pokemons vector_universo_pokemon[], Entrenador vector_entrenadores[], int cantidad_entrenadores){
 
 
     //arreglos
     EjemplarPokemon equipo_pokemon[MAX_POKEMONES_EN_EQ];
     int vector_baraja[MAX_POKEDEX];
-    bool bandera;
-    
-    //llenar vector baraja
-    inicializar_barajas(vector_baraja);
-    // se llama a funcion que mezcla el vector
-    mezclar_baraja(vector_baraja,MAX_POKEDEX);
+    bool existe_entrenador;
+    char nombre_elegido[30];
+    int indice;
 
-    imprimir_vector_entrenador(&bandera);
+    mostrar_seleccion_entrenadores(vector_entrenadores,cantidad_entrenadores);
+    printf("\n -> Ingrese el nombre del entrenador para crearle un equipo: ");
+    scanf("%s", nombre_elegido);
 
-    limpiar_consola();
+    buscar_entrenador(vector_entrenadores,nombre_elegido,cantidad_entrenadores,&existe_entrenador,&indice);
+    // si existe el entrenador 
+    if( (!existe_entrenador) ){
 
-    if (crear_equipo_pokemon(0, 0, vector_baraja, equipo_pokemon, vector_universo_pokemon)) {
+        //llenar vector baraja
+        inicializar_barajas(vector_baraja);
+        // se llama a funcion que mezcla el vector
+        mezclar_baraja(vector_baraja,MAX_POKEDEX);
 
-        crear_estadisticas_ejemplares(equipo_pokemon,MAX_POKEMONES_EN_EQ);
+        limpiar_consola();
 
-        // Bloque de ÉXITO (Letras Verdes)
-        printf("\n=======================================================\n");
-        printf("             \033[1;32m[+] EQUIPO CREADO EXITOSAMENTE\033[0m            \n");
-        printf("=======================================================\n");
-        printf(" El sistema ha ensamblado un equipo equilibrado que\n");
-        printf(" cumple estrictamente con las reglas del torneo.\n");
-        printf("=======================================================\n\n");
+        if (crear_equipo_pokemon(0, 0, vector_baraja, equipo_pokemon, vector_universo_pokemon)) {
 
-    } else {
-        
-        // Bloque de FRACASO (Letras Rojas)
-        printf("\n=======================================================\n");
-        printf("             \033[1;31m[-] ERROR AL ENSAMBLAR EQUIPO\033[0m             \n");
-        printf("=======================================================\n");
-        printf(" El algoritmo no encontro ninguna combinacion valida\n");
-        printf(" que cumpla con los limites de nivel y tipos.\n");
-        printf("=======================================================\n\n");
-        
+            crear_estadisticas_ejemplares(equipo_pokemon,MAX_POKEMONES_EN_EQ);
+            //le vamos sus pokemones al entrenador
+            
+            // Bloque de ÉXITO (Letras Verdes)
+            printf("\n=======================================================\n");
+            printf("             \033[1;32m[+] EQUIPO CREADO EXITOSAMENTE\033[0m            \n");
+            printf("=======================================================\n");
+            printf(" El sistema ha ensamblado un equipo equilibrado que\n");
+            printf(" cumple estrictamente con las reglas del torneo.\n");
+            printf("=======================================================\n\n");
+
+        } else {
+            
+            // Bloque de FRACASO (Letras Rojas)
+            printf("\n=======================================================\n");
+            printf("             \033[1;31m[-] ERROR AL ENSAMBLAR EQUIPO\033[0m             \n");
+            printf("=======================================================\n");
+            printf(" El algoritmo no encontro ninguna combinacion valida\n");
+            printf(" que cumpla con los limites de nivel y tipos.\n");
+            printf("=======================================================\n\n");
+            
+        }
+
     }
+    
+    
 
 }
 
