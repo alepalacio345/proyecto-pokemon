@@ -149,3 +149,4 @@
 149 Dragonite Dragon Volador 91 134 95 80
 150 Mewtwo Psiquico 106 110 90 130
 151 Mew Psiquico 100 100 100 100
+152 pedro Psiquico 300 400 500 100

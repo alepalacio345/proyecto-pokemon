@@ -7,8 +7,8 @@ int main(){
     int cantidad_entrenadores = 0;
     especies_pokemons vector_universo_pokemon[MAX_POKEDEX];
     Entrenador vector_entrenadores_torneo[MAX_ENTRENADORES];
-    llenar_vector_pokemon(vector_universo_pokemon,0);
-    llenar_y_guardar_entrenadores(vector_entrenadores_torneo,&cantidad_entrenadores,"llenar");
+    llenar_vector_pokemon(vector_universo_pokemon);
+    llenar_vector_entrenador(vector_entrenadores_torneo,&cantidad_entrenadores);
 
     do {
         limpiar_consola();
@@ -31,7 +31,8 @@ int main(){
         printf("  9. Consultar historial de combates\n");
         printf(" 10. Mostrar resultados del torneo\n");
         printf(" 11. Mostrar campeon\n");
-        printf(" 12. Salir\n");
+        printf(" 12. Recargar base de datos\n");
+        printf(" 13. Salir\n");
         printf(" ==================================================================== \n");
         printf(" -> Seleccione una opcion: ");
         scanf("%d", &opcion);
@@ -41,13 +42,13 @@ int main(){
                 menu_consultar_pokedex(vector_universo_pokemon);
                 break;
             case 2:
-                registrar_entrenador();
+                registrar_entrenador(vector_entrenadores_torneo, &cantidad_entrenadores);
                 break;
             case 3:
                 consulta_crear_equipo_pokemon(vector_universo_pokemon,vector_entrenadores_torneo,cantidad_entrenadores);
                 break;
             case 4:
-                imprimir_vector_entrenador();
+                imprimir_vector_entrenador(vector_entrenadores_torneo,cantidad_entrenadores);
                 break;
             case 5:
             case 6:
@@ -60,6 +61,13 @@ int main(){
                 printf("\n[!] Este modulo se encuentra en desarrollo...\n");
                 break;
             case 12:
+                cantidad_entrenadores = 0;
+                llenar_vector_entrenador(vector_entrenadores_torneo,&cantidad_entrenadores);
+                printf("\n=======================================================\n");
+                printf("      \033[1;32m[+] BASE DE DATOS RECARGADA EXITOSAMENTE\033[0m         \n");
+                printf("=======================================================\n");
+                break;
+            case 13:
                 printf("\nSaliendo del sistema del Gran Torneo. Hasta luego!\n");
                 break;
             default:
@@ -69,13 +77,13 @@ int main(){
 
         // Sistema de pausa automática para que el usuario pueda leer los resultados
         // antes de que el ciclo do-while borre la pantalla.
-        if (opcion != 12) {
+        if (opcion != 13) {
             printf("\nPresione ENTER para continuar...");
             while(getchar() != '\n'); // Limpia cualquier residuo (como otros enters) en el buffer
             getchar();                // Espera a que el usuario presione la tecla
         }
 
-    } while (opcion != 12);
+    } while (opcion != 13);
 
 
 
