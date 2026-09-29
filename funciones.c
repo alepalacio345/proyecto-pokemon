@@ -60,9 +60,10 @@ void llenar_vector_pokemon(especies_pokemons vector[]){
             vector[i].defensa_b = defensa;
             vector[i].velocidad_b = velocidad;
             i++;
-        };
+        }
+        fclose(archivo_entrada);
     }
-    fclose(archivo_entrada);
+    
 }
 
 void imprimir_vector_pokemon(especies_pokemons vector[], int cantidad) {
@@ -357,6 +358,7 @@ bool pokemon_ya_esta_en_equipo(EjemplarPokemon equipo[], int cantidad, char nomb
 bool validar_variedad_tipos(EjemplarPokemon equipo[], int cantidad) {
     char tipos_unicos[MAX_POKEMONES_EN_EQ][15];
     int contador_tipos = 0;
+    bool resultado;
 
     for (int i = 0; i < cantidad; i++) {
         bool tipo_repetido = false;
@@ -373,10 +375,12 @@ bool validar_variedad_tipos(EjemplarPokemon equipo[], int cantidad) {
     }
 
     if(contador_tipos >= 4){
-        return true;
+        resultado = true;
     } else {
-        return false;
+        resultado = false;
     }
+
+    return resultado;
 }
 
 bool crear_equipo_pokemon(int integrantes_equipo, int nivel_actual_eq, int baraja[], EjemplarPokemon equipo_pokemon[], especies_pokemons vector_universo_pokemon[]) {
@@ -497,29 +501,31 @@ void consulta_crear_equipo_pokemon(especies_pokemons vector_universo_pokemon[], 
     if(encontrado){
         if(strcmp(vector_entrenadores[indice].asignaciom_equipo, "true") == 0){
             printf("\n\033[1;33m[!] ADVERTENCIA:\033[0m El entrenador '%s' ya tiene un equipo asignado.\n", vector_entrenadores[indice].nombre);
-            return;
-        }
-
-        inicializar_barajas(vector_baraja);
-        mezclar_baraja(vector_baraja, MAX_POKEDEX);
-        limpiar_consola();
-
-        if (crear_equipo_pokemon(0, 0, vector_baraja, equipo_pokemon, vector_universo_pokemon)) {
-            crear_estadisticas_ejemplares(equipo_pokemon, MAX_POKEMONES_EN_EQ);
-            guardar_equipo_pokemon(vector_entrenadores, indice, equipo_pokemon);
-            strcpy(vector_entrenadores[indice].asignaciom_equipo, "true"); 
-            guardar_vector_entrenador(vector_entrenadores, cantidad_entrenadores);
+        }else{
             
-            printf("\n======================================================================================\n");
-            printf("                            \033[1;32m[+] EQUIPO CREADO EXITOSAMENTE\033[0m                        \n");
-            printf("=======================================================================================\n");
-            imprimir_equipo_pokemon(vector_entrenadores[indice].equipo, MAX_POKEMONES_EN_EQ);
-        } else {
-            printf("\n=======================================================\n");
-            printf("             \033[1;31m[-] ERROR AL ENSAMBLAR EQUIPO\033[0m             \n");
-            printf("=======================================================\n\n");
+            inicializar_barajas(vector_baraja);
+            mezclar_baraja(vector_baraja, MAX_POKEDEX);
+            limpiar_consola();
+
+            if (crear_equipo_pokemon(0, 0, vector_baraja, equipo_pokemon, vector_universo_pokemon)) {
+                crear_estadisticas_ejemplares(equipo_pokemon, MAX_POKEMONES_EN_EQ);
+                guardar_equipo_pokemon(vector_entrenadores, indice, equipo_pokemon);
+                strcpy(vector_entrenadores[indice].asignaciom_equipo, "true"); 
+                guardar_vector_entrenador(vector_entrenadores, cantidad_entrenadores);
+                
+                printf("\n======================================================================================\n");
+                printf("                            \033[1;32m[+] EQUIPO CREADO EXITOSAMENTE\033[0m                        \n");
+                printf("=======================================================================================\n");
+                imprimir_equipo_pokemon(vector_entrenadores[indice].equipo, MAX_POKEMONES_EN_EQ);
+            } else {
+                printf("\n=======================================================\n");
+                printf("             \033[1;31m[-] ERROR AL ENSAMBLAR EQUIPO\033[0m             \n");
+                printf("=======================================================\n\n");
+            }
+
         }
-    } else {
+
+    }else{
         printf("\n=======================================================\n");
         printf("          \033[1;31m[!] ERROR: ENTRENADOR NO ENCONTRADO\033[0m          \n");
         printf("=======================================================\n");
