@@ -252,4 +252,14 @@ void imprimir_equipo_pokemon(EjemplarPokemon equipo[], int cantidad);
  */
 void consulta_crear_equipo_pokemon(especies_pokemons vector_universo_pokemon[], Entrenador vector_entrenadores[], int cantidad_entrenadores);
 
+/**
+ * @brief Carga los equipos desde el disco duro y los asigna a la memoria RAM de cada entrenador.
+ * @param vector_entrenadores Arreglo global de Entrenadores.
+ * @param cantidad_entrenadores Total de entrenadores en RAM.
+ * @param pokedex Arreglo maestro de la Pokedex para reconectar los punteros de especie.
+ */
+void cargar_equipos_pokemon(Entrenador vector_entrenadores[], int cantidad_entrenadores, especies_pokemons pokedex[]);
+
+void consultar_equipos_creasdos(Entrenador vector_entrenadores[], int cantidad_entrenadores);
+
 #endif

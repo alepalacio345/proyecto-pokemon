@@ -7,8 +7,10 @@ int main(){
     int cantidad_entrenadores = 0;
     especies_pokemons vector_universo_pokemon[MAX_POKEDEX];
     Entrenador vector_entrenadores_torneo[MAX_ENTRENADORES];
+
     llenar_vector_pokemon(vector_universo_pokemon);
     llenar_vector_entrenador(vector_entrenadores_torneo,&cantidad_entrenadores);
+    cargar_equipos_pokemon(vector_entrenadores_torneo, cantidad_entrenadores, vector_universo_pokemon);
 
     do {
         limpiar_consola();
@@ -51,6 +53,8 @@ int main(){
                 imprimir_vector_entrenador(vector_entrenadores_torneo,cantidad_entrenadores);
                 break;
             case 5:
+                consultar_equipos_creasdos(vector_entrenadores_torneo,cantidad_entrenadores);
+                break;
             case 6:
             case 7:
             case 8:
@@ -63,6 +67,7 @@ int main(){
             case 12:
                 cantidad_entrenadores = 0;
                 llenar_vector_entrenador(vector_entrenadores_torneo,&cantidad_entrenadores);
+                cargar_equipos_pokemon(vector_entrenadores_torneo, cantidad_entrenadores, vector_universo_pokemon);
                 printf("\n=======================================================\n");
                 printf("      \033[1;32m[+] BASE DE DATOS RECARGADA EXITOSAMENTE\033[0m         \n");
                 printf("=======================================================\n");
