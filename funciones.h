@@ -10,6 +10,17 @@
 #define MAX_ENTRENADORES 32
 #define ARCHIVO_ERROR printf("Error al abrir el archivo\n")
 #define MAX_POKEDEX 151
+#define CANTIDAD_TIPOS 18
+
+// =========================================================================
+// DEFINICIONES DE TIPOS PARA COMBATES
+// =========================================================================
+// Definimos los nombres de los 18 tipos de pokemon
+extern const char* NOMBRES_TIPOS[CANTIDAD_TIPOS];
+
+// Declaramos la Matriz 2D de Efectividad (Filas: Atacante, Columnas: Defensor)
+extern const float TABLA_EFECTIVIDAD[CANTIDAD_TIPOS][CANTIDAD_TIPOS];
+
 
 // =========================================================================
 // ESTRUCTURAS DE DATOS
@@ -251,5 +262,31 @@ void imprimir_equipo_pokemon(EjemplarPokemon equipo[], int cantidad);
  * @param cantidad_entrenadores Total actual de entrenadores.
  */
 void consulta_crear_equipo_pokemon(especies_pokemons vector_universo_pokemon[], Entrenador vector_entrenadores[], int cantidad_entrenadores);
+
+/**
+ * @brief Carga los equipos desde el disco duro y los asigna a la memoria RAM de cada entrenador.
+ * @param vector_entrenadores Arreglo global de Entrenadores.
+ * @param cantidad_entrenadores Total de entrenadores en RAM.
+ * @param pokedex Arreglo maestro de la Pokedex para reconectar los punteros de especie.
+ */
+void cargar_equipos_pokemon(Entrenador vector_entrenadores[], int cantidad_entrenadores, especies_pokemons pokedex[]);
+
+/**
+ * @brief Recibe el nombre de un tipo en texto y devuelve su indice numerico (0-17).
+ * @param nombre_tipo Cadena de caracteres con el nombre del tipo (ej. "Fuego").
+ * @return int El indice de la matriz. Devuelve -1 si hay un error o tipo vacio.
+ */
+int obtener_indice_tipo(char nombre_tipo[]);
+
+/**
+ * @brief Calcula el multiplicador de daño entre un ataque y un pokemon defensor.
+ * @param tipo_atacante El tipo primario del atacante.
+ * @param tipo_defensor_1 El tipo primario del defensor.
+ * @param tipo_defensor_2 El tipo secundario del defensor (puede ser "Ninguno").
+ * @return float El multiplicador final (ej. 1.0, 2.0, 0.25).
+ */
+float calcular_multiplicador_tipos(char tipo_atacante[], char tipo_defensor_1[], char tipo_defensor_2[]);
+
+void consultar_equipos_creasdos(Entrenador vector_entrenadores[], int cantidad_entrenadores);
 
 #endif

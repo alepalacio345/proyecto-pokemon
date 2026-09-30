@@ -10,6 +10,39 @@
 #include <ctype.h>
 
 // =========================================================================
+// MÓDULO 5: MOTOR DE COMBATE Y EFECTIVIDAD DE TIPOS
+// =========================================================================
+
+// Arreglo de apoyo para el Traductor
+const char* NOMBRES_TIPOS[CANTIDAD_TIPOS] = {
+    "Normal", "Fuego", "Agua", "Planta", "Electrico", "Hielo", 
+    "Lucha", "Veneno", "Tierra", "Volador", "Psiquico", "Bicho", 
+    "Roca", "Fantasma", "Dragon", "Siniestro", "Acero", "Hada"
+};
+
+// La Gran Matriz de Multiplicadores Oficial de Nintendo (Generación 6+)
+const float TABLA_EFECTIVIDAD[CANTIDAD_TIPOS][CANTIDAD_TIPOS] = {
+    /*            Normal Fuego  Agua   Planta Electr Hielo  Lucha  Veneno Tierra Volad  Psiqui Bicho  Roca   Fantas Dragon Sinies Acero  Hada */
+    /* Normal   */ { 1.0,  1.0,  1.0,  1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   0.5,   0.0,   1.0,   1.0,   0.5,   1.0 },
+    /* Fuego    */ { 1.0,  0.5,  0.5,  2.0,   1.0,   2.0,   1.0,   1.0,   1.0,   1.0,   1.0,   2.0,   0.5,   1.0,   0.5,   1.0,   2.0,   1.0 },
+    /* Agua     */ { 1.0,  2.0,  0.5,  0.5,   1.0,   1.0,   1.0,   1.0,   2.0,   1.0,   1.0,   1.0,   2.0,   1.0,   0.5,   1.0,   1.0,   1.0 },
+    /* Planta   */ { 1.0,  0.5,  2.0,  0.5,   1.0,   1.0,   1.0,   0.5,   2.0,   0.5,   1.0,   0.5,   2.0,   1.0,   0.5,   1.0,   0.5,   1.0 },
+    /* Electric */ { 1.0,  1.0,  2.0,  0.5,   0.5,   1.0,   1.0,   1.0,   0.0,   2.0,   1.0,   1.0,   1.0,   1.0,   0.5,   1.0,   1.0,   1.0 },
+    /* Hielo    */ { 1.0,  0.5,  0.5,  2.0,   1.0,   0.5,   1.0,   1.0,   2.0,   2.0,   1.0,   1.0,   1.0,   1.0,   2.0,   1.0,   0.5,   1.0 },
+    /* Lucha    */ { 2.0,  1.0,  1.0,  1.0,   1.0,   2.0,   1.0,   0.5,   1.0,   0.5,   0.5,   0.5,   2.0,   0.0,   1.0,   2.0,   2.0,   0.5 },
+    /* Veneno   */ { 1.0,  1.0,  1.0,  2.0,   1.0,   1.0,   1.0,   0.5,   0.5,   1.0,   1.0,   1.0,   0.5,   0.5,   1.0,   1.0,   0.0,   2.0 },
+    /* Tierra   */ { 1.0,  2.0,  1.0,  0.5,   2.0,   1.0,   1.0,   2.0,   1.0,   0.0,   1.0,   0.5,   2.0,   1.0,   1.0,   1.0,   2.0,   1.0 },
+    /* Volador  */ { 1.0,  1.0,  1.0,  2.0,   0.5,   1.0,   2.0,   1.0,   1.0,   1.0,   1.0,   2.0,   0.5,   1.0,   1.0,   1.0,   0.5,   1.0 },
+    /* Psiquico */ { 1.0,  1.0,  1.0,  1.0,   1.0,   1.0,   2.0,   2.0,   1.0,   1.0,   0.5,   1.0,   1.0,   1.0,   1.0,   0.0,   0.5,   1.0 },
+    /* Bicho    */ { 1.0,  0.5,  1.0,  2.0,   1.0,   1.0,   0.5,   0.5,   1.0,   0.5,   2.0,   1.0,   1.0,   0.5,   1.0,   2.0,   0.5,   0.5 },
+    /* Roca     */ { 1.0,  2.0,  1.0,  1.0,   1.0,   2.0,   0.5,   1.0,   0.5,   2.0,   1.0,   2.0,   1.0,   1.0,   1.0,   1.0,   0.5,   1.0 },
+    /* Fantasma */ { 0.0,  1.0,  1.0,  1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   2.0,   1.0,   1.0,   2.0,   1.0,   0.5,   1.0,   1.0 },
+    /* Dragon   */ { 1.0,  1.0,  1.0,  1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   2.0,   1.0,   0.5,   0.0 },
+    /* Siniestr */ { 1.0,  1.0,  1.0,  1.0,   1.0,   1.0,   0.5,   1.0,   1.0,   1.0,   2.0,   1.0,   1.0,   2.0,   1.0,   0.5,   1.0,   0.5 },
+    /* Acero    */ { 1.0,  0.5,  0.5,  1.0,   0.5,   2.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   2.0,   1.0,   1.0,   1.0,   0.5,   2.0 },
+    /* Hada     */ { 1.0,  0.5,  1.0,  1.0,   1.0,   1.0,   2.0,   0.5,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   2.0,   2.0,   0.5,   1.0 }
+};
+// =========================================================================
 // MÓDULO 1: UTILIDADES Y SISTEMA
 // =========================================================================
 
@@ -193,7 +226,7 @@ void llenar_vector_entrenador(Entrenador vector[], int *i){
         ARCHIVO_ERROR;
     }else{
         while(fscanf(entrada_archivo,"%s %s %d %d %d %d %d %s\n",vector[*i].id_entrenador,vector[*i].nombre,&vector[*i].cantidad_pokemon,&vector[*i].victorias,&vector[*i].empates,&vector[*i].derrotas,&vector[*i].puntuacion,vector[*i].asignaciom_equipo) == 8){
-                (*i)++;
+            (*i)++;
         }
         fclose(entrada_archivo);
     }
@@ -533,4 +566,171 @@ void consulta_crear_equipo_pokemon(especies_pokemons vector_universo_pokemon[], 
         printf(" registrado en la base de datos del torneo.\n");
         printf("=======================================================\n\n");
     }
+}
+
+void cargar_equipos_pokemon(Entrenador vector_entrenadores[], int cantidad_entrenadores, especies_pokemons pokedex[]) {
+    
+    // 1. Abrimos 
+    FILE *archivo_equipos = fopen("equipos_pokemon.txt", "r");
+    
+    // Si el archivo no existe o esta vacio, simplemente no hacemos nada y salimos
+    if (archivo_equipos == NULL) {
+        ARCHIVO_ERROR; 
+    }else{
+
+        char id_entrenador[8];
+        char nombre_entrenador[30];
+        
+        //Leemos la cabecera de cada equipo (ej: "001 Saul")
+        while (fscanf(archivo_equipos, "%s %s", id_entrenador, nombre_entrenador) == 2) {
+            
+            bool encontrado;
+            int indice_ent;
+            
+            //Buscamos en que indice de la RAM esta ese entrenador
+            buscar_entrenador(vector_entrenadores, id_entrenador, cantidad_entrenadores, &encontrado, &indice_ent);
+            
+            if (encontrado) {
+                
+                //Si existe, leemos exactamente 6 lineas con sus 6 Pokemon
+                for (int i = 0; i < MAX_POKEMONES_EN_EQ; i++) {
+                    
+                    char nombre_pokemon[20];
+                    int estado_temp;
+                    
+                    fscanf(archivo_equipos, "%s %s %d %d %d %d %d %d %d %d",
+                        vector_entrenadores[indice_ent].equipo[i].id_ejemplar,
+                        nombre_pokemon,
+                        &vector_entrenadores[indice_ent].equipo[i].nivel,
+                        &vector_entrenadores[indice_ent].equipo[i].hp_actual,
+                        &vector_entrenadores[indice_ent].equipo[i].hp_maximo,
+                        &vector_entrenadores[indice_ent].equipo[i].ataque,
+                        &vector_entrenadores[indice_ent].equipo[i].defensa,
+                        &vector_entrenadores[indice_ent].equipo[i].velocidad,
+                        &vector_entrenadores[indice_ent].equipo[i].experiencia,
+                        &estado_temp);
+                        
+                    // Guardamos el nombre y el estado
+                    strcpy(vector_entrenadores[indice_ent].equipo[i].nombre, nombre_pokemon);
+                    vector_entrenadores[indice_ent].equipo[i].estado = estado_temp;
+
+                    // Reconectar el puntero a la Pokédex maestra
+                    bool poke_encontrado;
+                    int poke_indice;
+                    
+                    // Buscamos el nombre del Pokemon en la Pokedex general
+                    buscar_vector_pokemon(pokedex, nombre_pokemon, false, MAX_POKEDEX, &poke_encontrado, &poke_indice);
+                    
+                    // Recuerda que tu funcion devuelve 'false' cuando SI lo encuentra
+                    if (!poke_encontrado) { 
+                        vector_entrenadores[indice_ent].equipo[i].datos_especie = &pokedex[poke_indice];
+                    }
+                }
+            }
+        }
+        
+        // 5. Cerramos la nevera
+        fclose(archivo_equipos);
+
+
+
+    }
+
+}
+
+void consultar_equipos_creasdos(Entrenador vector_entrenadores[], int cantidad_entrenadores){
+
+    bool encontrado;
+    char id_elegido[8];
+    int indice;
+
+    imprimir_vector_entrenador(vector_entrenadores, cantidad_entrenadores);
+    printf("\n -> Ingrese el ID del entrenador para buscar su equipo: ");
+    scanf("%s", id_elegido);
+
+    buscar_entrenador(vector_entrenadores, id_elegido, cantidad_entrenadores, &encontrado, &indice);
+    limpiar_consola();
+
+        
+    if (encontrado) {
+        
+        // Verificamos si tiene equipo (true) o no (false)
+        if (strcmp(vector_entrenadores[indice].asignaciom_equipo, "true") == 0) {
+            
+            // Si tiene equipo, llamamos a la funcion que dibuja la tabla
+            imprimir_equipo_pokemon(vector_entrenadores[indice].equipo, MAX_POKEMONES_EN_EQ);
+            
+        } else {
+        
+            printf("\n=======================================================\n");
+            printf("           \033[1;33m[!] AVISO: ENTRENADOR SIN EQUIPO\033[0m            \n");
+            printf("=======================================================\n");
+            printf(" El participante seleccionado actualmente no posee\n");
+            printf(" una alineacion Pokemon registrada en el sistema.\n");
+            printf("=======================================================\n\n");
+        }
+
+    } else {
+        
+        // Si el ID no existe
+        printf("\n=======================================================\n");
+        printf("          \033[1;31m[!] ERROR: ENTRENADOR NO ENCONTRADO\033[0m          \n");
+        printf("=======================================================\n");
+        printf(" El ID ingresado no coincide con ningun participante\n");
+        printf(" registrado en la base de datos del torneo.\n");
+        printf("=======================================================\n\n");
+    }
+}
+
+// =========================================================================
+// MÓDULO 5: COMBATE
+// =========================================================================
+
+float calcular_multiplicador_tipos(char tipo_atacante[], char tipo_defensor_1[], char tipo_defensor_2[]) {
+    
+    // Por defecto, asumimos que el ataque hace daño normal (1.0)
+    float multiplicador_final = 1.0; 
+    
+    int ind_ataque = obtener_indice_tipo(tipo_atacante);
+    int ind_def_1 = obtener_indice_tipo(tipo_defensor_1);
+    int ind_def_2 = obtener_indice_tipo(tipo_defensor_2);
+
+    // Solo hacemos calculos si tanto el ataque como la primera defensa son validos
+    if (ind_ataque != -1 && ind_def_1 != -1) {
+        
+        // Buscamos el daño que le hace al Tipo 1
+        multiplicador_final = TABLA_EFECTIVIDAD[ind_ataque][ind_def_1];
+
+        // Si el pokemon tiene un segundo tipo válido, multiplicamos el efecto
+        if (ind_def_2 != -1) {
+            multiplicador_final *= TABLA_EFECTIVIDAD[ind_ataque][ind_def_2];
+        }
+    }
+
+    // Único punto de salida
+    return multiplicador_final; 
+}
+
+int obtener_indice_tipo(char nombre_tipo[]) {
+    int indice = -1;
+    bool encontrado = false;
+    int i = 0; // Inicializamos el contador
+
+    // Solo buscamos si el tipo NO viene vacio y NO es "Ninguno"
+    if (nombre_tipo != NULL && strcmp(nombre_tipo, "Ninguno") != 0) {
+        
+        // El ciclo se detiene si llega al final o si 'encontrado' cambia a true
+        while ((i < CANTIDAD_TIPOS) && !encontrado) {
+            
+            if (strcasecmp(nombre_tipo, NOMBRES_TIPOS[i]) == 0) {
+                indice = i;
+                encontrado = true;
+            }
+            
+            i++; // Incrementamos el contador al final de cada vuelta
+        }
+    }
+    
+    // Unico punto de salida
+    return indice; 
 }
