@@ -1,7 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "funciones.h"
 
 int main(){
+    //semill
+    srand(time(NULL));
 
     int opcion;
     int cantidad_entrenadores = 0;

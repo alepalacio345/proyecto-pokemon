@@ -8,6 +8,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <time.h>
 
 // =========================================================================
 // MÓDULO 5: MOTOR DE COMBATE Y EFECTIVIDAD DE TIPOS
@@ -733,4 +735,40 @@ int obtener_indice_tipo(char nombre_tipo[]) {
     
     // Unico punto de salida
     return indice; 
+}
+
+void play01_vs_pla02(Entrenador player01, Entrenador player02){
+
+    bool enfrentamiento = true;
+    bool truno_player01;
+    bool truno_player02;
+    bool bandera = true;
+    int moneda;
+    int i, j = 0;
+
+    //este ciclo continua hasta alla un ganador
+    while(enfrentamiento){
+
+        if(player01.equipo[i].velocidad > player02.equipo[j].velocidad){
+
+
+        }else if(player02.equipo[i].velocidad > player01.equipo[j].velocidad){
+            
+
+        }else if(bandera && (player01.equipo[i].velocidad == player02.equipo[j].velocidad)){
+            
+            //lanzamos una moneda para saber quien atacaprimero
+            moneda = rand() % 2; // Genera 0 o 1
+            if (moneda == 0) {
+                truno_player01 = true;
+            } else {
+                truno_player02 = true;
+            }
+
+        }
+
+    
+
+    }
+
 }
