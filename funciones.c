@@ -737,25 +737,74 @@ int obtener_indice_tipo(char nombre_tipo[]) {
     return indice; 
 }
 
+int calcular_bano(EjemplarPokemon Atacante, EjemplarPokemon Defensor){
+
+    float modificador;
+    float nivel_f;
+    float ataque_f;
+    float defensa_f;
+    int danio_final;
+    float danio_base;
+
+    // Obtenemos el multiplicador de tipos
+    modificador = calcular_multiplicador_tipos(Atacante.datos_especie->tipo_primario,Defensor.datos_especie->tipo_primario,Defensor.datos_especie->tipo_primario);
+
+    // Calculamos la parte interna de la fórmula (Daño Base)
+    // Usamos 2.0 y 5.0 (en vez de 2 y 5) y (float) para asegurar precisión decimal.
+    nivel_f = (float)Atacante.nivel;
+    ataque_f = (float)Atacante.ataque;
+    defensa_f = (float)Defensor.defensa;
+
+    danio_base = ((((2.0 * nivel_f / 5.0) + 2.0) * PODER_ATAQUE * (ataque_f / defensa_f)) / 50.0) + 2.0;
+
+    // Multiplicamos por la efectividad de tipos y lo convertimos de vuelta a Entero (int)
+    danio_final = (int)(danio_base * modificador);
+
+    // REGLA OFICIAL: Cualquier ataque que no sea "Sin Efecto" debe hacer mínimo 1 de daño
+    if (danio_final == 0 && modificador != 0.0) {
+        danio_final = 1;
+    }
+
+    return danio_final;
+}
+
 void play01_vs_pla02(Entrenador player01, Entrenador player02){
 
     bool enfrentamiento = true;
-    bool truno_player01;
-    bool truno_player02;
+    bool truno_player01 = false;
+    bool truno_player02 = false;
+    float daño;
     bool bandera = true;
     int moneda;
     int i, j = 0;
+    int bano;
 
     //este ciclo continua hasta alla un ganador
     while(enfrentamiento){
 
-        if(player01.equipo[i].velocidad > player02.equipo[j].velocidad){
-
-
-        }else if(player02.equipo[i].velocidad > player01.equipo[j].velocidad){
+        if((player01.equipo[i].velocidad > player02.equipo[j].velocidad) || truno_player01){
+            truno_player01 = false;
+            truno_player02 = true;
             
+            // calculamos el daño que hace el pokemon del entrenador 01
+            bano = calcular_bano(player01.equipo[i],player02.equipo[j]);
+            // restamos el baño a la vida
+            player02.equipo[j].hp_actual = player02.equipo[j].hp_actual - bano;
+            // Evitamos que la vida quede en números negativos
+            if (player02.equipo[j].hp_actual < 0)player02.equipo[j].hp_actual = 0;
 
-        }else if(bandera && (player01.equipo[i].velocidad == player02.equipo[j].velocidad)){
+        }else if((player02.equipo[i].velocidad > player01.equipo[j].velocidad) || truno_player02){
+            truno_player02 = false;
+            truno_player01 = true;
+
+            // calculamos el daño que hace el pokemon del entrenador 01
+            bano = calcular_bano(player02.equipo[j],player01.equipo[i]);
+            // restamos el baño a la vida
+            player01.equipo[j].hp_actual = player01.equipo[j].hp_actual - bano;
+            // Evitamos que la vida quede en números negativos
+            if (player01.equipo[j].hp_actual < 0)player01.equipo[j].hp_actual = 0;
+
+        }else if(bandera){
             
             //lanzamos una moneda para saber quien atacaprimero
             moneda = rand() % 2; // Genera 0 o 1
@@ -764,8 +813,32 @@ void play01_vs_pla02(Entrenador player01, Entrenador player02){
             } else {
                 truno_player02 = true;
             }
-
+            bandera = false;
         }
+
+        // si el pokemon perdio toda la vida pasamos al siguente en el equipo
+        if(player01.equipo[i].hp_actual == 0){
+            player01.equipo[i].estado = false;
+            i++;
+        }else if(player02.equipo[i].hp_actual == 0){
+            player02.equipo[i].estado = false;
+            j++;
+        }
+
+        // vemos que entrenador se quedo sin pokemones ese es el perdedor
+        if(i > (MAX_POKEMONES_EN_EQ - 1) ){
+            enfrentamiento = false;
+            player01.victorias = player01.victorias + 1;
+            player02.derrotas =  player02.derrotas + 1;
+
+
+        }else if(j > (MAX_POKEMONES_EN_EQ - 1)){
+            enfrentamiento = false;
+            player02.victorias = player01.victorias + 1;
+            player01.derrotas =  player02.derrotas + 1;
+        }
+
+
 
     
 

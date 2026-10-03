@@ -11,6 +11,7 @@
 #define ARCHIVO_ERROR printf("Error al abrir el archivo\n")
 #define MAX_POKEDEX 151
 #define CANTIDAD_TIPOS 18
+#define PODER_ATAQUE 50
 
 // =========================================================================
 // DEFINICIONES DE TIPOS PARA COMBATES
