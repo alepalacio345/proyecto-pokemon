@@ -1,5 +1,5 @@
 001 Saul 0 0 0 0 0 true
-002 Pedro 0 0 0 0 0 false
+002 Pedro 6 0 0 0 0 true
 003 Sabrina 0 0 0 0 0 false
 004 Abel 0 0 0 0 0 false
 005 Ash 0 0 0 0 0 false

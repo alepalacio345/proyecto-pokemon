@@ -129,15 +129,15 @@ void mostrar_estadisticas_pokemon(especies_pokemons vector[], int indice){
     printf("=======================================================\n\n");
 }
 
-void buscar_vector_pokemon(especies_pokemons vector[], char string[], bool campo, int cantidad, bool *bandera, int *indice){
-    *bandera = true;
+void buscar_vector_pokemon(especies_pokemons vector[], char string[], bool campo, int cantidad, bool *iniciar_ronda, int *indice){
+    *iniciar_ronda = true;
     int i = 0;
-    while(*bandera && (i < cantidad) ){
+    while(*iniciar_ronda && (i < cantidad) ){
         if( campo && (strcmp(vector[i].ID, string) == 0) ){
-            *bandera = false;
+            *iniciar_ronda = false;
             *indice = i;
         }else if(strcmp(vector[i].Nombre, string) == 0){
-            *bandera = false;
+            *iniciar_ronda = false;
             *indice = i;
         }
         i++;
@@ -145,16 +145,16 @@ void buscar_vector_pokemon(especies_pokemons vector[], char string[], bool campo
 }
 
 void consultar_pokedex_id(especies_pokemons vector[], int cantidad) {
-    bool bandera;
+    bool iniciar_ronda;
     int indice;
     char id_buscar[8];
     printf("\n-> Ingrese el ID (Numero) del Pokemon a buscar: ");
     scanf("%s",id_buscar);
 
-    buscar_vector_pokemon(vector,id_buscar,true,cantidad,&bandera,&indice);
+    buscar_vector_pokemon(vector,id_buscar,true,cantidad,&iniciar_ronda,&indice);
     limpiar_consola();
 
-    if(!bandera){
+    if(!iniciar_ronda){
         mostrar_estadisticas_pokemon(vector, atoi(vector[indice].ID) - 1);
     }else{
         printf("\n=======================================================\n");
@@ -166,16 +166,16 @@ void consultar_pokedex_id(especies_pokemons vector[], int cantidad) {
 }
 
 void consultar_pokedex_nombre(especies_pokemons vector[], int cantidad) {
-    bool bandera;
+    bool iniciar_ronda;
     int indice;
     char nombre_buscar[20];
     printf("\n-> Ingrese el nombre exacto del Pokemon: ");
     scanf("%19s", nombre_buscar);
 
-    buscar_vector_pokemon(vector,nombre_buscar,false,MAX_POKEDEX,&bandera,&indice);
+    buscar_vector_pokemon(vector,nombre_buscar,false,MAX_POKEDEX,&iniciar_ronda,&indice);
     limpiar_consola();
 
-    if(!bandera){
+    if(!iniciar_ronda){
         mostrar_estadisticas_pokemon(vector, atoi(vector[indice].ID) - 1);
     }else{
         printf("\n=======================================================\n");
@@ -737,7 +737,7 @@ int obtener_indice_tipo(char nombre_tipo[]) {
     return indice; 
 }
 
-int calcular_bano(EjemplarPokemon Atacante, EjemplarPokemon Defensor){
+int calcular_dano(EjemplarPokemon Atacante, EjemplarPokemon Defensor){
 
     float modificador;
     float nivel_f;
@@ -747,7 +747,7 @@ int calcular_bano(EjemplarPokemon Atacante, EjemplarPokemon Defensor){
     float danio_base;
 
     // Obtenemos el multiplicador de tipos
-    modificador = calcular_multiplicador_tipos(Atacante.datos_especie->tipo_primario,Defensor.datos_especie->tipo_primario,Defensor.datos_especie->tipo_primario);
+    modificador = calcular_multiplicador_tipos(Atacante.datos_especie->tipo_primario,Defensor.datos_especie->tipo_primario,Defensor.datos_especie->tipo_segundario);
 
     // Calculamos la parte interna de la fórmula (Daño Base)
     // Usamos 2.0 y 5.0 (en vez de 2 y 5) y (float) para asegurar precisión decimal.
@@ -768,43 +768,46 @@ int calcular_bano(EjemplarPokemon Atacante, EjemplarPokemon Defensor){
     return danio_final;
 }
 
-void play01_vs_pla02(Entrenador player01, Entrenador player02){
+void play01_vs_pla02(int numero_combate, Entrenador *player01, Entrenador *player02){
 
     bool enfrentamiento = true;
     bool truno_player01 = false;
     bool truno_player02 = false;
-    float daño;
-    bool bandera = true;
+    bool iniciar_ronda = true;
     int moneda;
-    int i, j = 0;
-    int bano;
+    int i = 0, j = 0;
+    int dano;
 
     //este ciclo continua hasta alla un ganador
     while(enfrentamiento){
 
-        if((player01.equipo[i].velocidad > player02.equipo[j].velocidad) || truno_player01){
+        if((iniciar_ronda && (player01->equipo[i].velocidad > player02->equipo[j].velocidad)) || truno_player01){
+
+            iniciar_ronda = false;
             truno_player01 = false;
             truno_player02 = true;
-            
-            // calculamos el daño que hace el pokemon del entrenador 01
-            bano = calcular_bano(player01.equipo[i],player02.equipo[j]);
-            // restamos el baño a la vida
-            player02.equipo[j].hp_actual = player02.equipo[j].hp_actual - bano;
-            // Evitamos que la vida quede en números negativos
-            if (player02.equipo[j].hp_actual < 0)player02.equipo[j].hp_actual = 0;
 
-        }else if((player02.equipo[i].velocidad > player01.equipo[j].velocidad) || truno_player02){
+            // calculamos el daño que hace el pokemon del entrenador 01
+            dano = calcular_dano(player01->equipo[i],player02->equipo[j]);
+            // restamos el baño a la vida
+            player02->equipo[j].hp_actual = player02->equipo[j].hp_actual - dano;
+            // Evitamos que la vida quede en números negativos
+            if (player02->equipo[j].hp_actual < 0)player02->equipo[j].hp_actual = 0;
+
+        }else if((iniciar_ronda && (player02->equipo[j].velocidad > player01->equipo[i].velocidad)) || truno_player02){
+            
+            iniciar_ronda = false;
             truno_player02 = false;
             truno_player01 = true;
 
             // calculamos el daño que hace el pokemon del entrenador 01
-            bano = calcular_bano(player02.equipo[j],player01.equipo[i]);
+            dano = calcular_dano(player02->equipo[j],player01->equipo[i]);
             // restamos el baño a la vida
-            player01.equipo[j].hp_actual = player01.equipo[j].hp_actual - bano;
+            player01->equipo[i].hp_actual = player01->equipo[i].hp_actual - dano;
             // Evitamos que la vida quede en números negativos
-            if (player01.equipo[j].hp_actual < 0)player01.equipo[j].hp_actual = 0;
+            if (player01->equipo[i].hp_actual < 0)player01->equipo[i].hp_actual = 0;
 
-        }else if(bandera){
+        }else if(iniciar_ronda){
             
             //lanzamos una moneda para saber quien atacaprimero
             moneda = rand() % 2; // Genera 0 o 1
@@ -813,35 +816,58 @@ void play01_vs_pla02(Entrenador player01, Entrenador player02){
             } else {
                 truno_player02 = true;
             }
-            bandera = false;
+
+            iniciar_ronda = false;
         }
 
         // si el pokemon perdio toda la vida pasamos al siguente en el equipo
-        if(player01.equipo[i].hp_actual == 0){
-            player01.equipo[i].estado = false;
+        if(player01->equipo[i].hp_actual == 0){
+            player01->equipo[i].estado = false;
             i++;
-        }else if(player02.equipo[i].hp_actual == 0){
-            player02.equipo[i].estado = false;
+
+            iniciar_ronda = true;
+            truno_player01 = false;
+            truno_player02 = false;
+
+        }else if(player02->equipo[j].hp_actual == 0){
+            player02->equipo[j].estado = false;
             j++;
+
+            iniciar_ronda = true;
+            truno_player01 = false;
+            truno_player02 = false;
         }
 
         // vemos que entrenador se quedo sin pokemones ese es el perdedor
         if(i > (MAX_POKEMONES_EN_EQ - 1) ){
             enfrentamiento = false;
-            player01.victorias = player01.victorias + 1;
-            player02.derrotas =  player02.derrotas + 1;
+            player02->victorias = player02->victorias + 1;
+            player01->derrotas =  player01->derrotas + 1;
 
+            guardar_resultado_combate(numero_combate, player01->id_entrenador, player02->id_entrenador, player02->id_entrenador);
 
         }else if(j > (MAX_POKEMONES_EN_EQ - 1)){
             enfrentamiento = false;
-            player02.victorias = player01.victorias + 1;
-            player01.derrotas =  player02.derrotas + 1;
+            player01->victorias = player01->victorias + 1;
+            player02->derrotas =  player02->derrotas + 1;
+
+            guardar_resultado_combate(numero_combate, player01->id_entrenador, player02->id_entrenador, player01->id_entrenador);
         }
-
-
-
-    
-
     }
+}
 
+
+void guardar_resultado_combate(int num_combate, char id_p1[], char id_p2[], char id_ganador[]) {
+    FILE *archivo_resultados;
+    
+    // Abrimos en modo "a+" para añadir texto al final sin borrar el historial previo
+    archivo_resultados = fopen("resultados_combates.txt", "a+");
+    
+    if (archivo_resultados == NULL) {
+        ARCHIVO_ERROR;
+    } else {
+        // Guardamos el formato exacto que pide el PDF: Num_Combate Entrenador1 Entrenador2 Ganador
+        fprintf(archivo_resultados, "%d %s %s %s %s\n", num_combate,"Victoria", id_p1, id_p2, id_ganador);
+        fclose(archivo_resultados);
+    }
 }

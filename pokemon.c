@@ -16,6 +16,8 @@ int main(){
     llenar_vector_entrenador(vector_entrenadores_torneo,&cantidad_entrenadores);
     cargar_equipos_pokemon(vector_entrenadores_torneo, cantidad_entrenadores, vector_universo_pokemon);
 
+    play01_vs_pla02(1,&vector_entrenadores_torneo[0],&vector_entrenadores_torneo[1]);
+
     do {
         limpiar_consola();
         

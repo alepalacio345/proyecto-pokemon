@@ -290,4 +290,8 @@ float calcular_multiplicador_tipos(char tipo_atacante[], char tipo_defensor_1[],
 
 void consultar_equipos_creasdos(Entrenador vector_entrenadores[], int cantidad_entrenadores);
 
+void guardar_resultado_combate(int num_combate, char id_p1[], char id_p2[], char id_ganador[]);
+
+void play01_vs_pla02(int numero_combate, Entrenador *player01, Entrenador *player02);
+
 #endif
