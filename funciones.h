@@ -294,4 +294,10 @@ void guardar_resultado_combate(int num_combate, char id_p1[], char id_p2[], char
 
 void play01_vs_pla02(int numero_combate, Entrenador *player01, Entrenador *player02);
 
+void imprimir_perfil_entrenador(Entrenador entrenador);
+
+void Consultar_entrenadores(Entrenador vector_entrenadores[], int cantidad);
+
+void fase_de_grupos(Entrenador vector_entrenadores_torneo[])
+
 #endif

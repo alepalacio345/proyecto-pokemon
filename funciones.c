@@ -361,6 +361,77 @@ void buscar_entrenador(Entrenador vector[], char id[], int cantidad, bool *encon
     }
 }
 
+void Consultar_entrenadores(Entrenador vector_entrenadores[], int cantidad){
+
+    char id_entrenador[8];
+    bool encontrar;
+    int indice_entrenador_encontrado;
+
+    imprimir_vector_entrenador(vector_entrenadores,cantidad);
+    printf("-> Ingrese el ID del entrenador para ver su informacion: ");
+    scanf("%s", id_entrenador);
+
+    buscar_entrenador(vector_entrenadores,id_entrenador,cantidad,&encontrar,&indice_entrenador_encontrado);
+
+    if(encontrar){
+        imprimir_perfil_entrenador(vector_entrenadores[indice_entrenador_encontrado]);
+    }else{
+
+        // Si el ID no existe
+        printf("\n=======================================================\n");
+        printf("          \033[1;31m[!] ERROR: ENTRENADOR NO ENCONTRADO\033[0m          \n");
+        printf("=======================================================\n");
+        printf(" El ID ingresado no coincide con ningun participante\n");
+        printf(" registrado en la base de datos del torneo.\n");
+        printf("=======================================================\n\n");
+    }
+
+
+}
+
+void imprimir_perfil_entrenador(Entrenador entrenador) {
+    limpiar_consola();
+    
+    printf("\n\033[1;36m========================================================================\033[0m\n");
+    printf("                       \033[1;33mTARJETA DE ENTRENADOR POKEMON\033[0m                      \n");
+    printf("\033[1;36m========================================================================\033[0m\n\n");
+    
+    // 1. Datos Personales
+    printf("  \033[1;37m[ DATOS PERSONALES ]\033[0m\n");
+    printf("  --------------------------------------------------\n");
+    printf("  ID del Entrenador : \033[1;32m%s\033[0m\n", entrenador.id_entrenador);
+    printf("  Nombre Oficial    : \033[1;32m%s\033[0m\n", entrenador.nombre);
+    
+    // 2. Estado del Equipo
+    if (strcmp(entrenador.asignaciom_equipo, "true") == 0) {
+        printf("  Estado del Equipo : \033[1;32m[+] Registrado (6 Pokemon)\033[0m\n\n");
+    } else {
+        printf("  Estado del Equipo : \033[1;31m[-] Sin Equipo Asignado\033[0m\n\n");
+    }
+
+    // 3. Estadísticas del Torneo
+    printf("  \033[1;37m[ ESTADISTICAS DEL TORNEO ]\033[0m\n");
+    printf("  --------------------------------------------------\n");
+    printf("  Puntuacion Total  : \033[1;33m%d Pts\033[0m\n", entrenador.puntuacion);
+    printf("  Victorias (W)     : \033[1;32m%d\033[0m\n", entrenador.victorias);
+    printf("  Empates   (T)     : \033[1;36m%d\033[0m\n", entrenador.empates);
+    printf("  Derrotas  (L)     : \033[1;31m%d\033[0m\n", entrenador.derrotas);
+    
+    printf("\n\033[1;36m========================================================================\033[0m\n");
+
+    // 4. Si tiene equipo, mostramos un pequeño resumen abajo
+    if (strcmp(entrenador.asignaciom_equipo, "true") == 0) {
+        printf("  \033[1;33m>> POKEMON REGISTRADOS EN SU ALINEACION:\033[0m\n");
+        printf("  ");
+        for (int i = 0; i < MAX_POKEMONES_EN_EQ; i++) {
+            printf("[%s] ", entrenador.equipo[i].nombre);
+            // Salto de línea a la mitad para que no se salga de la pantalla
+            if (i == 2) printf("\n  "); 
+        }
+        printf("\n\033[1;36m========================================================================\033[0m\n\n");
+    }
+}
+
 // =========================================================================
 // MÓDULO 4: GESTIÓN DE EQUIPOS Y BACKTRACKING
 // =========================================================================
@@ -789,9 +860,7 @@ void play01_vs_pla02(int numero_combate, Entrenador *player01, Entrenador *playe
         int i = 0, j = 0;
         int dano;
 
-        fprintf(bitacora, "\n=======================================================\n");
-        fprintf(bitacora, " COMBATE %d: %s vs %s \n", numero_combate, player01->nombre, player02->nombre);
-        fprintf(bitacora, "=======================================================\n");
+        fprintf(bitacora, "COMBATE %d: %s vs %s \n", numero_combate, player01->nombre, player02->nombre);
 
         // Este ciclo continua hasta que haya un ganador
         while(enfrentamiento){
@@ -809,11 +878,6 @@ void play01_vs_pla02(int numero_combate, Entrenador *player01, Entrenador *playe
                 // Evitamos que la vida quede en números negativos
                 if (player02->equipo[j].hp_actual < 0)player02->equipo[j].hp_actual = 0;
 
-                // Guardamos el ataque directo (Ya sabemos que bitacora es valida)
-                fprintf(bitacora, "-> %s [%s] ataca. Dano: %d. HP restante de %s: %d\n", 
-                        player01->nombre, player01->equipo[i].nombre, dano, 
-                        player02->equipo[j].nombre, player02->equipo[j].hp_actual);
-
             }else if((iniciar_ronda && (player02->equipo[j].velocidad > player01->equipo[i].velocidad)) || truno_player02){
                 
                 iniciar_ronda = false;
@@ -826,11 +890,6 @@ void play01_vs_pla02(int numero_combate, Entrenador *player01, Entrenador *playe
                 player01->equipo[i].hp_actual = player01->equipo[i].hp_actual - dano;
                 // Evitamos que la vida quede en números negativos
                 if (player01->equipo[i].hp_actual < 0)player01->equipo[i].hp_actual = 0;
-
-                // Guardamos el ataque directo
-                fprintf(bitacora, "-> %s [%s] ataca. Dano: %d. HP restante de %s: %d\n", 
-                        player02->nombre, player02->equipo[j].nombre, dano, 
-                        player01->equipo[i].nombre, player01->equipo[i].hp_actual);
 
             }else if(iniciar_ronda){
                 
@@ -850,7 +909,7 @@ void play01_vs_pla02(int numero_combate, Entrenador *player01, Entrenador *playe
             // si el pokemon perdio toda la vida pasamos al siguente en el equipo
             if(player01->equipo[i].hp_actual == 0){
                 
-                fprintf(bitacora, " [!] El %s de %s se ha debilitado.\n", player01->equipo[i].nombre, player01->nombre);
+                fprintf(bitacora, "%s vs %s GANO: %s\n", player01->equipo[i].nombre,player02->equipo[j].nombre,player02->equipo[j].nombre);
                 
                 player01->equipo[i].estado = false;
                 i++;
@@ -861,7 +920,7 @@ void play01_vs_pla02(int numero_combate, Entrenador *player01, Entrenador *playe
 
             }else if(player02->equipo[j].hp_actual == 0){
                 
-                fprintf(bitacora, " [!] El %s de %s se ha debilitado.\n", player02->equipo[j].nombre, player02->nombre);
+                fprintf(bitacora, "%s vs %s GANO: %s\n",player01->equipo[i].nombre,player02->equipo[j].nombre,player01->equipo[i].nombre);
                 
                 player02->equipo[j].estado = false;
                 j++;
@@ -877,7 +936,7 @@ void play01_vs_pla02(int numero_combate, Entrenador *player01, Entrenador *playe
                 player02->victorias = player02->victorias + 1;
                 player01->derrotas =  player01->derrotas + 1;
 
-                fprintf(bitacora, "\n >>> GANADOR DEL COMBATE: %s <<<\n", player02->nombre);
+                fprintf(bitacora, "GANADOR DEL COMBATE: %s\n", player02->nombre);
                 
                 // GUARDAMOS EL REGISTRO OFICIAL
                 guardar_resultado_combate(numero_combate, player01->id_entrenador, player02->id_entrenador, player02->id_entrenador);
@@ -887,7 +946,7 @@ void play01_vs_pla02(int numero_combate, Entrenador *player01, Entrenador *playe
                 player01->victorias = player01->victorias + 1;
                 player02->derrotas =  player02->derrotas + 1;
 
-                fprintf(bitacora, "\n >>> GANADOR DEL COMBATE: %s <<<\n", player01->nombre);
+                fprintf(bitacora, "GANADOR DEL COMBATE: %s\n", player01->nombre);
 
                 // GUARDAMOS EL REGISTRO OFICIAL
                 guardar_resultado_combate(numero_combate, player01->id_entrenador, player02->id_entrenador, player01->id_entrenador);
@@ -897,6 +956,8 @@ void play01_vs_pla02(int numero_combate, Entrenador *player01, Entrenador *playe
         // 4. AL TERMINAR TODA LA BATALLA, CERRAMOS EL ARCHIVO UNA SOLA VEZ
         fclose(bitacora);
     }
+
+
 }
 
 void guardar_resultado_combate(int num_combate, char id_p1[], char id_p2[], char id_ganador[]) {
@@ -912,4 +973,43 @@ void guardar_resultado_combate(int num_combate, char id_p1[], char id_p2[], char
         fprintf(archivo_resultados, "%d %s %s %s %s\n", num_combate,"Victoria", id_p1, id_p2, id_ganador);
         fclose(archivo_resultados);
     }
+}
+
+void fase_de_grupos(Entrenador vector_entrenadores_torneo[]){
+
+    int base;
+    int numero_combate;
+    int indice_p1;
+    int indice_p2;
+
+    // grupos
+    for(int grupo = 0; grupo < 8; grupo++){
+
+        base = grupo * 4;
+        
+        for(int i = 0; i < 3; i++){
+            
+            for (int j = i + 1; j < 4; j++){
+               
+
+                int indice_p1 = base + i;
+                int indice_p2 = base + j;
+
+                // Llamamos combate 
+                play01_vs_pla02(numero_combate,&vector_entrenadores_torneo[indice_p1],&vector_entrenadores_torneo[indice_p2]);
+                
+                // Antes del siguiente combate, debemos curar a los equipos
+                // los daños son temporales.
+                for(int k=0; k < MAX_POKEMONES_EN_EQ; k++){
+                    vector_entrenadores_torneo[indice_p1].equipo[k].hp_actual = vector_entrenadores_torneo[indice_p1].equipo[k].hp_maximo;
+                    vector_entrenadores_torneo[indice_p1].equipo[k].estado = true;
+                    
+                    vector_entrenadores_torneo[indice_p2].equipo[k].hp_actual = vector_entrenadores_torneo[indice_p2].equipo[k].hp_maximo;
+                    vector_entrenadores_torneo[indice_p2].equipo[k].estado = true;
+                }
+                numero_combate++;
+            }
+        }
+    }
+    guardar_vector_entrenador(vector_entrenadores_torneo, MAX_ENTRENADORES);
 }

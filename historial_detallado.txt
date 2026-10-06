@@ -1,125 +1,14 @@
-
-=======================================================
- COMBATE 1: Saul vs Pedro 
-=======================================================
--> Saul [Clefable] ataca. Dano: 16. HP restante de Slowbro: 139
--> Pedro [Slowbro] ataca. Dano: 24. HP restante de Clefable: 131
--> Saul [Clefable] ataca. Dano: 16. HP restante de Slowbro: 123
--> Pedro [Slowbro] ataca. Dano: 24. HP restante de Clefable: 107
--> Saul [Clefable] ataca. Dano: 16. HP restante de Slowbro: 107
--> Pedro [Slowbro] ataca. Dano: 24. HP restante de Clefable: 83
--> Saul [Clefable] ataca. Dano: 16. HP restante de Slowbro: 91
--> Pedro [Slowbro] ataca. Dano: 24. HP restante de Clefable: 59
--> Saul [Clefable] ataca. Dano: 16. HP restante de Slowbro: 75
--> Pedro [Slowbro] ataca. Dano: 24. HP restante de Clefable: 35
--> Saul [Clefable] ataca. Dano: 16. HP restante de Slowbro: 59
--> Pedro [Slowbro] ataca. Dano: 24. HP restante de Clefable: 11
--> Saul [Clefable] ataca. Dano: 16. HP restante de Slowbro: 43
--> Pedro [Slowbro] ataca. Dano: 24. HP restante de Clefable: 0
- [!] El Clefable de Saul se ha debilitado.
--> Saul [Poliwrath] ataca. Dano: 9. HP restante de Slowbro: 34
--> Pedro [Slowbro] ataca. Dano: 9. HP restante de Poliwrath: 141
--> Saul [Poliwrath] ataca. Dano: 9. HP restante de Slowbro: 25
--> Pedro [Slowbro] ataca. Dano: 9. HP restante de Poliwrath: 132
--> Saul [Poliwrath] ataca. Dano: 9. HP restante de Slowbro: 16
--> Pedro [Slowbro] ataca. Dano: 9. HP restante de Poliwrath: 123
--> Saul [Poliwrath] ataca. Dano: 9. HP restante de Slowbro: 7
--> Pedro [Slowbro] ataca. Dano: 9. HP restante de Poliwrath: 114
--> Saul [Poliwrath] ataca. Dano: 9. HP restante de Slowbro: 0
- [!] El Slowbro de Pedro se ha debilitado.
--> Pedro [Primeape] ataca. Dano: 26. HP restante de Poliwrath: 88
--> Saul [Poliwrath] ataca. Dano: 32. HP restante de Primeape: 93
--> Pedro [Primeape] ataca. Dano: 26. HP restante de Poliwrath: 62
--> Saul [Poliwrath] ataca. Dano: 32. HP restante de Primeape: 61
--> Pedro [Primeape] ataca. Dano: 26. HP restante de Poliwrath: 36
--> Saul [Poliwrath] ataca. Dano: 32. HP restante de Primeape: 29
--> Pedro [Primeape] ataca. Dano: 26. HP restante de Poliwrath: 10
--> Saul [Poliwrath] ataca. Dano: 32. HP restante de Primeape: 0
- [!] El Primeape de Pedro se ha debilitado.
--> Saul [Poliwrath] ataca. Dano: 9. HP restante de Tangela: 116
--> Pedro [Tangela] ataca. Dano: 30. HP restante de Poliwrath: 0
- [!] El Poliwrath de Saul se ha debilitado.
--> Saul [Electabuzz] ataca. Dano: 9. HP restante de Tangela: 107
--> Pedro [Tangela] ataca. Dano: 23. HP restante de Electabuzz: 102
--> Saul [Electabuzz] ataca. Dano: 9. HP restante de Tangela: 98
--> Pedro [Tangela] ataca. Dano: 23. HP restante de Electabuzz: 79
--> Saul [Electabuzz] ataca. Dano: 9. HP restante de Tangela: 89
--> Pedro [Tangela] ataca. Dano: 23. HP restante de Electabuzz: 56
--> Saul [Electabuzz] ataca. Dano: 9. HP restante de Tangela: 80
--> Pedro [Tangela] ataca. Dano: 23. HP restante de Electabuzz: 33
--> Saul [Electabuzz] ataca. Dano: 9. HP restante de Tangela: 71
--> Pedro [Tangela] ataca. Dano: 23. HP restante de Electabuzz: 10
--> Saul [Electabuzz] ataca. Dano: 9. HP restante de Tangela: 62
--> Pedro [Tangela] ataca. Dano: 23. HP restante de Electabuzz: 0
- [!] El Electabuzz de Saul se ha debilitado.
+COMBATE 1: Saul vs Pedro 
+Clefable vs Slowbro GANO: Slowbro
+Poliwrath vs Slowbro GANO: Poliwrath
+Poliwrath vs Primeape GANO: Poliwrath
+Poliwrath vs Tangela GANO: Tangela
+Electabuzz vs Tangela GANO: Tangela
 [*] Empate de velocidad. La moneda favorece a Saul.
--> Saul [Tangela] ataca. Dano: 6. HP restante de Tangela: 56
--> Pedro [Tangela] ataca. Dano: 6. HP restante de Tangela: 119
--> Saul [Tangela] ataca. Dano: 6. HP restante de Tangela: 50
--> Pedro [Tangela] ataca. Dano: 6. HP restante de Tangela: 113
--> Saul [Tangela] ataca. Dano: 6. HP restante de Tangela: 44
--> Pedro [Tangela] ataca. Dano: 6. HP restante de Tangela: 107
--> Saul [Tangela] ataca. Dano: 6. HP restante de Tangela: 38
--> Pedro [Tangela] ataca. Dano: 6. HP restante de Tangela: 101
--> Saul [Tangela] ataca. Dano: 6. HP restante de Tangela: 32
--> Pedro [Tangela] ataca. Dano: 6. HP restante de Tangela: 95
--> Saul [Tangela] ataca. Dano: 6. HP restante de Tangela: 26
--> Pedro [Tangela] ataca. Dano: 6. HP restante de Tangela: 89
--> Saul [Tangela] ataca. Dano: 6. HP restante de Tangela: 20
--> Pedro [Tangela] ataca. Dano: 6. HP restante de Tangela: 83
--> Saul [Tangela] ataca. Dano: 6. HP restante de Tangela: 14
--> Pedro [Tangela] ataca. Dano: 6. HP restante de Tangela: 77
--> Saul [Tangela] ataca. Dano: 6. HP restante de Tangela: 8
--> Pedro [Tangela] ataca. Dano: 6. HP restante de Tangela: 71
--> Saul [Tangela] ataca. Dano: 6. HP restante de Tangela: 2
--> Pedro [Tangela] ataca. Dano: 6. HP restante de Tangela: 65
--> Saul [Tangela] ataca. Dano: 6. HP restante de Tangela: 0
- [!] El Tangela de Pedro se ha debilitado.
--> Pedro [Tentacruel] ataca. Dano: 7. HP restante de Tangela: 58
--> Saul [Tangela] ataca. Dano: 20. HP restante de Tentacruel: 120
--> Pedro [Tentacruel] ataca. Dano: 7. HP restante de Tangela: 51
--> Saul [Tangela] ataca. Dano: 20. HP restante de Tentacruel: 100
--> Pedro [Tentacruel] ataca. Dano: 7. HP restante de Tangela: 44
--> Saul [Tangela] ataca. Dano: 20. HP restante de Tentacruel: 80
--> Pedro [Tentacruel] ataca. Dano: 7. HP restante de Tangela: 37
--> Saul [Tangela] ataca. Dano: 20. HP restante de Tentacruel: 60
--> Pedro [Tentacruel] ataca. Dano: 7. HP restante de Tangela: 30
--> Saul [Tangela] ataca. Dano: 20. HP restante de Tentacruel: 40
--> Pedro [Tentacruel] ataca. Dano: 7. HP restante de Tangela: 23
--> Saul [Tangela] ataca. Dano: 20. HP restante de Tentacruel: 20
--> Pedro [Tentacruel] ataca. Dano: 7. HP restante de Tangela: 16
--> Saul [Tangela] ataca. Dano: 20. HP restante de Tentacruel: 0
- [!] El Tentacruel de Pedro se ha debilitado.
--> Pedro [Pikachu] ataca. Dano: 6. HP restante de Tangela: 10
--> Saul [Tangela] ataca. Dano: 31. HP restante de Pikachu: 64
--> Pedro [Pikachu] ataca. Dano: 6. HP restante de Tangela: 4
--> Saul [Tangela] ataca. Dano: 31. HP restante de Pikachu: 33
--> Pedro [Pikachu] ataca. Dano: 6. HP restante de Tangela: 0
- [!] El Tangela de Saul se ha debilitado.
--> Pedro [Pikachu] ataca. Dano: 22. HP restante de Charmeleon: 96
--> Saul [Charmeleon] ataca. Dano: 35. HP restante de Pikachu: 0
- [!] El Pikachu de Pedro se ha debilitado.
--> Pedro [Ninetales] ataca. Dano: 15. HP restante de Charmeleon: 81
--> Saul [Charmeleon] ataca. Dano: 10. HP restante de Ninetales: 123
--> Pedro [Ninetales] ataca. Dano: 15. HP restante de Charmeleon: 66
--> Saul [Charmeleon] ataca. Dano: 10. HP restante de Ninetales: 113
--> Pedro [Ninetales] ataca. Dano: 15. HP restante de Charmeleon: 51
--> Saul [Charmeleon] ataca. Dano: 10. HP restante de Ninetales: 103
--> Pedro [Ninetales] ataca. Dano: 15. HP restante de Charmeleon: 36
--> Saul [Charmeleon] ataca. Dano: 10. HP restante de Ninetales: 93
--> Pedro [Ninetales] ataca. Dano: 15. HP restante de Charmeleon: 21
--> Saul [Charmeleon] ataca. Dano: 10. HP restante de Ninetales: 83
--> Pedro [Ninetales] ataca. Dano: 15. HP restante de Charmeleon: 6
--> Saul [Charmeleon] ataca. Dano: 10. HP restante de Ninetales: 73
--> Pedro [Ninetales] ataca. Dano: 15. HP restante de Charmeleon: 0
- [!] El Charmeleon de Saul se ha debilitado.
--> Pedro [Ninetales] ataca. Dano: 35. HP restante de Ditto: 73
--> Saul [Ditto] ataca. Dano: 16. HP restante de Ninetales: 57
--> Pedro [Ninetales] ataca. Dano: 35. HP restante de Ditto: 38
--> Saul [Ditto] ataca. Dano: 16. HP restante de Ninetales: 41
--> Pedro [Ninetales] ataca. Dano: 35. HP restante de Ditto: 3
--> Saul [Ditto] ataca. Dano: 16. HP restante de Ninetales: 25
--> Pedro [Ninetales] ataca. Dano: 35. HP restante de Ditto: 0
- [!] El Ditto de Saul se ha debilitado.
-
- >>> GANADOR DEL COMBATE: Pedro <<<
+Tangela vs Tangela GANO: Tangela
+Tangela vs Tentacruel GANO: Tangela
+Tangela vs Pikachu GANO: Pikachu
+Charmeleon vs Pikachu GANO: Charmeleon
+Charmeleon vs Ninetales GANO: Ninetales
+Ditto vs Ninetales GANO: Ninetales
+GANADOR DEL COMBATE: Pedro
