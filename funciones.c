@@ -770,92 +770,134 @@ int calcular_dano(EjemplarPokemon Atacante, EjemplarPokemon Defensor){
 
 void play01_vs_pla02(int numero_combate, Entrenador *player01, Entrenador *player02){
 
-    bool enfrentamiento = true;
-    bool truno_player01 = false;
-    bool truno_player02 = false;
-    bool iniciar_ronda = true;
-    int moneda;
-    int i = 0, j = 0;
-    int dano;
+    // 1. ABRIMOS EL ARCHIVO PRIMERO QUE NADA
+    FILE *bitacora;
+    bitacora = fopen("historial_detallado.txt", "a+");
 
-    //este ciclo continua hasta alla un ganador
-    while(enfrentamiento){
+    // 2. CONDICIONAL DE FALLO
+    if(bitacora == NULL){
+        ARCHIVO_ERROR; // Si falla, imprimimos error y la funcion muere aqui. No hay batalla.
+    }else{
+        
+        // 3. SI EL ARCHIVO ABRIÓ BIEN, INICIAMOS LA BATALLA
+        // Metemos las variables aqui adentro porque no necesitamos crearlas si el archivo falla
+        bool enfrentamiento = true;
+        bool truno_player01 = false;
+        bool truno_player02 = false;
+        bool iniciar_ronda = true;
+        int moneda;
+        int i = 0, j = 0;
+        int dano;
 
-        if((iniciar_ronda && (player01->equipo[i].velocidad > player02->equipo[j].velocidad)) || truno_player01){
+        fprintf(bitacora, "\n=======================================================\n");
+        fprintf(bitacora, " COMBATE %d: %s vs %s \n", numero_combate, player01->nombre, player02->nombre);
+        fprintf(bitacora, "=======================================================\n");
 
-            iniciar_ronda = false;
-            truno_player01 = false;
-            truno_player02 = true;
+        // Este ciclo continua hasta que haya un ganador
+        while(enfrentamiento){
 
-            // calculamos el daño que hace el pokemon del entrenador 01
-            dano = calcular_dano(player01->equipo[i],player02->equipo[j]);
-            // restamos el baño a la vida
-            player02->equipo[j].hp_actual = player02->equipo[j].hp_actual - dano;
-            // Evitamos que la vida quede en números negativos
-            if (player02->equipo[j].hp_actual < 0)player02->equipo[j].hp_actual = 0;
+            if((iniciar_ronda && (player01->equipo[i].velocidad > player02->equipo[j].velocidad)) || truno_player01){
 
-        }else if((iniciar_ronda && (player02->equipo[j].velocidad > player01->equipo[i].velocidad)) || truno_player02){
-            
-            iniciar_ronda = false;
-            truno_player02 = false;
-            truno_player01 = true;
-
-            // calculamos el daño que hace el pokemon del entrenador 01
-            dano = calcular_dano(player02->equipo[j],player01->equipo[i]);
-            // restamos el baño a la vida
-            player01->equipo[i].hp_actual = player01->equipo[i].hp_actual - dano;
-            // Evitamos que la vida quede en números negativos
-            if (player01->equipo[i].hp_actual < 0)player01->equipo[i].hp_actual = 0;
-
-        }else if(iniciar_ronda){
-            
-            //lanzamos una moneda para saber quien atacaprimero
-            moneda = rand() % 2; // Genera 0 o 1
-            if (moneda == 0) {
-                truno_player01 = true;
-            } else {
+                iniciar_ronda = false;
+                truno_player01 = false;
                 truno_player02 = true;
+
+                // calculamos el daño que hace el pokemon del entrenador 01
+                dano = calcular_dano(player01->equipo[i],player02->equipo[j]);
+                // restamos el daño a la vida
+                player02->equipo[j].hp_actual = player02->equipo[j].hp_actual - dano;
+                // Evitamos que la vida quede en números negativos
+                if (player02->equipo[j].hp_actual < 0)player02->equipo[j].hp_actual = 0;
+
+                // Guardamos el ataque directo (Ya sabemos que bitacora es valida)
+                fprintf(bitacora, "-> %s [%s] ataca. Dano: %d. HP restante de %s: %d\n", 
+                        player01->nombre, player01->equipo[i].nombre, dano, 
+                        player02->equipo[j].nombre, player02->equipo[j].hp_actual);
+
+            }else if((iniciar_ronda && (player02->equipo[j].velocidad > player01->equipo[i].velocidad)) || truno_player02){
+                
+                iniciar_ronda = false;
+                truno_player02 = false;
+                truno_player01 = true;
+
+                // calculamos el daño que hace el pokemon del entrenador 02
+                dano = calcular_dano(player02->equipo[j],player01->equipo[i]);
+                // restamos el daño a la vida
+                player01->equipo[i].hp_actual = player01->equipo[i].hp_actual - dano;
+                // Evitamos que la vida quede en números negativos
+                if (player01->equipo[i].hp_actual < 0)player01->equipo[i].hp_actual = 0;
+
+                // Guardamos el ataque directo
+                fprintf(bitacora, "-> %s [%s] ataca. Dano: %d. HP restante de %s: %d\n", 
+                        player02->nombre, player02->equipo[j].nombre, dano, 
+                        player01->equipo[i].nombre, player01->equipo[i].hp_actual);
+
+            }else if(iniciar_ronda){
+                
+                //lanzamos una moneda para saber quien ataca primero
+                moneda = rand() % 2; // Genera 0 o 1
+                if (moneda == 0) {
+                    truno_player01 = true;
+                    fprintf(bitacora, "[*] Empate de velocidad. La moneda favorece a %s.\n", player01->nombre);
+                } else {
+                    truno_player02 = true;
+                    fprintf(bitacora, "[*] Empate de velocidad. La moneda favorece a %s.\n", player02->nombre);
+                }
+
+                iniciar_ronda = false;
             }
 
-            iniciar_ronda = false;
+            // si el pokemon perdio toda la vida pasamos al siguente en el equipo
+            if(player01->equipo[i].hp_actual == 0){
+                
+                fprintf(bitacora, " [!] El %s de %s se ha debilitado.\n", player01->equipo[i].nombre, player01->nombre);
+                
+                player01->equipo[i].estado = false;
+                i++;
+
+                iniciar_ronda = true;
+                truno_player01 = false;
+                truno_player02 = false;
+
+            }else if(player02->equipo[j].hp_actual == 0){
+                
+                fprintf(bitacora, " [!] El %s de %s se ha debilitado.\n", player02->equipo[j].nombre, player02->nombre);
+                
+                player02->equipo[j].estado = false;
+                j++;
+
+                iniciar_ronda = true;
+                truno_player01 = false;
+                truno_player02 = false;
+            }
+
+            // vemos que entrenador se quedo sin pokemones ese es el perdedor
+            if(i > (MAX_POKEMONES_EN_EQ - 1) ){
+                enfrentamiento = false;
+                player02->victorias = player02->victorias + 1;
+                player01->derrotas =  player01->derrotas + 1;
+
+                fprintf(bitacora, "\n >>> GANADOR DEL COMBATE: %s <<<\n", player02->nombre);
+                
+                // GUARDAMOS EL REGISTRO OFICIAL
+                guardar_resultado_combate(numero_combate, player01->id_entrenador, player02->id_entrenador, player02->id_entrenador);
+
+            }else if(j > (MAX_POKEMONES_EN_EQ - 1)){
+                enfrentamiento = false;
+                player01->victorias = player01->victorias + 1;
+                player02->derrotas =  player02->derrotas + 1;
+
+                fprintf(bitacora, "\n >>> GANADOR DEL COMBATE: %s <<<\n", player01->nombre);
+
+                // GUARDAMOS EL REGISTRO OFICIAL
+                guardar_resultado_combate(numero_combate, player01->id_entrenador, player02->id_entrenador, player01->id_entrenador);
+            }
         }
-
-        // si el pokemon perdio toda la vida pasamos al siguente en el equipo
-        if(player01->equipo[i].hp_actual == 0){
-            player01->equipo[i].estado = false;
-            i++;
-
-            iniciar_ronda = true;
-            truno_player01 = false;
-            truno_player02 = false;
-
-        }else if(player02->equipo[j].hp_actual == 0){
-            player02->equipo[j].estado = false;
-            j++;
-
-            iniciar_ronda = true;
-            truno_player01 = false;
-            truno_player02 = false;
-        }
-
-        // vemos que entrenador se quedo sin pokemones ese es el perdedor
-        if(i > (MAX_POKEMONES_EN_EQ - 1) ){
-            enfrentamiento = false;
-            player02->victorias = player02->victorias + 1;
-            player01->derrotas =  player01->derrotas + 1;
-
-            guardar_resultado_combate(numero_combate, player01->id_entrenador, player02->id_entrenador, player02->id_entrenador);
-
-        }else if(j > (MAX_POKEMONES_EN_EQ - 1)){
-            enfrentamiento = false;
-            player01->victorias = player01->victorias + 1;
-            player02->derrotas =  player02->derrotas + 1;
-
-            guardar_resultado_combate(numero_combate, player01->id_entrenador, player02->id_entrenador, player01->id_entrenador);
-        }
+        
+        // 4. AL TERMINAR TODA LA BATALLA, CERRAMOS EL ARCHIVO UNA SOLA VEZ
+        fclose(bitacora);
     }
 }
-
 
 void guardar_resultado_combate(int num_combate, char id_p1[], char id_p2[], char id_ganador[]) {
     FILE *archivo_resultados;
