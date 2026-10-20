@@ -9,51 +9,66 @@ int main(){
 
     int opcion;
     int cantidad_entrenadores = 0;
+    int cantidad_pokedex = 0;
     especies_pokemons vector_universo_pokemon[MAX_POKEDEX];
     Entrenador vector_entrenadores_torneo[MAX_ENTRENADORES];
+    Partido vector_partidos[CANTIDAD_PARTIDOS];
+    char vector_clasificados[MAX_CLASIFICADOS][8];
+    TablaGrupo tabla_torneo[CANTIDAD_GRUPOS][ENTRENADORES_POR_GRUPO];
 
     llenar_vector_pokemon(vector_universo_pokemon);
+    cantidad_pokedex = contar_especies_pokemon(vector_universo_pokemon, MAX_POKEDEX);
     llenar_vector_entrenador(vector_entrenadores_torneo,&cantidad_entrenadores);
     cargar_equipos_pokemon(vector_entrenadores_torneo, cantidad_entrenadores, vector_universo_pokemon);
 
-    play01_vs_pla02(1,&vector_entrenadores_torneo[0],&vector_entrenadores_torneo[1]);
-    guardar_vector_entrenador(vector_entrenadores_torneo,cantidad_entrenadores);
+    // El torneo arranca con sus 64 combates definidos y con los resultados que ya
+    // estuvieran guardados en resultados_combates.txt (se pueden cargar de a poco).
+    inicializar_partidos(vector_partidos, CANTIDAD_PARTIDOS,
+                         vector_entrenadores_torneo, cantidad_entrenadores);
+    cargar_partidos(vector_partidos, CANTIDAD_PARTIDOS);
+
     do {
         limpiar_consola();
-        
-        // Título con colores ANSI (Amarillo brillante) y reseteo al final
-        printf("\033[1;33m"); 
-        printf(" ==================================================================== \n");
-        printf("                        EL GRAN TORNEO POKEMON                        \n");
-        printf(" ==================================================================== \n");
-        printf("\033[0m"); 
 
-        printf("  1. Consultar Pokedex\n");
-        printf("  2. Registrar entrenador\n");
-        printf("  3. Crear equipo\n");
-        printf("  4. Consultar entrenadores\n");
-        printf("  5. Consultar equipos\n");
-        printf("  6. Cargar resultados\n");
-        printf("  7. Consultar clasificacion\n");
-        printf("  8. Consultar enfrentamientos\n");
-        printf("  9. Consultar historial de combates\n");
-        printf(" 10. Mostrar resultados del torneo\n");
-        printf(" 11. Mostrar campeon\n");
-        printf(" 12. Recargar base de datos\n");
-        printf(" 13. Salir\n");
-        printf(" ==================================================================== \n");
+        // Banner con arte ASCII (solo la primera vez) y encabezado compacto despues
+        imprimir_banner("MENU PRINCIPAL");
+
+        imprimir_opcion_menu("1", "Consultar Pokedex");
+        imprimir_opcion_menu("2", "Registrar entrenador");
+        imprimir_opcion_menu("3", "Crear equipo");
+        imprimir_opcion_menu("4", "Consultar entrenadores");
+        imprimir_opcion_menu("5", "Consultar equipos");
+        imprimir_opcion_menu("6", "Cargar resultados");
+        imprimir_opcion_menu("7", "Consultar clasificacion");
+        imprimir_opcion_menu("8", "Consultar enfrentamientos");
+        imprimir_opcion_menu("9", "Consultar historial de combates");
+        imprimir_opcion_menu("10", "Mostrar resultados del torneo");
+        imprimir_opcion_menu("11", "Mostrar campeon");
+        imprimir_opcion_menu("12", "Recargar base de datos");
+        imprimir_opcion_menu("13", "Disputar fase de grupos");
+        imprimir_opcion_menu("14", "Disputar fase eliminatoria");
+        imprimir_opcion_menu("15", "Salir");
+        imprimir_separador();
+
+        if (cantidad_entrenadores < 1) {
+            printf("  \033[1;33m[!]\033[0m No hay entrenadores cargados: registre participantes\n");
+            printf("      antes de usar las opciones del torneo.\n");
+            imprimir_separador();
+        }
+
         printf(" -> Seleccione una opcion: ");
-        scanf("%d", &opcion);
+        // Lectura segura: una opcion no numerica no deja el buffer trabado
+        opcion = leer_entero(-1);
 
         switch(opcion) {
             case 1:
-                menu_consultar_pokedex(vector_universo_pokemon);
+                menu_consultar_pokedex(vector_universo_pokemon, cantidad_pokedex);
                 break;
             case 2:
                 registrar_entrenador(vector_entrenadores_torneo, &cantidad_entrenadores);
                 break;
             case 3:
-                consulta_crear_equipo_pokemon(vector_universo_pokemon,vector_entrenadores_torneo,cantidad_entrenadores);
+                menu_crear_equipos(vector_universo_pokemon, vector_entrenadores_torneo, cantidad_entrenadores);
                 break;
             case 4:
                 Consultar_entrenadores(vector_entrenadores_torneo,cantidad_entrenadores);
@@ -62,39 +77,82 @@ int main(){
                 consultar_equipos_creasdos(vector_entrenadores_torneo,cantidad_entrenadores);
                 break;
             case 6:
+                menu_cargar_resultados(vector_partidos, CANTIDAD_PARTIDOS, vector_clasificados,
+                                       vector_entrenadores_torneo, cantidad_entrenadores);
+                break;
             case 7:
+                // La clasificacion se recalcula siempre desde los resultados cargados,
+                // asi el sistema funciona igual con resultados completos o parciales.
+                calcular_clasificacion(vector_partidos, CANTIDAD_PARTIDOS,
+                                       vector_entrenadores_torneo, cantidad_entrenadores,
+                                       tabla_torneo);
+                obtener_clasificados(tabla_torneo, vector_clasificados);
+                mostrar_clasificacion(tabla_torneo);
+                break;
             case 8:
+                mostrar_enfrentamientos(vector_partidos, CANTIDAD_PARTIDOS,vector_entrenadores_torneo, cantidad_entrenadores);
+                break;
             case 9:
+                mostrar_historial_combates();
+                break;
             case 10:
+                mostrar_resultados_torneo(vector_partidos, CANTIDAD_PARTIDOS,vector_entrenadores_torneo, cantidad_entrenadores);
+                break;
             case 11:
-                // Bloque para las opciones que aún no has programado
-                printf("\n[!] Este modulo se encuentra en desarrollo...\n");
+                mostrar_campeon(vector_partidos, CANTIDAD_PARTIDOS,vector_entrenadores_torneo, cantidad_entrenadores);
                 break;
             case 12:
                 cantidad_entrenadores = 0;
                 llenar_vector_entrenador(vector_entrenadores_torneo,&cantidad_entrenadores);
                 cargar_equipos_pokemon(vector_entrenadores_torneo, cantidad_entrenadores, vector_universo_pokemon);
-                printf("\n=======================================================\n");
-                printf("      \033[1;32m[+] BASE DE DATOS RECARGADA EXITOSAMENTE\033[0m         \n");
-                printf("=======================================================\n");
+                inicializar_partidos(vector_partidos, CANTIDAD_PARTIDOS,
+                                     vector_entrenadores_torneo, cantidad_entrenadores);
+                cargar_partidos(vector_partidos, CANTIDAD_PARTIDOS);
+                limpiar_consola();
+                imprimir_separador();
+                printf("  \033[1;32m[+] BASE DE DATOS RECARGADA EXITOSAMENTE\033[0m\n");
+                printf("      Entrenadores: %d | Especies: %d\n", cantidad_entrenadores, cantidad_pokedex);
+                imprimir_separador();
+                printf("\n");
                 break;
             case 13:
-                printf("\nSaliendo del sistema del Gran Torneo. Hasta luego!\n");
+                // Fase de grupos: 8 grupos de 4 entrenadores, 48 combates
+                fase_de_grupos(vector_entrenadores_torneo, cantidad_entrenadores, vector_partidos);
+
+                if (calcular_clasificacion(vector_partidos, CANTIDAD_PARTIDOS,vector_entrenadores_torneo, cantidad_entrenadores,tabla_torneo)) {
+                    obtener_clasificados(tabla_torneo, vector_clasificados);
+                }
+                break;
+            case 14:
+                // Fase eliminatoria: octavos, cuartos, semifinal, tercer lugar y final
+                if (calcular_clasificacion(vector_partidos, CANTIDAD_PARTIDOS,vector_entrenadores_torneo, cantidad_entrenadores,tabla_torneo)) {
+                    obtener_clasificados(tabla_torneo, vector_clasificados);
+                    fase_eliminatoria(vector_entrenadores_torneo, cantidad_entrenadores,vector_partidos, vector_clasificados);
+                } else {
+                    printf("\n\033[1;31m[!] ERROR:\033[0m aun faltan combates de la fase de grupos.\n");
+                    printf(" Dispute o cargue todos los combates de grupos (1 a %d) antes de\n", COMBATES_GRUPOS);
+                    printf(" avanzar a la fase eliminatoria.\n\n");
+                }
+                break;
+            case 15:
+                printf("\n\033[1;32mSaliendo del sistema del Gran Torneo. Hasta luego!\033[0m\n");
                 break;
             default:
-                printf("\n[!] Opcion no valida. Intente de nuevo.\n");
+                printf("\n\033[1;31m[!] Opcion no valida.\033[0m Intente de nuevo.\n");
                 break;
         }
 
-        // Sistema de pausa automática para que el usuario pueda leer los resultados
-        // antes de que el ciclo do-while borre la pantalla.
-        if (opcion != 13) {
+        // Sistema de pausa: se consume el resto de la linea (incluido el ENTER de la
+        // opcion) y luego se espera un ENTER del usuario. Si la entrada se agota
+        // (fin de archivo) el ciclo termina en lugar de quedarse esperando.
+        if (opcion != 15) {
+            int caracter;
+
             printf("\nPresione ENTER para continuar...");
-            while(getchar() != '\n'); // Limpia cualquier residuo (como otros enters) en el buffer
-            getchar();                // Espera a que el usuario presione la tecla
+            while (((caracter = getchar()) != '\n') && (caracter != EOF));
         }
 
-    } while (opcion != 13);
+    } while (opcion != 15);
 
 
 
