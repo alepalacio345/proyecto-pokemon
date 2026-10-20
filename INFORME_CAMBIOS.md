@@ -8,17 +8,13 @@ Este documento resume todos los cambios realizados sobre el proyecto, agrupados 
 
 ---
 
-## 1. Presentación: banner con Pokebola y colores
+## 1. Presentación: banner con colores
 
 ### 1.1 Banner principal
 Se rediseñó `imprimir_banner()` en [funciones.c](funciones.c):
 
-- **Logo de Pokebola** en arte ASCII de **tamaño fijo (24 columnas)**, idéntico en todas las pantallas del programa, con colores:
-  - Mitad superior en **rojo** (`\033[1;31m`).
-  - Banda central y botón en **negro/gris oscuro** (`\033[1;30m`).
-  - Mitad inferior en **blanco** (`\033[1;37m`).
-- El logo se extrajo a una función propia `imprimir_pokebola()`, usada tanto por el banner como por las fichas de la Pokédex, de modo que **nunca cambia de tamaño** al navegar entre menús.
-- Título `EL GRAN TORNEO POKEMON` en **amarillo**, con letras simples.
+- Banner **solo texto** (sin arte ASCII de Pokebola).
+- Título `EL GRAN TORNEO POKEMON` en **amarillo**, con letras simples y centrado.
 - Subtítulo en una **cajita centrada** con `+---+` y el texto en amarillo.
 - Marco superior e inferior en **azul** (`\033[1;34m`).
 
@@ -38,7 +34,6 @@ Se agregaron funciones de presentación para la Pokédex:
 |---|---|
 | `color_tipo()` | Devuelve el color ANSI de cada tipo elemental (Fuego=rojo, Agua=azul, Planta=verde, Eléctrico=amarillo, etc.). |
 | `imprimir_tipo_coloreado()` | Imprime el tipo con su color. |
-| `imprimir_logo_pokebola()` | Logo pequeño y simétrico para las fichas. |
 | `imprimir_mensaje()` | Mensaje uniforme con marco, icono, título y color (para errores, avisos y éxitos). |
 
 ### 2.1 Tabla completa (`imprimir_vector_pokemon`)
@@ -49,7 +44,7 @@ Se agregaron funciones de presentación para la Pokédex:
 - Pie con el total de especies y la leyenda de las siglas.
 
 ### 2.2 Ficha de especie (`mostrar_estadisticas_pokemon`)
-- Encabezado con la Pokebola.
+- Encabezado con el título de la ficha.
 - Nombre en amarillo, número `#NNN` debajo.
 - Tipos pintados con sus colores.
 - Estadísticas base en dos columnas y **total base** sumado al final.
@@ -66,7 +61,7 @@ Se agregaron funciones de presentación para la Pokédex:
 Se movieron **todos** los prototipos a [funciones.h](funciones.h), incluidos los de las funciones auxiliares internas. Se agregó la sección `MODULO 7: FUNCIONES AUXILIARES INTERNAS` con documentación Doxygen completa.
 
 Funciones auxiliares ahora declaradas en el header:
-`generar_equipo_entrenador`, `ejecutar_turno_ataque`, `seleccionar_siguiente`, `validar_participantes`, `buscar_entrenador_en_grupo`, `comparar_tabla_grupo`, `mostrar_etiqueta_clasificado`, `mostrar_etiqueta_cruce`, `es_id_entrenador`, `buscar_nombre_entrenador`, `color_tipo`, `imprimir_tipo_coloreado`, `imprimir_logo_pokebola`, `imprimir_mensaje`.
+`generar_equipo_entrenador`, `ejecutar_turno_ataque`, `seleccionar_siguiente`, `validar_participantes`, `buscar_entrenador_en_grupo`, `comparar_tabla_grupo`, `mostrar_etiqueta_clasificado`, `mostrar_etiqueta_cruce`, `es_id_entrenador`, `buscar_nombre_entrenador`, `color_tipo`, `imprimir_tipo_coloreado`, `imprimir_mensaje`.
 
 ### 3.2 Motor de combate (de tandas anteriores)
 - `disputar_combate`: combate por **rondas** (más veloz ataca primero, moneda si empatan), con contraataque.
@@ -114,8 +109,8 @@ Pruebas ejecutadas y verificadas:
 | Prueba | Resultado |
 |---|---|
 | Compilación `gcc -Wall -Wextra` | ✅ sin errores ni avisos |
-| Banner principal (Pokebola + título) | ✅ alineado y con colores |
-| Ficha de Pikachu (#025) | ✅ logo, tipos y estadísticas correctos |
+| Banner principal (título + subtítulo) | ✅ alineado y con colores |
+| Ficha de Pikachu (#025) | ✅ tipos y estadísticas correctos |
 | Tabla completa de la Pokédex (150 especies) | ✅ con tipos coloreados |
 | Creación masiva de 32 equipos | ✅ 224 líneas, 0 duplicados |
 | Segunda corrida de creación masiva | ✅ no duplica, avisa que ya existen |

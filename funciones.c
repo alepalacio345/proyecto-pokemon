@@ -58,28 +58,8 @@ void leer_texto(char destino[], int tamano){
     }
 }
 
-void imprimir_pokebola(void){
-    // Logo unico de la Pokebola: SIEMPRE el mismo tamano (24 columnas de ancho)
-    // para que se vea identico en el menu principal y en cualquier pantalla.
-    // Cada linea tiene exactamente 24 caracteres y se centra con un padding fijo.
-    printf("\033[1;31m");
-    printf("         @@@@@@@@@       \n");
-    printf("      @@@@@     @@@@@    \n");
-    printf("    @@@@@@@@@@@@@@@@@    \n");
-    printf("   @@@@@@@  ###  @@@@@@@ \n");
-    printf("\033[1;30m");
-    printf("   @@@@@@@  ###  @@@@@@@ \n");
-    printf("\033[1;37m");
-    printf("    @@@@@@@@@@@@@@@@@    \n");
-    printf("      @@@@@     @@@@@    \n");
-    printf("         @@@@@@@@@       \n");
-    printf("\033[0m");
-}
-
 void imprimir_banner(char subtitulo[]){
-    // Banner con el logo de la Pokebola (tamano fijo), el titulo en letras
-    // simples y un subtitulo en una cajita centrada. El logo es identico en
-    // todas las pantallas.
+    // Banner con titulo en letras simples y un subtitulo en una cajita centrada.
     if (subtitulo == NULL) {
         subtitulo = "";
     }
@@ -88,9 +68,6 @@ void imprimir_banner(char subtitulo[]){
     printf("\033[1;34m");
     printf(" ============================================================================\n");
     printf("\033[0m");
-
-    // Logo de la Pokebola (siempre el mismo, centrado a 76 columnas interiores)
-    imprimir_pokebola();
 
     // Titulo centrado en letras simples
     printf("\n\033[1;33m");
@@ -217,12 +194,6 @@ void imprimir_mensaje(char icono[], char titulo[], char detalle[], char color[])
 void imprimir_tipo_coloreado(char nombre_tipo[]){
     // Imprime el tipo con su color. \033[0m al final vuelve al color normal.
     printf("%s%s\033[0m", color_tipo(nombre_tipo), nombre_tipo);
-}
-
-void imprimir_logo_pokebola(void){
-    // La ficha usa el MISMO logo de 24 columnas que el banner, para que la
-    // Pokebola se vea siempre del mismo tamano en todo el programa.
-    imprimir_pokebola();
 }
 
 // =========================================================================
@@ -364,16 +335,13 @@ void imprimir_vector_pokemon(especies_pokemons vector[], int cantidad) {
 }
 
 void mostrar_estadisticas_pokemon(especies_pokemons vector[], int indice){
-    // Ficha detallada de una especie, con la Pokebola, los tipos coloreados y sus
-    // estadisticas base destacadas.
+    // Ficha detallada de una especie: tipos coloreados y estadisticas base destacadas.
     limpiar_consola();
     printf("\n\033[1;32m");
     printf(" ============================================================================\n");
     printf("                        FICHA DE LA POKEDEX\n");
     printf(" ============================================================================\n");
     printf("\033[0m\n");
-
-    imprimir_logo_pokebola();
 
     printf("\n\033[1;33m");
     printf("                     %s\n", vector[indice].Nombre);

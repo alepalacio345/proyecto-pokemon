@@ -795,19 +795,6 @@ const char* color_tipo(char nombre_tipo[]);
 void imprimir_tipo_coloreado(char nombre_tipo[]);
 
 /**
- * @brief Imprime el logo pequeno de la Pokebola (para encabezar las fichas).
- */
-void imprimir_logo_pokebola(void);
-
-/**
- * @brief Imprime el logo unico de la Pokebola, de tamano fijo (24 columnas).
- *
- * Es el mismo logo que se usa en el banner y en las fichas, para que la
- * Pokebola se vea siempre del mismo tamano en todo el programa.
- */
-void imprimir_pokebola(void);
-
-/**
  * @brief Imprime un mensaje corto con marco, icono y color.
  *
  * Se usa en toda la aplicacion para errores, avisos y confirmaciones, de modo
