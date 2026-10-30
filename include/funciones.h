@@ -778,6 +778,11 @@ int cargar_resultados_archivo(Partido partidos[], int cantidad, char clasificado
 void imprimir_banner(char subtitulo[]);
 
 /**
+ * @brief Imprime el menu principal como una tabla con division por modulo.
+ */
+void imprimir_menu_principal(void);
+
+/**
  * @brief Imprime una linea horizontal continua del ancho del banner.
  */
 void imprimir_separador(void);

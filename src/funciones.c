@@ -147,6 +147,228 @@ void imprimir_separador(void){
     consola_printf("\n\033[0m");
 }
 
+/**
+ * @brief Estilo de las lineas que forman la tabla del menu.
+ *
+ * Se usan caracteres de caja Unicode cuando el terminal es UTF-8 y se cae a
+ * "+", "-" y "|" en consolas antiguas.
+ */
+typedef struct {
+    const char *vertical;
+    const char *horizontal;
+    const char *superior_izq;
+    const char *superior_medio;
+    const char *superior_der;
+    const char *medio_izq;
+    const char *medio_centro;
+    const char *medio_der;
+    const char *inferior_izq;
+    const char *inferior_medio;
+    const char *inferior_der;
+} EstiloTabla;
+
+static EstiloTabla obtener_estilo_tabla(void)
+{
+    EstiloTabla estilo;
+
+    if (consola_usa_utf8()) {
+        estilo.vertical = "\xE2\x94\x82";
+        estilo.horizontal = "\xE2\x94\x80";
+        estilo.superior_izq = "\xE2\x94\x8C";
+        estilo.superior_medio = "\xE2\x94\xAC";
+        estilo.superior_der = "\xE2\x94\x90";
+        estilo.medio_izq = "\xE2\x94\x9C";
+        estilo.medio_centro = "\xE2\x94\xBC";
+        estilo.medio_der = "\xE2\x94\xA4";
+        estilo.inferior_izq = "\xE2\x94\x94";
+        estilo.inferior_medio = "\xE2\x94\xB4";
+        estilo.inferior_der = "\xE2\x94\x98";
+    } else {
+        estilo.vertical = "|";
+        estilo.horizontal = "-";
+        estilo.superior_izq = "+";
+        estilo.superior_medio = "+";
+        estilo.superior_der = "+";
+        estilo.medio_izq = "+";
+        estilo.medio_centro = "+";
+        estilo.medio_der = "+";
+        estilo.inferior_izq = "+";
+        estilo.inferior_medio = "+";
+        estilo.inferior_der = "+";
+    }
+
+    return estilo;
+}
+
+static void agregar_cadena(char *destino, size_t capacidad, size_t *longitud,
+                           const char *texto)
+{
+    size_t largo = strlen(texto);
+
+    if (*longitud + largo >= capacidad) {
+        largo = capacidad - *longitud - 1;
+    }
+    memcpy(destino + *longitud, texto, largo);
+    *longitud += largo;
+    destino[*longitud] = '\0';
+}
+
+static void agregar_repetido(char *destino, size_t capacidad, size_t *longitud,
+                             const char *texto, int veces)
+{
+    int i;
+
+    for (i = 0; i < veces; i++) {
+        agregar_cadena(destino, capacidad, longitud, texto);
+    }
+}
+
+static void imprimir_borde_simple(const EstiloTabla *estilo,
+                                  const char *izquierda, const char *derecha)
+{
+    char linea[512];
+    size_t longitud = 0;
+
+    linea[0] = '\0';
+    agregar_cadena(linea, sizeof(linea), &longitud, izquierda);
+    agregar_repetido(linea, sizeof(linea), &longitud, estilo->horizontal, 76);
+    agregar_cadena(linea, sizeof(linea), &longitud, derecha);
+
+    consola_printf("\033[1;34m%s\033[0m\n", linea);
+}
+
+static void imprimir_borde_columnas(const EstiloTabla *estilo,
+                                    const char *izquierda, const char *medio,
+                                    const char *derecha)
+{
+    char linea[512];
+    size_t longitud = 0;
+
+    linea[0] = '\0';
+    agregar_cadena(linea, sizeof(linea), &longitud, izquierda);
+    agregar_repetido(linea, sizeof(linea), &longitud, estilo->horizontal, 4);
+    agregar_cadena(linea, sizeof(linea), &longitud, medio);
+    agregar_repetido(linea, sizeof(linea), &longitud, estilo->horizontal, 33);
+    agregar_cadena(linea, sizeof(linea), &longitud, medio);
+    agregar_repetido(linea, sizeof(linea), &longitud, estilo->horizontal, 4);
+    agregar_cadena(linea, sizeof(linea), &longitud, medio);
+    agregar_repetido(linea, sizeof(linea), &longitud, estilo->horizontal, 32);
+    agregar_cadena(linea, sizeof(linea), &longitud, derecha);
+
+    consola_printf("\033[1;34m%s\033[0m\n", linea);
+}
+
+static void imprimir_titulo_tabla(const EstiloTabla *estilo, const char *titulo)
+{
+    const int interior = 76;
+    int largo = (int) strlen(titulo);
+    int izquierda = (interior - largo) / 2;
+    int derecha;
+
+    if (izquierda < 0) {
+        izquierda = 0;
+    }
+    derecha = interior - largo - izquierda;
+    if (derecha < 0) {
+        derecha = 0;
+    }
+
+    consola_printf("\033[1;34m%s\033[1;33m%*s%s%*s\033[1;34m%s\033[0m\n",
+                   estilo->vertical, izquierda, "", titulo, derecha, "",
+                   estilo->vertical);
+}
+
+static void centrar_numero(const char *texto, char destino[5])
+{
+    int largo = (int) strlen(texto);
+    int izquierda = (4 - largo) / 2;
+    int derecha = 4 - largo - izquierda;
+
+    if (izquierda < 0) {
+        izquierda = 0;
+    }
+    if (derecha < 0) {
+        derecha = 0;
+    }
+
+    snprintf(destino, 5, "%*s%s%*s", izquierda, "", texto, derecha, "");
+}
+
+static void imprimir_fila_tabla(const EstiloTabla *estilo,
+                                const char *numero_izq, const char *texto_izq,
+                                const char *numero_der, const char *texto_der)
+{
+    char celda_izq[5];
+    char celda_der[5];
+
+    centrar_numero(numero_izq, celda_izq);
+    centrar_numero(numero_der, celda_der);
+
+    consola_printf("\033[1;34m%s\033[1;33m%4s\033[1;34m%s "
+                   "\033[1;37m%-31s\033[1;34m %s\033[1;33m%4s"
+                   "\033[1;34m%s \033[1;37m%-30s\033[1;34m %s\033[0m\n",
+                   estilo->vertical, celda_izq, estilo->vertical, texto_izq,
+                   estilo->vertical, celda_der, estilo->vertical, texto_der,
+                   estilo->vertical);
+}
+
+void imprimir_menu_principal(void)
+{
+    static const char *opciones[15] = {
+        "Consultar Pokedex",
+        "Registrar entrenador",
+        "Crear equipo",
+        "Consultar entrenadores",
+        "Consultar equipos",
+        "Cargar resultados",
+        "Consultar clasificacion",
+        "Consultar enfrentamientos",
+        "Consultar historial de combates",
+        "Mostrar resultados del torneo",
+        "Mostrar campeon",
+        "Recargar base de datos",
+        "Disputar fase de grupos",
+        "Disputar fase eliminatoria",
+        "Salir"
+    };
+    EstiloTabla estilo = obtener_estilo_tabla();
+    int fila;
+
+    imprimir_borde_simple(&estilo, estilo.superior_izq, estilo.superior_der);
+    imprimir_titulo_tabla(&estilo, "MENU PRINCIPAL");
+    imprimir_borde_columnas(&estilo, estilo.medio_izq,
+                            estilo.superior_medio, estilo.medio_der);
+    imprimir_fila_tabla(&estilo, "N.", "MODULO", "N.", "MODULO");
+    imprimir_borde_columnas(&estilo, estilo.medio_izq,
+                            estilo.medio_centro, estilo.medio_der);
+
+    for (fila = 0; fila < 8; fila++) {
+        char numero_izq[4];
+        char numero_der[4];
+        int indice_izq = fila * 2;
+        int indice_der = indice_izq + 1;
+
+        snprintf(numero_izq, sizeof(numero_izq), "%d", indice_izq + 1);
+        if (indice_der < 15) {
+            snprintf(numero_der, sizeof(numero_der), "%d", indice_der + 1);
+        } else {
+            numero_der[0] = '\0';
+        }
+
+        imprimir_fila_tabla(&estilo, numero_izq, opciones[indice_izq],
+                            numero_der,
+                            (indice_der < 15) ? opciones[indice_der] : "");
+
+        if (fila < 7) {
+            imprimir_borde_columnas(&estilo, estilo.medio_izq,
+                                    estilo.medio_centro, estilo.medio_der);
+        }
+    }
+
+    imprimir_borde_columnas(&estilo, estilo.inferior_izq,
+                            estilo.inferior_medio, estilo.inferior_der);
+}
+
 void imprimir_opcion_menu(char tecla[], char texto[]){
     // Las opciones empiezan dos espacios adentro del marco, con el numero en
     // amarillo y el texto en blanco.
@@ -478,6 +700,11 @@ void menu_consultar_pokedex(especies_pokemons vector_universo_pokemon[], int can
     consola_printf(" -> Seleccione una opcion: ");
     // Lectura segura: una opcion no numerica no deja el buffer trabado
     opcion_pokedex = leer_entero(-1);
+
+    // Cambio de pantalla dentro del modulo: se limpia antes de mostrar el resultado.
+    if (opcion_pokedex >= 1 && opcion_pokedex <= 3) {
+        limpiar_consola();
+    }
 
     switch(opcion_pokedex) {
         case 1:
@@ -1065,6 +1292,11 @@ void menu_crear_equipos(especies_pokemons vector_universo_pokemon[], Entrenador 
     imprimir_separador();
     consola_printf(" -> Seleccione una opcion: ");
     opcion = leer_entero(-1);
+
+    // Cambio de pantalla dentro del modulo.
+    if (opcion == 1 || opcion == 2) {
+        limpiar_consola();
+    }
 
     switch (opcion) {
         case 1:
@@ -2569,6 +2801,11 @@ void menu_cargar_resultados(Partido partidos[], int cantidad, char clasificados[
     imprimir_separador();
     consola_printf(" -> Seleccione una opcion: ");
     opcion = leer_entero(-1);
+
+    // Cambio de pantalla dentro del modulo.
+    if (opcion >= 1 && opcion <= 3) {
+        limpiar_consola();
+    }
 
     switch (opcion) {
         case 1:

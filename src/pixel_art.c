@@ -376,4 +376,7 @@ void pantalla_bienvenida(void)
     consola_limpiar();
     lienzo_renderizar(&lienzo);
     consola_esperar_enter("");
+
+    /* Al pulsar ENTER la imagen desaparece antes de cargar el menu. */
+    consola_limpiar();
 }

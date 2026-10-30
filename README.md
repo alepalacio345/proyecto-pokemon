@@ -89,6 +89,10 @@ ANSI; luego aparece el menú principal.
 
 ## Menú principal
 
+El menú se dibuja como una tabla de dos columnas: número y módulo, con una
+división horizontal por cada opción y el título dentro del mismo cuadro. Las
+líneas son continuas y se limpia la pantalla al cambiar de módulo.
+
 ```
  1. Consultar Pokedex
  2. Registrar entrenador
@@ -347,9 +351,10 @@ También puedes cargar resultados a mano con la opción **6**, escribiendo el n�
 - **Rutas portables**: nueva librería `archivos` que localiza `datos/` desde la
   raíz, desde `bin/` o con doble clic.
 - **Pantalla pixelada** antes del menú y **Makefile** multiplataforma.
-- **Menú compacto**: el título general ya no se repite en cada pantalla, las
-  líneas son continuas y solo se limpia al entrar a un módulo; así se conserva
-  el historial necesario de la operación actual.
+- **Menú principal tipo tabla**: las opciones están dentro de un cuadro con
+  divisiones por módulo, líneas continuas y columnas para el número y el nombre.
+  La pantalla se limpia al pasar de la bienvenida al menú y al cambiar de
+  módulo, pero se conserva el historial necesario dentro de cada operación.
 
 ---
 

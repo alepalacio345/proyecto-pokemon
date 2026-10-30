@@ -34,37 +34,20 @@ int main(void){
     cargar_partidos(vector_partidos, CANTIDAD_PARTIDOS);
 
     do {
-        limpiar_consola();
-
-        // Banner compacto: el titulo grande solo aparece en la bienvenida
-        imprimir_banner("MENU PRINCIPAL");
-
-        imprimir_opcion_menu("1", "Consultar Pokedex");
-        imprimir_opcion_menu("2", "Registrar entrenador");
-        imprimir_opcion_menu("3", "Crear equipo");
-        imprimir_opcion_menu("4", "Consultar entrenadores");
-        imprimir_opcion_menu("5", "Consultar equipos");
-        imprimir_opcion_menu("6", "Cargar resultados");
-        imprimir_opcion_menu("7", "Consultar clasificacion");
-        imprimir_opcion_menu("8", "Consultar enfrentamientos");
-        imprimir_opcion_menu("9", "Consultar historial de combates");
-        imprimir_opcion_menu("10", "Mostrar resultados del torneo");
-        imprimir_opcion_menu("11", "Mostrar campeon");
-        imprimir_opcion_menu("12", "Recargar base de datos");
-        imprimir_opcion_menu("13", "Disputar fase de grupos");
-        imprimir_opcion_menu("14", "Disputar fase eliminatoria");
-        imprimir_opcion_menu("15", "Salir");
-        imprimir_separador();
+        // El menu principal es una tabla tipo Excel con una division por modulo.
+        imprimir_menu_principal();
 
         if (cantidad_entrenadores < 1) {
             consola_printf("  \033[1;33m[!]\033[0m No hay entrenadores cargados: registre participantes\n");
             consola_printf("      antes de usar las opciones del torneo.\n");
-            imprimir_separador();
         }
 
         consola_printf(" -> Seleccione una opcion: ");
         // Lectura segura: una opcion no numerica no deja el buffer trabado
         opcion = leer_entero(-1);
+
+        // Al entrar a cualquier modulo se limpia la pantalla.
+        limpiar_consola();
 
         switch(opcion) {
             case 1:
@@ -153,6 +136,8 @@ int main(void){
             if (!consola_esperar_enter("\nPresione ENTER para continuar...")) {
                 break;
             }
+            // Al volver al menu se limpia lo que dejo el modulo anterior.
+            limpiar_consola();
         }
 
     } while (opcion != 15);
