@@ -152,6 +152,44 @@ static void imprimir_sin_ansi(const char *texto)
     }
 }
 
+/**
+ * @brief Imprime texto convirtiendo las reglas de "=" o "-" en lineas continuas.
+ *
+ * Solo se aplica cuando el terminal admite UTF-8. Asi todos los mensajes que
+ * traian "=====" o "-----" se ven con el mismo trazo continuo del menu sin
+ * tener que reescribir cada cadena del juego.
+ */
+static void imprimir_con_reglas(const char *texto)
+{
+    const char *p = texto;
+
+    while (*p != '\0') {
+        if (*p == '=' || *p == '-') {
+            char caracter = *p;
+            size_t cantidad = 0;
+            size_t i;
+
+            while (p[cantidad] == caracter) {
+                cantidad++;
+            }
+
+            if (cantidad >= 3) {
+                for (i = 0; i < cantidad; i++) {
+                    fputs("\xE2\x94\x80", stdout);
+                }
+            } else {
+                for (i = 0; i < cantidad; i++) {
+                    fputc(caracter, stdout);
+                }
+            }
+            p += cantidad;
+        } else {
+            fputc(*p, stdout);
+            p++;
+        }
+    }
+}
+
 void consola_printf(const char *formato, ...)
 {
     char buffer[4096];
@@ -169,7 +207,11 @@ void consola_printf(const char *formato, ...)
     buffer[sizeof(buffer) - 1] = '\0';
 
     if (colores_ansi) {
-        fputs(buffer, stdout);
+        if (consola_usa_utf8()) {
+            imprimir_con_reglas(buffer);
+        } else {
+            fputs(buffer, stdout);
+        }
     } else {
         imprimir_sin_ansi(buffer);
     }

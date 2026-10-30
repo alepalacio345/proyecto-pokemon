@@ -783,6 +783,15 @@ void imprimir_banner(char subtitulo[]);
 void imprimir_menu_principal(void);
 
 /**
+ * @brief Imprime un submenu de una columna con el mismo estilo de cuadro.
+ * @param titulo Titulo que aparece dentro del cuadro.
+ * @param opciones Arreglo de descripciones de las opciones.
+ * @param cantidad Cantidad de opciones.
+ */
+void imprimir_menu_opciones(const char *titulo, const char *opciones[],
+                            int cantidad);
+
+/**
  * @brief Imprime una linea horizontal continua del ancho del banner.
  */
 void imprimir_separador(void);

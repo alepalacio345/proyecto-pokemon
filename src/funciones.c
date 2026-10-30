@@ -369,6 +369,63 @@ void imprimir_menu_principal(void)
                             estilo.inferior_medio, estilo.inferior_der);
 }
 
+static void imprimir_borde_una_columna(const EstiloTabla *estilo,
+                                       const char *izquierda,
+                                       const char *medio,
+                                       const char *derecha)
+{
+    char linea[512];
+    size_t longitud = 0;
+
+    linea[0] = '\0';
+    agregar_cadena(linea, sizeof(linea), &longitud, izquierda);
+    agregar_repetido(linea, sizeof(linea), &longitud, estilo->horizontal, 4);
+    agregar_cadena(linea, sizeof(linea), &longitud, medio);
+    agregar_repetido(linea, sizeof(linea), &longitud, estilo->horizontal, 71);
+    agregar_cadena(linea, sizeof(linea), &longitud, derecha);
+
+    consola_printf("\033[1;34m%s\033[0m\n", linea);
+}
+
+static void imprimir_fila_una_columna(const EstiloTabla *estilo,
+                                      const char *numero, const char *texto)
+{
+    char celda[5];
+
+    centrar_numero(numero, celda);
+    consola_printf("\033[1;34m%s\033[1;33m%4s\033[1;34m%s "
+                   "\033[1;37m%-69s\033[1;34m %s\033[0m\n",
+                   estilo->vertical, celda, estilo->vertical, texto,
+                   estilo->vertical);
+}
+
+void imprimir_menu_opciones(const char *titulo, const char *opciones[],
+                            int cantidad)
+{
+    EstiloTabla estilo = obtener_estilo_tabla();
+    int i;
+
+    imprimir_borde_simple(&estilo, estilo.superior_izq, estilo.superior_der);
+    imprimir_titulo_tabla(&estilo, titulo);
+    imprimir_borde_una_columna(&estilo, estilo.medio_izq,
+                               estilo.superior_medio, estilo.medio_der);
+
+    for (i = 0; i < cantidad; i++) {
+        char numero[4];
+
+        snprintf(numero, sizeof(numero), "%d", i + 1);
+        imprimir_fila_una_columna(&estilo, numero, opciones[i]);
+
+        if (i < cantidad - 1) {
+            imprimir_borde_una_columna(&estilo, estilo.medio_izq,
+                                       estilo.medio_centro, estilo.medio_der);
+        }
+    }
+
+    imprimir_borde_una_columna(&estilo, estilo.inferior_izq,
+                               estilo.inferior_medio, estilo.inferior_der);
+}
+
 void imprimir_opcion_menu(char tecla[], char texto[]){
     // Las opciones empiezan dos espacios adentro del marco, con el numero en
     // amarillo y el texto en blanco.
@@ -684,19 +741,18 @@ void consultar_pokedex_nombre(especies_pokemons vector[], int cantidad) {
 }
 
 void menu_consultar_pokedex(especies_pokemons vector_universo_pokemon[], int cantidad) {
+    static const char *opciones[] = {
+        "Mostrar la Pokedex completa",
+        "Buscar un Pokemon por numero (ID)",
+        "Buscar un Pokemon por nombre",
+        "Regresar al menu principal"
+    };
     int opcion_pokedex;
 
     limpiar_consola();
-    imprimir_banner("CONSULTAR POKEDEX");
-
     consola_printf("\n  \033[1;37mEspecies cargadas en el sistema\033[0m: \033[1;33m%d\033[0m\n", cantidad);
     consola_printf("  \033[1;37mCatalogo oficial\033[0m: Primera Generacion (#001 a #150)\n\n");
-    imprimir_separador();
-    imprimir_opcion_menu("1", "Mostrar la Pokedex completa");
-    imprimir_opcion_menu("2", "Buscar un Pokemon por numero (ID)");
-    imprimir_opcion_menu("3", "Buscar un Pokemon por nombre");
-    imprimir_opcion_menu("4", "Regresar al menu principal");
-    imprimir_separador();
+    imprimir_menu_opciones("CONSULTAR POKEDEX", opciones, 4);
     consola_printf(" -> Seleccione una opcion: ");
     // Lectura segura: una opcion no numerica no deja el buffer trabado
     opcion_pokedex = leer_entero(-1);
@@ -1270,6 +1326,11 @@ int crear_equipos_todos(especies_pokemons vector_universo_pokemon[], Entrenador 
 
 void menu_crear_equipos(especies_pokemons vector_universo_pokemon[], Entrenador vector_entrenadores[], int cantidad_entrenadores){
     // Submenu: crear todos los equipos de una vez o elegir un entrenador.
+    static const char *opciones[] = {
+        "Crear TODOS los equipos que falten (automatico)",
+        "Seleccionar un entrenador manualmente",
+        "Regresar al menu principal"
+    };
     int opcion;
     int sin_equipo = 0;
 
@@ -1280,16 +1341,11 @@ void menu_crear_equipos(especies_pokemons vector_universo_pokemon[], Entrenador 
     }
 
     limpiar_consola();
-    imprimir_banner("CREAR EQUIPO");
     consola_printf("\n  Entrenadores registrados ......: \033[1;37m%d\033[0m\n", cantidad_entrenadores);
     consola_printf("  Entrenadores sin equipo .......: \033[1;33m%d\033[0m\n", sin_equipo);
     consola_printf("  Entrenadores con equipo .......: \033[1;32m%d\033[0m\n", cantidad_entrenadores - sin_equipo);
     consola_printf("\n");
-    imprimir_separador();
-    consola_printf("  \033[1;33m1.\033[0m Crear TODOS los equipos que falten (automatico)\n");
-    consola_printf("  \033[1;33m2.\033[0m Seleccionar un entrenador manualmente\n");
-    consola_printf("  \033[1;33m3.\033[0m Regresar al menu principal\n");
-    imprimir_separador();
+    imprimir_menu_opciones("CREAR EQUIPO", opciones, 3);
     consola_printf(" -> Seleccione una opcion: ");
     opcion = leer_entero(-1);
 
@@ -2777,6 +2833,12 @@ int cargar_resultados_archivo(Partido partidos[], int cantidad, char clasificado
 
 void menu_cargar_resultados(Partido partidos[], int cantidad, char clasificados[][8], Entrenador entrenadores[], int cantidad_entrenadores){
     // Submenu: cargar un resultado por teclado o varios desde un archivo.
+    static const char *opciones[] = {
+        "Cargar un combate por teclado",
+        "Cargar varios combates desde un archivo de texto",
+        "Ver el formato del archivo de resultados",
+        "Regresar al menu principal"
+    };
     int opcion;
     int jugados = 0;
     char nombre_archivo[60];
@@ -2788,17 +2850,11 @@ void menu_cargar_resultados(Partido partidos[], int cantidad, char clasificados[
     }
 
     limpiar_consola();
-    imprimir_banner("CARGAR RESULTADOS");
     consola_printf("\n  Combates del torneo ...........: \033[1;37m%d\033[0m\n", cantidad);
     consola_printf("  Combates con resultado ........: \033[1;32m%d\033[0m\n", jugados);
     consola_printf("  Combates pendientes ...........: \033[1;33m%d\033[0m\n", cantidad - jugados);
     consola_printf("\n");
-    imprimir_separador();
-    consola_printf("  \033[1;33m1.\033[0m Cargar un combate por teclado\n");
-    consola_printf("  \033[1;33m2.\033[0m Cargar varios combates desde un archivo de texto\n");
-    consola_printf("  \033[1;33m3.\033[0m Ver el formato del archivo de resultados\n");
-    consola_printf("  \033[1;33m4.\033[0m Regresar al menu principal\n");
-    imprimir_separador();
+    imprimir_menu_opciones("CARGAR RESULTADOS", opciones, 4);
     consola_printf(" -> Seleccione una opcion: ");
     opcion = leer_entero(-1);
 

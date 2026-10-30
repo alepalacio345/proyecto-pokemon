@@ -90,7 +90,8 @@ ANSI; luego aparece el menú principal.
 ## Menú principal
 
 El menú se dibuja como una tabla de dos columnas: número y módulo, con una
-división horizontal por cada opción y el título dentro del mismo cuadro. Las
+división horizontal por cada opción y el título dentro del mismo cuadro. Los
+submenús de Pokédex, equipos y resultados usan el mismo estilo de cuadro. Las
 líneas son continuas y se limpia la pantalla al cambiar de módulo.
 
 ```
@@ -351,10 +352,11 @@ También puedes cargar resultados a mano con la opción **6**, escribiendo el n�
 - **Rutas portables**: nueva librería `archivos` que localiza `datos/` desde la
   raíz, desde `bin/` o con doble clic.
 - **Pantalla pixelada** antes del menú y **Makefile** multiplataforma.
-- **Menú principal tipo tabla**: las opciones están dentro de un cuadro con
-  divisiones por módulo, líneas continuas y columnas para el número y el nombre.
-  La pantalla se limpia al pasar de la bienvenida al menú y al cambiar de
-  módulo, pero se conserva el historial necesario dentro de cada operación.
+- **Menús tipo tabla**: el menú principal y los submenús de Pokédex, equipos y
+  resultados están dentro de cuadros con divisiones y líneas continuas. Las
+  reglas `----` y `====` de los mensajes también se convierten en líneas
+  continuas cuando el terminal admite UTF-8. La pantalla se limpia al pasar de
+  la bienvenida al menú y al cambiar de módulo.
 
 ---
 
