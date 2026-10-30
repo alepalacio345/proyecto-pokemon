@@ -1,0 +1,10 @@
+# Artefactos de compilacion
+bin/
+obj/
+*.o
+*.exe
+*.a
+
+# Archivos temporales de pruebas
+test_input.txt
+test_output.txt

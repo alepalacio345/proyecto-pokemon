@@ -2,11 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 #include "funciones.h"
+#include "consola.h"
+#include "pixel_art.h"
 
-int main(){
-    //semill
-    srand(time(NULL));
-
+int main(void){
     int opcion;
     int cantidad_entrenadores = 0;
     int cantidad_pokedex = 0;
@@ -15,6 +14,13 @@ int main(){
     Partido vector_partidos[CANTIDAD_PARTIDOS];
     char vector_clasificados[MAX_CLASIFICADOS][8];
     TablaGrupo tabla_torneo[CANTIDAD_GRUPOS][ENTRENADORES_POR_GRUPO];
+
+    // Semilla de las tiradas (monedas y barajado de equipos).
+    srand((unsigned int)time(NULL));
+
+    // Preparar la consola y mostrar la pantalla pixelada de bienvenida.
+    consola_iniciar();
+    pantalla_bienvenida();
 
     llenar_vector_pokemon(vector_universo_pokemon);
     cantidad_pokedex = contar_especies_pokemon(vector_universo_pokemon, MAX_POKEDEX);
@@ -30,7 +36,7 @@ int main(){
     do {
         limpiar_consola();
 
-        // Banner con arte ASCII (solo la primera vez) y encabezado compacto despues
+        // Banner compacto: el titulo grande solo aparece en la bienvenida
         imprimir_banner("MENU PRINCIPAL");
 
         imprimir_opcion_menu("1", "Consultar Pokedex");
@@ -51,12 +57,12 @@ int main(){
         imprimir_separador();
 
         if (cantidad_entrenadores < 1) {
-            printf("  \033[1;33m[!]\033[0m No hay entrenadores cargados: registre participantes\n");
-            printf("      antes de usar las opciones del torneo.\n");
+            consola_printf("  \033[1;33m[!]\033[0m No hay entrenadores cargados: registre participantes\n");
+            consola_printf("      antes de usar las opciones del torneo.\n");
             imprimir_separador();
         }
 
-        printf(" -> Seleccione una opcion: ");
+        consola_printf(" -> Seleccione una opcion: ");
         // Lectura segura: una opcion no numerica no deja el buffer trabado
         opcion = leer_entero(-1);
 
@@ -108,12 +114,11 @@ int main(){
                 inicializar_partidos(vector_partidos, CANTIDAD_PARTIDOS,
                                      vector_entrenadores_torneo, cantidad_entrenadores);
                 cargar_partidos(vector_partidos, CANTIDAD_PARTIDOS);
-                limpiar_consola();
                 imprimir_separador();
-                printf("  \033[1;32m[+] BASE DE DATOS RECARGADA EXITOSAMENTE\033[0m\n");
-                printf("      Entrenadores: %d | Especies: %d\n", cantidad_entrenadores, cantidad_pokedex);
+                consola_printf("  \033[1;32m[+] BASE DE DATOS RECARGADA EXITOSAMENTE\033[0m\n");
+                consola_printf("      Entrenadores: %d | Especies: %d\n", cantidad_entrenadores, cantidad_pokedex);
                 imprimir_separador();
-                printf("\n");
+                consola_printf("\n");
                 break;
             case 13:
                 // Fase de grupos: 8 grupos de 4 entrenadores, 48 combates
@@ -129,27 +134,25 @@ int main(){
                     obtener_clasificados(tabla_torneo, vector_clasificados);
                     fase_eliminatoria(vector_entrenadores_torneo, cantidad_entrenadores,vector_partidos, vector_clasificados);
                 } else {
-                    printf("\n\033[1;31m[!] ERROR:\033[0m aun faltan combates de la fase de grupos.\n");
-                    printf(" Dispute o cargue todos los combates de grupos (1 a %d) antes de\n", COMBATES_GRUPOS);
-                    printf(" avanzar a la fase eliminatoria.\n\n");
+                    consola_printf("\n\033[1;31m[!] ERROR:\033[0m aun faltan combates de la fase de grupos.\n");
+                    consola_printf(" Dispute o cargue todos los combates de grupos (1 a %d) antes de\n", COMBATES_GRUPOS);
+                    consola_printf(" avanzar a la fase eliminatoria.\n\n");
                 }
                 break;
             case 15:
-                printf("\n\033[1;32mSaliendo del sistema del Gran Torneo. Hasta luego!\033[0m\n");
+                consola_printf("\n\033[1;32mSaliendo del sistema del Gran Torneo. Hasta luego!\033[0m\n");
                 break;
             default:
-                printf("\n\033[1;31m[!] Opcion no valida.\033[0m Intente de nuevo.\n");
+                consola_printf("\n\033[1;31m[!] Opcion no valida.\033[0m Intente de nuevo.\n");
                 break;
         }
 
-        // Sistema de pausa: se consume el resto de la linea (incluido el ENTER de la
-        // opcion) y luego se espera un ENTER del usuario. Si la entrada se agota
-        // (fin de archivo) el ciclo termina en lugar de quedarse esperando.
+        // Pausa portable. Si la entrada se agota (por ejemplo, al ejecutar con
+        // un archivo redirigido) el ciclo termina en lugar de quedarse esperando.
         if (opcion != 15) {
-            int caracter;
-
-            printf("\nPresione ENTER para continuar...");
-            while (((caracter = getchar()) != '\n') && (caracter != EOF));
+            if (!consola_esperar_enter("\nPresione ENTER para continuar...")) {
+                break;
+            }
         }
 
     } while (opcion != 15);

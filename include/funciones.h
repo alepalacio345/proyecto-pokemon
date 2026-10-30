@@ -10,8 +10,8 @@
  *  - Modulo 5: Motor de combate y efectividad de tipos
  *  - Modulo 6: Torneo (calendario, fases, clasificacion y resultados)
  */
-#ifndef funciones
-#define funciones
+#ifndef FUNCIONES_H
+#define FUNCIONES_H
 #include <stdbool.h>
 
 // =========================================================================
@@ -20,10 +20,18 @@
 
 #define MAX_POKEMONES_EN_EQ 6
 #define MAX_ENTRENADORES 32
-#define ARCHIVO_ERROR printf("Error al abrir el archivo\n")
 #define MAX_POKEDEX 150
 #define CANTIDAD_TIPOS 18
 #define PODER_ATAQUE 50
+
+/** @brief Nivel de cada ejemplar generado por el backtracking. */
+#define NIVEL_EJEMPLAR 50
+
+/** @brief Nivel total maximo permitido para todo el equipo. */
+#define NIVEL_MAXIMO_EQUIPO 300
+
+/** @brief Cantidad minima de tipos primarios distintos en un equipo. */
+#define TIPOS_MINIMOS_EQUIPO 4
 
 /** @brief Maximo de rondas de un combate. Si se agota sin K.O. el combate es empate. */
 #define MAX_RONDAS_COMBATE 100
@@ -192,7 +200,7 @@ void leer_texto(char destino[], int tamano);
 /**
  * @brief Limpia la pantalla de la consola o terminal asegurando compatibilidad multiplataforma.
  */
-void limpiar_consola();
+void limpiar_consola(void);
 
 // =========================================================================
 // MODULO 2: GESTION DE LA POKEDEX
@@ -760,13 +768,17 @@ void menu_cargar_resultados(Partido partidos[], int cantidad, char clasificados[
 int cargar_resultados_archivo(Partido partidos[], int cantidad, char clasificados[][8], char nombre_archivo[]);
 
 /**
- * @brief Imprime el banner ASCII con colores que encabeza cada pantalla.
- * @param subtitulo Texto que se muestra debajo del titulo (puede ser "").
+ * @brief Imprime el banner compacto con el subtitulo de la pantalla actual.
+ *
+ * El titulo general "EL GRAN TORNEO POKEMON" ya no se repite en cada pantalla:
+ * se muestra una sola vez en la pantalla de bienvenida.
+ *
+ * @param subtitulo Texto que se muestra en la cajita central (puede ser "").
  */
 void imprimir_banner(char subtitulo[]);
 
 /**
- * @brief Imprime una linea separadora con color, del ancho estandar del sistema.
+ * @brief Imprime una linea horizontal continua del ancho del banner.
  */
 void imprimir_separador(void);
 
@@ -923,4 +935,4 @@ bool es_id_entrenador(char texto[]);
  */
 void buscar_nombre_entrenador(Entrenador entrenadores[], int cantidad, char id[], char destino[]);
 
-#endif
+#endif /* FUNCIONES_H */

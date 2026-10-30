@@ -4,6 +4,12 @@
 **Fecha del informe:** 20/10/2026
 **Estado:** compila sin errores ni avisos (`gcc -Wall -Wextra pokemon.c funciones.c`)
 
+> **Nota de actualización (30/10/2026):** este informe describe la version
+> anterior del proyecto. La estructura actual esta organizada en `include/`,
+> `src/` y `datos/`, se compila con `Makefile` (`mingw32-make` en Windows o
+> `make` en Linux/macOS) y el ejecutable se genera en `bin/`. Consulta el
+> [README](README.md) para las instrucciones vigentes.
+
 Este documento resume todos los cambios realizados sobre el proyecto, agrupados por área. Al final hay una sección de verificación con las pruebas ejecutadas.
 
 ---

@@ -37,32 +37,53 @@ El sistema permite:
 
 ## Requisitos
 
-- Compilador de C (se usa **gcc** / MinGW en Windows).
-- Consola con soporte de colores ANSI (la terminal por defecto de Windows 10/11 los soporta).
-- Los archivos de datos en la **misma carpeta** que el ejecutable (ver [Archivos de datos](#archivos-de-datos)).
+- Compilador de C: **gcc** (MinGW en Windows) o cualquier GCC/Clang moderno.
+- **GNU Make**: `make` en Linux/macOS o `mingw32-make` en Windows.
+- Terminal con UTF-8. En Windows 10/11 la consola se configura automáticamente;
+  si el terminal no soporta ANSI, el programa sigue funcionando en blanco y negro.
 
 ---
 
 ## Compilación y ejecución
 
-### Compilar
+### Windows (MinGW)
 
-```bash
-gcc -Wall -Wextra -o torneo.exe pokemon.c funciones.c
+```bat
+mingw32-make
+mingw32-make run
 ```
 
-### Ejecutar
+### Linux / macOS
 
 ```bash
-torneo.exe
+make
+make run
 ```
 
-El programa busca los archivos de datos (`pokedex.txt`, `entrenadores.txt`, `equipos_pokemon.txt`) en la carpeta desde donde se ejecuta, así que ejecútalo **dentro de la carpeta del proyecto**:
+El ejecutable queda en `bin/torneo.exe` (Windows) o `bin/torneo` (Linux/macOS).
+Los objetos intermedios van a `obj/`. Para limpiar:
 
 ```bash
-cd proyecto-pokemon
-torneo.exe
+mingw32-make clean     # Windows
+make clean             # Linux/macOS
 ```
+
+### ¿Dónde están los datos?
+
+Todos los archivos de datos viven en **`datos/`**. El programa los encuentra
+aunque se ejecute desde la raíz del proyecto, desde `bin/` o con doble clic en
+Windows: `src/archivos.c` prueba `./datos/`, la carpeta del ejecutable y
+`../datos/`, y mantiene compatibilidad con la estructura anterior (archivos en
+la raíz).
+
+### Pantalla de bienvenida
+
+Al iniciar se muestra una imagen pixelada con el texto **TORNEO POKEMON** y
+**PRESIONA ENTER**. La imagen se construye en una matriz de 78x44 píxeles
+(`include/pixel_art.h` / `src/pixel_art.c`) y se dibuja usando bloques de color
+ANSI; luego aparece el menú principal.
+
+![Vista previa de la pantalla de bienvenida](docs/pantalla_bienvenida.png)
 
 ---
 
@@ -189,6 +210,8 @@ Daño = (((2 * nivel / 5 + 2) * PODER_ATAQUE * (ataque / defensa)) / 50 + 2) * m
 
 ## Archivos de datos
 
+Todos los archivos se leen y guardan en la carpeta **`datos/`**.
+
 ### `pokedex.txt`
 
 Una especie por línea, con 7 u 8 campos:
@@ -267,9 +290,17 @@ Historial de combates con el detalle ronda a ronda (lo genera el motor de combat
 
 | Archivo | Contenido |
 |---|---|
-| `pokemon.c` | `main()`: inicialización, menú principal y flujo del programa. |
-| `funciones.h` | Estructuras, constantes y prototipos de todas las funciones (con documentación Doxygen). |
-| `funciones.c` | Implementación: Pokédex, entrenadores, equipos, motor de combate y torneo. |
+| `Makefile` | Compilación y ejecución multiplataforma (Windows/Linux/macOS). |
+| `src/main.c` | `main()`: bienvenida, menú principal y flujo del programa. |
+| `include/funciones.h` | Estructuras, constantes y prototipos (con documentación Doxygen). |
+| `src/funciones.c` | Pokédex, entrenadores, equipos/backtracking, combate y torneo. |
+| `include/consola.h`, `src/consola.c` | Salida portable: ANSI en Windows, UTF-8, limpiar pantalla y pausas. |
+| `include/archivos.h`, `src/archivos.c` | Búsqueda de los datos en `datos/` sin depender del directorio actual. |
+| `include/pixel_art.h`, `src/pixel_art.c` | Matriz de píxeles, fuente 3x5, Pokebola y pantalla de bienvenida. |
+| `datos/` | `pokedex.txt`, `entrenadores.txt`, `equipos_pokemon.txt`, resultados e historial. |
+| `bin/` | Ejecutable generado por `make`. |
+| `obj/` | Archivos objeto generados por `make`. |
+| `docs/` | Vista previa de la pantalla de bienvenida. |
 
 ### Principales estructuras
 
@@ -282,15 +313,15 @@ Historial de combates con el detalle ronda a ronda (lo genera el motor de combat
 ### Funciones destacadas
 
 - **Combate**: `disputar_combate`, `calcular_dano`, `calcular_multiplicador_tipos`, `curar_equipo`, `seleccionar_pokemon`.
-- **Equipos**: `crear_equipo_pokemon` (backtracking), `generar_equipo_entrenador`, `crear_equipos_todos`, `validar_variedad_tipos`.
+- **Equipos**: `crear_equipo_pokemon` (backtracking con returns tempranos), `generar_equipo_entrenador`, `crear_equipos_todos`, `validar_variedad_tipos`.
 - **Torneo**: `fase_de_grupos`, `fase_eliminatoria`, `calcular_clasificacion`, `obtener_participantes`, `registrar_partido`.
-- **Presentación**: `imprimir_banner`, `imprimir_opcion_menu`, `color_tipo`, `imprimir_mensaje`, `limpiar_consola`.
+- **Presentación**: `imprimir_banner`, `imprimir_opcion_menu`, `color_tipo`, `imprimir_mensaje`, `limpiar_consola`, `consola_printf`, `pantalla_bienvenida`.
 
 ---
 
 ## Ejemplo de uso rápido
 
-1. Registra (o verifica) los 32 entrenadores con `entrenadores.txt`.
+1. Registra (o verifica) los 32 entrenadores en `datos/entrenadores.txt`.
 2. Opción **3 → 1**: crea los equipos de todos los que falten de una vez.
 3. Opción **13**: disputa la fase de grupos (48 combates).
 4. Opción **7**: revisa la clasificación.
@@ -298,6 +329,27 @@ Historial de combates con el detalle ronda a ronda (lo genera el motor de combat
 6. Opción **11**: mira al campeón.
 
 También puedes cargar resultados a mano con la opción **6**, escribiendo el número de combate y el ID del ganador, o desde un archivo con el formato `numero_combate id_ganador`.
+
+---
+
+## Correcciones recientes
+
+- **Entrenadores que no aparecían**: el archivo usaba el formato viejo de 8
+  campos y el lector intentaba convertir `true` como entero con `sscanf`; eso
+  devolvía 7 conversiones y descartaba todas las líneas. Ahora se leen los
+  campos como palabras y se aceptan los formatos de 8 y 9 campos.
+- **Backtracking**: `crear_equipo_pokemon` y `validar_variedad_tipos` usan
+  `return` tempranos en lugar de banderas y condiciones compuestas en los
+  ciclos. El comportamiento del algoritmo es el mismo.
+- **Consola portable**: nueva librería `consola` que activa ANSI/UTF-8 en
+  Windows, limpia la pantalla sin depender de `cls`/`clear` y filtra los
+  colores cuando la salida no es un terminal.
+- **Rutas portables**: nueva librería `archivos` que localiza `datos/` desde la
+  raíz, desde `bin/` o con doble clic.
+- **Pantalla pixelada** antes del menú y **Makefile** multiplataforma.
+- **Menú compacto**: el título general ya no se repite en cada pantalla, las
+  líneas son continuas y solo se limpia al entrar a un módulo; así se conserva
+  el historial necesario de la operación actual.
 
 ---
 
