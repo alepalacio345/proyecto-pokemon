@@ -47,7 +47,7 @@ int main(void){
         opcion = leer_entero(-1);
 
         // Al entrar a cualquier modulo se limpia la pantalla.
-        limpiar_consola();
+        consola_limpiar();
 
         switch(opcion) {
             case 1:
@@ -82,7 +82,7 @@ int main(void){
                 mostrar_enfrentamientos(vector_partidos, CANTIDAD_PARTIDOS,vector_entrenadores_torneo, cantidad_entrenadores);
                 break;
             case 9:
-                mostrar_historial_combates();
+                mostrar_historial_combates(vector_entrenadores_torneo, cantidad_entrenadores);
                 break;
             case 10:
                 mostrar_resultados_torneo(vector_partidos, CANTIDAD_PARTIDOS,vector_entrenadores_torneo, cantidad_entrenadores);
@@ -137,7 +137,7 @@ int main(void){
                 break;
             }
             // Al volver al menu se limpia lo que dejo el modulo anterior.
-            limpiar_consola();
+            consola_limpiar();
         }
 
     } while (opcion != 15);

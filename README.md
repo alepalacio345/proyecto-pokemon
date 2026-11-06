@@ -124,7 +124,7 @@ líneas son continuas y se limpia la pantalla al cambiar de módulo.
 | **6** | Submenú: cargar un resultado por teclado o varios desde un archivo de texto. |
 | **7** | Clasificación de los 8 grupos (puntos, victorias, derrotas, Pokémon derrotados). |
 | **8** | Cuadro de enfrentamientos de la fase eliminatoria. |
-| **9** | Historial detallado de combates (`historial_detallado.txt`). |
+| **9** | Historial de combates: lista de entrenadores, historial completo o por entrenador con detalle ronda a ronda. |
 | **10** | Todos los resultados del torneo agrupados por etapa. |
 | **11** | Campeón, subcampeón, tercer y cuarto lugar. |
 | **12** | Recarga los entrenadores y equipos desde disco. |
@@ -320,7 +320,7 @@ Historial de combates con el detalle ronda a ronda (lo genera el motor de combat
 - **Combate**: `disputar_combate`, `calcular_dano`, `calcular_multiplicador_tipos`, `curar_equipo`, `seleccionar_pokemon`.
 - **Equipos**: `crear_equipo_pokemon` (backtracking con returns tempranos), `generar_equipo_entrenador`, `crear_equipos_todos`, `validar_variedad_tipos`.
 - **Torneo**: `fase_de_grupos`, `fase_eliminatoria`, `calcular_clasificacion`, `obtener_participantes`, `registrar_partido`.
-- **Presentación**: `imprimir_banner`, `imprimir_opcion_menu`, `color_tipo`, `imprimir_mensaje`, `limpiar_consola`, `consola_printf`, `pantalla_bienvenida`.
+- **Presentación**: `imprimir_banner`, `imprimir_opcion_menu`, `color_tipo`, `imprimir_mensaje`, `consola_limpiar`, `consola_printf`, `pantalla_bienvenida`.
 
 ---
 

@@ -1,6 +1,5 @@
-/**
- * @file funciones.c
- * @brief Implementación lógica de la Pokédex, los equipos y el torneo.
+/*
+ * Implementación lógica de la Pokédex, los equipos y el torneo.
  *
  * NOTA SOBRE EL ORDEN DE LAS FUNCIONES: en C toda función debe estar declarada
  * antes de usarse. Los prototipos viven en funciones.h, así que el orden de las
@@ -21,12 +20,9 @@
 // MÓDULO 1: UTILIDADES Y SISTEMA
 // ===========================================================================
 
-/**
- * @brief Compara dos textos sin distinguir mayusculas/minusculas.
- *
- * Se implementa aqui para no depender de strcasecmp(), que no forma parte del
- * estandar de C y no existe en todas las instalaciones de Windows.
- */
+// Compara dos textos sin distinguir mayusculas/minusculas. Se implementa aqui
+// para no depender de strcasecmp(), que no forma parte del estandar de C y no
+// existe en todas las instalaciones de Windows.
 static int comparar_texto_ci(const char *texto_a, const char *texto_b)
 {
     while (*texto_a != '\0' && *texto_b != '\0') {
@@ -44,17 +40,6 @@ static int comparar_texto_ci(const char *texto_a, const char *texto_b)
     return (unsigned char)*texto_a - (unsigned char)*texto_b;
 }
 
-/**
- * @brief Lee un numero entero desde el teclado de forma segura.
- *
- * Lee la linea completa con fgets y la convierte con sscanf. Si el usuario
- * escribe algo que no es un numero, el buffer se descarta por completo y se
- * devuelve el valor por defecto, evitando que el programa entre en un ciclo
- * infinito de lecturas fallidas.
- *
- * @param valor_por_defecto Valor que se devuelve si la entrada no es valida.
- * @return int Numero leido, o el valor por defecto.
- */
 int leer_entero(int valor_por_defecto){
     char linea[50];
     int valor = valor_por_defecto;
@@ -83,12 +68,9 @@ void leer_texto(char destino[], int tamano){
     }
 }
 
-/**
- * @brief Imprime una linea horizontal continua.
- *
- * Usa el caracter de caja U+2500 (UTF-8) para que no se vea como una fila de
- * guiones sueltos. Si el terminal no admite UTF-8, cae en el guion ASCII.
- */
+// Imprime una linea horizontal continua. Usa el caracter de caja U+2500
+// (UTF-8) para que no se vea como una fila de guiones sueltos. Si el terminal
+// no admite UTF-8, cae en el guion ASCII.
 static void imprimir_horizontal(int cantidad)
 {
     char linea[(76 * 3) + 1];
@@ -147,12 +129,9 @@ void imprimir_separador(void){
     consola_printf("\n\033[0m");
 }
 
-/**
- * @brief Estilo de las lineas que forman la tabla del menu.
- *
- * Se usan caracteres de caja Unicode cuando el terminal es UTF-8 y se cae a
- * "+", "-" y "|" en consolas antiguas.
- */
+// Estilo de las lineas que forman la tabla del menu. Se usan caracteres de caja
+// Unicode cuando el terminal es UTF-8 y se cae a "+", "-" y "|" en consolas
+// antiguas.
 typedef struct {
     const char *vertical;
     const char *horizontal;
@@ -200,9 +179,7 @@ static EstiloTabla obtener_estilo_tabla(void)
     return estilo;
 }
 
-static void agregar_cadena(char *destino, size_t capacidad, size_t *longitud,
-                           const char *texto)
-{
+static void agregar_cadena(char *destino, size_t capacidad, size_t *longitud,const char *texto){
     size_t largo = strlen(texto);
 
     if (*longitud + largo >= capacidad) {
@@ -213,9 +190,7 @@ static void agregar_cadena(char *destino, size_t capacidad, size_t *longitud,
     destino[*longitud] = '\0';
 }
 
-static void agregar_repetido(char *destino, size_t capacidad, size_t *longitud,
-                             const char *texto, int veces)
-{
+static void agregar_repetido(char *destino, size_t capacidad, size_t *longitud, const char *texto, int veces){
     int i;
 
     for (i = 0; i < veces; i++) {
@@ -223,9 +198,7 @@ static void agregar_repetido(char *destino, size_t capacidad, size_t *longitud,
     }
 }
 
-static void imprimir_borde_simple(const EstiloTabla *estilo,
-                                  const char *izquierda, const char *derecha)
-{
+static void imprimir_borde_simple(const EstiloTabla *estilo, const char *izquierda, const char *derecha){
     char linea[512];
     size_t longitud = 0;
 
@@ -237,10 +210,7 @@ static void imprimir_borde_simple(const EstiloTabla *estilo,
     consola_printf("\033[1;34m%s\033[0m\n", linea);
 }
 
-static void imprimir_borde_columnas(const EstiloTabla *estilo,
-                                    const char *izquierda, const char *medio,
-                                    const char *derecha)
-{
+static void imprimir_borde_columnas(const EstiloTabla *estilo,const char *izquierda, const char *medio,const char *derecha){
     char linea[512];
     size_t longitud = 0;
 
@@ -258,8 +228,7 @@ static void imprimir_borde_columnas(const EstiloTabla *estilo,
     consola_printf("\033[1;34m%s\033[0m\n", linea);
 }
 
-static void imprimir_titulo_tabla(const EstiloTabla *estilo, const char *titulo)
-{
+static void imprimir_titulo_tabla(const EstiloTabla *estilo, const char *titulo){
     const int interior = 76;
     int largo = (int) strlen(titulo);
     int izquierda = (interior - largo) / 2;
@@ -278,8 +247,7 @@ static void imprimir_titulo_tabla(const EstiloTabla *estilo, const char *titulo)
                    estilo->vertical);
 }
 
-static void centrar_numero(const char *texto, char destino[5])
-{
+static void centrar_numero(const char *texto, char destino[5]){
     int largo = (int) strlen(texto);
     int izquierda = (4 - largo) / 2;
     int derecha = 4 - largo - izquierda;
@@ -294,10 +262,7 @@ static void centrar_numero(const char *texto, char destino[5])
     snprintf(destino, 5, "%*s%s%*s", izquierda, "", texto, derecha, "");
 }
 
-static void imprimir_fila_tabla(const EstiloTabla *estilo,
-                                const char *numero_izq, const char *texto_izq,
-                                const char *numero_der, const char *texto_der)
-{
+static void imprimir_fila_tabla(const EstiloTabla *estilo,const char *numero_izq, const char *texto_izq,const char *numero_der, const char *texto_der){
     char celda_izq[5];
     char celda_der[5];
 
@@ -312,8 +277,7 @@ static void imprimir_fila_tabla(const EstiloTabla *estilo,
                    estilo->vertical);
 }
 
-void imprimir_menu_principal(void)
-{
+void imprimir_menu_principal(void){
     static const char *opciones[15] = {
         "Consultar Pokedex",
         "Registrar entrenador",
@@ -336,11 +300,9 @@ void imprimir_menu_principal(void)
 
     imprimir_borde_simple(&estilo, estilo.superior_izq, estilo.superior_der);
     imprimir_titulo_tabla(&estilo, "MENU PRINCIPAL");
-    imprimir_borde_columnas(&estilo, estilo.medio_izq,
-                            estilo.superior_medio, estilo.medio_der);
+    imprimir_borde_columnas(&estilo, estilo.medio_izq,estilo.superior_medio, estilo.medio_der);
     imprimir_fila_tabla(&estilo, "N.", "MODULO", "N.", "MODULO");
-    imprimir_borde_columnas(&estilo, estilo.medio_izq,
-                            estilo.medio_centro, estilo.medio_der);
+    imprimir_borde_columnas(&estilo, estilo.medio_izq,estilo.medio_centro, estilo.medio_der);
 
     for (fila = 0; fila < 8; fila++) {
         char numero_izq[4];
@@ -432,15 +394,9 @@ void imprimir_opcion_menu(char tecla[], char texto[]){
     consola_printf("  \033[1;33m%-3s\033[0m \033[1;37m%s\033[0m\n", tecla, texto);
 }
 
-/**
- * @brief Devuelve el codigo de color ANSI asociado a un tipo elemental.
- *
- * Se usa para pintar la etiqueta del tipo en las pantallas de la Pokedex y en
- * las fichas de los Pokemon, de forma que cada tipo se identifique de un vistazo.
- *
- * @param nombre_tipo Nombre del tipo (ej. "Fuego").
- * @return const char* Secuencia ANSI del color, o blanco si el tipo no se reconoce.
- */
+// Devuelve el codigo de color ANSI asociado a un tipo elemental. Se usa para
+// pintar la etiqueta del tipo en la Pokedex y en las fichas de los Pokemon, de
+// forma que cada tipo se identifique de un vistazo.
 const char* color_tipo(char nombre_tipo[]){
     // Un solo punto de salida: se elige el color y se devuelve al final.
     const char *color = "\033[1;37m";
@@ -554,11 +510,6 @@ const float TABLA_EFECTIVIDAD[CANTIDAD_TIPOS][CANTIDAD_TIPOS] = {
 // MÓDULO 1: UTILIDADES Y SISTEMA
 // =========================================================================
 
-void limpiar_consola(void) {
-    /* La implementacion portable vive en src/consola.c. */
-    consola_limpiar();
-}
-
 // =========================================================================
 // MÓDULO 2: GESTIÓN DE LA POKÉDEX
 // =========================================================================
@@ -612,7 +563,7 @@ int contar_especies_pokemon(especies_pokemons vector[], int maximo){
 
 void imprimir_vector_pokemon(especies_pokemons vector[], int cantidad) {
     // Tabla de la Pokedex: encabezado con color, filas alternas y tipos coloreados.
-    limpiar_consola();
+    consola_limpiar();
     consola_printf("\n\033[1;32m");
     consola_printf(" ============================================================================\n");
     consola_printf("                       POKEDEX - PRIMERA GENERACION\n");
@@ -749,7 +700,7 @@ void menu_consultar_pokedex(especies_pokemons vector_universo_pokemon[], int can
     };
     int opcion_pokedex;
 
-    limpiar_consola();
+    consola_limpiar();
     consola_printf("\n  \033[1;37mEspecies cargadas en el sistema\033[0m: \033[1;33m%d\033[0m\n", cantidad);
     consola_printf("  \033[1;37mCatalogo oficial\033[0m: Primera Generacion (#001 a #150)\n\n");
     imprimir_menu_opciones("CONSULTAR POKEDEX", opciones, 4);
@@ -759,7 +710,7 @@ void menu_consultar_pokedex(especies_pokemons vector_universo_pokemon[], int can
 
     // Cambio de pantalla dentro del modulo: se limpia antes de mostrar el resultado.
     if (opcion_pokedex >= 1 && opcion_pokedex <= 3) {
-        limpiar_consola();
+        consola_limpiar();
     }
 
     switch(opcion_pokedex) {
@@ -904,7 +855,7 @@ void registrar_entrenador(Entrenador vector[], int *cantidad){
         bool repetido;
         char opcion;
 
-        limpiar_consola();
+        consola_limpiar();
         consola_printf("\n=======================================================\n");
         consola_printf("             INSCRIPCION DE NUEVO ENTRENADOR           \n");
         consola_printf("=======================================================\n");
@@ -963,7 +914,7 @@ void registrar_entrenador(Entrenador vector[], int *cantidad){
 }
 
 void imprimir_vector_entrenador(Entrenador vector[], int cantidad) {
-    limpiar_consola();
+    consola_limpiar();
     consola_printf("\n=======================================================\n");
     consola_printf("          \033[1;36mLISTA DE ENTRENADORES REGISTRADOS\033[0m            \n");
     consola_printf("=======================================================\n");
@@ -977,7 +928,7 @@ void imprimir_vector_entrenador(Entrenador vector[], int cantidad) {
 }
 
 void mostrar_seleccion_entrenadores(Entrenador vector[], int cantidad) {
-    limpiar_consola();
+    consola_limpiar();
     consola_printf("\n=================================================================\n");
     consola_printf("           \033[1;36mDISPONIBILIDAD DE ENTRENADORES Y EQUIPOS\033[0m            \n");
     consola_printf("=================================================================\n");
@@ -1132,14 +1083,10 @@ bool validar_variedad_tipos(EjemplarPokemon equipo[], int cantidad) {
     return contador_tipos >= TIPOS_MINIMOS_EQUIPO;
 }
 
-/**
- * @brief Backtracking recursivo que arma un equipo valido.
- *
- * Ya no usa una bandera "salida" ni condiciones compuestas en el for: cada
- * caso base devuelve directamente y cada rama exitosa corta la recursion con
- * return true; si ninguna rama sirve, el nivel actual devuelve false y el
- * llamador prueba el siguiente Pokemon (el retroceso real).
- */
+// Backtracking recursivo que arma un equipo valido. Cada caso base devuelve
+// directamente y cada rama exitosa corta la recursion con return true; si
+// ninguna rama sirve, el nivel actual devuelve false y el llamador prueba el
+// siguiente Pokemon (el retroceso real).
 bool crear_equipo_pokemon(int integrantes_equipo, int nivel_actual_eq, int baraja[], EjemplarPokemon equipo_pokemon[], especies_pokemons vector_universo_pokemon[]) {
     if (integrantes_equipo >= MAX_POKEMONES_EN_EQ) {
         return validar_variedad_tipos(equipo_pokemon, MAX_POKEMONES_EN_EQ);
@@ -1242,20 +1189,11 @@ void imprimir_equipo_pokemon(EjemplarPokemon equipo[], int cantidad) {
     consola_printf("========================================================================================\n\n");
 }
 
-/**
- * @brief Genera, calcula y guarda el equipo de un entrenador usando backtracking.
- *
- * Es la pieza compartida entre la creacion manual y la creacion masiva: baraja la
- * Pokedex, ejecuta el backtracking (crear_equipo_pokemon), calcula las
- * estadisticas de los 6 ejemplares, los guarda en disco y marca al entrenador
- * como que ya tiene equipo.
- *
- * @param vector_universo_pokemon Arreglo global de la Pokedex.
- * @param vector_entrenadores Arreglo global de Entrenadores.
- * @param cantidad_entrenadores Numero real de entrenadores en RAM.
- * @param indice Entrenador al que se le crea el equipo.
- * @return true si el equipo se armo y guardo correctamente.
- */
+// Genera, calcula y guarda el equipo de un entrenador usando backtracking. Es
+// la pieza compartida entre la creacion manual y la creacion masiva: baraja la
+// Pokedex, ejecuta el backtracking (crear_equipo_pokemon), calcula las
+// estadisticas de los 6 ejemplares, los guarda en disco y marca al entrenador
+// como que ya tiene equipo.
 bool generar_equipo_entrenador(especies_pokemons vector_universo_pokemon[], Entrenador vector_entrenadores[], int cantidad_entrenadores, int indice){
     EjemplarPokemon equipo_pokemon[MAX_POKEMONES_EN_EQ];
     int vector_baraja[MAX_POKEDEX];
@@ -1264,16 +1202,14 @@ bool generar_equipo_entrenador(especies_pokemons vector_universo_pokemon[], Entr
     inicializar_barajas(vector_baraja);
     mezclar_baraja(vector_baraja, MAX_POKEDEX);
 
-    creado = crear_equipo_pokemon(0, 0, vector_baraja, equipo_pokemon,
-                                 vector_universo_pokemon);
+    creado = crear_equipo_pokemon(0, 0, vector_baraja, equipo_pokemon,vector_universo_pokemon);
     if (!creado) {
         return false;
     }
 
     crear_estadisticas_ejemplares(equipo_pokemon, MAX_POKEMONES_EN_EQ);
     guardar_equipo_pokemon(vector_entrenadores, indice, equipo_pokemon);
-    snprintf(vector_entrenadores[indice].asignaciom_equipo,
-             sizeof(vector_entrenadores[indice].asignaciom_equipo), "%s", "true");
+    snprintf(vector_entrenadores[indice].asignaciom_equipo,sizeof(vector_entrenadores[indice].asignaciom_equipo), "%s", "true");
     guardar_vector_entrenador(vector_entrenadores, cantidad_entrenadores);
 
     return true;
@@ -1285,7 +1221,7 @@ int crear_equipos_todos(especies_pokemons vector_universo_pokemon[], Entrenador 
     int fallidos = 0;
     int ya_tenian = 0;
 
-    limpiar_consola();
+    consola_limpiar();
     imprimir_banner("CREACION MASIVA DE EQUIPOS");
 
     if (cantidad_entrenadores < 1) {
@@ -1340,7 +1276,7 @@ void menu_crear_equipos(especies_pokemons vector_universo_pokemon[], Entrenador 
         }
     }
 
-    limpiar_consola();
+    consola_limpiar();
     consola_printf("\n  Entrenadores registrados ......: \033[1;37m%d\033[0m\n", cantidad_entrenadores);
     consola_printf("  Entrenadores sin equipo .......: \033[1;33m%d\033[0m\n", sin_equipo);
     consola_printf("  Entrenadores con equipo .......: \033[1;32m%d\033[0m\n", cantidad_entrenadores - sin_equipo);
@@ -1351,7 +1287,7 @@ void menu_crear_equipos(especies_pokemons vector_universo_pokemon[], Entrenador 
 
     // Cambio de pantalla dentro del modulo.
     if (opcion == 1 || opcion == 2) {
-        limpiar_consola();
+        consola_limpiar();
     }
 
     switch (opcion) {
@@ -2531,7 +2467,7 @@ void mostrar_enfrentamientos(Partido partidos[], int cantidad, Entrenador entren
     calcular_clasificacion(partidos, cantidad, entrenadores, cantidad_entrenadores, tabla);
     obtener_clasificados(tabla, clasificados);
 
-    limpiar_consola();
+    consola_limpiar();
     consola_printf("\n\033[1;36m========================================================================================\033[0m\n");
     consola_printf("                     \033[1;33mENFRENTAMIENTOS DE LA FASE ELIMINATORIA\033[0m\n");
     consola_printf("\033[1;36m========================================================================================\033[0m\n");
@@ -2573,7 +2509,7 @@ void mostrar_enfrentamientos(Partido partidos[], int cantidad, Entrenador entren
 
 void mostrar_clasificacion(TablaGrupo tabla[CANTIDAD_GRUPOS][ENTRENADORES_POR_GRUPO]){
     // Imprime las 8 tablas de posiciones con los criterios de desempate.
-    limpiar_consola();
+    consola_limpiar();
     consola_printf("\n\033[1;36m========================================================================================\033[0m\n");
     consola_printf("                              \033[1;33mCLASIFICACION DE LA FASE DE GRUPOS\033[0m\n");
     consola_printf("\033[1;36m========================================================================================\033[0m\n");
@@ -2606,7 +2542,7 @@ void mostrar_clasificacion(TablaGrupo tabla[CANTIDAD_GRUPOS][ENTRENADORES_POR_GR
 
 void mostrar_resultados_torneo(Partido partidos[], int cantidad, Entrenador entrenadores[], int cantidad_entrenadores){
     // Imprime todos los combates con resultado, agrupados por etapa.
-    limpiar_consola();
+    consola_limpiar();
     consola_printf("\n\033[1;36m========================================================================================\033[0m\n");
     consola_printf("                                \033[1;33mRESULTADOS DEL TORNEO\033[0m\n");
     consola_printf("\033[1;36m========================================================================================\033[0m\n");
@@ -2652,7 +2588,7 @@ void mostrar_campeon(Partido partidos[], int cantidad, Entrenador entrenadores[]
     int indice_final = buscar_partido(partidos, cantidad, 64);
     int indice_tercero = buscar_partido(partidos, cantidad, 63);
 
-    limpiar_consola();
+    consola_limpiar();
     consola_printf("\n\033[1;36m========================================================================================\033[0m\n");
     consola_printf("                            \033[1;33mPODIO DEL GRAN TORNEO POKEMON\033[0m\n");
     consola_printf("\033[1;36m========================================================================================\033[0m\n");
@@ -2690,7 +2626,7 @@ void cargar_resultados_teclado(Partido partidos[], int cantidad, char clasificad
     // Permite completar a mano los combates que falten, validando el resultado.
     int numero;
 
-    limpiar_consola();
+    consola_limpiar();
     imprimir_banner("CARGAR RESULTADO POR TECLADO");
     consola_printf("  Indique el numero de combate (1 a %d) o 0 para volver.\n", CANTIDAD_PARTIDOS);
     consola_printf("  Se validan los participantes antes de aceptar el ganador.\n\n");
@@ -2750,7 +2686,7 @@ int cargar_resultados_archivo(Partido partidos[], int cantidad, char clasificado
     int numero_linea = 0;
     char linea[200];
 
-    limpiar_consola();
+    consola_limpiar();
     imprimir_banner("CARGAR RESULTADOS DESDE ARCHIVO");
     consola_printf("  Archivo: \033[1;37m%s\033[0m\n", nombre_archivo);
     consola_printf("  Formato de cada linea: \033[1;33mnumero_combate id_ganador\033[0m\n\n");
@@ -2849,7 +2785,7 @@ void menu_cargar_resultados(Partido partidos[], int cantidad, char clasificados[
         }
     }
 
-    limpiar_consola();
+    consola_limpiar();
     consola_printf("\n  Combates del torneo ...........: \033[1;37m%d\033[0m\n", cantidad);
     consola_printf("  Combates con resultado ........: \033[1;32m%d\033[0m\n", jugados);
     consola_printf("  Combates pendientes ...........: \033[1;33m%d\033[0m\n", cantidad - jugados);
@@ -2860,7 +2796,7 @@ void menu_cargar_resultados(Partido partidos[], int cantidad, char clasificados[
 
     // Cambio de pantalla dentro del modulo.
     if (opcion >= 1 && opcion <= 3) {
-        limpiar_consola();
+        consola_limpiar();
     }
 
     switch (opcion) {
@@ -2896,23 +2832,442 @@ void menu_cargar_resultados(Partido partidos[], int cantidad, char clasificados[
     (void) cantidad_entrenadores;
 }
 
-void mostrar_historial_combates(void){
-    // Muestra el contenido del historial detallado generado por el motor de combate.
-    FILE *archivo = archivos_abrir("historial_detallado.txt", "r");
-    char linea[300];
+// ---------------------------------------------------------------------------
+// HISTORIAL DETALLADO DE COMBATES
+// ---------------------------------------------------------------------------
 
-    limpiar_consola();
-    imprimir_banner("HISTORIAL DETALLADO DE COMBATES");
+// Copia un texto quitando espacios al inicio y saltos de linea al final.
+static void copiar_texto_limpio(char *destino, size_t tamano, const char *origen){
+    size_t longitud;
 
-    if (archivo == NULL) {
-        consola_printf("\n\033[1;33m[!]\033[0m Todavia no existe historial: no se ha disputado ningun combate.\n\n");
+    if (destino == NULL || tamano == 0) {
+        return;
+    }
+    if (origen == NULL) {
+        destino[0] = '\0';
+        return;
+    }
+
+    while (*origen == ' ' || *origen == '\t') {
+        origen++;
+    }
+
+    snprintf(destino, tamano, "%s", origen);
+    longitud = strlen(destino);
+    while (longitud > 0 &&
+           (destino[longitud - 1] == ' ' || destino[longitud - 1] == '\t' ||
+            destino[longitud - 1] == '\r' || destino[longitud - 1] == '\n')) {
+        destino[longitud - 1] = '\0';
+        longitud--;
+    }
+}
+
+// Convierte una linea "Pokemon1 vs Pokemon2 GANO: PokemonX" en una ronda.
+static bool parsear_ronda_historial(const char *linea, RondaHistorial *ronda){
+    char pokemon1[20];
+    char pokemon2[20];
+    char ganador[20];
+
+    if (linea == NULL || ronda == NULL || strstr(linea, "GANO:") == NULL) {
+        return false;
+    }
+
+    if (sscanf(linea, "%19s vs %19s GANO: %19s", pokemon1, pokemon2, ganador) != 3) {
+        return false;
+    }
+
+    copiar_texto_limpio(ronda->pokemon1, sizeof(ronda->pokemon1), pokemon1);
+    copiar_texto_limpio(ronda->pokemon2, sizeof(ronda->pokemon2), pokemon2);
+    copiar_texto_limpio(ronda->ganador, sizeof(ronda->ganador), ganador);
+
+    if (strcmp(ronda->ganador, ronda->pokemon1) == 0) {
+        copiar_texto_limpio(ronda->perdedor, sizeof(ronda->perdedor), ronda->pokemon2);
+    } else if (strcmp(ronda->ganador, ronda->pokemon2) == 0) {
+        copiar_texto_limpio(ronda->perdedor, sizeof(ronda->perdedor), ronda->pokemon1);
     } else {
-        consola_printf("\n");
-        while (fgets(linea, sizeof(linea), archivo) != NULL) {
-            consola_printf(" %s", linea);
+        ronda->perdedor[0] = '\0';
+    }
+
+    return true;
+}
+
+// Lee la cabecera "COMBATE n: Entrenador1 vs Entrenador2".
+static bool parsear_cabecera_historial(const char *linea, HistorialCombate *combate){
+    char entrenador1[30];
+    char entrenador2[30];
+    int numero;
+
+    if (sscanf(linea, "COMBATE %d: %29s vs %29s", &numero, entrenador1, entrenador2) != 3) {
+        return false;
+    }
+
+    combate->numero = numero;
+    copiar_texto_limpio(combate->entrenador1, sizeof(combate->entrenador1), entrenador1);
+    copiar_texto_limpio(combate->entrenador2, sizeof(combate->entrenador2), entrenador2);
+    return true;
+}
+
+int cargar_historial_combates(HistorialCombate historial[], int maximo){
+    FILE *archivo;
+    char linea[300];
+    int cantidad = 0;
+    HistorialCombate *actual = NULL;
+
+    if (historial == NULL || maximo <= 0) {
+        return 0;
+    }
+
+    archivo = archivos_abrir("historial_detallado.txt", "r");
+    if (archivo == NULL) {
+        return 0;
+    }
+
+    while (fgets(linea, sizeof(linea), archivo) != NULL) {
+        if (strncmp(linea, "COMBATE ", 8) == 0) {
+            if (cantidad >= maximo) {
+                break;
+            }
+
+            actual = &historial[cantidad];
+            memset(actual, 0, sizeof(*actual));
+
+            if (!parsear_cabecera_historial(linea, actual)) {
+                actual = NULL;
+                continue;
+            }
+
+            cantidad++;
+            continue;
         }
-        fclose(archivo);
-        imprimir_separador();
+
+        if (actual == NULL) {
+            continue;
+        }
+
+        if (strstr(linea, "GANADOR DEL COMBATE") != NULL) {
+            const char *dos_puntos = strchr(linea, ':');
+
+            if (dos_puntos != NULL) {
+                copiar_texto_limpio(actual->ganador, sizeof(actual->ganador), dos_puntos + 1);
+            }
+            actual->empate = false;
+            actual->desempate_hp = (strstr(linea, "desempate por HP") != NULL);
+            actual = NULL;
+            continue;
+        }
+
+        if (strncmp(linea, "EMPATE:", 7) == 0) {
+            actual->empate = true;
+            actual->ganador[0] = '\0';
+            actual = NULL;
+            continue;
+        }
+
+        if (actual->cantidad_rondas < MAX_RONDAS_HISTORIAL) {
+            RondaHistorial ronda;
+
+            if (parsear_ronda_historial(linea, &ronda)) {
+                actual->rondas[actual->cantidad_rondas] = ronda;
+                actual->cantidad_rondas++;
+            }
+        }
+    }
+
+    fclose(archivo);
+    return cantidad;
+}
+
+static bool combate_involucra(const HistorialCombate *combate, const char nombre[]){
+    return strcmp(combate->entrenador1, nombre) == 0 ||
+           strcmp(combate->entrenador2, nombre) == 0;
+}
+
+static int contar_combates_entrenador(const HistorialCombate historial[], int cantidad,
+                                      const char nombre[]){
+    int total = 0;
+
+    for (int i = 0; i < cantidad; i++) {
+        if (combate_involucra(&historial[i], nombre)) {
+            total++;
+        }
+    }
+
+    return total;
+}
+
+// Busca los combates de un entrenador y copia solo esos a un arreglo destino.
+static int buscar_combates_entrenador(const HistorialCombate historial[], int cantidad,
+                                      const char nombre[], HistorialCombate destino[],
+                                      int maximo){
+    int total = 0;
+
+    for (int i = 0; i < cantidad; i++) {
+        if (!combate_involucra(&historial[i], nombre)) {
+            continue;
+        }
+
+        if (total < maximo) {
+            destino[total] = historial[i];
+        }
+        total++;
+    }
+
+    return (total > maximo) ? maximo : total;
+}
+
+// Imprime la lista de entrenadores con la cantidad de combates que tiene cada uno.
+// Se usan dos columnas para que los 32 entrenadores no empujen el menu fuera de pantalla.
+static void imprimir_lista_entrenadores_historial(Entrenador entrenadores[],
+                                                  int cantidad_entrenadores,
+                                                  const HistorialCombate historial[],
+                                                  int cantidad_historial){
+    consola_printf("\n  \033[1;36m%-5s %-23s %5s   %-5s %-23s %5s\033[0m\n",
+                   "ID", "ENTRENADOR", "COMB.", "ID", "ENTRENADOR", "COMB.");
+    consola_printf("  \033[1;34m");
+    imprimir_horizontal(75);
+    consola_printf("\033[0m\n");
+
+    for (int i = 0; i < cantidad_entrenadores; i += 2) {
+        int total = contar_combates_entrenador(historial, cantidad_historial,
+                                               entrenadores[i].nombre);
+
+        consola_printf("  \033[1;33m%-5s\033[0m \033[1;37m%-23.23s\033[0m "
+                       "\033[1;36m%5d\033[0m",
+                       entrenadores[i].id_entrenador, entrenadores[i].nombre, total);
+
+        if (i + 1 < cantidad_entrenadores) {
+            int total_siguiente = contar_combates_entrenador(historial, cantidad_historial,
+                                                             entrenadores[i + 1].nombre);
+
+            consola_printf("   \033[1;33m%-5s\033[0m \033[1;37m%-23.23s\033[0m "
+                           "\033[1;36m%5d\033[0m",
+                           entrenadores[i + 1].id_entrenador,
+                           entrenadores[i + 1].nombre, total_siguiente);
+        }
+
         consola_printf("\n");
+    }
+
+    if (cantidad_entrenadores == 0) {
+        consola_printf("  \033[1;31m[!]\033[0m No hay entrenadores registrados.\n");
+    }
+}
+
+// Imprime una tarjeta con las rondas y el resultado de un combate.
+static void imprimir_detalle_combate(const HistorialCombate *combate){
+    if (combate == NULL) {
+        return;
+    }
+
+    consola_printf("\n  \033[1;34m");
+    imprimir_horizontal(74);
+    consola_printf("\033[0m\n");
+
+    consola_printf("  \033[1;33mCOMBATE %d\033[0m  \033[1;37m%s\033[0m "
+                   "\033[0;37mvs\033[0m \033[1;37m%s\033[0m\n",
+                   combate->numero, combate->entrenador1, combate->entrenador2);
+
+    consola_printf("  \033[1;34m");
+    imprimir_horizontal(74);
+    consola_printf("\033[0m\n");
+
+    if (combate->cantidad_rondas == 0) {
+        consola_printf("  \033[1;33m[!]\033[0m Sin rondas registradas");
+        if (combate->desempate_hp) {
+            consola_printf(": el combate se definio por HP restante");
+        }
+        consola_printf(".\n");
+    } else {
+        for (int i = 0; i < combate->cantidad_rondas; i++) {
+            const RondaHistorial *ronda = &combate->rondas[i];
+
+            consola_printf("  \033[1;36mRonda %02d\033[0m  "
+                           "\033[1;37m%-14s\033[0m vs \033[1;37m%-14s\033[0m  "
+                           "\033[1;32mGANA %s\033[0m\n",
+                           i + 1, ronda->pokemon1, ronda->pokemon2, ronda->ganador);
+        }
+    }
+
+    consola_printf("  \033[1;34m");
+    imprimir_horizontal(74);
+    consola_printf("\033[0m\n");
+
+    if (combate->empate) {
+        consola_printf("  \033[1;33mEMPATE\033[0m: ambos entrenadores agotaron las rondas.\n");
+    } else if (combate->ganador[0] != '\0') {
+        consola_printf("  \033[1;32mGANADOR:\033[0m \033[1;33m%s\033[0m",
+                       combate->ganador);
+        if (combate->desempate_hp) {
+            consola_printf(" \033[1;36m(desempate por HP restante)\033[0m");
+        }
+        consola_printf("\n");
+    } else {
+        consola_printf("  \033[1;31m[!]\033[0m Sin resultado final registrado.\n");
+    }
+}
+
+// Muestra todos los combates cargados, uno debajo del otro.
+static void mostrar_historial_completo(const HistorialCombate historial[], int cantidad){
+    consola_limpiar();
+    imprimir_banner("HISTORIAL COMPLETO DE COMBATES");
+
+    if (cantidad == 0) {
+        consola_printf("\n  \033[1;33m[!]\033[0m Todavia no hay combates en el historial.\n");
+        consola_printf("      Dispute la fase de grupos o cargue resultados para generarlo.\n\n");
+        return;
+    }
+
+    consola_printf("\n  \033[1;37mCombates registrados:\033[0m \033[1;32m%d\033[0m\n", cantidad);
+
+    for (int i = 0; i < cantidad; i++) {
+        imprimir_detalle_combate(&historial[i]);
+    }
+
+    consola_printf("\n  \033[1;34m");
+    imprimir_horizontal(74);
+    consola_printf("\033[0m\n");
+}
+
+// Imprime la lista de combates de un entrenador con el resultado desde su punto de vista.
+static void imprimir_lista_combates_entrenador(const Entrenador *entrenador,
+                                               const HistorialCombate combates[],
+                                               int total){
+    consola_printf("\n  \033[1;37m%-4s  %-30s  %-10s  %s\033[0m\n",
+                   "N.", "RIVAL", "COMBATE", "RESULTADO");
+    consola_printf("  \033[1;34m");
+    imprimir_horizontal(68);
+    consola_printf("\033[0m\n");
+
+    for (int i = 0; i < total; i++) {
+        const HistorialCombate *combate = &combates[i];
+        const char *rival = (strcmp(combate->entrenador1, entrenador->nombre) == 0)
+                                ? combate->entrenador2
+                                : combate->entrenador1;
+
+        consola_printf("  \033[1;33m%-4d\033[0m  \033[1;37m%-30s\033[0m  "
+                       "\033[1;36m#%-8d\033[0m  ",
+                       i + 1, rival, combate->numero);
+
+        if (combate->empate) {
+            consola_printf("\033[1;33mEMPATE\033[0m\n");
+        } else if (strcmp(combate->ganador, entrenador->nombre) == 0) {
+            consola_printf("\033[1;32mVICTORIA\033[0m\n");
+        } else if (combate->ganador[0] != '\0') {
+            consola_printf("\033[1;31mDERROTA\033[0m\n");
+        } else {
+            consola_printf("\033[1;90mSIN RESULTADO\033[0m\n");
+        }
+    }
+}
+
+// Muestra los combates de un entrenador y permite abrir el detalle de uno.
+static void mostrar_historial_entrenador(const Entrenador *entrenador,
+                                         const HistorialCombate historial[],
+                                         int cantidad){
+    HistorialCombate combates[MAX_COMBATES_HISTORIAL];
+    int total;
+    int opcion;
+
+    total = buscar_combates_entrenador(historial, cantidad, entrenador->nombre,
+                                       combates, MAX_COMBATES_HISTORIAL);
+
+    consola_limpiar();
+    imprimir_banner("HISTORIAL DE UN ENTRENADOR");
+
+    if (total == 0) {
+        consola_printf("\n  \033[1;36mEntrenador:\033[0m \033[1;33m%s\033[0m "
+                       "\033[1;37m(ID %s)\033[0m\n",
+                       entrenador->nombre, entrenador->id_entrenador);
+        consola_printf("\n  \033[1;33m[!]\033[0m Este entrenador no tiene combates registrados.\n\n");
+        return;
+    }
+
+    while (1) {
+        consola_printf("\n  \033[1;36mEntrenador:\033[0m \033[1;33m%s\033[0m "
+                       "\033[1;37m(ID %s)\033[0m  "
+                       "\033[1;37mCombates:\033[0m \033[1;32m%d\033[0m\n",
+                       entrenador->nombre, entrenador->id_entrenador, total);
+
+        imprimir_lista_combates_entrenador(entrenador, combates, total);
+
+        consola_printf("\n  Seleccione un combate para ver el detalle (1-%d, 0 para volver): ",
+                       total);
+        opcion = leer_entero(-1);
+
+        if (opcion == 0) {
+            return;
+        }
+        if (opcion < 1 || opcion > total) {
+            consola_printf("\n  \033[1;31m[!] Opcion no valida.\033[0m Intente de nuevo.\n");
+            continue;
+        }
+
+        imprimir_detalle_combate(&combates[opcion - 1]);
+
+        if (!consola_esperar_enter("\n  Presione ENTER para volver a la lista de combates...")) {
+            return;
+        }
+
+        consola_limpiar();
+        imprimir_banner("HISTORIAL DE UN ENTRENADOR");
+    }
+}
+
+void mostrar_historial_combates(Entrenador entrenadores[], int cantidad_entrenadores){
+    static const char *opciones[] = {
+        "Ver el historial completo (todas las peleas)",
+        "Ver el historial de un entrenador",
+        "Volver al menu principal"
+    };
+    HistorialCombate historial[MAX_COMBATES_HISTORIAL];
+    int cantidad_historial;
+    int opcion;
+
+    cantidad_historial = cargar_historial_combates(historial, MAX_COMBATES_HISTORIAL);
+
+    consola_limpiar();
+    imprimir_banner("HISTORIAL DE COMBATES");
+    consola_printf("\n  \033[1;36mEntrenadores registrados:\033[0m \033[1;32m%d\033[0m\n",
+                   cantidad_entrenadores);
+    consola_printf("  \033[1;36mCombates en el historial:\033[0m \033[1;32m%d\033[0m\n",
+                   cantidad_historial);
+
+    // Primero se muestra la lista de entrenadores, tal como se pidio.
+    imprimir_lista_entrenadores_historial(entrenadores, cantidad_entrenadores,
+                                          historial, cantidad_historial);
+
+    consola_printf("\n");
+    imprimir_menu_opciones("CONSULTAR HISTORIAL", opciones, 3);
+    consola_printf(" -> Seleccione una opcion: ");
+    opcion = leer_entero(-1);
+
+    switch (opcion) {
+        case 1:
+            mostrar_historial_completo(historial, cantidad_historial);
+            break;
+        case 2: {
+            char id_entrenador[8];
+            bool encontrado;
+            int indice;
+
+            consola_printf("\n -> Ingrese el ID del entrenador: ");
+            leer_texto(id_entrenador, sizeof(id_entrenador));
+            buscar_entrenador(entrenadores, id_entrenador, cantidad_entrenadores,
+                              &encontrado, &indice);
+
+            if (!encontrado) {
+                consola_printf("\n  \033[1;31m[!] Entrenador no encontrado.\033[0m "
+                               "Verifique el ID e intente de nuevo.\n\n");
+            } else {
+                mostrar_historial_entrenador(&entrenadores[indice], historial,
+                                             cantidad_historial);
+            }
+            break;
+        }
+        case 3:
+            break;
+        default:
+            consola_printf("\n  \033[1;31m[!] Opcion no valida.\033[0m\n\n");
+            break;
     }
 }

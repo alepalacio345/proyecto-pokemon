@@ -51,6 +51,12 @@
 /** @brief Cantidad de grupos de la fase de grupos. */
 #define CANTIDAD_GRUPOS 8
 
+/** @brief Maximo de enfrentamientos individuales que puede tener un combate. */
+#define MAX_RONDAS_HISTORIAL (MAX_POKEMONES_EN_EQ * 2)
+
+/** @brief Maximo de combates que se cargan desde historial_detallado.txt. */
+#define MAX_COMBATES_HISTORIAL 128
+
 // =========================================================================
 // DEFINICIONES DE TIPOS PARA COMBATES
 // =========================================================================
@@ -169,6 +175,44 @@ typedef struct {
     int perdidos;                   /**< Combates perdidos. */
 } TablaGrupo;
 
+// =========================================================================
+// ESTRUCTURAS DEL HISTORIAL DETALLADO
+// =========================================================================
+
+/**
+ * @struct RondaHistorial
+ * @brief Enfrentamiento individual entre dos Pokemon dentro de un combate.
+ *
+ * Cada linea "Pokemon1 vs Pokemon2 GANO: PokemonX" del archivo
+ * historial_detallado.txt se convierte en una de estas estructuras. Se guardan
+ * los dos Pokemon que pelearon, el ganador y el derrotado.
+ */
+typedef struct {
+    char pokemon1[20];              /**< Pokemon del primer entrenador. */
+    char pokemon2[20];              /**< Pokemon del segundo entrenador. */
+    char ganador[20];               /**< Pokemon que gano el enfrentamiento. */
+    char perdedor[20];              /**< Pokemon que cayo en el enfrentamiento. */
+} RondaHistorial;
+
+/**
+ * @struct HistorialCombate
+ * @brief Toda la informacion de un combate: participantes, rondas y ganador.
+ *
+ * Se llena al recorrer historial_detallado.txt. Guarda con quien peleo cada
+ * entrenador, que Pokemon se enfrentaron en cada ronda, quien gano cada ronda
+ * y el resultado final del combate.
+ */
+typedef struct {
+    int numero;                     /**< Numero de combate (1 a 64). */
+    char entrenador1[30];           /**< Nombre del primer entrenador. */
+    char entrenador2[30];           /**< Nombre del segundo entrenador. */
+    RondaHistorial rondas[MAX_RONDAS_HISTORIAL]; /**< Enfrentamientos individuales. */
+    int cantidad_rondas;            /**< Cantidad de rondas cargadas. */
+    char ganador[30];               /**< Ganador del combate (vacio si hubo empate). */
+    bool empate;                    /**< true si el combate termino empatado. */
+    bool desempate_hp;              /**< true si se definio por HP restante. */
+} HistorialCombate;
+
 
 // =========================================================================
 // MODULO 1: UTILIDADES Y SISTEMA
@@ -196,11 +240,6 @@ int leer_entero(int valor_por_defecto);
  * @param tamano Capacidad total de la cadena destino.
  */
 void leer_texto(char destino[], int tamano);
-
-/**
- * @brief Limpia la pantalla de la consola o terminal asegurando compatibilidad multiplataforma.
- */
-void limpiar_consola(void);
 
 // =========================================================================
 // MODULO 2: GESTION DE LA POKEDEX
@@ -700,9 +739,29 @@ void mostrar_campeon(Partido partidos[], int cantidad, Entrenador entrenadores[]
 void cargar_resultados_teclado(Partido partidos[], int cantidad, char clasificados[][8]);
 
 /**
- * @brief Muestra el historial detallado de combates guardado en disco.
+ * @brief Recorre historial_detallado.txt y llena un arreglo de combates.
+ *
+ * Lee el archivo completo una sola vez. Cada bloque que empieza con
+ * "COMBATE n:" se convierte en un HistorialCombate con sus participantes, sus
+ * rondas individuales y el ganador final. Si el archivo no existe devuelve 0.
+ *
+ * @param historial Arreglo destino donde se guardan los combates.
+ * @param maximo Capacidad del arreglo (normalmente MAX_COMBATES_HISTORIAL).
+ * @return int Cantidad de combates cargados.
  */
-void mostrar_historial_combates(void);
+int cargar_historial_combates(HistorialCombate historial[], int maximo);
+
+/**
+ * @brief Menu del historial de combates: ver todo o consultar por entrenador.
+ *
+ * Primero imprime la lista de entrenadores con la cantidad de combates que
+ * tiene cada uno en el historial. Luego permite ver el historial completo o
+ * elegir un entrenador, listar sus combates y abrir el detalle de uno de ellos.
+ *
+ * @param entrenadores Arreglo global de Entrenadores.
+ * @param cantidad_entrenadores Numero real de entrenadores cargados en RAM.
+ */
+void mostrar_historial_combates(Entrenador entrenadores[], int cantidad_entrenadores);
 
 /**
  * @brief Devuelve el nombre legible de la etapa de un combate.
