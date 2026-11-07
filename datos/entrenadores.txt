@@ -1,32 +1,32 @@
-001 Saul 0 0 0 1 0 true
-002 Pedro 0 1 0 0 0 true
-003 Sabrina 0 0 0 0 0 false
-004 Abel 0 0 0 0 0 false
-005 Ash 0 0 0 0 0 false
-006 Misty 0 0 0 0 0 false
-007 Brock 0 0 0 0 0 false
-008 Gary 0 0 0 0 0 false
-009 Red 0 0 0 0 0 false
-010 Blue 0 0 0 0 0 false
-011 Leaf 0 0 0 0 0 false
-012 Ethan 0 0 0 0 0 false
-013 Lyra 0 0 0 0 0 false
-014 Brendan 0 0 0 0 0 false
-015 May 0 0 0 0 0 false
-016 Dawn 0 0 0 0 0 false
-017 Lucas 0 0 0 0 0 false
-018 Hilbert 0 0 0 0 0 false
-019 Hilda 0 0 0 0 0 false
-020 Nate 0 0 0 0 0 false
-021 Rosa 0 0 0 0 0 false
-022 Calem 0 0 0 0 0 false
-023 Serena 0 0 0 0 0 false
-024 Elio 0 0 0 0 0 false
-025 Selene 0 0 0 0 0 false
-026 Victor 0 0 0 0 0 false
-027 Gloria 0 0 0 0 0 false
-028 Florian 0 0 0 0 0 false
-029 Juliana 0 0 0 0 0 false
-030 Nemona 0 0 0 0 0 false
-031 Arven 0 0 0 0 0 false
-032 wuu 6 0 0 0 0 true
+001 Saul 6 0 0 7 0 0 true
+002 Pedro 6 7 0 1 18 56 true
+003 Sabrina 6 5 0 3 15 36 true
+004 Abel 6 2 0 4 6 20 true
+005 Ash 6 0 0 6 0 0 true
+006 Misty 6 2 0 4 6 16 true
+007 Brock 6 6 0 1 18 52 true
+008 Gary 6 5 0 3 15 41 true
+009 Red 6 0 0 6 0 0 true
+010 Blue 6 10 0 0 30 66 true
+011 Leaf 6 6 0 4 18 38 true
+012 Ethan 6 2 0 4 6 22 true
+013 Lyra 6 0 4 2 4 0 true
+014 Brendan 6 0 2 4 2 0 true
+015 May 6 6 0 1 18 50 true
+016 Dawn 6 2 2 3 8 22 true
+017 Lucas 6 5 0 3 15 44 true
+018 Hilbert 6 4 0 2 12 34 true
+019 Hilda 6 4 0 3 12 42 true
+020 Nate 6 0 0 6 0 0 true
+021 Rosa 6 2 0 4 6 16 true
+022 Calem 6 0 0 6 0 0 true
+023 Serena 6 4 0 3 12 40 true
+024 Elio 6 7 0 1 21 58 true
+025 Selene 6 2 0 4 6 20 true
+026 Victor 6 7 0 3 21 44 true
+027 Gloria 6 9 0 1 27 58 true
+028 Florian 6 0 0 6 0 0 true
+029 Juliana 6 6 0 1 18 55 true
+030 Nemona 6 3 0 3 9 22 true
+031 Arven 6 0 0 6 0 0 true
+032 Aaron 6 1 0 2 3 11 true

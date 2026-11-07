@@ -82,27 +82,30 @@ static const int PALETA[PIXEL_NARANJA + 1] = {
 
 static const char (*obtener_glifo(char caracter))[5]
 {
-    char c = (char)toupper((unsigned char)caracter);
+    const char (*glifo)[5] = NULL;
+    char c;
+
+    c = (char)toupper((unsigned char)caracter);
 
     if (c >= 'A' && c <= 'Z') {
-        return FUENTE_ALFABETO[c - 'A'];
-    }
-    if (c >= '0' && c <= '9') {
-        return FUENTE_DIGITOS[c - '0'];
+        glifo = FUENTE_ALFABETO[c - 'A'];
+    } else if (c >= '0' && c <= '9') {
+        glifo = FUENTE_DIGITOS[c - '0'];
     }
 
-    return NULL;
+    return glifo;
 }
 
 static int ancho_texto(const char *texto, int escala)
 {
     int largo = (int)strlen(texto);
+    int ancho = 0;
 
-    if (largo <= 0) {
-        return 0;
+    if (largo > 0) {
+        ancho = (largo * 5 * escala) - escala;
     }
 
-    return (largo * 5 * escala) - escala;
+    return ancho;
 }
 
 void lienzo_limpiar(Lienzo *lienzo)
@@ -148,24 +151,23 @@ void lienzo_rectangulo(Lienzo *lienzo, int x0, int y0, int x1, int y1, int color
 void lienzo_texto(Lienzo *lienzo, int x, int y, const char *texto, int color, int escala)
 {
     int i;
+    const char (*glifo)[5];
+    int fila;
+    int columna;
+    int dx;
+    int dy;
 
     if (lienzo == NULL || texto == NULL || escala < 1) {
         return;
     }
 
     for (i = 0; texto[i] != '\0'; i++) {
-        const char (*glifo)[5] = obtener_glifo(texto[i]);
-        int fila;
+        glifo = obtener_glifo(texto[i]);
 
         if (glifo != NULL) {
             for (fila = 0; fila < 5; fila++) {
-                int columna;
-
                 for (columna = 0; columna < 4; columna++) {
                     if (glifo[fila][columna] == '1') {
-                        int dx;
-                        int dy;
-
                         for (dy = 0; dy < escala; dy++) {
                             for (dx = 0; dx < escala; dx++) {
                                 lienzo_pixel(lienzo,
@@ -208,17 +210,18 @@ void lienzo_texto_centrado(Lienzo *lienzo, int y, const char *texto,
 void lienzo_pokeball(Lienzo *lienzo, int centro_x, int centro_y)
 {
     int fila;
+    int columna;
+    int color;
+    char pixel;
 
     if (lienzo == NULL) {
         return;
     }
 
     for (fila = 0; fila < 11; fila++) {
-        int columna;
-
         for (columna = 0; columna < 11; columna++) {
-            int color = PIXEL_VACIO;
-            char pixel = POKEBOLA[fila][columna];
+            color = PIXEL_VACIO;
+            pixel = POKEBOLA[fila][columna];
 
             if (pixel == 'K') {
                 color = PIXEL_NEGRO;
@@ -265,18 +268,20 @@ static void agregar_color(char *buffer, size_t *longitud, size_t capacidad,
 static void renderizar_utf8(const Lienzo *lienzo)
 {
     int y;
+    char linea[16384];
+    size_t longitud;
+    int x;
+    int arriba;
+    int abajo;
 
     for (y = 0; y < lienzo->alto; y += 2) {
-        char linea[16384];
-        size_t longitud = 0;
-        int x;
-
+        longitud = 0;
         linea[0] = '\0';
 
         for (x = 0; x < lienzo->ancho; x++) {
-            int arriba = lienzo->pixeles[y][x];
-            int abajo = (y + 1 < lienzo->alto) ? lienzo->pixeles[y + 1][x]
-                                               : PIXEL_VACIO;
+            arriba = lienzo->pixeles[y][x];
+            abajo = (y + 1 < lienzo->alto) ? lienzo->pixeles[y + 1][x]
+                                           : PIXEL_VACIO;
 
             if (consola_usa_ansi()) {
                 agregar_texto(linea, &longitud, sizeof(linea), "\033[0m");
@@ -310,19 +315,22 @@ static void renderizar_utf8(const Lienzo *lienzo)
 static void renderizar_ascii(const Lienzo *lienzo)
 {
     int y;
+    char linea[16384];
+    size_t longitud;
+    int x;
+    int arriba;
+    int abajo;
+    int color;
 
     for (y = 0; y < lienzo->alto; y += 2) {
-        char linea[16384];
-        size_t longitud = 0;
-        int x;
-
+        longitud = 0;
         linea[0] = '\0';
 
         for (x = 0; x < lienzo->ancho; x++) {
-            int arriba = lienzo->pixeles[y][x];
-            int abajo = (y + 1 < lienzo->alto) ? lienzo->pixeles[y + 1][x]
-                                               : PIXEL_VACIO;
-            int color = (arriba != PIXEL_VACIO) ? arriba : abajo;
+            arriba = lienzo->pixeles[y][x];
+            abajo = (y + 1 < lienzo->alto) ? lienzo->pixeles[y + 1][x]
+                                           : PIXEL_VACIO;
+            color = (arriba != PIXEL_VACIO) ? arriba : abajo;
 
             if (color == PIXEL_VACIO) {
                 agregar_texto(linea, &longitud, sizeof(linea), " ");

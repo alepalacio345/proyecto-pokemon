@@ -12,3 +12,1524 @@ Charmeleon vs Pikachu GANO: Charmeleon
 Charmeleon vs Ninetales GANO: Ninetales
 Ditto vs Ninetales GANO: Ninetales
 GANADOR DEL COMBATE: Pedro
+COMBATE 1: Saul vs Abel
+Clefable vs Rhyhorn GANO: Rhyhorn (DERROTADO: Clefable)
+Poliwrath vs Rhyhorn GANO: Poliwrath (DERROTADO: Rhyhorn)
+Poliwrath vs Machamp GANO: Machamp (DERROTADO: Poliwrath)
+Electabuzz vs Machamp GANO: Electabuzz (DERROTADO: Machamp)
+Electabuzz vs Goldeen GANO: Electabuzz (DERROTADO: Goldeen)
+Electabuzz vs Ninetales GANO: Ninetales (DERROTADO: Electabuzz)
+Tangela vs Ninetales GANO: Ninetales (DERROTADO: Tangela)
+Charmeleon vs Ninetales GANO: Charmeleon (DERROTADO: Ninetales)
+Charmeleon vs Slowbro GANO: Slowbro (DERROTADO: Charmeleon)
+Ditto vs Slowbro GANO: Slowbro (DERROTADO: Ditto)
+GANADOR DEL COMBATE: Abel
+COMBATE 2: Pedro vs Sabrina
+Slowbro vs Mewtwo GANO: Slowbro (DERROTADO: Mewtwo)
+Slowbro vs Primeape GANO: Primeape (DERROTADO: Slowbro)
+[*] Empate de velocidad. La moneda favorece a Sabrina.
+Primeape vs Primeape GANO: Primeape (DERROTADO: Primeape)
+Primeape vs Growlithe GANO: Primeape (DERROTADO: Growlithe)
+Primeape vs Gloom GANO: Gloom (DERROTADO: Primeape)
+Tangela vs Gloom GANO: Gloom (DERROTADO: Tangela)
+Tentacruel vs Gloom GANO: Tentacruel (DERROTADO: Gloom)
+Tentacruel vs Horsea GANO: Tentacruel (DERROTADO: Horsea)
+Tentacruel vs Charmeleon GANO: Tentacruel (DERROTADO: Charmeleon)
+GANADOR DEL COMBATE: Pedro
+COMBATE 3: Saul vs Sabrina
+Clefable vs Mewtwo GANO: Mewtwo (DERROTADO: Clefable)
+Poliwrath vs Mewtwo GANO: Mewtwo (DERROTADO: Poliwrath)
+Electabuzz vs Mewtwo GANO: Mewtwo (DERROTADO: Electabuzz)
+Tangela vs Mewtwo GANO: Tangela (DERROTADO: Mewtwo)
+Tangela vs Primeape GANO: Primeape (DERROTADO: Tangela)
+Charmeleon vs Primeape GANO: Charmeleon (DERROTADO: Primeape)
+Charmeleon vs Growlithe GANO: Growlithe (DERROTADO: Charmeleon)
+Ditto vs Growlithe GANO: Ditto (DERROTADO: Growlithe)
+Ditto vs Gloom GANO: Gloom (DERROTADO: Ditto)
+GANADOR DEL COMBATE: Sabrina
+COMBATE 4: Abel vs Pedro
+Rhyhorn vs Slowbro GANO: Slowbro (DERROTADO: Rhyhorn)
+Machamp vs Slowbro GANO: Slowbro (DERROTADO: Machamp)
+Goldeen vs Slowbro GANO: Goldeen (DERROTADO: Slowbro)
+Goldeen vs Primeape GANO: Primeape (DERROTADO: Goldeen)
+Ninetales vs Primeape GANO: Ninetales (DERROTADO: Primeape)
+Ninetales vs Tangela GANO: Tangela (DERROTADO: Ninetales)
+Slowbro vs Tangela GANO: Tangela (DERROTADO: Slowbro)
+Chansey vs Tangela GANO: Tangela (DERROTADO: Chansey)
+GANADOR DEL COMBATE: Pedro
+COMBATE 5: Saul vs Pedro
+Clefable vs Slowbro GANO: Slowbro (DERROTADO: Clefable)
+Poliwrath vs Slowbro GANO: Poliwrath (DERROTADO: Slowbro)
+Poliwrath vs Primeape GANO: Poliwrath (DERROTADO: Primeape)
+Poliwrath vs Tangela GANO: Tangela (DERROTADO: Poliwrath)
+Electabuzz vs Tangela GANO: Tangela (DERROTADO: Electabuzz)
+[*] Empate de velocidad. La moneda favorece a Saul.
+[*] Empate de velocidad. La moneda favorece a Saul.
+[*] Empate de velocidad. La moneda favorece a Saul.
+[*] Empate de velocidad. La moneda favorece a Pedro.
+[*] Empate de velocidad. La moneda favorece a Pedro.
+[*] Empate de velocidad. La moneda favorece a Pedro.
+[*] Empate de velocidad. La moneda favorece a Saul.
+[*] Empate de velocidad. La moneda favorece a Saul.
+[*] Empate de velocidad. La moneda favorece a Saul.
+[*] Empate de velocidad. La moneda favorece a Pedro.
+[*] Empate de velocidad. La moneda favorece a Saul.
+Tangela vs Tangela GANO: Tangela (DERROTADO: Tangela)
+Tangela vs Tentacruel GANO: Tangela (DERROTADO: Tentacruel)
+Tangela vs Pikachu GANO: Pikachu (DERROTADO: Tangela)
+Charmeleon vs Pikachu GANO: Charmeleon (DERROTADO: Pikachu)
+Charmeleon vs Ninetales GANO: Ninetales (DERROTADO: Charmeleon)
+Ditto vs Ninetales GANO: Ninetales (DERROTADO: Ditto)
+GANADOR DEL COMBATE: Pedro
+COMBATE 6: Sabrina vs Abel
+Mewtwo vs Rhyhorn GANO: Mewtwo (DERROTADO: Rhyhorn)
+Mewtwo vs Machamp GANO: Mewtwo (DERROTADO: Machamp)
+Mewtwo vs Goldeen GANO: Goldeen (DERROTADO: Mewtwo)
+Primeape vs Goldeen GANO: Primeape (DERROTADO: Goldeen)
+Primeape vs Ninetales GANO: Ninetales (DERROTADO: Primeape)
+Growlithe vs Ninetales GANO: Growlithe (DERROTADO: Ninetales)
+Growlithe vs Slowbro GANO: Slowbro (DERROTADO: Growlithe)
+Gloom vs Slowbro GANO: Gloom (DERROTADO: Slowbro)
+Gloom vs Chansey GANO: Gloom (DERROTADO: Chansey)
+GANADOR DEL COMBATE: Sabrina
+COMBATE 7: Ash vs Gary
+Dugtrio vs Pikachu GANO: Dugtrio (DERROTADO: Pikachu)
+Dugtrio vs Exeggcute GANO: Exeggcute (DERROTADO: Dugtrio)
+[*] Empate de velocidad. La moneda favorece a Gary.
+[*] Empate de velocidad. La moneda favorece a Ash.
+[*] Empate de velocidad. La moneda favorece a Ash.
+[*] Empate de velocidad. La moneda favorece a Ash.
+[*] Empate de velocidad. La moneda favorece a Ash.
+[*] Empate de velocidad. La moneda favorece a Ash.
+[*] Empate de velocidad. La moneda favorece a Ash.
+[*] Empate de velocidad. La moneda favorece a Ash.
+Bellsprout vs Exeggcute GANO: Bellsprout (DERROTADO: Exeggcute)
+Bellsprout vs Electabuzz GANO: Electabuzz (DERROTADO: Bellsprout)
+Sandslash vs Electabuzz GANO: Sandslash (DERROTADO: Electabuzz)
+Sandslash vs MrMime GANO: Sandslash (DERROTADO: MrMime)
+Sandslash vs Doduo GANO: Doduo (DERROTADO: Sandslash)
+Kakuna vs Doduo GANO: Doduo (DERROTADO: Kakuna)
+Magikarp vs Doduo GANO: Doduo (DERROTADO: Magikarp)
+[*] Empate de velocidad. La moneda favorece a Gary.
+[*] Empate de velocidad. La moneda favorece a Gary.
+[*] Empate de velocidad. La moneda favorece a Ash.
+Beedrill vs Doduo GANO: Beedrill (DERROTADO: Doduo)
+Beedrill vs Dragonite GANO: Dragonite (DERROTADO: Beedrill)
+GANADOR DEL COMBATE: Gary
+COMBATE 8: Misty vs Brock
+Ponyta vs Hitmonchan GANO: Hitmonchan (DERROTADO: Ponyta)
+Zubat vs Hitmonchan GANO: Zubat (DERROTADO: Hitmonchan)
+Zubat vs Venusaur GANO: Venusaur (DERROTADO: Zubat)
+[*] Empate de velocidad. La moneda favorece a Brock.
+[*] Empate de velocidad. La moneda favorece a Misty.
+[*] Empate de velocidad. La moneda favorece a Misty.
+[*] Empate de velocidad. La moneda favorece a Misty.
+Gastly vs Venusaur GANO: Venusaur (DERROTADO: Gastly)
+Staryu vs Venusaur GANO: Venusaur (DERROTADO: Staryu)
+Wartortle vs Venusaur GANO: Venusaur (DERROTADO: Wartortle)
+Sandshrew vs Venusaur GANO: Sandshrew (DERROTADO: Venusaur)
+Sandshrew vs Vaporeon GANO: Vaporeon (DERROTADO: Sandshrew)
+GANADOR DEL COMBATE: Brock
+COMBATE 9: Ash vs Brock
+Dugtrio vs Hitmonchan GANO: Hitmonchan (DERROTADO: Dugtrio)
+Bellsprout vs Hitmonchan GANO: Bellsprout (DERROTADO: Hitmonchan)
+Bellsprout vs Venusaur GANO: Venusaur (DERROTADO: Bellsprout)
+Sandslash vs Venusaur GANO: Venusaur (DERROTADO: Sandslash)
+Kakuna vs Venusaur GANO: Kakuna (DERROTADO: Venusaur)
+Kakuna vs Vaporeon GANO: Vaporeon (DERROTADO: Kakuna)
+Magikarp vs Vaporeon GANO: Vaporeon (DERROTADO: Magikarp)
+Beedrill vs Vaporeon GANO: Vaporeon (DERROTADO: Beedrill)
+GANADOR DEL COMBATE: Brock
+COMBATE 10: Gary vs Misty
+[*] Empate de velocidad. La moneda favorece a Gary.
+[*] Empate de velocidad. La moneda favorece a Gary.
+[*] Empate de velocidad. La moneda favorece a Misty.
+Pikachu vs Ponyta GANO: Ponyta (DERROTADO: Pikachu)
+Exeggcute vs Ponyta GANO: Ponyta (DERROTADO: Exeggcute)
+Electabuzz vs Ponyta GANO: Electabuzz (DERROTADO: Ponyta)
+Electabuzz vs Zubat GANO: Electabuzz (DERROTADO: Zubat)
+Electabuzz vs Gastly GANO: Electabuzz (DERROTADO: Gastly)
+Electabuzz vs Staryu GANO: Electabuzz (DERROTADO: Staryu)
+Electabuzz vs Wartortle GANO: Electabuzz (DERROTADO: Wartortle)
+Electabuzz vs Sandshrew GANO: Sandshrew (DERROTADO: Electabuzz)
+MrMime vs Sandshrew GANO: Sandshrew (DERROTADO: MrMime)
+Doduo vs Sandshrew GANO: Doduo (DERROTADO: Sandshrew)
+GANADOR DEL COMBATE: Gary
+COMBATE 11: Ash vs Misty
+Dugtrio vs Ponyta GANO: Dugtrio (DERROTADO: Ponyta)
+Dugtrio vs Zubat GANO: Zubat (DERROTADO: Dugtrio)
+Bellsprout vs Zubat GANO: Zubat (DERROTADO: Bellsprout)
+Sandslash vs Zubat GANO: Zubat (DERROTADO: Sandslash)
+Kakuna vs Zubat GANO: Zubat (DERROTADO: Kakuna)
+Magikarp vs Zubat GANO: Magikarp (DERROTADO: Zubat)
+[*] Empate de velocidad. La moneda favorece a Misty.
+[*] Empate de velocidad. La moneda favorece a Misty.
+Magikarp vs Gastly GANO: Gastly (DERROTADO: Magikarp)
+Beedrill vs Gastly GANO: Gastly (DERROTADO: Beedrill)
+GANADOR DEL COMBATE: Misty
+COMBATE 12: Brock vs Gary
+Hitmonchan vs Pikachu GANO: Hitmonchan (DERROTADO: Pikachu)
+Hitmonchan vs Exeggcute GANO: Exeggcute (DERROTADO: Hitmonchan)
+Venusaur vs Exeggcute GANO: Venusaur (DERROTADO: Exeggcute)
+Venusaur vs Electabuzz GANO: Venusaur (DERROTADO: Electabuzz)
+Venusaur vs MrMime GANO: MrMime (DERROTADO: Venusaur)
+Vaporeon vs MrMime GANO: Vaporeon (DERROTADO: MrMime)
+Vaporeon vs Doduo GANO: Vaporeon (DERROTADO: Doduo)
+Vaporeon vs Dragonite GANO: Dragonite (DERROTADO: Vaporeon)
+Eevee vs Dragonite GANO: Dragonite (DERROTADO: Eevee)
+Golem vs Dragonite GANO: Golem (DERROTADO: Dragonite)
+GANADOR DEL COMBATE: Brock
+COMBATE 13: Red vs Ethan
+[*] Empate de velocidad. La moneda favorece a Red.
+[*] Empate de velocidad. La moneda favorece a Red.
+[*] Empate de velocidad. La moneda favorece a Red.
+Vulpix vs Flareon GANO: Flareon (DERROTADO: Vulpix)
+Dodrio vs Flareon GANO: Dodrio (DERROTADO: Flareon)
+Dodrio vs Ivysaur GANO: Dodrio (DERROTADO: Ivysaur)
+Dodrio vs Nidorina GANO: Nidorina (DERROTADO: Dodrio)
+Seadra vs Nidorina GANO: Seadra (DERROTADO: Nidorina)
+Seadra vs Rapidash GANO: Seadra (DERROTADO: Rapidash)
+Seadra vs Kadabra GANO: Kadabra (DERROTADO: Seadra)
+Venusaur vs Kadabra GANO: Venusaur (DERROTADO: Kadabra)
+[*] Empate de velocidad. La moneda favorece a Ethan.
+[*] Empate de velocidad. La moneda favorece a Red.
+[*] Empate de velocidad. La moneda favorece a Red.
+[*] Empate de velocidad. La moneda favorece a Red.
+Venusaur vs Dragonite GANO: Dragonite (DERROTADO: Venusaur)
+Weezing vs Dragonite GANO: Dragonite (DERROTADO: Weezing)
+Eevee vs Dragonite GANO: Dragonite (DERROTADO: Eevee)
+GANADOR DEL COMBATE: Ethan
+COMBATE 14: Blue vs Leaf
+Fearow vs Poliwag GANO: Fearow (DERROTADO: Poliwag)
+Fearow vs Goldeen GANO: Fearow (DERROTADO: Goldeen)
+Fearow vs Poliwrath GANO: Poliwrath (DERROTADO: Fearow)
+Muk vs Poliwrath GANO: Muk (DERROTADO: Poliwrath)
+Muk vs Mewtwo GANO: Mewtwo (DERROTADO: Muk)
+Exeggutor vs Mewtwo GANO: Exeggutor (DERROTADO: Mewtwo)
+Exeggutor vs Tauros GANO: Tauros (DERROTADO: Exeggutor)
+Wigglytuff vs Tauros GANO: Tauros (DERROTADO: Wigglytuff)
+NidoranM vs Tauros GANO: Tauros (DERROTADO: NidoranM)
+Aerodactyl vs Tauros GANO: Aerodactyl (DERROTADO: Tauros)
+Aerodactyl vs Grimer GANO: Aerodactyl (DERROTADO: Grimer)
+GANADOR DEL COMBATE: Blue
+COMBATE 15: Red vs Leaf
+Vulpix vs Poliwag GANO: Poliwag (DERROTADO: Vulpix)
+Dodrio vs Poliwag GANO: Dodrio (DERROTADO: Poliwag)
+Dodrio vs Goldeen GANO: Dodrio (DERROTADO: Goldeen)
+Dodrio vs Poliwrath GANO: Poliwrath (DERROTADO: Dodrio)
+Seadra vs Poliwrath GANO: Seadra (DERROTADO: Poliwrath)
+Seadra vs Mewtwo GANO: Mewtwo (DERROTADO: Seadra)
+Venusaur vs Mewtwo GANO: Mewtwo (DERROTADO: Venusaur)
+Weezing vs Mewtwo GANO: Mewtwo (DERROTADO: Weezing)
+Eevee vs Mewtwo GANO: Mewtwo (DERROTADO: Eevee)
+GANADOR DEL COMBATE: Leaf
+COMBATE 16: Ethan vs Blue
+Flareon vs Fearow GANO: Flareon (DERROTADO: Fearow)
+Flareon vs Muk GANO: Muk (DERROTADO: Flareon)
+Ivysaur vs Muk GANO: Muk (DERROTADO: Ivysaur)
+Nidorina vs Muk GANO: Muk (DERROTADO: Nidorina)
+Rapidash vs Muk GANO: Rapidash (DERROTADO: Muk)
+Rapidash vs Exeggutor GANO: Rapidash (DERROTADO: Exeggutor)
+Rapidash vs Wigglytuff GANO: Wigglytuff (DERROTADO: Rapidash)
+Kadabra vs Wigglytuff GANO: Kadabra (DERROTADO: Wigglytuff)
+Kadabra vs NidoranM GANO: Kadabra (DERROTADO: NidoranM)
+Kadabra vs Aerodactyl GANO: Aerodactyl (DERROTADO: Kadabra)
+Dragonite vs Aerodactyl GANO: Aerodactyl (DERROTADO: Dragonite)
+GANADOR DEL COMBATE: Blue
+COMBATE 17: Red vs Blue
+Vulpix vs Fearow GANO: Fearow (DERROTADO: Vulpix)
+Dodrio vs Fearow GANO: Dodrio (DERROTADO: Fearow)
+Dodrio vs Muk GANO: Muk (DERROTADO: Dodrio)
+Seadra vs Muk GANO: Seadra (DERROTADO: Muk)
+Seadra vs Exeggutor GANO: Exeggutor (DERROTADO: Seadra)
+Venusaur vs Exeggutor GANO: Venusaur (DERROTADO: Exeggutor)
+Venusaur vs Wigglytuff GANO: Wigglytuff (DERROTADO: Venusaur)
+Weezing vs Wigglytuff GANO: Weezing (DERROTADO: Wigglytuff)
+Weezing vs NidoranM GANO: Weezing (DERROTADO: NidoranM)
+Weezing vs Aerodactyl GANO: Aerodactyl (DERROTADO: Weezing)
+Eevee vs Aerodactyl GANO: Aerodactyl (DERROTADO: Eevee)
+GANADOR DEL COMBATE: Blue
+COMBATE 18: Leaf vs Ethan
+Poliwag vs Flareon GANO: Flareon (DERROTADO: Poliwag)
+Goldeen vs Flareon GANO: Goldeen (DERROTADO: Flareon)
+Goldeen vs Ivysaur GANO: Ivysaur (DERROTADO: Goldeen)
+Poliwrath vs Ivysaur GANO: Ivysaur (DERROTADO: Poliwrath)
+Mewtwo vs Ivysaur GANO: Mewtwo (DERROTADO: Ivysaur)
+Mewtwo vs Nidorina GANO: Mewtwo (DERROTADO: Nidorina)
+Mewtwo vs Rapidash GANO: Mewtwo (DERROTADO: Rapidash)
+Mewtwo vs Kadabra GANO: Mewtwo (DERROTADO: Kadabra)
+Mewtwo vs Dragonite GANO: Dragonite (DERROTADO: Mewtwo)
+Tauros vs Dragonite GANO: Tauros (DERROTADO: Dragonite)
+GANADOR DEL COMBATE: Leaf
+COMBATE 19: Lyra vs Dawn
+Exeggutor vs Poliwrath GANO: Exeggutor (DERROTADO: Poliwrath)
+Exeggutor vs Weedle GANO: Weedle (DERROTADO: Exeggutor)
+Golduck vs Weedle GANO: Golduck (DERROTADO: Weedle)
+Golduck vs Drowzee GANO: Golduck (DERROTADO: Drowzee)
+Golduck vs Butterfree GANO: Golduck (DERROTADO: Butterfree)
+Golduck vs Starmie GANO: Starmie (DERROTADO: Golduck)
+Chansey vs Starmie GANO: Starmie (DERROTADO: Chansey)
+Caterpie vs Starmie GANO: Starmie (DERROTADO: Caterpie)
+Gengar vs Starmie GANO: Gengar (DERROTADO: Starmie)
+SIN K.O. tras 100 rondas: Lyra (171 HP) vs Dawn (125 HP)
+EMPATE: Lyra y Dawn agotaron las 100 rondas sin K.O.
+COMBATE 20: Brendan vs May
+Pikachu vs Articuno GANO: Articuno (DERROTADO: Pikachu)
+Arbok vs Articuno GANO: Arbok (DERROTADO: Articuno)
+Arbok vs Seadra GANO: Seadra (DERROTADO: Arbok)
+Abra vs Seadra GANO: Seadra (DERROTADO: Abra)
+Rattata vs Seadra GANO: Seadra (DERROTADO: Rattata)
+Horsea vs Seadra GANO: Seadra (DERROTADO: Horsea)
+Lickitung vs Seadra GANO: Lickitung (DERROTADO: Seadra)
+Lickitung vs Cloyster GANO: Cloyster (DERROTADO: Lickitung)
+GANADOR DEL COMBATE: May
+COMBATE 21: Lyra vs May
+Exeggutor vs Articuno GANO: Articuno (DERROTADO: Exeggutor)
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a May.
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a Lyra.
+Golduck vs Articuno GANO: Golduck (DERROTADO: Articuno)
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a May.
+[*] Empate de velocidad. La moneda favorece a May.
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a May.
+Golduck vs Seadra GANO: Seadra (DERROTADO: Golduck)
+Chansey vs Seadra GANO: Seadra (DERROTADO: Chansey)
+Caterpie vs Seadra GANO: Seadra (DERROTADO: Caterpie)
+Gengar vs Seadra GANO: Gengar (DERROTADO: Seadra)
+Gengar vs Cloyster GANO: Cloyster (DERROTADO: Gengar)
+Magikarp vs Cloyster GANO: Cloyster (DERROTADO: Magikarp)
+GANADOR DEL COMBATE: May
+COMBATE 22: Dawn vs Brendan
+Poliwrath vs Pikachu GANO: Poliwrath (DERROTADO: Pikachu)
+Poliwrath vs Arbok GANO: Arbok (DERROTADO: Poliwrath)
+Weedle vs Arbok GANO: Arbok (DERROTADO: Weedle)
+Drowzee vs Arbok GANO: Drowzee (DERROTADO: Arbok)
+Drowzee vs Abra GANO: Drowzee (DERROTADO: Abra)
+Drowzee vs Rattata GANO: Rattata (DERROTADO: Drowzee)
+Butterfree vs Rattata GANO: Butterfree (DERROTADO: Rattata)
+Butterfree vs Horsea GANO: Horsea (DERROTADO: Butterfree)
+Starmie vs Horsea GANO: Starmie (DERROTADO: Horsea)
+Starmie vs Lickitung GANO: Lickitung (DERROTADO: Starmie)
+Persian vs Lickitung GANO: Persian (DERROTADO: Lickitung)
+GANADOR DEL COMBATE: Dawn
+COMBATE 23: Lyra vs Brendan
+Exeggutor vs Pikachu GANO: Exeggutor (DERROTADO: Pikachu)
+Exeggutor vs Arbok GANO: Arbok (DERROTADO: Exeggutor)
+Golduck vs Arbok GANO: Golduck (DERROTADO: Arbok)
+Golduck vs Abra GANO: Golduck (DERROTADO: Abra)
+Golduck vs Rattata GANO: Golduck (DERROTADO: Rattata)
+Golduck vs Horsea GANO: Golduck (DERROTADO: Horsea)
+Golduck vs Lickitung GANO: Lickitung (DERROTADO: Golduck)
+Chansey vs Lickitung GANO: Lickitung (DERROTADO: Chansey)
+Caterpie vs Lickitung GANO: Lickitung (DERROTADO: Caterpie)
+SIN K.O. tras 100 rondas: Lyra (200 HP) vs Brendan (80 HP)
+EMPATE: Lyra y Brendan agotaron las 100 rondas sin K.O.
+COMBATE 24: May vs Dawn
+Articuno vs Poliwrath GANO: Poliwrath (DERROTADO: Articuno)
+Seadra vs Poliwrath GANO: Seadra (DERROTADO: Poliwrath)
+Seadra vs Weedle GANO: Seadra (DERROTADO: Weedle)
+Seadra vs Drowzee GANO: Drowzee (DERROTADO: Seadra)
+Cloyster vs Drowzee GANO: Cloyster (DERROTADO: Drowzee)
+[*] Empate de velocidad. La moneda favorece a Dawn.
+[*] Empate de velocidad. La moneda favorece a Dawn.
+[*] Empate de velocidad. La moneda favorece a Dawn.
+Cloyster vs Butterfree GANO: Cloyster (DERROTADO: Butterfree)
+Cloyster vs Starmie GANO: Cloyster (DERROTADO: Starmie)
+Cloyster vs Persian GANO: Persian (DERROTADO: Cloyster)
+Geodude vs Persian GANO: Geodude (DERROTADO: Persian)
+GANADOR DEL COMBATE: May
+COMBATE 25: Lucas vs Nate
+Golbat vs Fearow GANO: Fearow (DERROTADO: Golbat)
+Parasect vs Fearow GANO: Parasect (DERROTADO: Fearow)
+Parasect vs Hitmonlee GANO: Hitmonlee (DERROTADO: Parasect)
+Bulbasaur vs Hitmonlee GANO: Bulbasaur (DERROTADO: Hitmonlee)
+[*] Empate de velocidad. La moneda favorece a Nate.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Nate.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Nate.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Nate.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Nate.
+Bulbasaur vs Bulbasaur GANO: Bulbasaur (DERROTADO: Bulbasaur)
+Graveler vs Bulbasaur GANO: Graveler (DERROTADO: Bulbasaur)
+Graveler vs Goldeen GANO: Goldeen (DERROTADO: Graveler)
+Nidoking vs Goldeen GANO: Nidoking (DERROTADO: Goldeen)
+Nidoking vs Magmar GANO: Magmar (DERROTADO: Nidoking)
+Hypno vs Magmar GANO: Hypno (DERROTADO: Magmar)
+Hypno vs Eevee GANO: Hypno (DERROTADO: Eevee)
+GANADOR DEL COMBATE: Lucas
+COMBATE 26: Hilbert vs Hilda
+Vaporeon vs Graveler GANO: Vaporeon (DERROTADO: Graveler)
+Vaporeon vs Poliwag GANO: Vaporeon (DERROTADO: Poliwag)
+Vaporeon vs Golduck GANO: Golduck (DERROTADO: Vaporeon)
+Gyarados vs Golduck GANO: Gyarados (DERROTADO: Golduck)
+Gyarados vs Sandshrew GANO: Gyarados (DERROTADO: Sandshrew)
+Gyarados vs Nidoking GANO: Gyarados (DERROTADO: Nidoking)
+Gyarados vs Arcanine GANO: Arcanine (DERROTADO: Gyarados)
+Clefable vs Arcanine GANO: Clefable (DERROTADO: Arcanine)
+GANADOR DEL COMBATE: Hilbert
+COMBATE 27: Lucas vs Hilda
+Golbat vs Graveler GANO: Graveler (DERROTADO: Golbat)
+Parasect vs Graveler GANO: Graveler (DERROTADO: Parasect)
+Bulbasaur vs Graveler GANO: Bulbasaur (DERROTADO: Graveler)
+Bulbasaur vs Poliwag GANO: Bulbasaur (DERROTADO: Poliwag)
+Bulbasaur vs Golduck GANO: Golduck (DERROTADO: Bulbasaur)
+Graveler vs Golduck GANO: Golduck (DERROTADO: Graveler)
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Hilda.
+Nidoking vs Golduck GANO: Nidoking (DERROTADO: Golduck)
+Nidoking vs Sandshrew GANO: Sandshrew (DERROTADO: Nidoking)
+Hypno vs Sandshrew GANO: Hypno (DERROTADO: Sandshrew)
+Hypno vs Nidoking GANO: Nidoking (DERROTADO: Hypno)
+GANADOR DEL COMBATE: Hilda
+COMBATE 28: Nate vs Hilbert
+Fearow vs Vaporeon GANO: Fearow (DERROTADO: Vaporeon)
+Fearow vs Gyarados GANO: Gyarados (DERROTADO: Fearow)
+Hitmonlee vs Gyarados GANO: Gyarados (DERROTADO: Hitmonlee)
+Bulbasaur vs Gyarados GANO: Gyarados (DERROTADO: Bulbasaur)
+Goldeen vs Gyarados GANO: Goldeen (DERROTADO: Gyarados)
+Goldeen vs Clefable GANO: Clefable (DERROTADO: Goldeen)
+Magmar vs Clefable GANO: Magmar (DERROTADO: Clefable)
+Magmar vs Dragonair GANO: Dragonair (DERROTADO: Magmar)
+Eevee vs Dragonair GANO: Dragonair (DERROTADO: Eevee)
+GANADOR DEL COMBATE: Hilbert
+COMBATE 29: Lucas vs Hilbert
+Golbat vs Vaporeon GANO: Golbat (DERROTADO: Vaporeon)
+Golbat vs Gyarados GANO: Gyarados (DERROTADO: Golbat)
+Parasect vs Gyarados GANO: Gyarados (DERROTADO: Parasect)
+Bulbasaur vs Gyarados GANO: Bulbasaur (DERROTADO: Gyarados)
+Bulbasaur vs Clefable GANO: Clefable (DERROTADO: Bulbasaur)
+Graveler vs Clefable GANO: Graveler (DERROTADO: Clefable)
+Graveler vs Dragonair GANO: Dragonair (DERROTADO: Graveler)
+Nidoking vs Dragonair GANO: Nidoking (DERROTADO: Dragonair)
+Nidoking vs Primeape GANO: Nidoking (DERROTADO: Primeape)
+Nidoking vs Slowpoke GANO: Slowpoke (DERROTADO: Nidoking)
+Hypno vs Slowpoke GANO: Hypno (DERROTADO: Slowpoke)
+GANADOR DEL COMBATE: Lucas
+COMBATE 30: Hilda vs Nate
+Graveler vs Fearow GANO: Graveler (DERROTADO: Fearow)
+Graveler vs Hitmonlee GANO: Hitmonlee (DERROTADO: Graveler)
+Poliwag vs Hitmonlee GANO: Hitmonlee (DERROTADO: Poliwag)
+Golduck vs Hitmonlee GANO: Golduck (DERROTADO: Hitmonlee)
+Golduck vs Bulbasaur GANO: Bulbasaur (DERROTADO: Golduck)
+Sandshrew vs Bulbasaur GANO: Sandshrew (DERROTADO: Bulbasaur)
+Sandshrew vs Goldeen GANO: Goldeen (DERROTADO: Sandshrew)
+Nidoking vs Goldeen GANO: Nidoking (DERROTADO: Goldeen)
+Nidoking vs Magmar GANO: Magmar (DERROTADO: Nidoking)
+Arcanine vs Magmar GANO: Arcanine (DERROTADO: Magmar)
+Arcanine vs Eevee GANO: Arcanine (DERROTADO: Eevee)
+GANADOR DEL COMBATE: Hilda
+COMBATE 31: Rosa vs Elio
+Pikachu vs Shellder GANO: Shellder (DERROTADO: Pikachu)
+Magmar vs Shellder GANO: Magmar (DERROTADO: Shellder)
+Magmar vs Weezing GANO: Weezing (DERROTADO: Magmar)
+Slowbro vs Weezing GANO: Slowbro (DERROTADO: Weezing)
+Slowbro vs Dragonite GANO: Dragonite (DERROTADO: Slowbro)
+Omastar vs Dragonite GANO: Omastar (DERROTADO: Dragonite)
+Omastar vs Omanyte GANO: Omanyte (DERROTADO: Omastar)
+Dragonair vs Omanyte GANO: Dragonair (DERROTADO: Omanyte)
+Dragonair vs Arbok GANO: Arbok (DERROTADO: Dragonair)
+Hitmonchan vs Arbok GANO: Hitmonchan (DERROTADO: Arbok)
+Hitmonchan vs Articuno GANO: Articuno (DERROTADO: Hitmonchan)
+GANADOR DEL COMBATE: Elio
+COMBATE 32: Calem vs Serena
+[*] Empate de velocidad. La moneda favorece a Calem.
+[*] Empate de velocidad. La moneda favorece a Calem.
+[*] Empate de velocidad. La moneda favorece a Serena.
+Chansey vs Dratini GANO: Dratini (DERROTADO: Chansey)
+Zubat vs Dratini GANO: Dratini (DERROTADO: Zubat)
+Exeggcute vs Dratini GANO: Exeggcute (DERROTADO: Dratini)
+Exeggcute vs Charizard GANO: Charizard (DERROTADO: Exeggcute)
+Machop vs Charizard GANO: Charizard (DERROTADO: Machop)
+Goldeen vs Charizard GANO: Goldeen (DERROTADO: Charizard)
+Goldeen vs Butterfree GANO: Butterfree (DERROTADO: Goldeen)
+NidoranF vs Butterfree GANO: NidoranF (DERROTADO: Butterfree)
+NidoranF vs Omastar GANO: Omastar (DERROTADO: NidoranF)
+GANADOR DEL COMBATE: Serena
+COMBATE 33: Rosa vs Serena
+Pikachu vs Dratini GANO: Dratini (DERROTADO: Pikachu)
+Magmar vs Dratini GANO: Magmar (DERROTADO: Dratini)
+Magmar vs Charizard GANO: Charizard (DERROTADO: Magmar)
+Slowbro vs Charizard GANO: Slowbro (DERROTADO: Charizard)
+Slowbro vs Butterfree GANO: Slowbro (DERROTADO: Butterfree)
+Slowbro vs Omastar GANO: Omastar (DERROTADO: Slowbro)
+[*] Empate de velocidad. La moneda favorece a Rosa.
+[*] Empate de velocidad. La moneda favorece a Rosa.
+[*] Empate de velocidad. La moneda favorece a Rosa.
+[*] Empate de velocidad. La moneda favorece a Rosa.
+[*] Empate de velocidad. La moneda favorece a Rosa.
+[*] Empate de velocidad. La moneda favorece a Serena.
+[*] Empate de velocidad. La moneda favorece a Rosa.
+Omastar vs Omastar GANO: Omastar (DERROTADO: Omastar)
+Omastar vs Zapdos GANO: Zapdos (DERROTADO: Omastar)
+Dragonair vs Zapdos GANO: Dragonair (DERROTADO: Zapdos)
+Dragonair vs Exeggutor GANO: Exeggutor (DERROTADO: Dragonair)
+Hitmonchan vs Exeggutor GANO: Exeggutor (DERROTADO: Hitmonchan)
+GANADOR DEL COMBATE: Serena
+COMBATE 34: Elio vs Calem
+Shellder vs Chansey GANO: Shellder (DERROTADO: Chansey)
+Shellder vs Zubat GANO: Shellder (DERROTADO: Zubat)
+[*] Empate de velocidad. La moneda favorece a Calem.
+[*] Empate de velocidad. La moneda favorece a Calem.
+[*] Empate de velocidad. La moneda favorece a Calem.
+Shellder vs Exeggcute GANO: Exeggcute (DERROTADO: Shellder)
+Weezing vs Exeggcute GANO: Weezing (DERROTADO: Exeggcute)
+Weezing vs Machop GANO: Weezing (DERROTADO: Machop)
+Weezing vs Goldeen GANO: Weezing (DERROTADO: Goldeen)
+Weezing vs NidoranF GANO: Weezing (DERROTADO: NidoranF)
+GANADOR DEL COMBATE: Elio
+COMBATE 35: Rosa vs Calem
+Pikachu vs Chansey GANO: Pikachu (DERROTADO: Chansey)
+Pikachu vs Zubat GANO: Pikachu (DERROTADO: Zubat)
+Pikachu vs Exeggcute GANO: Exeggcute (DERROTADO: Pikachu)
+Magmar vs Exeggcute GANO: Magmar (DERROTADO: Exeggcute)
+Magmar vs Machop GANO: Magmar (DERROTADO: Machop)
+Magmar vs Goldeen GANO: Goldeen (DERROTADO: Magmar)
+Slowbro vs Goldeen GANO: Slowbro (DERROTADO: Goldeen)
+Slowbro vs NidoranF GANO: Slowbro (DERROTADO: NidoranF)
+GANADOR DEL COMBATE: Rosa
+COMBATE 36: Serena vs Elio
+Dratini vs Shellder GANO: Dratini (DERROTADO: Shellder)
+Dratini vs Weezing GANO: Weezing (DERROTADO: Dratini)
+Charizard vs Weezing GANO: Weezing (DERROTADO: Charizard)
+Butterfree vs Weezing GANO: Weezing (DERROTADO: Butterfree)
+Omastar vs Weezing GANO: Omastar (DERROTADO: Weezing)
+Omastar vs Dragonite GANO: Dragonite (DERROTADO: Omastar)
+Zapdos vs Dragonite GANO: Zapdos (DERROTADO: Dragonite)
+Zapdos vs Omanyte GANO: Zapdos (DERROTADO: Omanyte)
+Zapdos vs Arbok GANO: Arbok (DERROTADO: Zapdos)
+Exeggutor vs Arbok GANO: Exeggutor (DERROTADO: Arbok)
+Exeggutor vs Articuno GANO: Articuno (DERROTADO: Exeggutor)
+GANADOR DEL COMBATE: Elio
+COMBATE 37: Selene vs Florian
+Squirtle vs Gengar GANO: Gengar (DERROTADO: Squirtle)
+NidoranM vs Gengar GANO: Gengar (DERROTADO: NidoranM)
+Sandslash vs Gengar GANO: Sandslash (DERROTADO: Gengar)
+Sandslash vs Caterpie GANO: Sandslash (DERROTADO: Caterpie)
+Sandslash vs Weezing GANO: Sandslash (DERROTADO: Weezing)
+Sandslash vs Horsea GANO: Sandslash (DERROTADO: Horsea)
+Sandslash vs Porygon GANO: Porygon (DERROTADO: Sandslash)
+Koffing vs Porygon GANO: Koffing (DERROTADO: Porygon)
+Koffing vs Arbok GANO: Arbok (DERROTADO: Koffing)
+Geodude vs Arbok GANO: Geodude (DERROTADO: Arbok)
+GANADOR DEL COMBATE: Selene
+COMBATE 38: Victor vs Gloria
+Golduck vs Seaking GANO: Golduck (DERROTADO: Seaking)
+Golduck vs Aerodactyl GANO: Aerodactyl (DERROTADO: Golduck)
+Dratini vs Aerodactyl GANO: Aerodactyl (DERROTADO: Dratini)
+Weepinbell vs Aerodactyl GANO: Aerodactyl (DERROTADO: Weepinbell)
+Articuno vs Aerodactyl GANO: Articuno (DERROTADO: Aerodactyl)
+Articuno vs Cubone GANO: Articuno (DERROTADO: Cubone)
+Articuno vs Lapras GANO: Lapras (DERROTADO: Articuno)
+Abra vs Lapras GANO: Lapras (DERROTADO: Abra)
+Mewtwo vs Lapras GANO: Mewtwo (DERROTADO: Lapras)
+Mewtwo vs Rattata GANO: Mewtwo (DERROTADO: Rattata)
+Mewtwo vs Zapdos GANO: Zapdos (DERROTADO: Mewtwo)
+GANADOR DEL COMBATE: Gloria
+COMBATE 39: Selene vs Gloria
+Squirtle vs Seaking GANO: Seaking (DERROTADO: Squirtle)
+NidoranM vs Seaking GANO: Seaking (DERROTADO: NidoranM)
+Sandslash vs Seaking GANO: Sandslash (DERROTADO: Seaking)
+Sandslash vs Aerodactyl GANO: Aerodactyl (DERROTADO: Sandslash)
+Koffing vs Aerodactyl GANO: Aerodactyl (DERROTADO: Koffing)
+Geodude vs Aerodactyl GANO: Geodude (DERROTADO: Aerodactyl)
+Geodude vs Cubone GANO: Cubone (DERROTADO: Geodude)
+Venomoth vs Cubone GANO: Venomoth (DERROTADO: Cubone)
+Venomoth vs Lapras GANO: Lapras (DERROTADO: Venomoth)
+GANADOR DEL COMBATE: Gloria
+COMBATE 40: Florian vs Victor
+Gengar vs Golduck GANO: Golduck (DERROTADO: Gengar)
+Caterpie vs Golduck GANO: Golduck (DERROTADO: Caterpie)
+Weezing vs Golduck GANO: Weezing (DERROTADO: Golduck)
+Weezing vs Dratini GANO: Weezing (DERROTADO: Dratini)
+Weezing vs Weepinbell GANO: Weezing (DERROTADO: Weepinbell)
+Weezing vs Articuno GANO: Articuno (DERROTADO: Weezing)
+Horsea vs Articuno GANO: Articuno (DERROTADO: Horsea)
+Porygon vs Articuno GANO: Porygon (DERROTADO: Articuno)
+Porygon vs Abra GANO: Porygon (DERROTADO: Abra)
+Porygon vs Mewtwo GANO: Mewtwo (DERROTADO: Porygon)
+Arbok vs Mewtwo GANO: Mewtwo (DERROTADO: Arbok)
+GANADOR DEL COMBATE: Victor
+COMBATE 41: Selene vs Victor
+Squirtle vs Golduck GANO: Golduck (DERROTADO: Squirtle)
+NidoranM vs Golduck GANO: Golduck (DERROTADO: NidoranM)
+Sandslash vs Golduck GANO: Sandslash (DERROTADO: Golduck)
+Sandslash vs Dratini GANO: Sandslash (DERROTADO: Dratini)
+Sandslash vs Weepinbell GANO: Weepinbell (DERROTADO: Sandslash)
+Koffing vs Weepinbell GANO: Koffing (DERROTADO: Weepinbell)
+Koffing vs Articuno GANO: Articuno (DERROTADO: Koffing)
+Geodude vs Articuno GANO: Geodude (DERROTADO: Articuno)
+Geodude vs Abra GANO: Geodude (DERROTADO: Abra)
+Geodude vs Mewtwo GANO: Mewtwo (DERROTADO: Geodude)
+Venomoth vs Mewtwo GANO: Mewtwo (DERROTADO: Venomoth)
+GANADOR DEL COMBATE: Victor
+COMBATE 42: Gloria vs Florian
+Seaking vs Gengar GANO: Seaking (DERROTADO: Gengar)
+Seaking vs Caterpie GANO: Seaking (DERROTADO: Caterpie)
+Seaking vs Weezing GANO: Weezing (DERROTADO: Seaking)
+Aerodactyl vs Weezing GANO: Aerodactyl (DERROTADO: Weezing)
+Aerodactyl vs Horsea GANO: Aerodactyl (DERROTADO: Horsea)
+Aerodactyl vs Porygon GANO: Porygon (DERROTADO: Aerodactyl)
+Cubone vs Porygon GANO: Cubone (DERROTADO: Porygon)
+Cubone vs Arbok GANO: Arbok (DERROTADO: Cubone)
+Lapras vs Arbok GANO: Lapras (DERROTADO: Arbok)
+GANADOR DEL COMBATE: Gloria
+COMBATE 43: Juliana vs wuu
+Graveler vs Marowak GANO: Marowak (DERROTADO: Graveler)
+Arcanine vs Marowak GANO: Arcanine (DERROTADO: Marowak)
+Arcanine vs Zubat GANO: Zubat (DERROTADO: Arcanine)
+Staryu vs Zubat GANO: Staryu (DERROTADO: Zubat)
+Staryu vs Weedle GANO: Staryu (DERROTADO: Weedle)
+Staryu vs Vileplume GANO: Vileplume (DERROTADO: Staryu)
+Venonat vs Vileplume GANO: Venonat (DERROTADO: Vileplume)
+Venonat vs Ditto GANO: Ditto (DERROTADO: Venonat)
+Zapdos vs Ditto GANO: Zapdos (DERROTADO: Ditto)
+[*] Empate de velocidad. La moneda favorece a wuu.
+[*] Empate de velocidad. La moneda favorece a wuu.
+[*] Empate de velocidad. La moneda favorece a Juliana.
+Zapdos vs Charizard GANO: Zapdos (DERROTADO: Charizard)
+GANADOR DEL COMBATE: Juliana
+COMBATE 44: Nemona vs Arven
+Golem vs Dratini GANO: Golem (DERROTADO: Dratini)
+Golem vs Squirtle GANO: Golem (DERROTADO: Squirtle)
+Golem vs Rattata GANO: Golem (DERROTADO: Rattata)
+Golem vs Jynx GANO: Jynx (DERROTADO: Golem)
+Tauros vs Jynx GANO: Tauros (DERROTADO: Jynx)
+Tauros vs Ivysaur GANO: Tauros (DERROTADO: Ivysaur)
+Tauros vs Kakuna GANO: Tauros (DERROTADO: Kakuna)
+GANADOR DEL COMBATE: Nemona
+COMBATE 45: Juliana vs Arven
+Graveler vs Dratini GANO: Graveler (DERROTADO: Dratini)
+Graveler vs Squirtle GANO: Squirtle (DERROTADO: Graveler)
+Arcanine vs Squirtle GANO: Arcanine (DERROTADO: Squirtle)
+Arcanine vs Rattata GANO: Arcanine (DERROTADO: Rattata)
+[*] Empate de velocidad. La moneda favorece a Juliana.
+Arcanine vs Jynx GANO: Arcanine (DERROTADO: Jynx)
+Arcanine vs Ivysaur GANO: Arcanine (DERROTADO: Ivysaur)
+Arcanine vs Kakuna GANO: Arcanine (DERROTADO: Kakuna)
+GANADOR DEL COMBATE: Juliana
+COMBATE 46: wuu vs Nemona
+[*] Empate de velocidad. La moneda favorece a Nemona.
+[*] Empate de velocidad. La moneda favorece a Nemona.
+[*] Empate de velocidad. La moneda favorece a wuu.
+[*] Empate de velocidad. La moneda favorece a Nemona.
+[*] Empate de velocidad. La moneda favorece a Nemona.
+Marowak vs Golem GANO: Marowak (DERROTADO: Golem)
+Marowak vs Tauros GANO: Tauros (DERROTADO: Marowak)
+Zubat vs Tauros GANO: Tauros (DERROTADO: Zubat)
+Weedle vs Tauros GANO: Tauros (DERROTADO: Weedle)
+Vileplume vs Tauros GANO: Vileplume (DERROTADO: Tauros)
+Vileplume vs Dewgong GANO: Dewgong (DERROTADO: Vileplume)
+Ditto vs Dewgong GANO: Dewgong (DERROTADO: Ditto)
+Charizard vs Dewgong GANO: Charizard (DERROTADO: Dewgong)
+Charizard vs Vulpix GANO: Charizard (DERROTADO: Vulpix)
+Charizard vs Golbat GANO: Charizard (DERROTADO: Golbat)
+Charizard vs Metapod GANO: Charizard (DERROTADO: Metapod)
+GANADOR DEL COMBATE: wuu
+COMBATE 47: Juliana vs Nemona
+Graveler vs Golem GANO: Golem (DERROTADO: Graveler)
+Arcanine vs Golem GANO: Golem (DERROTADO: Arcanine)
+Staryu vs Golem GANO: Staryu (DERROTADO: Golem)
+Staryu vs Tauros GANO: Tauros (DERROTADO: Staryu)
+Venonat vs Tauros GANO: Tauros (DERROTADO: Venonat)
+Zapdos vs Tauros GANO: Zapdos (DERROTADO: Tauros)
+Zapdos vs Dewgong GANO: Zapdos (DERROTADO: Dewgong)
+Zapdos vs Vulpix GANO: Vulpix (DERROTADO: Zapdos)
+Charizard vs Vulpix GANO: Charizard (DERROTADO: Vulpix)
+Charizard vs Golbat GANO: Charizard (DERROTADO: Golbat)
+Charizard vs Metapod GANO: Charizard (DERROTADO: Metapod)
+GANADOR DEL COMBATE: Juliana
+COMBATE 48: Arven vs wuu
+Dratini vs Marowak GANO: Marowak (DERROTADO: Dratini)
+Squirtle vs Marowak GANO: Marowak (DERROTADO: Squirtle)
+Rattata vs Marowak GANO: Rattata (DERROTADO: Marowak)
+Rattata vs Zubat GANO: Rattata (DERROTADO: Zubat)
+Rattata vs Weedle GANO: Weedle (DERROTADO: Rattata)
+Jynx vs Weedle GANO: Jynx (DERROTADO: Weedle)
+Jynx vs Vileplume GANO: Vileplume (DERROTADO: Jynx)
+Ivysaur vs Vileplume GANO: Ivysaur (DERROTADO: Vileplume)
+Ivysaur vs Ditto GANO: Ditto (DERROTADO: Ivysaur)
+Kakuna vs Ditto GANO: Kakuna (DERROTADO: Ditto)
+Kakuna vs Charizard GANO: Charizard (DERROTADO: Kakuna)
+GANADOR DEL COMBATE: wuu
+COMBATE 49: Pedro vs Gary
+Slowbro vs Pikachu GANO: Slowbro (DERROTADO: Pikachu)
+Slowbro vs Exeggcute GANO: Exeggcute (DERROTADO: Slowbro)
+Primeape vs Exeggcute GANO: Primeape (DERROTADO: Exeggcute)
+Primeape vs Electabuzz GANO: Electabuzz (DERROTADO: Primeape)
+Tangela vs Electabuzz GANO: Tangela (DERROTADO: Electabuzz)
+Tangela vs MrMime GANO: Tangela (DERROTADO: MrMime)
+Tangela vs Doduo GANO: Doduo (DERROTADO: Tangela)
+Tentacruel vs Doduo GANO: Tentacruel (DERROTADO: Doduo)
+Tentacruel vs Dragonite GANO: Dragonite (DERROTADO: Tentacruel)
+Pikachu vs Dragonite GANO: Dragonite (DERROTADO: Pikachu)
+Ninetales vs Dragonite GANO: Dragonite (DERROTADO: Ninetales)
+GANADOR DEL COMBATE: Gary
+COMBATE 50: Blue vs Dawn
+Fearow vs Poliwrath GANO: Poliwrath (DERROTADO: Fearow)
+Muk vs Poliwrath GANO: Muk (DERROTADO: Poliwrath)
+[*] Empate de velocidad. La moneda favorece a Blue.
+[*] Empate de velocidad. La moneda favorece a Dawn.
+[*] Empate de velocidad. La moneda favorece a Dawn.
+Muk vs Weedle GANO: Muk (DERROTADO: Weedle)
+Muk vs Drowzee GANO: Muk (DERROTADO: Drowzee)
+Muk vs Butterfree GANO: Muk (DERROTADO: Butterfree)
+Muk vs Starmie GANO: Starmie (DERROTADO: Muk)
+Exeggutor vs Starmie GANO: Exeggutor (DERROTADO: Starmie)
+Exeggutor vs Persian GANO: Exeggutor (DERROTADO: Persian)
+GANADOR DEL COMBATE: Blue
+COMBATE 51: Lucas vs Serena
+Golbat vs Dratini GANO: Golbat (DERROTADO: Dratini)
+Golbat vs Charizard GANO: Charizard (DERROTADO: Golbat)
+Parasect vs Charizard GANO: Charizard (DERROTADO: Parasect)
+Bulbasaur vs Charizard GANO: Charizard (DERROTADO: Bulbasaur)
+Graveler vs Charizard GANO: Graveler (DERROTADO: Charizard)
+Graveler vs Butterfree GANO: Graveler (DERROTADO: Butterfree)
+Graveler vs Omastar GANO: Graveler (DERROTADO: Omastar)
+Graveler vs Zapdos GANO: Graveler (DERROTADO: Zapdos)
+Graveler vs Exeggutor GANO: Exeggutor (DERROTADO: Graveler)
+Nidoking vs Exeggutor GANO: Nidoking (DERROTADO: Exeggutor)
+GANADOR DEL COMBATE: Lucas
+COMBATE 52: Gloria vs wuu
+Seaking vs Marowak GANO: Seaking (DERROTADO: Marowak)
+Seaking vs Zubat GANO: Seaking (DERROTADO: Zubat)
+Seaking vs Weedle GANO: Seaking (DERROTADO: Weedle)
+Seaking vs Vileplume GANO: Vileplume (DERROTADO: Seaking)
+Aerodactyl vs Vileplume GANO: Aerodactyl (DERROTADO: Vileplume)
+Aerodactyl vs Ditto GANO: Aerodactyl (DERROTADO: Ditto)
+Aerodactyl vs Charizard GANO: Charizard (DERROTADO: Aerodactyl)
+Cubone vs Charizard GANO: Charizard (DERROTADO: Cubone)
+Lapras vs Charizard GANO: Lapras (DERROTADO: Charizard)
+GANADOR DEL COMBATE: Gloria
+COMBATE 53: Brock vs Sabrina
+Hitmonchan vs Mewtwo GANO: Mewtwo (DERROTADO: Hitmonchan)
+Venusaur vs Mewtwo GANO: Mewtwo (DERROTADO: Venusaur)
+Vaporeon vs Mewtwo GANO: Mewtwo (DERROTADO: Vaporeon)
+Eevee vs Mewtwo GANO: Mewtwo (DERROTADO: Eevee)
+Golem vs Mewtwo GANO: Golem (DERROTADO: Mewtwo)
+Golem vs Primeape GANO: Primeape (DERROTADO: Golem)
+Flareon vs Primeape GANO: Flareon (DERROTADO: Primeape)
+Flareon vs Growlithe GANO: Flareon (DERROTADO: Growlithe)
+Flareon vs Gloom GANO: Gloom (DERROTADO: Flareon)
+GANADOR DEL COMBATE: Sabrina
+COMBATE 54: May vs Leaf
+Articuno vs Poliwag GANO: Articuno (DERROTADO: Poliwag)
+Articuno vs Goldeen GANO: Goldeen (DERROTADO: Articuno)
+Seadra vs Goldeen GANO: Seadra (DERROTADO: Goldeen)
+Seadra vs Poliwrath GANO: Poliwrath (DERROTADO: Seadra)
+[*] Empate de velocidad. La moneda favorece a May.
+[*] Empate de velocidad. La moneda favorece a May.
+[*] Empate de velocidad. La moneda favorece a Leaf.
+[*] Empate de velocidad. La moneda favorece a Leaf.
+[*] Empate de velocidad. La moneda favorece a Leaf.
+[*] Empate de velocidad. La moneda favorece a May.
+Cloyster vs Poliwrath GANO: Cloyster (DERROTADO: Poliwrath)
+Cloyster vs Mewtwo GANO: Mewtwo (DERROTADO: Cloyster)
+Geodude vs Mewtwo GANO: Geodude (DERROTADO: Mewtwo)
+Geodude vs Tauros GANO: Tauros (DERROTADO: Geodude)
+Arbok vs Tauros GANO: Tauros (DERROTADO: Arbok)
+Nidorino vs Tauros GANO: Nidorino (DERROTADO: Tauros)
+Nidorino vs Grimer GANO: Grimer (DERROTADO: Nidorino)
+GANADOR DEL COMBATE: Leaf
+COMBATE 55: Elio vs Hilda
+Shellder vs Graveler GANO: Shellder (DERROTADO: Graveler)
+Shellder vs Poliwag GANO: Shellder (DERROTADO: Poliwag)
+Shellder vs Golduck GANO: Golduck (DERROTADO: Shellder)
+Weezing vs Golduck GANO: Weezing (DERROTADO: Golduck)
+Weezing vs Sandshrew GANO: Sandshrew (DERROTADO: Weezing)
+Dragonite vs Sandshrew GANO: Dragonite (DERROTADO: Sandshrew)
+Dragonite vs Nidoking GANO: Dragonite (DERROTADO: Nidoking)
+Dragonite vs Arcanine GANO: Arcanine (DERROTADO: Dragonite)
+Omanyte vs Arcanine GANO: Omanyte (DERROTADO: Arcanine)
+GANADOR DEL COMBATE: Elio
+COMBATE 56: Juliana vs Victor
+Graveler vs Golduck GANO: Golduck (DERROTADO: Graveler)
+Arcanine vs Golduck GANO: Golduck (DERROTADO: Arcanine)
+[*] Empate de velocidad. La moneda favorece a Victor.
+[*] Empate de velocidad. La moneda favorece a Victor.
+[*] Empate de velocidad. La moneda favorece a Victor.
+[*] Empate de velocidad. La moneda favorece a Victor.
+[*] Empate de velocidad. La moneda favorece a Juliana.
+[*] Empate de velocidad. La moneda favorece a Juliana.
+Staryu vs Golduck GANO: Golduck (DERROTADO: Staryu)
+Venonat vs Golduck GANO: Venonat (DERROTADO: Golduck)
+Venonat vs Dratini GANO: Dratini (DERROTADO: Venonat)
+Zapdos vs Dratini GANO: Zapdos (DERROTADO: Dratini)
+Zapdos vs Weepinbell GANO: Zapdos (DERROTADO: Weepinbell)
+Zapdos vs Articuno GANO: Articuno (DERROTADO: Zapdos)
+Charizard vs Articuno GANO: Charizard (DERROTADO: Articuno)
+Charizard vs Abra GANO: Charizard (DERROTADO: Abra)
+Charizard vs Mewtwo GANO: Mewtwo (DERROTADO: Charizard)
+GANADOR DEL COMBATE: Victor
+COMBATE 57: Gary vs Blue
+Pikachu vs Fearow GANO: Fearow (DERROTADO: Pikachu)
+Exeggcute vs Fearow GANO: Fearow (DERROTADO: Exeggcute)
+Electabuzz vs Fearow GANO: Electabuzz (DERROTADO: Fearow)
+Electabuzz vs Muk GANO: Muk (DERROTADO: Electabuzz)
+MrMime vs Muk GANO: MrMime (DERROTADO: Muk)
+MrMime vs Exeggutor GANO: Exeggutor (DERROTADO: MrMime)
+Doduo vs Exeggutor GANO: Exeggutor (DERROTADO: Doduo)
+Dragonite vs Exeggutor GANO: Dragonite (DERROTADO: Exeggutor)
+Dragonite vs Wigglytuff GANO: Wigglytuff (DERROTADO: Dragonite)
+GANADOR DEL COMBATE: Blue
+COMBATE 58: Sabrina vs Leaf
+Mewtwo vs Poliwag GANO: Mewtwo (DERROTADO: Poliwag)
+Mewtwo vs Goldeen GANO: Mewtwo (DERROTADO: Goldeen)
+Mewtwo vs Poliwrath GANO: Mewtwo (DERROTADO: Poliwrath)
+[*] Empate de velocidad. La moneda favorece a Leaf.
+[*] Empate de velocidad. La moneda favorece a Leaf.
+[*] Empate de velocidad. La moneda favorece a Sabrina.
+[*] Empate de velocidad. La moneda favorece a Leaf.
+[*] Empate de velocidad. La moneda favorece a Sabrina.
+[*] Empate de velocidad. La moneda favorece a Sabrina.
+Mewtwo vs Mewtwo GANO: Mewtwo (DERROTADO: Mewtwo)
+Primeape vs Mewtwo GANO: Mewtwo (DERROTADO: Primeape)
+Growlithe vs Mewtwo GANO: Mewtwo (DERROTADO: Growlithe)
+Gloom vs Mewtwo GANO: Mewtwo (DERROTADO: Gloom)
+Horsea vs Mewtwo GANO: Horsea (DERROTADO: Mewtwo)
+Horsea vs Tauros GANO: Tauros (DERROTADO: Horsea)
+Charmeleon vs Tauros GANO: Tauros (DERROTADO: Charmeleon)
+GANADOR DEL COMBATE: Leaf
+COMBATE 59: Lucas vs Gloria
+Golbat vs Seaking GANO: Golbat (DERROTADO: Seaking)
+Golbat vs Aerodactyl GANO: Aerodactyl (DERROTADO: Golbat)
+Parasect vs Aerodactyl GANO: Aerodactyl (DERROTADO: Parasect)
+Bulbasaur vs Aerodactyl GANO: Aerodactyl (DERROTADO: Bulbasaur)
+Graveler vs Aerodactyl GANO: Graveler (DERROTADO: Aerodactyl)
+[*] Empate de velocidad. La moneda favorece a Gloria.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+Graveler vs Cubone GANO: Cubone (DERROTADO: Graveler)
+Nidoking vs Cubone GANO: Cubone (DERROTADO: Nidoking)
+Hypno vs Cubone GANO: Hypno (DERROTADO: Cubone)
+Hypno vs Lapras GANO: Lapras (DERROTADO: Hypno)
+GANADOR DEL COMBATE: Gloria
+COMBATE 60: Elio vs Victor
+Shellder vs Golduck GANO: Golduck (DERROTADO: Shellder)
+Weezing vs Golduck GANO: Weezing (DERROTADO: Golduck)
+Weezing vs Dratini GANO: Weezing (DERROTADO: Dratini)
+Weezing vs Weepinbell GANO: Weezing (DERROTADO: Weepinbell)
+Weezing vs Articuno GANO: Articuno (DERROTADO: Weezing)
+Dragonite vs Articuno GANO: Articuno (DERROTADO: Dragonite)
+Omanyte vs Articuno GANO: Omanyte (DERROTADO: Articuno)
+Omanyte vs Abra GANO: Omanyte (DERROTADO: Abra)
+Omanyte vs Mewtwo GANO: Mewtwo (DERROTADO: Omanyte)
+Arbok vs Mewtwo GANO: Mewtwo (DERROTADO: Arbok)
+Articuno vs Mewtwo GANO: Mewtwo (DERROTADO: Articuno)
+GANADOR DEL COMBATE: Victor
+COMBATE 61: Blue vs Leaf
+Fearow vs Poliwag GANO: Fearow (DERROTADO: Poliwag)
+Fearow vs Goldeen GANO: Fearow (DERROTADO: Goldeen)
+Fearow vs Poliwrath GANO: Poliwrath (DERROTADO: Fearow)
+Muk vs Poliwrath GANO: Muk (DERROTADO: Poliwrath)
+Muk vs Mewtwo GANO: Mewtwo (DERROTADO: Muk)
+Exeggutor vs Mewtwo GANO: Exeggutor (DERROTADO: Mewtwo)
+Exeggutor vs Tauros GANO: Tauros (DERROTADO: Exeggutor)
+Wigglytuff vs Tauros GANO: Tauros (DERROTADO: Wigglytuff)
+NidoranM vs Tauros GANO: Tauros (DERROTADO: NidoranM)
+Aerodactyl vs Tauros GANO: Aerodactyl (DERROTADO: Tauros)
+Aerodactyl vs Grimer GANO: Aerodactyl (DERROTADO: Grimer)
+GANADOR DEL COMBATE: Blue
+COMBATE 62: Gloria vs Victor
+Seaking vs Golduck GANO: Golduck (DERROTADO: Seaking)
+Aerodactyl vs Golduck GANO: Aerodactyl (DERROTADO: Golduck)
+Aerodactyl vs Dratini GANO: Aerodactyl (DERROTADO: Dratini)
+Aerodactyl vs Weepinbell GANO: Aerodactyl (DERROTADO: Weepinbell)
+Aerodactyl vs Articuno GANO: Articuno (DERROTADO: Aerodactyl)
+Cubone vs Articuno GANO: Articuno (DERROTADO: Cubone)
+Lapras vs Articuno GANO: Lapras (DERROTADO: Articuno)
+Lapras vs Abra GANO: Lapras (DERROTADO: Abra)
+Lapras vs Mewtwo GANO: Mewtwo (DERROTADO: Lapras)
+Rattata vs Mewtwo GANO: Mewtwo (DERROTADO: Rattata)
+Zapdos vs Mewtwo GANO: Zapdos (DERROTADO: Mewtwo)
+GANADOR DEL COMBATE: Gloria
+COMBATE 63: Leaf vs Victor
+Poliwag vs Golduck GANO: Golduck (DERROTADO: Poliwag)
+Goldeen vs Golduck GANO: Golduck (DERROTADO: Goldeen)
+Poliwrath vs Golduck GANO: Poliwrath (DERROTADO: Golduck)
+Poliwrath vs Dratini GANO: Poliwrath (DERROTADO: Dratini)
+Poliwrath vs Weepinbell GANO: Weepinbell (DERROTADO: Poliwrath)
+Mewtwo vs Weepinbell GANO: Mewtwo (DERROTADO: Weepinbell)
+Mewtwo vs Articuno GANO: Mewtwo (DERROTADO: Articuno)
+Mewtwo vs Abra GANO: Mewtwo (DERROTADO: Abra)
+[*] Empate de velocidad. La moneda favorece a Victor.
+[*] Empate de velocidad. La moneda favorece a Victor.
+[*] Empate de velocidad. La moneda favorece a Victor.
+Mewtwo vs Mewtwo GANO: Mewtwo (DERROTADO: Mewtwo)
+Tauros vs Mewtwo GANO: Mewtwo (DERROTADO: Tauros)
+Grimer vs Mewtwo GANO: Mewtwo (DERROTADO: Grimer)
+GANADOR DEL COMBATE: Victor
+COMBATE 64: Blue vs Gloria
+Fearow vs Seaking GANO: Seaking (DERROTADO: Fearow)
+Muk vs Seaking GANO: Muk (DERROTADO: Seaking)
+Muk vs Aerodactyl GANO: Aerodactyl (DERROTADO: Muk)
+Exeggutor vs Aerodactyl GANO: Exeggutor (DERROTADO: Aerodactyl)
+Exeggutor vs Cubone GANO: Exeggutor (DERROTADO: Cubone)
+Exeggutor vs Lapras GANO: Exeggutor (DERROTADO: Lapras)
+Exeggutor vs Rattata GANO: Rattata (DERROTADO: Exeggutor)
+Wigglytuff vs Rattata GANO: Wigglytuff (DERROTADO: Rattata)
+Wigglytuff vs Zapdos GANO: Zapdos (DERROTADO: Wigglytuff)
+NidoranM vs Zapdos GANO: Zapdos (DERROTADO: NidoranM)
+Aerodactyl vs Zapdos GANO: Aerodactyl (DERROTADO: Zapdos)
+GANADOR DEL COMBATE: Blue
+COMBATE 1: Saul vs Abel
+Clefable vs Rhyhorn GANO: Rhyhorn (DERROTADO: Clefable)
+Poliwrath vs Rhyhorn GANO: Poliwrath (DERROTADO: Rhyhorn)
+Poliwrath vs Machamp GANO: Machamp (DERROTADO: Poliwrath)
+Electabuzz vs Machamp GANO: Electabuzz (DERROTADO: Machamp)
+Electabuzz vs Goldeen GANO: Electabuzz (DERROTADO: Goldeen)
+Electabuzz vs Ninetales GANO: Ninetales (DERROTADO: Electabuzz)
+Tangela vs Ninetales GANO: Ninetales (DERROTADO: Tangela)
+Charmeleon vs Ninetales GANO: Charmeleon (DERROTADO: Ninetales)
+Charmeleon vs Slowbro GANO: Slowbro (DERROTADO: Charmeleon)
+Ditto vs Slowbro GANO: Slowbro (DERROTADO: Ditto)
+GANADOR DEL COMBATE: Abel
+COMBATE 2: Pedro vs Sabrina
+Slowbro vs Mewtwo GANO: Slowbro (DERROTADO: Mewtwo)
+Slowbro vs Primeape GANO: Primeape (DERROTADO: Slowbro)
+[*] Empate de velocidad. La moneda favorece a Pedro.
+Primeape vs Primeape GANO: Primeape (DERROTADO: Primeape)
+Primeape vs Growlithe GANO: Primeape (DERROTADO: Growlithe)
+Primeape vs Gloom GANO: Gloom (DERROTADO: Primeape)
+Tangela vs Gloom GANO: Tangela (DERROTADO: Gloom)
+[*] Empate de velocidad. La moneda favorece a Sabrina.
+[*] Empate de velocidad. La moneda favorece a Pedro.
+Tangela vs Horsea GANO: Horsea (DERROTADO: Tangela)
+Tentacruel vs Horsea GANO: Tentacruel (DERROTADO: Horsea)
+Tentacruel vs Charmeleon GANO: Tentacruel (DERROTADO: Charmeleon)
+GANADOR DEL COMBATE: Pedro
+COMBATE 3: Saul vs Sabrina
+Clefable vs Mewtwo GANO: Mewtwo (DERROTADO: Clefable)
+Poliwrath vs Mewtwo GANO: Mewtwo (DERROTADO: Poliwrath)
+Electabuzz vs Mewtwo GANO: Mewtwo (DERROTADO: Electabuzz)
+Tangela vs Mewtwo GANO: Tangela (DERROTADO: Mewtwo)
+Tangela vs Primeape GANO: Primeape (DERROTADO: Tangela)
+Charmeleon vs Primeape GANO: Charmeleon (DERROTADO: Primeape)
+Charmeleon vs Growlithe GANO: Growlithe (DERROTADO: Charmeleon)
+Ditto vs Growlithe GANO: Ditto (DERROTADO: Growlithe)
+Ditto vs Gloom GANO: Gloom (DERROTADO: Ditto)
+GANADOR DEL COMBATE: Sabrina
+COMBATE 4: Abel vs Pedro
+Rhyhorn vs Slowbro GANO: Slowbro (DERROTADO: Rhyhorn)
+Machamp vs Slowbro GANO: Slowbro (DERROTADO: Machamp)
+Goldeen vs Slowbro GANO: Goldeen (DERROTADO: Slowbro)
+Goldeen vs Primeape GANO: Primeape (DERROTADO: Goldeen)
+Ninetales vs Primeape GANO: Ninetales (DERROTADO: Primeape)
+Ninetales vs Tangela GANO: Tangela (DERROTADO: Ninetales)
+Slowbro vs Tangela GANO: Tangela (DERROTADO: Slowbro)
+Chansey vs Tangela GANO: Tangela (DERROTADO: Chansey)
+GANADOR DEL COMBATE: Pedro
+COMBATE 5: Saul vs Pedro
+Clefable vs Slowbro GANO: Slowbro (DERROTADO: Clefable)
+Poliwrath vs Slowbro GANO: Poliwrath (DERROTADO: Slowbro)
+Poliwrath vs Primeape GANO: Poliwrath (DERROTADO: Primeape)
+Poliwrath vs Tangela GANO: Tangela (DERROTADO: Poliwrath)
+Electabuzz vs Tangela GANO: Tangela (DERROTADO: Electabuzz)
+[*] Empate de velocidad. La moneda favorece a Pedro.
+[*] Empate de velocidad. La moneda favorece a Saul.
+[*] Empate de velocidad. La moneda favorece a Pedro.
+[*] Empate de velocidad. La moneda favorece a Saul.
+[*] Empate de velocidad. La moneda favorece a Pedro.
+[*] Empate de velocidad. La moneda favorece a Pedro.
+[*] Empate de velocidad. La moneda favorece a Saul.
+[*] Empate de velocidad. La moneda favorece a Pedro.
+[*] Empate de velocidad. La moneda favorece a Pedro.
+[*] Empate de velocidad. La moneda favorece a Pedro.
+[*] Empate de velocidad. La moneda favorece a Saul.
+Tangela vs Tangela GANO: Tangela (DERROTADO: Tangela)
+Tangela vs Tentacruel GANO: Tangela (DERROTADO: Tentacruel)
+Tangela vs Pikachu GANO: Pikachu (DERROTADO: Tangela)
+Charmeleon vs Pikachu GANO: Charmeleon (DERROTADO: Pikachu)
+Charmeleon vs Ninetales GANO: Ninetales (DERROTADO: Charmeleon)
+Ditto vs Ninetales GANO: Ninetales (DERROTADO: Ditto)
+GANADOR DEL COMBATE: Pedro
+COMBATE 6: Sabrina vs Abel
+Mewtwo vs Rhyhorn GANO: Mewtwo (DERROTADO: Rhyhorn)
+Mewtwo vs Machamp GANO: Mewtwo (DERROTADO: Machamp)
+Mewtwo vs Goldeen GANO: Goldeen (DERROTADO: Mewtwo)
+Primeape vs Goldeen GANO: Primeape (DERROTADO: Goldeen)
+Primeape vs Ninetales GANO: Ninetales (DERROTADO: Primeape)
+Growlithe vs Ninetales GANO: Growlithe (DERROTADO: Ninetales)
+Growlithe vs Slowbro GANO: Slowbro (DERROTADO: Growlithe)
+Gloom vs Slowbro GANO: Gloom (DERROTADO: Slowbro)
+Gloom vs Chansey GANO: Gloom (DERROTADO: Chansey)
+GANADOR DEL COMBATE: Sabrina
+COMBATE 7: Ash vs Gary
+Dugtrio vs Pikachu GANO: Dugtrio (DERROTADO: Pikachu)
+Dugtrio vs Exeggcute GANO: Exeggcute (DERROTADO: Dugtrio)
+[*] Empate de velocidad. La moneda favorece a Ash.
+[*] Empate de velocidad. La moneda favorece a Gary.
+[*] Empate de velocidad. La moneda favorece a Ash.
+[*] Empate de velocidad. La moneda favorece a Ash.
+[*] Empate de velocidad. La moneda favorece a Ash.
+[*] Empate de velocidad. La moneda favorece a Gary.
+[*] Empate de velocidad. La moneda favorece a Ash.
+[*] Empate de velocidad. La moneda favorece a Ash.
+Bellsprout vs Exeggcute GANO: Bellsprout (DERROTADO: Exeggcute)
+Bellsprout vs Electabuzz GANO: Electabuzz (DERROTADO: Bellsprout)
+Sandslash vs Electabuzz GANO: Sandslash (DERROTADO: Electabuzz)
+Sandslash vs MrMime GANO: Sandslash (DERROTADO: MrMime)
+Sandslash vs Doduo GANO: Doduo (DERROTADO: Sandslash)
+Kakuna vs Doduo GANO: Doduo (DERROTADO: Kakuna)
+Magikarp vs Doduo GANO: Doduo (DERROTADO: Magikarp)
+[*] Empate de velocidad. La moneda favorece a Ash.
+[*] Empate de velocidad. La moneda favorece a Ash.
+[*] Empate de velocidad. La moneda favorece a Gary.
+Beedrill vs Doduo GANO: Doduo (DERROTADO: Beedrill)
+GANADOR DEL COMBATE: Gary
+COMBATE 8: Misty vs Brock
+Ponyta vs Hitmonchan GANO: Hitmonchan (DERROTADO: Ponyta)
+Zubat vs Hitmonchan GANO: Zubat (DERROTADO: Hitmonchan)
+Zubat vs Venusaur GANO: Venusaur (DERROTADO: Zubat)
+[*] Empate de velocidad. La moneda favorece a Misty.
+[*] Empate de velocidad. La moneda favorece a Misty.
+[*] Empate de velocidad. La moneda favorece a Brock.
+[*] Empate de velocidad. La moneda favorece a Brock.
+Gastly vs Venusaur GANO: Venusaur (DERROTADO: Gastly)
+Staryu vs Venusaur GANO: Venusaur (DERROTADO: Staryu)
+Wartortle vs Venusaur GANO: Venusaur (DERROTADO: Wartortle)
+Sandshrew vs Venusaur GANO: Sandshrew (DERROTADO: Venusaur)
+Sandshrew vs Vaporeon GANO: Vaporeon (DERROTADO: Sandshrew)
+GANADOR DEL COMBATE: Brock
+COMBATE 9: Ash vs Brock
+Dugtrio vs Hitmonchan GANO: Hitmonchan (DERROTADO: Dugtrio)
+Bellsprout vs Hitmonchan GANO: Bellsprout (DERROTADO: Hitmonchan)
+Bellsprout vs Venusaur GANO: Venusaur (DERROTADO: Bellsprout)
+Sandslash vs Venusaur GANO: Venusaur (DERROTADO: Sandslash)
+Kakuna vs Venusaur GANO: Kakuna (DERROTADO: Venusaur)
+Kakuna vs Vaporeon GANO: Vaporeon (DERROTADO: Kakuna)
+Magikarp vs Vaporeon GANO: Vaporeon (DERROTADO: Magikarp)
+Beedrill vs Vaporeon GANO: Vaporeon (DERROTADO: Beedrill)
+GANADOR DEL COMBATE: Brock
+COMBATE 10: Gary vs Misty
+[*] Empate de velocidad. La moneda favorece a Misty.
+[*] Empate de velocidad. La moneda favorece a Misty.
+[*] Empate de velocidad. La moneda favorece a Gary.
+Pikachu vs Ponyta GANO: Ponyta (DERROTADO: Pikachu)
+Exeggcute vs Ponyta GANO: Ponyta (DERROTADO: Exeggcute)
+Electabuzz vs Ponyta GANO: Electabuzz (DERROTADO: Ponyta)
+Electabuzz vs Zubat GANO: Electabuzz (DERROTADO: Zubat)
+Electabuzz vs Gastly GANO: Electabuzz (DERROTADO: Gastly)
+Electabuzz vs Staryu GANO: Electabuzz (DERROTADO: Staryu)
+Electabuzz vs Wartortle GANO: Electabuzz (DERROTADO: Wartortle)
+Electabuzz vs Sandshrew GANO: Sandshrew (DERROTADO: Electabuzz)
+MrMime vs Sandshrew GANO: Sandshrew (DERROTADO: MrMime)
+Doduo vs Sandshrew GANO: Doduo (DERROTADO: Sandshrew)
+GANADOR DEL COMBATE: Gary
+COMBATE 11: Ash vs Misty
+Dugtrio vs Ponyta GANO: Dugtrio (DERROTADO: Ponyta)
+Dugtrio vs Zubat GANO: Zubat (DERROTADO: Dugtrio)
+Bellsprout vs Zubat GANO: Zubat (DERROTADO: Bellsprout)
+Sandslash vs Zubat GANO: Zubat (DERROTADO: Sandslash)
+Kakuna vs Zubat GANO: Zubat (DERROTADO: Kakuna)
+Magikarp vs Zubat GANO: Magikarp (DERROTADO: Zubat)
+[*] Empate de velocidad. La moneda favorece a Misty.
+[*] Empate de velocidad. La moneda favorece a Misty.
+Magikarp vs Gastly GANO: Gastly (DERROTADO: Magikarp)
+Beedrill vs Gastly GANO: Gastly (DERROTADO: Beedrill)
+GANADOR DEL COMBATE: Misty
+COMBATE 12: Brock vs Gary
+Hitmonchan vs Pikachu GANO: Hitmonchan (DERROTADO: Pikachu)
+Hitmonchan vs Exeggcute GANO: Exeggcute (DERROTADO: Hitmonchan)
+Venusaur vs Exeggcute GANO: Venusaur (DERROTADO: Exeggcute)
+Venusaur vs Electabuzz GANO: Venusaur (DERROTADO: Electabuzz)
+Venusaur vs MrMime GANO: MrMime (DERROTADO: Venusaur)
+Vaporeon vs MrMime GANO: Vaporeon (DERROTADO: MrMime)
+Vaporeon vs Doduo GANO: Vaporeon (DERROTADO: Doduo)
+Vaporeon vs Dragonite GANO: Dragonite (DERROTADO: Vaporeon)
+Eevee vs Dragonite GANO: Dragonite (DERROTADO: Eevee)
+Golem vs Dragonite GANO: Golem (DERROTADO: Dragonite)
+GANADOR DEL COMBATE: Brock
+COMBATE 13: Red vs Ethan
+[*] Empate de velocidad. La moneda favorece a Ethan.
+[*] Empate de velocidad. La moneda favorece a Ethan.
+[*] Empate de velocidad. La moneda favorece a Red.
+Vulpix vs Flareon GANO: Flareon (DERROTADO: Vulpix)
+Dodrio vs Flareon GANO: Dodrio (DERROTADO: Flareon)
+Dodrio vs Ivysaur GANO: Dodrio (DERROTADO: Ivysaur)
+Dodrio vs Nidorina GANO: Nidorina (DERROTADO: Dodrio)
+Seadra vs Nidorina GANO: Seadra (DERROTADO: Nidorina)
+Seadra vs Rapidash GANO: Seadra (DERROTADO: Rapidash)
+Seadra vs Kadabra GANO: Kadabra (DERROTADO: Seadra)
+Venusaur vs Kadabra GANO: Venusaur (DERROTADO: Kadabra)
+[*] Empate de velocidad. La moneda favorece a Red.
+[*] Empate de velocidad. La moneda favorece a Red.
+[*] Empate de velocidad. La moneda favorece a Red.
+[*] Empate de velocidad. La moneda favorece a Red.
+Venusaur vs Dragonite GANO: Dragonite (DERROTADO: Venusaur)
+Weezing vs Dragonite GANO: Dragonite (DERROTADO: Weezing)
+Eevee vs Dragonite GANO: Dragonite (DERROTADO: Eevee)
+GANADOR DEL COMBATE: Ethan
+COMBATE 14: Blue vs Leaf
+Fearow vs Poliwag GANO: Fearow (DERROTADO: Poliwag)
+Fearow vs Goldeen GANO: Fearow (DERROTADO: Goldeen)
+Fearow vs Poliwrath GANO: Poliwrath (DERROTADO: Fearow)
+Muk vs Poliwrath GANO: Muk (DERROTADO: Poliwrath)
+Muk vs Mewtwo GANO: Mewtwo (DERROTADO: Muk)
+Exeggutor vs Mewtwo GANO: Exeggutor (DERROTADO: Mewtwo)
+Exeggutor vs Tauros GANO: Tauros (DERROTADO: Exeggutor)
+Wigglytuff vs Tauros GANO: Tauros (DERROTADO: Wigglytuff)
+NidoranM vs Tauros GANO: Tauros (DERROTADO: NidoranM)
+Aerodactyl vs Tauros GANO: Aerodactyl (DERROTADO: Tauros)
+Aerodactyl vs Grimer GANO: Aerodactyl (DERROTADO: Grimer)
+GANADOR DEL COMBATE: Blue
+COMBATE 15: Red vs Leaf
+Vulpix vs Poliwag GANO: Poliwag (DERROTADO: Vulpix)
+Dodrio vs Poliwag GANO: Dodrio (DERROTADO: Poliwag)
+Dodrio vs Goldeen GANO: Dodrio (DERROTADO: Goldeen)
+Dodrio vs Poliwrath GANO: Poliwrath (DERROTADO: Dodrio)
+Seadra vs Poliwrath GANO: Seadra (DERROTADO: Poliwrath)
+Seadra vs Mewtwo GANO: Mewtwo (DERROTADO: Seadra)
+Venusaur vs Mewtwo GANO: Mewtwo (DERROTADO: Venusaur)
+Weezing vs Mewtwo GANO: Mewtwo (DERROTADO: Weezing)
+Eevee vs Mewtwo GANO: Mewtwo (DERROTADO: Eevee)
+GANADOR DEL COMBATE: Leaf
+COMBATE 16: Ethan vs Blue
+Flareon vs Fearow GANO: Flareon (DERROTADO: Fearow)
+Flareon vs Muk GANO: Muk (DERROTADO: Flareon)
+Ivysaur vs Muk GANO: Muk (DERROTADO: Ivysaur)
+Nidorina vs Muk GANO: Muk (DERROTADO: Nidorina)
+Rapidash vs Muk GANO: Rapidash (DERROTADO: Muk)
+Rapidash vs Exeggutor GANO: Rapidash (DERROTADO: Exeggutor)
+Rapidash vs Wigglytuff GANO: Wigglytuff (DERROTADO: Rapidash)
+Kadabra vs Wigglytuff GANO: Kadabra (DERROTADO: Wigglytuff)
+Kadabra vs NidoranM GANO: Kadabra (DERROTADO: NidoranM)
+Kadabra vs Aerodactyl GANO: Aerodactyl (DERROTADO: Kadabra)
+Dragonite vs Aerodactyl GANO: Aerodactyl (DERROTADO: Dragonite)
+GANADOR DEL COMBATE: Blue
+COMBATE 17: Red vs Blue
+Vulpix vs Fearow GANO: Fearow (DERROTADO: Vulpix)
+Dodrio vs Fearow GANO: Dodrio (DERROTADO: Fearow)
+Dodrio vs Muk GANO: Muk (DERROTADO: Dodrio)
+Seadra vs Muk GANO: Seadra (DERROTADO: Muk)
+Seadra vs Exeggutor GANO: Exeggutor (DERROTADO: Seadra)
+Venusaur vs Exeggutor GANO: Venusaur (DERROTADO: Exeggutor)
+Venusaur vs Wigglytuff GANO: Wigglytuff (DERROTADO: Venusaur)
+Weezing vs Wigglytuff GANO: Weezing (DERROTADO: Wigglytuff)
+Weezing vs NidoranM GANO: Weezing (DERROTADO: NidoranM)
+Weezing vs Aerodactyl GANO: Aerodactyl (DERROTADO: Weezing)
+Eevee vs Aerodactyl GANO: Aerodactyl (DERROTADO: Eevee)
+GANADOR DEL COMBATE: Blue
+COMBATE 18: Leaf vs Ethan
+Poliwag vs Flareon GANO: Flareon (DERROTADO: Poliwag)
+Goldeen vs Flareon GANO: Goldeen (DERROTADO: Flareon)
+Goldeen vs Ivysaur GANO: Ivysaur (DERROTADO: Goldeen)
+Poliwrath vs Ivysaur GANO: Ivysaur (DERROTADO: Poliwrath)
+Mewtwo vs Ivysaur GANO: Mewtwo (DERROTADO: Ivysaur)
+Mewtwo vs Nidorina GANO: Mewtwo (DERROTADO: Nidorina)
+Mewtwo vs Rapidash GANO: Mewtwo (DERROTADO: Rapidash)
+Mewtwo vs Kadabra GANO: Mewtwo (DERROTADO: Kadabra)
+Mewtwo vs Dragonite GANO: Dragonite (DERROTADO: Mewtwo)
+Tauros vs Dragonite GANO: Tauros (DERROTADO: Dragonite)
+GANADOR DEL COMBATE: Leaf
+COMBATE 19: Lyra vs Dawn
+Exeggutor vs Poliwrath GANO: Exeggutor (DERROTADO: Poliwrath)
+Exeggutor vs Weedle GANO: Weedle (DERROTADO: Exeggutor)
+Golduck vs Weedle GANO: Golduck (DERROTADO: Weedle)
+Golduck vs Drowzee GANO: Golduck (DERROTADO: Drowzee)
+Golduck vs Butterfree GANO: Golduck (DERROTADO: Butterfree)
+Golduck vs Starmie GANO: Starmie (DERROTADO: Golduck)
+Chansey vs Starmie GANO: Starmie (DERROTADO: Chansey)
+Caterpie vs Starmie GANO: Starmie (DERROTADO: Caterpie)
+Gengar vs Starmie GANO: Gengar (DERROTADO: Starmie)
+SIN K.O. tras 100 rondas: Lyra (171 HP) vs Dawn (125 HP)
+EMPATE: Lyra y Dawn agotaron las 100 rondas sin K.O.
+COMBATE 20: Brendan vs May
+Pikachu vs Articuno GANO: Articuno (DERROTADO: Pikachu)
+Arbok vs Articuno GANO: Arbok (DERROTADO: Articuno)
+Arbok vs Seadra GANO: Seadra (DERROTADO: Arbok)
+Abra vs Seadra GANO: Seadra (DERROTADO: Abra)
+Rattata vs Seadra GANO: Seadra (DERROTADO: Rattata)
+Horsea vs Seadra GANO: Seadra (DERROTADO: Horsea)
+Lickitung vs Seadra GANO: Lickitung (DERROTADO: Seadra)
+Lickitung vs Cloyster GANO: Cloyster (DERROTADO: Lickitung)
+GANADOR DEL COMBATE: May
+COMBATE 21: Lyra vs May
+Exeggutor vs Articuno GANO: Articuno (DERROTADO: Exeggutor)
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a May.
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a Lyra.
+Golduck vs Articuno GANO: Golduck (DERROTADO: Articuno)
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a May.
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a May.
+[*] Empate de velocidad. La moneda favorece a Lyra.
+[*] Empate de velocidad. La moneda favorece a May.
+Golduck vs Seadra GANO: Seadra (DERROTADO: Golduck)
+Chansey vs Seadra GANO: Seadra (DERROTADO: Chansey)
+Caterpie vs Seadra GANO: Seadra (DERROTADO: Caterpie)
+Gengar vs Seadra GANO: Gengar (DERROTADO: Seadra)
+Gengar vs Cloyster GANO: Cloyster (DERROTADO: Gengar)
+Magikarp vs Cloyster GANO: Cloyster (DERROTADO: Magikarp)
+GANADOR DEL COMBATE: May
+COMBATE 22: Dawn vs Brendan
+Poliwrath vs Pikachu GANO: Poliwrath (DERROTADO: Pikachu)
+Poliwrath vs Arbok GANO: Arbok (DERROTADO: Poliwrath)
+Weedle vs Arbok GANO: Arbok (DERROTADO: Weedle)
+Drowzee vs Arbok GANO: Drowzee (DERROTADO: Arbok)
+Drowzee vs Abra GANO: Drowzee (DERROTADO: Abra)
+Drowzee vs Rattata GANO: Rattata (DERROTADO: Drowzee)
+Butterfree vs Rattata GANO: Butterfree (DERROTADO: Rattata)
+Butterfree vs Horsea GANO: Horsea (DERROTADO: Butterfree)
+Starmie vs Horsea GANO: Starmie (DERROTADO: Horsea)
+Starmie vs Lickitung GANO: Lickitung (DERROTADO: Starmie)
+Persian vs Lickitung GANO: Persian (DERROTADO: Lickitung)
+GANADOR DEL COMBATE: Dawn
+COMBATE 23: Lyra vs Brendan
+Exeggutor vs Pikachu GANO: Exeggutor (DERROTADO: Pikachu)
+Exeggutor vs Arbok GANO: Arbok (DERROTADO: Exeggutor)
+Golduck vs Arbok GANO: Golduck (DERROTADO: Arbok)
+Golduck vs Abra GANO: Golduck (DERROTADO: Abra)
+Golduck vs Rattata GANO: Golduck (DERROTADO: Rattata)
+Golduck vs Horsea GANO: Golduck (DERROTADO: Horsea)
+Golduck vs Lickitung GANO: Lickitung (DERROTADO: Golduck)
+Chansey vs Lickitung GANO: Lickitung (DERROTADO: Chansey)
+Caterpie vs Lickitung GANO: Lickitung (DERROTADO: Caterpie)
+SIN K.O. tras 100 rondas: Lyra (200 HP) vs Brendan (80 HP)
+EMPATE: Lyra y Brendan agotaron las 100 rondas sin K.O.
+COMBATE 24: May vs Dawn
+Articuno vs Poliwrath GANO: Poliwrath (DERROTADO: Articuno)
+Seadra vs Poliwrath GANO: Seadra (DERROTADO: Poliwrath)
+Seadra vs Weedle GANO: Seadra (DERROTADO: Weedle)
+Seadra vs Drowzee GANO: Drowzee (DERROTADO: Seadra)
+Cloyster vs Drowzee GANO: Cloyster (DERROTADO: Drowzee)
+[*] Empate de velocidad. La moneda favorece a Dawn.
+[*] Empate de velocidad. La moneda favorece a Dawn.
+[*] Empate de velocidad. La moneda favorece a May.
+Cloyster vs Butterfree GANO: Cloyster (DERROTADO: Butterfree)
+Cloyster vs Starmie GANO: Cloyster (DERROTADO: Starmie)
+Cloyster vs Persian GANO: Persian (DERROTADO: Cloyster)
+Geodude vs Persian GANO: Geodude (DERROTADO: Persian)
+GANADOR DEL COMBATE: May
+COMBATE 25: Lucas vs Nate
+Golbat vs Fearow GANO: Fearow (DERROTADO: Golbat)
+Parasect vs Fearow GANO: Parasect (DERROTADO: Fearow)
+Parasect vs Hitmonlee GANO: Hitmonlee (DERROTADO: Parasect)
+Bulbasaur vs Hitmonlee GANO: Bulbasaur (DERROTADO: Hitmonlee)
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Nate.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Nate.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Nate.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+Bulbasaur vs Bulbasaur GANO: Bulbasaur (DERROTADO: Bulbasaur)
+Graveler vs Bulbasaur GANO: Graveler (DERROTADO: Bulbasaur)
+Graveler vs Goldeen GANO: Goldeen (DERROTADO: Graveler)
+Nidoking vs Goldeen GANO: Nidoking (DERROTADO: Goldeen)
+Nidoking vs Magmar GANO: Magmar (DERROTADO: Nidoking)
+Hypno vs Magmar GANO: Hypno (DERROTADO: Magmar)
+Hypno vs Eevee GANO: Hypno (DERROTADO: Eevee)
+GANADOR DEL COMBATE: Lucas
+COMBATE 26: Hilbert vs Hilda
+Vaporeon vs Graveler GANO: Vaporeon (DERROTADO: Graveler)
+Vaporeon vs Poliwag GANO: Vaporeon (DERROTADO: Poliwag)
+Vaporeon vs Golduck GANO: Golduck (DERROTADO: Vaporeon)
+Gyarados vs Golduck GANO: Gyarados (DERROTADO: Golduck)
+Gyarados vs Sandshrew GANO: Gyarados (DERROTADO: Sandshrew)
+Gyarados vs Nidoking GANO: Gyarados (DERROTADO: Nidoking)
+Gyarados vs Arcanine GANO: Arcanine (DERROTADO: Gyarados)
+Clefable vs Arcanine GANO: Clefable (DERROTADO: Arcanine)
+GANADOR DEL COMBATE: Hilbert
+COMBATE 27: Lucas vs Hilda
+Golbat vs Graveler GANO: Graveler (DERROTADO: Golbat)
+Parasect vs Graveler GANO: Graveler (DERROTADO: Parasect)
+Bulbasaur vs Graveler GANO: Bulbasaur (DERROTADO: Graveler)
+Bulbasaur vs Poliwag GANO: Bulbasaur (DERROTADO: Poliwag)
+Bulbasaur vs Golduck GANO: Golduck (DERROTADO: Bulbasaur)
+Graveler vs Golduck GANO: Golduck (DERROTADO: Graveler)
+[*] Empate de velocidad. La moneda favorece a Hilda.
+[*] Empate de velocidad. La moneda favorece a Lucas.
+Nidoking vs Golduck GANO: Nidoking (DERROTADO: Golduck)
+Nidoking vs Sandshrew GANO: Sandshrew (DERROTADO: Nidoking)
+Hypno vs Sandshrew GANO: Hypno (DERROTADO: Sandshrew)
+Hypno vs Nidoking GANO: Nidoking (DERROTADO: Hypno)
+GANADOR DEL COMBATE: Hilda
+COMBATE 28: Nate vs Hilbert
+Fearow vs Vaporeon GANO: Fearow (DERROTADO: Vaporeon)
+Fearow vs Gyarados GANO: Gyarados (DERROTADO: Fearow)
+Hitmonlee vs Gyarados GANO: Gyarados (DERROTADO: Hitmonlee)
+Bulbasaur vs Gyarados GANO: Gyarados (DERROTADO: Bulbasaur)
+Goldeen vs Gyarados GANO: Goldeen (DERROTADO: Gyarados)
+Goldeen vs Clefable GANO: Clefable (DERROTADO: Goldeen)
+Magmar vs Clefable GANO: Magmar (DERROTADO: Clefable)
+Magmar vs Dragonair GANO: Dragonair (DERROTADO: Magmar)
+Eevee vs Dragonair GANO: Dragonair (DERROTADO: Eevee)
+GANADOR DEL COMBATE: Hilbert
+COMBATE 29: Lucas vs Hilbert
+Golbat vs Vaporeon GANO: Golbat (DERROTADO: Vaporeon)
+Golbat vs Gyarados GANO: Gyarados (DERROTADO: Golbat)
+Parasect vs Gyarados GANO: Gyarados (DERROTADO: Parasect)
+Bulbasaur vs Gyarados GANO: Bulbasaur (DERROTADO: Gyarados)
+Bulbasaur vs Clefable GANO: Clefable (DERROTADO: Bulbasaur)
+Graveler vs Clefable GANO: Graveler (DERROTADO: Clefable)
+Graveler vs Dragonair GANO: Dragonair (DERROTADO: Graveler)
+Nidoking vs Dragonair GANO: Nidoking (DERROTADO: Dragonair)
+Nidoking vs Primeape GANO: Nidoking (DERROTADO: Primeape)
+Nidoking vs Slowpoke GANO: Slowpoke (DERROTADO: Nidoking)
+Hypno vs Slowpoke GANO: Hypno (DERROTADO: Slowpoke)
+GANADOR DEL COMBATE: Lucas
+COMBATE 30: Hilda vs Nate
+Graveler vs Fearow GANO: Graveler (DERROTADO: Fearow)
+Graveler vs Hitmonlee GANO: Hitmonlee (DERROTADO: Graveler)
+Poliwag vs Hitmonlee GANO: Hitmonlee (DERROTADO: Poliwag)
+Golduck vs Hitmonlee GANO: Golduck (DERROTADO: Hitmonlee)
+Golduck vs Bulbasaur GANO: Bulbasaur (DERROTADO: Golduck)
+Sandshrew vs Bulbasaur GANO: Sandshrew (DERROTADO: Bulbasaur)
+Sandshrew vs Goldeen GANO: Goldeen (DERROTADO: Sandshrew)
+Nidoking vs Goldeen GANO: Nidoking (DERROTADO: Goldeen)
+Nidoking vs Magmar GANO: Magmar (DERROTADO: Nidoking)
+Arcanine vs Magmar GANO: Arcanine (DERROTADO: Magmar)
+Arcanine vs Eevee GANO: Arcanine (DERROTADO: Eevee)
+GANADOR DEL COMBATE: Hilda
+COMBATE 31: Rosa vs Elio
+Pikachu vs Shellder GANO: Shellder (DERROTADO: Pikachu)
+Magmar vs Shellder GANO: Magmar (DERROTADO: Shellder)
+Magmar vs Weezing GANO: Weezing (DERROTADO: Magmar)
+Slowbro vs Weezing GANO: Slowbro (DERROTADO: Weezing)
+Slowbro vs Dragonite GANO: Dragonite (DERROTADO: Slowbro)
+Omastar vs Dragonite GANO: Omastar (DERROTADO: Dragonite)
+Omastar vs Omanyte GANO: Omanyte (DERROTADO: Omastar)
+Dragonair vs Omanyte GANO: Dragonair (DERROTADO: Omanyte)
+Dragonair vs Arbok GANO: Arbok (DERROTADO: Dragonair)
+Hitmonchan vs Arbok GANO: Hitmonchan (DERROTADO: Arbok)
+Hitmonchan vs Articuno GANO: Articuno (DERROTADO: Hitmonchan)
+GANADOR DEL COMBATE: Elio
+COMBATE 32: Calem vs Serena
+[*] Empate de velocidad. La moneda favorece a Serena.
+[*] Empate de velocidad. La moneda favorece a Serena.
+[*] Empate de velocidad. La moneda favorece a Calem.
+Chansey vs Dratini GANO: Dratini (DERROTADO: Chansey)
+Zubat vs Dratini GANO: Dratini (DERROTADO: Zubat)
+Exeggcute vs Dratini GANO: Exeggcute (DERROTADO: Dratini)
+Exeggcute vs Charizard GANO: Charizard (DERROTADO: Exeggcute)
+Machop vs Charizard GANO: Charizard (DERROTADO: Machop)
+Goldeen vs Charizard GANO: Goldeen (DERROTADO: Charizard)
+Goldeen vs Butterfree GANO: Butterfree (DERROTADO: Goldeen)
+NidoranF vs Butterfree GANO: NidoranF (DERROTADO: Butterfree)
+NidoranF vs Omastar GANO: Omastar (DERROTADO: NidoranF)
+GANADOR DEL COMBATE: Serena
+COMBATE 33: Rosa vs Serena
+Pikachu vs Dratini GANO: Dratini (DERROTADO: Pikachu)
+Magmar vs Dratini GANO: Magmar (DERROTADO: Dratini)
+Magmar vs Charizard GANO: Charizard (DERROTADO: Magmar)
+Slowbro vs Charizard GANO: Slowbro (DERROTADO: Charizard)
+Slowbro vs Butterfree GANO: Slowbro (DERROTADO: Butterfree)
+Slowbro vs Omastar GANO: Omastar (DERROTADO: Slowbro)
+[*] Empate de velocidad. La moneda favorece a Serena.
+[*] Empate de velocidad. La moneda favorece a Serena.
+[*] Empate de velocidad. La moneda favorece a Rosa.
+[*] Empate de velocidad. La moneda favorece a Serena.
+[*] Empate de velocidad. La moneda favorece a Rosa.
+[*] Empate de velocidad. La moneda favorece a Rosa.
+[*] Empate de velocidad. La moneda favorece a Rosa.
+Omastar vs Omastar GANO: Omastar (DERROTADO: Omastar)
+Omastar vs Zapdos GANO: Zapdos (DERROTADO: Omastar)
+Dragonair vs Zapdos GANO: Dragonair (DERROTADO: Zapdos)
+Dragonair vs Exeggutor GANO: Exeggutor (DERROTADO: Dragonair)
+Hitmonchan vs Exeggutor GANO: Exeggutor (DERROTADO: Hitmonchan)
+GANADOR DEL COMBATE: Serena
+COMBATE 34: Elio vs Calem
+Shellder vs Chansey GANO: Shellder (DERROTADO: Chansey)
+Shellder vs Zubat GANO: Shellder (DERROTADO: Zubat)
+[*] Empate de velocidad. La moneda favorece a Elio.
+[*] Empate de velocidad. La moneda favorece a Elio.
+[*] Empate de velocidad. La moneda favorece a Elio.
+Shellder vs Exeggcute GANO: Exeggcute (DERROTADO: Shellder)
+Weezing vs Exeggcute GANO: Weezing (DERROTADO: Exeggcute)
+Weezing vs Machop GANO: Weezing (DERROTADO: Machop)
+Weezing vs Goldeen GANO: Weezing (DERROTADO: Goldeen)
+Weezing vs NidoranF GANO: Weezing (DERROTADO: NidoranF)
+GANADOR DEL COMBATE: Elio
+COMBATE 35: Rosa vs Calem
+Pikachu vs Chansey GANO: Pikachu (DERROTADO: Chansey)
+Pikachu vs Zubat GANO: Pikachu (DERROTADO: Zubat)
+Pikachu vs Exeggcute GANO: Exeggcute (DERROTADO: Pikachu)
+Magmar vs Exeggcute GANO: Magmar (DERROTADO: Exeggcute)
+Magmar vs Machop GANO: Magmar (DERROTADO: Machop)
+Magmar vs Goldeen GANO: Goldeen (DERROTADO: Magmar)
+Slowbro vs Goldeen GANO: Slowbro (DERROTADO: Goldeen)
+Slowbro vs NidoranF GANO: Slowbro (DERROTADO: NidoranF)
+GANADOR DEL COMBATE: Rosa
+COMBATE 36: Serena vs Elio
+Dratini vs Shellder GANO: Dratini (DERROTADO: Shellder)
+Dratini vs Weezing GANO: Weezing (DERROTADO: Dratini)
+Charizard vs Weezing GANO: Weezing (DERROTADO: Charizard)
+Butterfree vs Weezing GANO: Weezing (DERROTADO: Butterfree)
+Omastar vs Weezing GANO: Omastar (DERROTADO: Weezing)
+Omastar vs Dragonite GANO: Dragonite (DERROTADO: Omastar)
+Zapdos vs Dragonite GANO: Zapdos (DERROTADO: Dragonite)
+Zapdos vs Omanyte GANO: Zapdos (DERROTADO: Omanyte)
+Zapdos vs Arbok GANO: Arbok (DERROTADO: Zapdos)
+Exeggutor vs Arbok GANO: Exeggutor (DERROTADO: Arbok)
+Exeggutor vs Articuno GANO: Articuno (DERROTADO: Exeggutor)
+GANADOR DEL COMBATE: Elio
+COMBATE 37: Selene vs Florian
+Squirtle vs Gengar GANO: Gengar (DERROTADO: Squirtle)
+NidoranM vs Gengar GANO: Gengar (DERROTADO: NidoranM)
+Sandslash vs Gengar GANO: Sandslash (DERROTADO: Gengar)
+Sandslash vs Caterpie GANO: Sandslash (DERROTADO: Caterpie)
+Sandslash vs Weezing GANO: Sandslash (DERROTADO: Weezing)
+Sandslash vs Horsea GANO: Sandslash (DERROTADO: Horsea)
+Sandslash vs Porygon GANO: Porygon (DERROTADO: Sandslash)
+Koffing vs Porygon GANO: Koffing (DERROTADO: Porygon)
+Koffing vs Arbok GANO: Arbok (DERROTADO: Koffing)
+Geodude vs Arbok GANO: Geodude (DERROTADO: Arbok)
+GANADOR DEL COMBATE: Selene
+COMBATE 38: Victor vs Gloria
+Golduck vs Seaking GANO: Golduck (DERROTADO: Seaking)
+Golduck vs Aerodactyl GANO: Aerodactyl (DERROTADO: Golduck)
+Dratini vs Aerodactyl GANO: Aerodactyl (DERROTADO: Dratini)
+Weepinbell vs Aerodactyl GANO: Aerodactyl (DERROTADO: Weepinbell)
+Articuno vs Aerodactyl GANO: Articuno (DERROTADO: Aerodactyl)
+Articuno vs Cubone GANO: Articuno (DERROTADO: Cubone)
+Articuno vs Lapras GANO: Lapras (DERROTADO: Articuno)
+Abra vs Lapras GANO: Lapras (DERROTADO: Abra)
+Mewtwo vs Lapras GANO: Mewtwo (DERROTADO: Lapras)
+Mewtwo vs Rattata GANO: Mewtwo (DERROTADO: Rattata)
+Mewtwo vs Zapdos GANO: Zapdos (DERROTADO: Mewtwo)
+GANADOR DEL COMBATE: Gloria
+COMBATE 39: Selene vs Gloria
+Squirtle vs Seaking GANO: Seaking (DERROTADO: Squirtle)
+NidoranM vs Seaking GANO: Seaking (DERROTADO: NidoranM)
+Sandslash vs Seaking GANO: Sandslash (DERROTADO: Seaking)
+Sandslash vs Aerodactyl GANO: Aerodactyl (DERROTADO: Sandslash)
+Koffing vs Aerodactyl GANO: Aerodactyl (DERROTADO: Koffing)
+Geodude vs Aerodactyl GANO: Geodude (DERROTADO: Aerodactyl)
+Geodude vs Cubone GANO: Cubone (DERROTADO: Geodude)
+Venomoth vs Cubone GANO: Venomoth (DERROTADO: Cubone)
+Venomoth vs Lapras GANO: Lapras (DERROTADO: Venomoth)
+GANADOR DEL COMBATE: Gloria
+COMBATE 40: Florian vs Victor
+Gengar vs Golduck GANO: Golduck (DERROTADO: Gengar)
+Caterpie vs Golduck GANO: Golduck (DERROTADO: Caterpie)
+Weezing vs Golduck GANO: Weezing (DERROTADO: Golduck)
+Weezing vs Dratini GANO: Weezing (DERROTADO: Dratini)
+Weezing vs Weepinbell GANO: Weezing (DERROTADO: Weepinbell)
+Weezing vs Articuno GANO: Articuno (DERROTADO: Weezing)
+Horsea vs Articuno GANO: Articuno (DERROTADO: Horsea)
+Porygon vs Articuno GANO: Porygon (DERROTADO: Articuno)
+Porygon vs Abra GANO: Porygon (DERROTADO: Abra)
+Porygon vs Mewtwo GANO: Mewtwo (DERROTADO: Porygon)
+Arbok vs Mewtwo GANO: Mewtwo (DERROTADO: Arbok)
+GANADOR DEL COMBATE: Victor
+COMBATE 41: Selene vs Victor
+Squirtle vs Golduck GANO: Golduck (DERROTADO: Squirtle)
+NidoranM vs Golduck GANO: Golduck (DERROTADO: NidoranM)
+Sandslash vs Golduck GANO: Sandslash (DERROTADO: Golduck)
+Sandslash vs Dratini GANO: Sandslash (DERROTADO: Dratini)
+Sandslash vs Weepinbell GANO: Weepinbell (DERROTADO: Sandslash)
+Koffing vs Weepinbell GANO: Koffing (DERROTADO: Weepinbell)
+Koffing vs Articuno GANO: Articuno (DERROTADO: Koffing)
+Geodude vs Articuno GANO: Geodude (DERROTADO: Articuno)
+Geodude vs Abra GANO: Geodude (DERROTADO: Abra)
+Geodude vs Mewtwo GANO: Mewtwo (DERROTADO: Geodude)
+Venomoth vs Mewtwo GANO: Mewtwo (DERROTADO: Venomoth)
+GANADOR DEL COMBATE: Victor
+COMBATE 42: Gloria vs Florian
+Seaking vs Gengar GANO: Seaking (DERROTADO: Gengar)
+Seaking vs Caterpie GANO: Seaking (DERROTADO: Caterpie)
+Seaking vs Weezing GANO: Weezing (DERROTADO: Seaking)
+Aerodactyl vs Weezing GANO: Aerodactyl (DERROTADO: Weezing)
+Aerodactyl vs Horsea GANO: Aerodactyl (DERROTADO: Horsea)
+Aerodactyl vs Porygon GANO: Porygon (DERROTADO: Aerodactyl)
+Cubone vs Porygon GANO: Cubone (DERROTADO: Porygon)
+Cubone vs Arbok GANO: Arbok (DERROTADO: Cubone)
+Lapras vs Arbok GANO: Lapras (DERROTADO: Arbok)
+GANADOR DEL COMBATE: Gloria
+COMBATE 43: Juliana vs Aaron
+Graveler vs Diglett GANO: Graveler (DERROTADO: Diglett)
+Graveler vs Psyduck GANO: Psyduck (DERROTADO: Graveler)
+Arcanine vs Psyduck GANO: Arcanine (DERROTADO: Psyduck)
+Arcanine vs Doduo GANO: Arcanine (DERROTADO: Doduo)
+Arcanine vs Mankey GANO: Arcanine (DERROTADO: Mankey)
+Arcanine vs Hitmonlee GANO: Hitmonlee (DERROTADO: Arcanine)
+Staryu vs Hitmonlee GANO: Staryu (DERROTADO: Hitmonlee)
+Staryu vs Horsea GANO: Horsea (DERROTADO: Staryu)
+Venonat vs Horsea GANO: Venonat (DERROTADO: Horsea)
+GANADOR DEL COMBATE: Juliana
+COMBATE 44: Nemona vs Arven
+Golem vs Dratini GANO: Golem (DERROTADO: Dratini)
+Golem vs Squirtle GANO: Golem (DERROTADO: Squirtle)
+Golem vs Rattata GANO: Golem (DERROTADO: Rattata)
+Golem vs Jynx GANO: Jynx (DERROTADO: Golem)
+Tauros vs Jynx GANO: Tauros (DERROTADO: Jynx)
+Tauros vs Ivysaur GANO: Tauros (DERROTADO: Ivysaur)
+Tauros vs Kakuna GANO: Tauros (DERROTADO: Kakuna)
+GANADOR DEL COMBATE: Nemona
+COMBATE 45: Juliana vs Arven
+Graveler vs Dratini GANO: Graveler (DERROTADO: Dratini)
+Graveler vs Squirtle GANO: Squirtle (DERROTADO: Graveler)
+Arcanine vs Squirtle GANO: Arcanine (DERROTADO: Squirtle)
+Arcanine vs Rattata GANO: Arcanine (DERROTADO: Rattata)
+[*] Empate de velocidad. La moneda favorece a Arven.
+Arcanine vs Jynx GANO: Arcanine (DERROTADO: Jynx)
+Arcanine vs Ivysaur GANO: Arcanine (DERROTADO: Ivysaur)
+Arcanine vs Kakuna GANO: Arcanine (DERROTADO: Kakuna)
+GANADOR DEL COMBATE: Juliana
+COMBATE 46: Aaron vs Nemona
+Diglett vs Golem GANO: Golem (DERROTADO: Diglett)
+Psyduck vs Golem GANO: Psyduck (DERROTADO: Golem)
+Psyduck vs Tauros GANO: Tauros (DERROTADO: Psyduck)
+Doduo vs Tauros GANO: Tauros (DERROTADO: Doduo)
+Mankey vs Tauros GANO: Tauros (DERROTADO: Mankey)
+Hitmonlee vs Tauros GANO: Hitmonlee (DERROTADO: Tauros)
+Hitmonlee vs Dewgong GANO: Dewgong (DERROTADO: Hitmonlee)
+Horsea vs Dewgong GANO: Dewgong (DERROTADO: Horsea)
+GANADOR DEL COMBATE: Nemona
+COMBATE 47: Juliana vs Nemona
+Graveler vs Golem GANO: Golem (DERROTADO: Graveler)
+Arcanine vs Golem GANO: Golem (DERROTADO: Arcanine)
+Staryu vs Golem GANO: Staryu (DERROTADO: Golem)
+Staryu vs Tauros GANO: Tauros (DERROTADO: Staryu)
+Venonat vs Tauros GANO: Tauros (DERROTADO: Venonat)
+Zapdos vs Tauros GANO: Zapdos (DERROTADO: Tauros)
+Zapdos vs Dewgong GANO: Zapdos (DERROTADO: Dewgong)
+Zapdos vs Vulpix GANO: Vulpix (DERROTADO: Zapdos)
+Charizard vs Vulpix GANO: Charizard (DERROTADO: Vulpix)
+Charizard vs Golbat GANO: Charizard (DERROTADO: Golbat)
+Charizard vs Metapod GANO: Charizard (DERROTADO: Metapod)
+GANADOR DEL COMBATE: Juliana
+COMBATE 48: Arven vs Aaron
+Dratini vs Diglett GANO: Dratini (DERROTADO: Diglett)
+Dratini vs Psyduck GANO: Psyduck (DERROTADO: Dratini)
+Squirtle vs Psyduck GANO: Squirtle (DERROTADO: Psyduck)
+Squirtle vs Doduo GANO: Doduo (DERROTADO: Squirtle)
+Rattata vs Doduo GANO: Doduo (DERROTADO: Rattata)
+Jynx vs Doduo GANO: Jynx (DERROTADO: Doduo)
+Jynx vs Mankey GANO: Mankey (DERROTADO: Jynx)
+Ivysaur vs Mankey GANO: Ivysaur (DERROTADO: Mankey)
+Ivysaur vs Hitmonlee GANO: Ivysaur (DERROTADO: Hitmonlee)
+[*] Empate de velocidad. La moneda favorece a Aaron.
+Ivysaur vs Horsea GANO: Horsea (DERROTADO: Ivysaur)
+Kakuna vs Horsea GANO: Horsea (DERROTADO: Kakuna)
+GANADOR DEL COMBATE: Aaron

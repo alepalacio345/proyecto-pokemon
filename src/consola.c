@@ -46,43 +46,51 @@ static bool detectar_terminal(void)
 static bool idioma_es_utf8(void)
 {
     static const char *variables[] = {"LC_ALL", "LC_CTYPE", "LANG"};
+    const char *valor;
+    bool resultado = true;
     size_t i;
 
     for (i = 0; i < sizeof(variables) / sizeof(variables[0]); i++) {
-        const char *valor = getenv(variables[i]);
+        valor = getenv(variables[i]);
 
         if (valor != NULL && valor[0] != '\0') {
             if (strstr(valor, "UTF-8") != NULL || strstr(valor, "utf-8") != NULL ||
                 strstr(valor, "UTF8") != NULL || strstr(valor, "utf8") != NULL) {
-                return true;
+                resultado = true;
+                break;
             }
 
             if (strcmp(valor, "C") == 0 || strcmp(valor, "POSIX") == 0) {
-                return false;
+                resultado = false;
+                break;
             }
         }
     }
 
-    return true;
+    return resultado;
 }
 #endif
 
 bool consola_iniciar(void)
 {
-    if (consola_preparada) {
-        return colores_ansi;
-    }
+#if defined(_WIN32) || defined(_WIN64)
+    HANDLE salida;
+    DWORD modo;
+    DWORD nuevo_modo;
+#else
+    const char *termino;
+#endif
 
-    consola_preparada = true;
+    if (!consola_preparada) {
+        consola_preparada = true;
 
 #if defined(_WIN32) || defined(_WIN64)
-    {
-        HANDLE salida = GetStdHandle(STD_OUTPUT_HANDLE);
-        DWORD modo = 0;
+        salida = GetStdHandle(STD_OUTPUT_HANDLE);
+        modo = 0;
 
         if (salida != INVALID_HANDLE_VALUE && GetConsoleMode(salida, &modo)) {
-            DWORD nuevo_modo = modo | ENABLE_PROCESSED_OUTPUT |
-                               ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+            nuevo_modo = modo | ENABLE_PROCESSED_OUTPUT |
+                         ENABLE_VIRTUAL_TERMINAL_PROCESSING;
 
             if (SetConsoleMode(salida, nuevo_modo)) {
                 colores_ansi = true;
@@ -94,16 +102,14 @@ bool consola_iniciar(void)
             salida_utf8 = true;
         }
         SetConsoleCP(CP_UTF8);
-    }
 #else
-    {
-        const char *termino = getenv("TERM");
+        termino = getenv("TERM");
 
         colores_ansi = detectar_terminal() &&
                        (termino == NULL || strcmp(termino, "dumb") != 0);
         salida_utf8 = idioma_es_utf8();
-    }
 #endif
+    }
 
     return colores_ansi;
 }
@@ -162,12 +168,14 @@ static void imprimir_sin_ansi(const char *texto)
 static void imprimir_con_reglas(const char *texto)
 {
     const char *p = texto;
+    char caracter;
+    size_t cantidad;
+    size_t i;
 
     while (*p != '\0') {
         if (*p == '=' || *p == '-') {
-            char caracter = *p;
-            size_t cantidad = 0;
-            size_t i;
+            caracter = *p;
+            cantidad = 0;
 
             while (p[cantidad] == caracter) {
                 cantidad++;
@@ -195,61 +203,58 @@ void consola_printf(const char *formato, ...)
     char buffer[4096];
     va_list argumentos;
 
-    if (formato == NULL) {
-        return;
-    }
+    if (formato != NULL) {
+        buffer[0] = '\0';
+        va_start(argumentos, formato);
+        vsnprintf(buffer, sizeof(buffer), formato, argumentos);
+        va_end(argumentos);
 
-    buffer[0] = '\0';
-    va_start(argumentos, formato);
-    vsnprintf(buffer, sizeof(buffer), formato, argumentos);
-    va_end(argumentos);
+        buffer[sizeof(buffer) - 1] = '\0';
 
-    buffer[sizeof(buffer) - 1] = '\0';
-
-    if (colores_ansi) {
-        if (consola_usa_utf8()) {
-            imprimir_con_reglas(buffer);
+        if (colores_ansi) {
+            if (consola_usa_utf8()) {
+                imprimir_con_reglas(buffer);
+            } else {
+                fputs(buffer, stdout);
+            }
         } else {
-            fputs(buffer, stdout);
+            imprimir_sin_ansi(buffer);
         }
-    } else {
-        imprimir_sin_ansi(buffer);
-    }
 
-    /* Necesario para que los prompts sin salto de linea aparezcan antes de leer. */
-    fflush(stdout);
+        /* Necesario para que los prompts sin salto de linea aparezcan antes de leer. */
+        fflush(stdout);
+    }
 }
 
 void consola_limpiar(void)
 {
-    if (!detectar_terminal()) {
-        /* Si la salida esta redirigida no se ensucia el archivo con escapes. */
-        return;
-    }
-
-    if (colores_ansi) {
-        fputs("\033[2J\033[H", stdout);
-        fflush(stdout);
-        return;
-    }
-
-#if defined(_WIN32) || defined(_WIN64)
-    system("cls");
-#else
-    if (system("clear") != 0) {
-        int i;
-        for (i = 0; i < 30; i++) {
-            fputc('\n', stdout);
-        }
-    }
+#if !defined(_WIN32) && !defined(_WIN64)
+    int i;
 #endif
 
-    fflush(stdout);
+    if (detectar_terminal()) {
+        if (colores_ansi) {
+            fputs("\033[2J\033[H", stdout);
+            fflush(stdout);
+        } else {
+#if defined(_WIN32) || defined(_WIN64)
+            system("cls");
+#else
+            if (system("clear") != 0) {
+                for (i = 0; i < 30; i++) {
+                    fputc('\n', stdout);
+                }
+            }
+#endif
+            fflush(stdout);
+        }
+    }
 }
 
 bool consola_esperar_enter(const char *mensaje)
 {
     int caracter;
+    bool leido = false;
 
     if (mensaje != NULL && mensaje[0] != '\0') {
         consola_printf("%s", mensaje);
@@ -257,13 +262,13 @@ bool consola_esperar_enter(const char *mensaje)
     fflush(stdout);
 
     caracter = getchar();
-    if (caracter == EOF) {
-        return false;
+    if (caracter != EOF) {
+        while (caracter != '\n' && caracter != EOF) {
+            caracter = getchar();
+        }
+
+        leido = (caracter == '\n');
     }
 
-    while (caracter != '\n' && caracter != EOF) {
-        caracter = getchar();
-    }
-
-    return caracter == '\n';
+    return leido;
 }

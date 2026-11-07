@@ -1,9 +1,11 @@
 # Artefactos de compilacion
 bin/
 obj/
+experimentos/
 *.o
 *.exe
 *.a
+
 
 # Archivos temporales de pruebas
 test_input.txt
